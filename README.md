@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'Orb.Orb:Orb:1.0.1'
+implementation 'Orb.Orb:Orb:1.0.2'
 ```
 <!-- End SDK Installation -->
 
@@ -113,8 +113,8 @@ public class Application {
 ### plan
 
 * `get` - Retrieve a plan
-* `get` - Retrieve a plan by external plan ID
-* `get` - List plans
+* `getByExternalId` - Retrieve a plan by external plan ID
+* `list` - List plans
 
 ### subscription
 

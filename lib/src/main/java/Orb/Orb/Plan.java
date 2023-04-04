@@ -90,7 +90,7 @@ public class Plan {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetPlansExternalPlanIdResponse get(Orb.Orb.models.operations.GetPlansExternalPlanIdRequest request) throws Exception {
+    public Orb.Orb.models.operations.GetPlansExternalPlanIdResponse getByExternalId(Orb.Orb.models.operations.GetPlansExternalPlanIdRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetPlansExternalPlanIdRequest.class, baseUrl, "/plans/external_plan_id/{external_plan_id}", request, null);
         
@@ -129,7 +129,7 @@ public class Plan {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetPlansResponse get(Orb.Orb.models.operations.GetPlansRequestBody request) throws Exception {
+    public Orb.Orb.models.operations.ListPlansResponse list(Orb.Orb.models.operations.ListPlansRequestBody request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/plans");
         
@@ -146,7 +146,7 @@ public class Plan {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetPlansResponse res = new Orb.Orb.models.operations.GetPlansResponse() {{
+        Orb.Orb.models.operations.ListPlansResponse res = new Orb.Orb.models.operations.ListPlansResponse() {{
         }};
         res.statusCode = httpRes.statusCode();
         res.contentType = contentType;

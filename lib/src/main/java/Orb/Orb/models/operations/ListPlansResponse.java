@@ -6,24 +6,24 @@ package Orb.Orb.models.operations;
 
 import java.net.http.HttpResponse;
 
-public class GetPlansResponse {
+public class ListPlansResponse {
     
     public String contentType;
-    public GetPlansResponse withContentType(String contentType) {
+    public ListPlansResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
     }
     
     
     public Integer statusCode;
-    public GetPlansResponse withStatusCode(Integer statusCode) {
+    public ListPlansResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
     }
     
     
     public HttpResponse<byte[]> rawResponse;
-    public GetPlansResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
+    public ListPlansResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
     }

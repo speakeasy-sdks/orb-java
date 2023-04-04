@@ -8,11 +8,11 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class GetPlansRequestBody {
+public class ListPlansRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
     public Orb.Orb.models.shared.Plan[] data;
-    public GetPlansRequestBody withData(Orb.Orb.models.shared.Plan[] data) {
+    public ListPlansRequestBody withData(Orb.Orb.models.shared.Plan[] data) {
         this.data = data;
         return this;
     }
@@ -20,7 +20,7 @@ public class GetPlansRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("pagination_metadata")
     public java.util.Map<String, Object> paginationMetadata;
-    public GetPlansRequestBody withPaginationMetadata(java.util.Map<String, Object> paginationMetadata) {
+    public ListPlansRequestBody withPaginationMetadata(java.util.Map<String, Object> paginationMetadata) {
         this.paginationMetadata = paginationMetadata;
         return this;
     }

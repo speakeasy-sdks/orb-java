@@ -142,8 +142,8 @@ lib/src/main/java/Orb/Orb/models/operations/GetPlansPlanIdRequest.java
 lib/src/main/java/Orb/Orb/models/operations/GetPlansPlanIdResponse.java
 lib/src/main/java/Orb/Orb/models/operations/GetPlansExternalPlanIdRequest.java
 lib/src/main/java/Orb/Orb/models/operations/GetPlansExternalPlanIdResponse.java
-lib/src/main/java/Orb/Orb/models/operations/GetPlansRequestBody.java
-lib/src/main/java/Orb/Orb/models/operations/GetPlansResponse.java
+lib/src/main/java/Orb/Orb/models/operations/ListPlansRequestBody.java
+lib/src/main/java/Orb/Orb/models/operations/ListPlansResponse.java
 lib/src/main/java/Orb/Orb/models/operations/PostSubscriptionsSubscriptionIdCancelCancelOptionEnum.java
 lib/src/main/java/Orb/Orb/models/operations/PostSubscriptionsSubscriptionIdCancelRequest.java
 lib/src/main/java/Orb/Orb/models/operations/PostSubscriptionsSubscriptionIdCancelResponse.java
