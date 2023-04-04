@@ -60,13 +60,6 @@ lib/src/main/java/Orb/Orb/models/operations/PostCustomersRequestBody.java
 lib/src/main/java/Orb/Orb/models/operations/PostCustomersResponse.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomersCustomerIdRequest.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomersCustomerIdResponse.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCostsViewModeEnum.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCostsRequest.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSONData.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSON.java
-lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCostsResponse.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomersCustomerIdBalanceTransactionsRequest.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomersCustomerIdBalanceTransactions200ApplicationJSON.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomersCustomerIdBalanceTransactionsResponse.java
@@ -79,6 +72,13 @@ lib/src/main/java/Orb/Orb/models/operations/GetCustomerCosts200ApplicationJSONDa
 lib/src/main/java/Orb/Orb/models/operations/GetCustomerCosts200ApplicationJSONData.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomerCosts200ApplicationJSON.java
 lib/src/main/java/Orb/Orb/models/operations/GetCustomerCostsResponse.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCostsViewModeEnum.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCostsRequest.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSONData.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCosts200ApplicationJSON.java
+lib/src/main/java/Orb/Orb/models/operations/GetExternalCustomerCostsResponse.java
 lib/src/main/java/Orb/Orb/models/operations/ListCustomers200ApplicationJSONPaginationMetadata.java
 lib/src/main/java/Orb/Orb/models/operations/ListCustomers200ApplicationJSON.java
 lib/src/main/java/Orb/Orb/models/operations/ListCustomersResponse.java
@@ -235,6 +235,9 @@ lib/src/main/java/Orb/Orb/models/shared/CustomerBillingAddress.java
 lib/src/main/java/Orb/Orb/models/shared/CustomerPaymentProviderEnum.java
 lib/src/main/java/Orb/Orb/models/shared/CustomerShippingAddress.java
 lib/src/main/java/Orb/Orb/models/shared/Customer.java
+lib/src/main/java/Orb/Orb/models/shared/CustomerBalanceTransactionActionEnum.java
+lib/src/main/java/Orb/Orb/models/shared/CustomerBalanceTransactionInvoice.java
+lib/src/main/java/Orb/Orb/models/shared/CustomerBalanceTransaction.java
 lib/src/main/java/Orb/Orb/models/shared/PriceBillableMetric.java
 lib/src/main/java/Orb/Orb/models/shared/PriceBpsConfig.java
 lib/src/main/java/Orb/Orb/models/shared/PriceBulkBpsConfigTiers.java
@@ -252,9 +255,6 @@ lib/src/main/java/Orb/Orb/models/shared/PriceTieredConfigTiers.java
 lib/src/main/java/Orb/Orb/models/shared/PriceTieredConfig.java
 lib/src/main/java/Orb/Orb/models/shared/PriceUnitConfig.java
 lib/src/main/java/Orb/Orb/models/shared/Price.java
-lib/src/main/java/Orb/Orb/models/shared/CustomerBalanceTransactionActionEnum.java
-lib/src/main/java/Orb/Orb/models/shared/CustomerBalanceTransactionInvoice.java
-lib/src/main/java/Orb/Orb/models/shared/CustomerBalanceTransaction.java
 lib/src/main/java/Orb/Orb/models/shared/Event.java
 lib/src/main/java/Orb/Orb/models/shared/InvoiceCustomer.java
 lib/src/main/java/Orb/Orb/models/shared/InvoiceLineItemsGrouping.java

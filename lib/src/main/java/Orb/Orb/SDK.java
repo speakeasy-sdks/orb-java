@@ -60,7 +60,7 @@ public class SDK {
 	private Orb.Orb.models.shared.Security _security;
 	private String _serverUrl;
 	private String _language = "java";
-	private String _sdkVersion = "1.0.0";
+	private String _sdkVersion = "1.0.1";
 	private String _genVersion = "2.16.7";
 	/**
 	 * The Builder class allows the configuration of a new instance of the SDK.

@@ -125,52 +125,6 @@ public class Customer {
     }
 
     /**
-     * View customer costs by external customer ID
-     * This endpoint's resource and semantics exactly mirror [View customer costs](../reference/Orb-API.json/paths/~1customers~1{customer_id}~1costs/get) but operates on an [external customer ID](../docs/Customer-ID-Aliases.md) rather than an Orb issued identifier.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public Orb.Orb.models.operations.GetExternalCustomerCostsResponse get(Orb.Orb.models.operations.GetExternalCustomerCostsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetExternalCustomerCostsRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/costs", request, null);
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("GET");
-        req.setURL(url);
-        
-        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.GetExternalCustomerCostsRequest.class, request, null);
-        if (queryParams != null) {
-            for (NameValuePair queryParam : queryParams) {
-                req.addQueryParam(queryParam);
-            }
-        }
-        
-        HTTPClient client = this._securityClient;
-        
-        HttpResponse<byte[]> httpRes = client.send(req);
-
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-
-        Orb.Orb.models.operations.GetExternalCustomerCostsResponse res = new Orb.Orb.models.operations.GetExternalCustomerCostsResponse() {{
-            getExternalCustomerCosts200ApplicationJSONObject = null;
-        }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
-        res.rawResponse = httpRes;
-        
-        if (httpRes.statusCode() == 200) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.GetExternalCustomerCosts200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetExternalCustomerCosts200ApplicationJSON.class);
-                res.getExternalCustomerCosts200ApplicationJSONObject = out;
-            }
-        }
-
-        return res;
-    }
-
-    /**
      * Get customer balance transactions
      * # The customer balance
      * 
@@ -370,6 +324,52 @@ public class Customer {
                 ObjectMapper mapper = JSON.getMapper();
                 Orb.Orb.models.operations.GetCustomerCosts200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetCustomerCosts200ApplicationJSON.class);
                 res.getCustomerCosts200ApplicationJSONObject = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * View customer costs by external customer ID
+     * This endpoint's resource and semantics exactly mirror [View customer costs](../reference/Orb-API.json/paths/~1customers~1{customer_id}~1costs/get) but operates on an [external customer ID](../docs/Customer-ID-Aliases.md) rather than an Orb issued identifier.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.GetExternalCustomerCostsResponse getCostsByExternalId(Orb.Orb.models.operations.GetExternalCustomerCostsRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetExternalCustomerCostsRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/costs", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+        
+        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.GetExternalCustomerCostsRequest.class, request, null);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
+        }
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.GetExternalCustomerCostsResponse res = new Orb.Orb.models.operations.GetExternalCustomerCostsResponse() {{
+            getExternalCustomerCosts200ApplicationJSONObject = null;
+        }};
+        res.statusCode = httpRes.statusCode();
+        res.contentType = contentType;
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.operations.GetExternalCustomerCosts200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetExternalCustomerCosts200ApplicationJSON.class);
+                res.getExternalCustomerCosts200ApplicationJSONObject = out;
             }
         }
 

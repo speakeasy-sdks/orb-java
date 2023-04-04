@@ -6,7 +6,7 @@
 ### Gradle
 
 ```groovy
-implementation 'Orb.Orb:Orb:1.0.0'
+implementation 'Orb.Orb:Orb:1.0.1'
 ```
 <!-- End SDK Installation -->
 
@@ -17,7 +17,11 @@ package hello.world;
 
 import Orb.Orb.SDK;
 import Orb.Orb.models.shared.Security;
-import Orb.Orb.models.operations.GetPingResponse;
+import Orb.Orb.models.operations.PostCustomersRequestBodyBillingAddress;
+import Orb.Orb.models.operations.PostCustomersRequestBodyPaymentProviderEnum;
+import Orb.Orb.models.operations.PostCustomersRequestBodyShippingAddress;
+import Orb.Orb.models.operations.PostCustomersRequestBody;
+import Orb.Orb.models.operations.PostCustomersResponse;
 
 public class Application {
     public static void main(String[] args) {
@@ -28,9 +32,35 @@ public class Application {
                 }})
                 .build();
 
-            GetPingResponse res = sdk.availability.ping();
+            PostCustomersRequestBody req = new PostCustomersRequestBody() {{
+                billingAddress = new PostCustomersRequestBodyBillingAddress() {{
+                    city = "Laruecester";
+                    country = "US";
+                    line1 = "quibusdam";
+                    line2 = "unde";
+                    postalCode = "58466-3428";
+                    state = "ipsa";
+                }};
+                currency = "delectus";
+                email = "Geraldine_Kreiger52@gmail.com";
+                externalCustomerId = "iusto";
+                name = "excepturi";
+                paymentProvider = "bill.com";
+                paymentProviderId = "recusandae";
+                shippingAddress = new PostCustomersRequestBodyShippingAddress() {{
+                    city = "Belleville";
+                    country = "US";
+                    line1 = "quis";
+                    line2 = "veritatis";
+                    postalCode = "03897-1889";
+                    state = "molestiae";
+                }};
+                timezone = "Etc/UTC";
+            }}            
 
-            if (res.getPing200ApplicationJSONObject.isPresent()) {
+            PostCustomersResponse res = sdk.customer.create(req);
+
+            if (res.customer.isPresent()) {
                 // handle response
             }
         } catch (Exception e) {
@@ -57,10 +87,10 @@ public class Application {
 
 * `create` - Create customer
 * `get` - Retrieve a customer
-* `get` - View customer costs by external customer ID
 * `getBalance` - Get customer balance transactions
 * `getByExternalId` - Retrieve a customer by external ID
 * `getCosts` - View customer costs
+* `getCostsByExternalId` - View customer costs by external customer ID
 * `list` - List customers
 * `update` - Update customer
 * `updateByExternalId` - Update a customer by external ID
