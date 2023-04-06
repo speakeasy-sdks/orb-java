@@ -17,7 +17,7 @@
 ### Gradle
 
 ```groovy
-implementation 'Orb.Orb:Orb:1.0.2'
+implementation 'Orb.Orb:Orb:0.1.0'
 ```
 <!-- End SDK Installation -->
 
