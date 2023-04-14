@@ -31,16 +31,16 @@ public class Application {
                 currency = "delectus";
                 email = "Geraldine_Kreiger52@gmail.com";
                 externalCustomerId = "iusto";
-                name = "excepturi";
-                paymentProvider = "bill.com";
-                paymentProviderId = "recusandae";
+                name = "Charlie Walsh II";
+                paymentProvider = "quickbooks";
+                paymentProviderId = "deserunt";
                 shippingAddress = new PostCustomersRequestBodyShippingAddress() {{
-                    city = "Belleville";
+                    city = "West Ritaworth";
                     country = "US";
-                    line1 = "quis";
-                    line2 = "veritatis";
-                    postalCode = "03897-1889";
-                    state = "molestiae";
+                    line1 = "quo";
+                    line2 = "odit";
+                    postalCode = "89478-4576";
+                    state = "dicta";
                 }};
                 timezone = "Etc/UTC";
             }}            
