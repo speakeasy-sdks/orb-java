@@ -24,4 +24,9 @@ public class GetCustomersCustomerIdCreditsLedger200ApplicationJSON {
         return this;
     }
     
+
+    public GetCustomersCustomerIdCreditsLedger200ApplicationJSON(@JsonProperty("data") Orb.Orb.models.shared.CreditLedgerEntry[] data, @JsonProperty("pagination_metadata") GetCustomersCustomerIdCreditsLedger200ApplicationJSONPaginationMetadata paginationMetadata) {
+    this.data = data;
+this.paginationMetadata = paginationMetadata;
+  }
 }

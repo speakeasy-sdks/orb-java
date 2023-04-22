@@ -66,4 +66,6 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
         return this;
     }
     
+
+    public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress(){}
 }

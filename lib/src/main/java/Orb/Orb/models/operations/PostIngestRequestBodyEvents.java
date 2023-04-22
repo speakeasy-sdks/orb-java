@@ -71,4 +71,11 @@ public class PostIngestRequestBodyEvents {
         return this;
     }
     
+
+    public PostIngestRequestBodyEvents(@JsonProperty("event_name") String eventName, @JsonProperty("idempotency_key") String idempotencyKey, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") String timestamp) {
+    this.eventName = eventName;
+this.idempotencyKey = idempotencyKey;
+this.properties = properties;
+this.timestamp = timestamp;
+  }
 }

@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetPlansExternalPlanIdRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
@@ -21,4 +22,8 @@ public class GetPlansExternalPlanIdRequest {
         return this;
     }
     
+
+    public GetPlansExternalPlanIdRequest(@JsonProperty("external_plan_id") String externalPlanId) {
+    this.externalPlanId = externalPlanId;
+  }
 }

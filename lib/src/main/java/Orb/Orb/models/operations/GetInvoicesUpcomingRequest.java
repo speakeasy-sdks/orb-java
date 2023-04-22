@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetInvoicesUpcomingRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=subscription_id")
@@ -14,4 +15,8 @@ public class GetInvoicesUpcomingRequest {
         return this;
     }
     
+
+    public GetInvoicesUpcomingRequest(@JsonProperty("subscription_id") String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
 }

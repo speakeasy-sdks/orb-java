@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.OffsetDateTime;
 
 public class GetSubscriptionsSubscriptionIdCostRequest {
@@ -55,4 +56,8 @@ public class GetSubscriptionsSubscriptionIdCostRequest {
         return this;
     }
     
+
+    public GetSubscriptionsSubscriptionIdCostRequest(@JsonProperty("subscription_id") String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
 }

@@ -25,4 +25,6 @@ public class ListPlansRequestBody {
         return this;
     }
     
+
+    public ListPlansRequestBody(){}
 }

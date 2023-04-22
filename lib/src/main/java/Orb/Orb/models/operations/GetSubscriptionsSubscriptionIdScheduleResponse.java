@@ -4,6 +4,7 @@
 
 package Orb.Orb.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.http.HttpResponse;
 
 public class GetSubscriptionsSubscriptionIdScheduleResponse {
@@ -38,4 +39,9 @@ public class GetSubscriptionsSubscriptionIdScheduleResponse {
         return this;
     }
     
+
+    public GetSubscriptionsSubscriptionIdScheduleResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
+    this.contentType = contentType;
+this.statusCode = statusCode;
+  }
 }

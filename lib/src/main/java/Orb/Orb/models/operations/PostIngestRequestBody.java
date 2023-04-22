@@ -14,4 +14,8 @@ public class PostIngestRequestBody {
         return this;
     }
     
+
+    public PostIngestRequestBody(@JsonProperty("events") PostIngestRequestBodyEvents[] events) {
+    this.events = events;
+  }
 }

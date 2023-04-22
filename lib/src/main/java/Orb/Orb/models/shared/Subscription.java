@@ -130,4 +130,14 @@ public class Subscription {
         return this;
     }
     
+
+    public Subscription(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("id") String id, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatusEnum status) {
+    this.createdAt = createdAt;
+this.customer = customer;
+this.endDate = endDate;
+this.id = id;
+this.plan = plan;
+this.startDate = startDate;
+this.status = status;
+  }
 }

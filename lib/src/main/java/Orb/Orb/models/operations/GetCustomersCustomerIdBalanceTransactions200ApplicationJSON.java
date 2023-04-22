@@ -28,4 +28,6 @@ public class GetCustomersCustomerIdBalanceTransactions200ApplicationJSON {
         return this;
     }
     
+
+    public GetCustomersCustomerIdBalanceTransactions200ApplicationJSON(){}
 }

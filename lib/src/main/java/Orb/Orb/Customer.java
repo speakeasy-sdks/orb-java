@@ -64,11 +64,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostCustomersResponse res = new Orb.Orb.models.operations.PostCustomersResponse() {{
+        Orb.Orb.models.operations.PostCustomersResponse res = new Orb.Orb.models.operations.PostCustomersResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 201) {
@@ -106,11 +104,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersCustomerIdResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdResponse() {{
+        Orb.Orb.models.operations.GetCustomersCustomerIdResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 201) {
@@ -158,11 +154,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse() {{
+        Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse(contentType, httpRes.statusCode()) {{
             getCustomersCustomerIdBalanceTransactions200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -200,11 +194,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse res = new Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse() {{
+        Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse res = new Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -312,11 +304,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomerCostsResponse res = new Orb.Orb.models.operations.GetCustomerCostsResponse() {{
+        Orb.Orb.models.operations.GetCustomerCostsResponse res = new Orb.Orb.models.operations.GetCustomerCostsResponse(contentType, httpRes.statusCode()) {{
             getCustomerCosts200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -358,11 +348,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetExternalCustomerCostsResponse res = new Orb.Orb.models.operations.GetExternalCustomerCostsResponse() {{
+        Orb.Orb.models.operations.GetExternalCustomerCostsResponse res = new Orb.Orb.models.operations.GetExternalCustomerCostsResponse(contentType, httpRes.statusCode()) {{
             getExternalCustomerCosts200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -401,11 +389,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.ListCustomersResponse res = new Orb.Orb.models.operations.ListCustomersResponse() {{
+        Orb.Orb.models.operations.ListCustomersResponse res = new Orb.Orb.models.operations.ListCustomersResponse(contentType, httpRes.statusCode()) {{
             listCustomers200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -445,11 +431,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PutCustomersCustomerIdResponse res = new Orb.Orb.models.operations.PutCustomersCustomerIdResponse() {{
+        Orb.Orb.models.operations.PutCustomersCustomerIdResponse res = new Orb.Orb.models.operations.PutCustomersCustomerIdResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -489,11 +473,9 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse res = new Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse() {{
+        Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse res = new Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -590,12 +572,10 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse res = new Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse() {{
+        Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse res = new Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse(contentType, httpRes.statusCode()) {{
             patchCustomersCustomerIdUsage200ApplicationJSONObject = null;
             patchCustomersCustomerIdUsage400ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -646,12 +626,10 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse res = new Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse() {{
+        Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse res = new Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse(contentType, httpRes.statusCode()) {{
             patchExternalCustomersCustomerIdUsage200ApplicationJSONObject = null;
             patchExternalCustomersCustomerIdUsage400ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

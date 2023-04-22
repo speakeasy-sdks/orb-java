@@ -108,4 +108,9 @@ public class PostCustomersRequestBody {
         return this;
     }
     
+
+    public PostCustomersRequestBody(@JsonProperty("email") String email, @JsonProperty("name") String name) {
+    this.email = email;
+this.name = name;
+  }
 }

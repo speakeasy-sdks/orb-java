@@ -47,4 +47,11 @@ public class PatchCustomersCustomerIdUsage400ApplicationJSON {
         return this;
     }
     
+
+    public PatchCustomersCustomerIdUsage400ApplicationJSON(@JsonProperty("status") Long status, @JsonProperty("title") String title, @JsonProperty("type") String type, @JsonProperty("validation_errors") PatchCustomersCustomerIdUsage400ApplicationJSONValidationErrors[] validationErrors) {
+    this.status = status;
+this.title = title;
+this.type = type;
+this.validationErrors = validationErrors;
+  }
 }

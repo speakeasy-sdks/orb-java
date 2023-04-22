@@ -17,4 +17,6 @@ public class PostSubscriptionsRequestBodyPriceOverrides1TieredConfig {
         return this;
     }
     
+
+    public PostSubscriptionsRequestBodyPriceOverrides1TieredConfig(){}
 }

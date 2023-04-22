@@ -55,4 +55,10 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
         return this;
     }
     
+
+    public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups(@JsonProperty("grouping_key") String groupingKey, @JsonProperty("grouping_value") String groupingValue, @JsonProperty("total") String total) {
+    this.groupingKey = groupingKey;
+this.groupingValue = groupingValue;
+this.total = total;
+  }
 }

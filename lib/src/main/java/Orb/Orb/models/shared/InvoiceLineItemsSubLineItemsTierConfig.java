@@ -31,4 +31,10 @@ public class InvoiceLineItemsSubLineItemsTierConfig {
         return this;
     }
     
+
+    public InvoiceLineItemsSubLineItemsTierConfig(@JsonProperty("first_unit") Double firstUnit, @JsonProperty("last_unit") Double lastUnit, @JsonProperty("unit_amount") String unitAmount) {
+    this.firstUnit = firstUnit;
+this.lastUnit = lastUnit;
+this.unitAmount = unitAmount;
+  }
 }

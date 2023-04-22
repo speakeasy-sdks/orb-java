@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetCustomersCustomerIdBalanceTransactionsRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customer_id")
@@ -14,4 +15,8 @@ public class GetCustomersCustomerIdBalanceTransactionsRequest {
         return this;
     }
     
+
+    public GetCustomersCustomerIdBalanceTransactionsRequest(@JsonProperty("customer_id") String customerId) {
+    this.customerId = customerId;
+  }
 }

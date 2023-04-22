@@ -21,4 +21,6 @@ public class ListSubscriptionsRequest {
         return this;
     }
     
+
+    public ListSubscriptionsRequest(){}
 }

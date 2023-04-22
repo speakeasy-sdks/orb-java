@@ -71,4 +71,6 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
         return this;
     }
     
+
+    public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody(){}
 }

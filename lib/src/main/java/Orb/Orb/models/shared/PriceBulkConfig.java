@@ -20,4 +20,6 @@ public class PriceBulkConfig {
         return this;
     }
     
+
+    public PriceBulkConfig(){}
 }

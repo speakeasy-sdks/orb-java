@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PutDeprecateEventsEventIdRequest {
     /**
@@ -17,4 +18,8 @@ public class PutDeprecateEventsEventIdRequest {
         return this;
     }
     
+
+    public PutDeprecateEventsEventIdRequest(@JsonProperty("event_id") String eventId) {
+    this.eventId = eventId;
+  }
 }

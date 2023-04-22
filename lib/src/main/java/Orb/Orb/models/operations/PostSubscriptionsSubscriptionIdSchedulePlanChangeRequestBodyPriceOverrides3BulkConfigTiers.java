@@ -21,4 +21,9 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
+
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfigTiers(@JsonProperty("maximum_units") String maximumUnits, @JsonProperty("unit_amount") String unitAmount) {
+    this.maximumUnits = maximumUnits;
+this.unitAmount = unitAmount;
+  }
 }

@@ -52,4 +52,10 @@ public class PostSubscriptionsRequestBodyPriceOverrides3 {
         return this;
     }
     
+
+    public PostSubscriptionsRequestBodyPriceOverrides3(@JsonProperty("bulk_config") PostSubscriptionsRequestBodyPriceOverrides3BulkConfig bulkConfig, @JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides3ModelTypeEnum modelType) {
+    this.bulkConfig = bulkConfig;
+this.id = id;
+this.modelType = modelType;
+  }
 }

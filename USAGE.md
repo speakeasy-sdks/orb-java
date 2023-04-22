@@ -14,36 +14,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security() {{
+                .setSecurity(new Security("corrupti") {{
                     bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
-            PostCustomersRequestBody req = new PostCustomersRequestBody() {{
-                billingAddress = new PostCustomersRequestBodyBillingAddress() {{
-                    city = "Laruecester";
-                    country = "US";
-                    line1 = "quibusdam";
-                    line2 = "unde";
-                    postalCode = "58466-3428";
-                    state = "ipsa";
-                }};
-                currency = "delectus";
-                email = "Geraldine_Kreiger52@gmail.com";
-                externalCustomerId = "iusto";
-                name = "Charlie Walsh II";
-                paymentProvider = "quickbooks";
-                paymentProviderId = "deserunt";
-                shippingAddress = new PostCustomersRequestBodyShippingAddress() {{
-                    city = "West Ritaworth";
-                    country = "US";
-                    line1 = "quo";
-                    line2 = "odit";
-                    postalCode = "89478-4576";
-                    state = "dicta";
-                }};
+            PostCustomersRequestBody req = new PostCustomersRequestBody("provident", "distinctio") {{
+                currency = "suscipit";
+                externalCustomerId = "molestiae";
+                paymentProvider = "stripe_invoice";
+                paymentProviderId = "placeat";
                 timezone = "Etc/UTC";
-            }}            
+            }};            
 
             PostCustomersResponse res = sdk.customer.create(req);
 

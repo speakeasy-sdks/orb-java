@@ -24,4 +24,9 @@ public class InvoiceLineItemsGrouping {
         return this;
     }
     
+
+    public InvoiceLineItemsGrouping(@JsonProperty("key") String key, @JsonProperty("value") String value) {
+    this.key = key;
+this.value = value;
+  }
 }

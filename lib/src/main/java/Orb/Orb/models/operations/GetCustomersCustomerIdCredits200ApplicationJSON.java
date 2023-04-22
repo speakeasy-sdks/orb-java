@@ -24,4 +24,9 @@ public class GetCustomersCustomerIdCredits200ApplicationJSON {
         return this;
     }
     
+
+    public GetCustomersCustomerIdCredits200ApplicationJSON(@JsonProperty("data") GetCustomersCustomerIdCredits200ApplicationJSONData[] data, @JsonProperty("pagination_metadata") GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata paginationMetadata) {
+    this.data = data;
+this.paginationMetadata = paginationMetadata;
+  }
 }

@@ -20,4 +20,6 @@ public class PriceTieredConfig {
         return this;
     }
     
+
+    public PriceTieredConfig(){}
 }

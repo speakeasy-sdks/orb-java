@@ -97,4 +97,15 @@ public class CustomerBalanceTransaction {
         return this;
     }
     
+
+    public CustomerBalanceTransaction(@JsonProperty("action") CustomerBalanceTransactionActionEnum action, @JsonProperty("amount") String amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("ending_balance") String endingBalance, @JsonProperty("id") String id, @JsonProperty("invoice") CustomerBalanceTransactionInvoice invoice, @JsonProperty("starting_balance") String startingBalance) {
+    this.action = action;
+this.amount = amount;
+this.createdAt = createdAt;
+this.description = description;
+this.endingBalance = endingBalance;
+this.id = id;
+this.invoice = invoice;
+this.startingBalance = startingBalance;
+  }
 }

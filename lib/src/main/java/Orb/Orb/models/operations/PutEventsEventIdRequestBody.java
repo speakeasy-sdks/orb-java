@@ -68,4 +68,10 @@ public class PutEventsEventIdRequestBody {
         return this;
     }
     
+
+    public PutEventsEventIdRequestBody(@JsonProperty("event_name") String eventName, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") OffsetDateTime timestamp) {
+    this.eventName = eventName;
+this.properties = properties;
+this.timestamp = timestamp;
+  }
 }

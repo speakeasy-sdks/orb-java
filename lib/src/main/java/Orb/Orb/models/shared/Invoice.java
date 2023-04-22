@@ -175,4 +175,22 @@ public class Invoice {
         return this;
     }
     
+
+    public Invoice(@JsonProperty("amount_due") String amountDue, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("customer") InvoiceCustomer customer, @JsonProperty("customer_balance_transactions") CustomerBalanceTransaction[] customerBalanceTransactions, @JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("due_date") OffsetDateTime dueDate, @JsonProperty("id") String id, @JsonProperty("invoice_date") OffsetDateTime invoiceDate, @JsonProperty("invoice_pdf") String invoicePdf, @JsonProperty("line_items") InvoiceLineItems[] lineItems, @JsonProperty("minimum") java.util.Map<String, Object> minimum, @JsonProperty("subscription") InvoiceSubscription subscription, @JsonProperty("subtotal") String subtotal, @JsonProperty("total") String total) {
+    this.amountDue = amountDue;
+this.createdAt = createdAt;
+this.currency = currency;
+this.customer = customer;
+this.customerBalanceTransactions = customerBalanceTransactions;
+this.discount = discount;
+this.dueDate = dueDate;
+this.id = id;
+this.invoiceDate = invoiceDate;
+this.invoicePdf = invoicePdf;
+this.lineItems = lineItems;
+this.minimum = minimum;
+this.subscription = subscription;
+this.subtotal = subtotal;
+this.total = total;
+  }
 }

@@ -66,4 +66,6 @@ public class PostCustomersRequestBodyShippingAddress {
         return this;
     }
     
+
+    public PostCustomersRequestBodyShippingAddress(){}
 }

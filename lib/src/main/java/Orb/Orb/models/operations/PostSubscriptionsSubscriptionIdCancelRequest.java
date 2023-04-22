@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PostSubscriptionsSubscriptionIdCancelRequest {
     /**
@@ -24,4 +25,9 @@ public class PostSubscriptionsSubscriptionIdCancelRequest {
         return this;
     }
     
+
+    public PostSubscriptionsSubscriptionIdCancelRequest(@JsonProperty("cancel_option") PostSubscriptionsSubscriptionIdCancelCancelOptionEnum cancelOption, @JsonProperty("subscription_id") String subscriptionId) {
+    this.cancelOption = cancelOption;
+this.subscriptionId = subscriptionId;
+  }
 }

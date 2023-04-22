@@ -28,4 +28,6 @@ public class PostIngest400ApplicationJSONDebug {
         return this;
     }
     
+
+    public PostIngest400ApplicationJSONDebug(){}
 }

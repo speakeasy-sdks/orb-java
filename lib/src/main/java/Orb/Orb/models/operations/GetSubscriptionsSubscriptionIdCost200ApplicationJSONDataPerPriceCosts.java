@@ -231,4 +231,8 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
         return this;
     }
     
+
+    public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCosts(@JsonProperty("price_groups") GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups[] priceGroups) {
+    this.priceGroups = priceGroups;
+  }
 }

@@ -28,4 +28,6 @@ public class PriceBpsConfig {
         return this;
     }
     
+
+    public PriceBpsConfig(){}
 }

@@ -376,4 +376,11 @@ public class Price {
         return this;
     }
     
+
+    public Price(@JsonProperty("currency") String currency, @JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("minimum") java.util.Map<String, Object> minimum, @JsonProperty("plan_phase_order") Double planPhaseOrder) {
+    this.currency = currency;
+this.discount = discount;
+this.minimum = minimum;
+this.planPhaseOrder = planPhaseOrder;
+  }
 }

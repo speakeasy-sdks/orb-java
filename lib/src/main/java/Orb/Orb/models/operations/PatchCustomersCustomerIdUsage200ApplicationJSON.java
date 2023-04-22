@@ -34,4 +34,6 @@ public class PatchCustomersCustomerIdUsage200ApplicationJSON {
         return this;
     }
     
+
+    public PatchCustomersCustomerIdUsage200ApplicationJSON(){}
 }

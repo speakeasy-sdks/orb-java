@@ -66,4 +66,6 @@ public class CustomerShippingAddress {
         return this;
     }
     
+
+    public CustomerShippingAddress(){}
 }

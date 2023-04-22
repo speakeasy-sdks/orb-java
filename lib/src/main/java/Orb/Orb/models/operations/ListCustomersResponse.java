@@ -4,6 +4,7 @@
 
 package Orb.Orb.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.http.HttpResponse;
 
 public class ListCustomersResponse {
@@ -38,4 +39,9 @@ public class ListCustomersResponse {
         return this;
     }
     
+
+    public ListCustomersResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
+    this.contentType = contentType;
+this.statusCode = statusCode;
+  }
 }

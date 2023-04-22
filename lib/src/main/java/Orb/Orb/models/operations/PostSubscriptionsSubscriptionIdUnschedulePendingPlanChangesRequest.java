@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=subscription_id")
@@ -14,4 +15,8 @@ public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesRequest 
         return this;
     }
     
+
+    public PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesRequest(@JsonProperty("subscription_id") String subscriptionId) {
+    this.subscriptionId = subscriptionId;
+  }
 }

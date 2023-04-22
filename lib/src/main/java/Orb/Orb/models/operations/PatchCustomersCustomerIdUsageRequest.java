@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.OffsetDateTime;
 
 public class PatchCustomersCustomerIdUsageRequest {
@@ -42,4 +43,10 @@ public class PatchCustomersCustomerIdUsageRequest {
         return this;
     }
     
+
+    public PatchCustomersCustomerIdUsageRequest(@JsonProperty("customer_id") String customerId, @JsonProperty("timeframe_end") OffsetDateTime timeframeEnd, @JsonProperty("timeframe_start") OffsetDateTime timeframeStart) {
+    this.customerId = customerId;
+this.timeframeEnd = timeframeEnd;
+this.timeframeStart = timeframeStart;
+  }
 }

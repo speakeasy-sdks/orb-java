@@ -37,4 +37,10 @@ public class CreditLedgerEntryCreditBlock {
         return this;
     }
     
+
+    public CreditLedgerEntryCreditBlock(@JsonProperty("expiry_date") String expiryDate, @JsonProperty("id") String id, @JsonProperty("per_unit_cost_basis") String perUnitCostBasis) {
+    this.expiryDate = expiryDate;
+this.id = id;
+this.perUnitCostBasis = perUnitCostBasis;
+  }
 }

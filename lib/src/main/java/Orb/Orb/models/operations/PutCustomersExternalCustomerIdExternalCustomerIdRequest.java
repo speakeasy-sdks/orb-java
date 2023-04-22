@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PutCustomersExternalCustomerIdExternalCustomerIdRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
@@ -21,4 +22,8 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequest {
         return this;
     }
     
+
+    public PutCustomersExternalCustomerIdExternalCustomerIdRequest(@JsonProperty("external_customer_id") String externalCustomerId) {
+    this.externalCustomerId = externalCustomerId;
+  }
 }

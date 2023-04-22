@@ -71,12 +71,10 @@ public class Event {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PutDeprecateEventsEventIdResponse res = new Orb.Orb.models.operations.PutDeprecateEventsEventIdResponse() {{
+        Orb.Orb.models.operations.PutDeprecateEventsEventIdResponse res = new Orb.Orb.models.operations.PutDeprecateEventsEventIdResponse(contentType, httpRes.statusCode()) {{
             putDeprecateEventsEventId200ApplicationJSONObject = null;
             putDeprecateEventsEventId400ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -263,12 +261,10 @@ public class Event {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostIngestResponse res = new Orb.Orb.models.operations.PostIngestResponse() {{
+        Orb.Orb.models.operations.PostIngestResponse res = new Orb.Orb.models.operations.PostIngestResponse(contentType, httpRes.statusCode()) {{
             postIngest200ApplicationJSONObject = null;
             postIngest400ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -323,11 +319,9 @@ public class Event {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostEventsSearchResponse res = new Orb.Orb.models.operations.PostEventsSearchResponse() {{
+        Orb.Orb.models.operations.PostEventsSearchResponse res = new Orb.Orb.models.operations.PostEventsSearchResponse(contentType, httpRes.statusCode()) {{
             postEventsSearch200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -379,12 +373,10 @@ public class Event {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PutEventsEventIdResponse res = new Orb.Orb.models.operations.PutEventsEventIdResponse() {{
+        Orb.Orb.models.operations.PutEventsEventIdResponse res = new Orb.Orb.models.operations.PutEventsEventIdResponse(contentType, httpRes.statusCode()) {{
             putEventsEventId200ApplicationJSONObject = null;
             putEventsEventId400ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

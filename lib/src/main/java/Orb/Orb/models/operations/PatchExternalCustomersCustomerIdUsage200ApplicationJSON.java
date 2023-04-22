@@ -34,4 +34,6 @@ public class PatchExternalCustomersCustomerIdUsage200ApplicationJSON {
         return this;
     }
     
+
+    public PatchExternalCustomersCustomerIdUsage200ApplicationJSON(){}
 }

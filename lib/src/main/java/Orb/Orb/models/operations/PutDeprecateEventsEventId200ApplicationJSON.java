@@ -23,4 +23,6 @@ public class PutDeprecateEventsEventId200ApplicationJSON {
         return this;
     }
     
+
+    public PutDeprecateEventsEventId200ApplicationJSON(){}
 }

@@ -44,4 +44,10 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
+
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4ModelTypeEnum modelType, @JsonProperty("package_config") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4PackageConfig packageConfig) {
+    this.id = id;
+this.modelType = modelType;
+this.packageConfig = packageConfig;
+  }
 }

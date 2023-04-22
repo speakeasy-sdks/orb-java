@@ -20,4 +20,8 @@ public class UpcomingInvoiceLineItemsSubLineItemsMatrixConfig {
         return this;
     }
     
+
+    public UpcomingInvoiceLineItemsSubLineItemsMatrixConfig(@JsonProperty("dimension_values") String[] dimensionValues) {
+    this.dimensionValues = dimensionValues;
+  }
 }

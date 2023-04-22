@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.OffsetDateTime;
 
 public class GetExternalCustomerCostsRequest {
@@ -55,4 +56,8 @@ public class GetExternalCustomerCostsRequest {
         return this;
     }
     
+
+    public GetExternalCustomerCostsRequest(@JsonProperty("external_customer_id") String externalCustomerId) {
+    this.externalCustomerId = externalCustomerId;
+  }
 }

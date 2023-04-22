@@ -66,4 +66,6 @@ public class PutCustomersCustomerIdRequestBodyBillingAddress {
         return this;
     }
     
+
+    public PutCustomersCustomerIdRequestBodyBillingAddress(){}
 }

@@ -51,4 +51,11 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONData {
         return this;
     }
     
+
+    public GetCustomersCustomerIdCredits200ApplicationJSONData(@JsonProperty("balance") Double balance, @JsonProperty("expiry_date") OffsetDateTime expiryDate, @JsonProperty("id") String id, @JsonProperty("per_unit_cost_basis") String perUnitCostBasis) {
+    this.balance = balance;
+this.expiryDate = expiryDate;
+this.id = id;
+this.perUnitCostBasis = perUnitCostBasis;
+  }
 }

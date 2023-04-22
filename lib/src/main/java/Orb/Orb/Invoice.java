@@ -57,11 +57,9 @@ public class Invoice {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse res = new Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse() {{
+        Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse res = new Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse(contentType, httpRes.statusCode()) {{
             invoice = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -103,11 +101,9 @@ public class Invoice {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetInvoicesUpcomingResponse res = new Orb.Orb.models.operations.GetInvoicesUpcomingResponse() {{
+        Orb.Orb.models.operations.GetInvoicesUpcomingResponse res = new Orb.Orb.models.operations.GetInvoicesUpcomingResponse(contentType, httpRes.statusCode()) {{
             upcomingInvoice = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -151,11 +147,9 @@ public class Invoice {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.ListInvoicesResponse res = new Orb.Orb.models.operations.ListInvoicesResponse() {{
+        Orb.Orb.models.operations.ListInvoicesResponse res = new Orb.Orb.models.operations.ListInvoicesResponse(contentType, httpRes.statusCode()) {{
             listInvoices200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

@@ -78,11 +78,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelResponse res = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelResponse() {{
+        Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelResponse res = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -138,11 +136,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeResponse res = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeResponse() {{
+        Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeResponse res = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -522,11 +518,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostSubscriptionsResponse res = new Orb.Orb.models.operations.PostSubscriptionsResponse() {{
+        Orb.Orb.models.operations.PostSubscriptionsResponse res = new Orb.Orb.models.operations.PostSubscriptionsResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -562,11 +556,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdResponse() {{
+        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -611,11 +603,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdCostResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdCostResponse() {{
+        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdCostResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdCostResponse(contentType, httpRes.statusCode()) {{
             getSubscriptionsSubscriptionIdCost200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -651,11 +641,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdScheduleResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdScheduleResponse() {{
+        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdScheduleResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdScheduleResponse(contentType, httpRes.statusCode()) {{
             getSubscriptionsSubscriptionIdSchedule200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -819,10 +807,8 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageResponse() {{
+        Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageResponse res = new Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageResponse(contentType, httpRes.statusCode()) {{
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -861,11 +847,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.ListSubscriptionsResponse res = new Orb.Orb.models.operations.ListSubscriptionsResponse() {{
+        Orb.Orb.models.operations.ListSubscriptionsResponse res = new Orb.Orb.models.operations.ListSubscriptionsResponse(contentType, httpRes.statusCode()) {{
             listSubscriptions200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -901,11 +885,9 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse res = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse() {{
+        Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse res = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

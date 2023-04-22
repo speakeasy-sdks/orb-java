@@ -21,4 +21,9 @@ public class GetCustomersCustomerIdCreditsLedger200ApplicationJSONPaginationMeta
         return this;
     }
     
+
+    public GetCustomersCustomerIdCreditsLedger200ApplicationJSONPaginationMetadata(@JsonProperty("has_more") Boolean hasMore, @JsonProperty("next_cursor") String nextCursor) {
+    this.hasMore = hasMore;
+this.nextCursor = nextCursor;
+  }
 }

@@ -41,4 +41,6 @@ public class PriceTieredBpsConfigTiers {
         return this;
     }
     
+
+    public PriceTieredBpsConfigTiers(){}
 }

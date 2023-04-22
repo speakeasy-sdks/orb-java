@@ -14,4 +14,8 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
+
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2UnitConfig(@JsonProperty("unit_amount") String unitAmount) {
+    this.unitAmount = unitAmount;
+  }
 }

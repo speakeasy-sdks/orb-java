@@ -52,4 +52,10 @@ public class PostSubscriptionsRequestBodyPriceOverrides5 {
         return this;
     }
     
+
+    public PostSubscriptionsRequestBodyPriceOverrides5(@JsonProperty("bps_config") PostSubscriptionsRequestBodyPriceOverrides5BpsConfig bpsConfig, @JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum modelType) {
+    this.bpsConfig = bpsConfig;
+this.id = id;
+this.modelType = modelType;
+  }
 }

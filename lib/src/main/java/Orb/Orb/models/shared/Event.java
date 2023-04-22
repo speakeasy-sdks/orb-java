@@ -70,4 +70,12 @@ public class Event {
         return this;
     }
     
+
+    public Event(@JsonProperty("customer_id") String customerId, @JsonProperty("event_name") String eventName, @JsonProperty("id") String id, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") String timestamp) {
+    this.customerId = customerId;
+this.eventName = eventName;
+this.id = id;
+this.properties = properties;
+this.timestamp = timestamp;
+  }
 }

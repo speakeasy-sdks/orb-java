@@ -117,4 +117,18 @@ public class InvoiceLineItems {
         return this;
     }
     
+
+    public InvoiceLineItems(@JsonProperty("amount") String amount, @JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("grouping") InvoiceLineItemsGrouping grouping, @JsonProperty("minimum") java.util.Map<String, Object> minimum, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("sub_line_items") InvoiceLineItemsSubLineItems[] subLineItems, @JsonProperty("subtotal") String subtotal, @JsonProperty("tax_amounts") InvoiceLineItemsTaxAmounts[] taxAmounts) {
+    this.amount = amount;
+this.discount = discount;
+this.endDate = endDate;
+this.grouping = grouping;
+this.minimum = minimum;
+this.name = name;
+this.quantity = quantity;
+this.startDate = startDate;
+this.subLineItems = subLineItems;
+this.subtotal = subtotal;
+this.taxAmounts = taxAmounts;
+  }
 }

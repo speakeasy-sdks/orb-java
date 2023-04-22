@@ -20,4 +20,6 @@ public class PriceUnitConfig {
         return this;
     }
     
+
+    public PriceUnitConfig(){}
 }

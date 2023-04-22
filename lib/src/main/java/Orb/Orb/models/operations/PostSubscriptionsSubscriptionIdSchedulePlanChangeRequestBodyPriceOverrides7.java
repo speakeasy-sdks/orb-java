@@ -44,4 +44,10 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
+
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelTypeEnum modelType, @JsonProperty("tiered_bps_config") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig) {
+    this.id = id;
+this.modelType = modelType;
+this.tieredBpsConfig = tieredBpsConfig;
+  }
 }

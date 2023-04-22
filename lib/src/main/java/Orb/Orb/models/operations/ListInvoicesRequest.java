@@ -37,4 +37,6 @@ public class ListInvoicesRequest {
         return this;
     }
     
+
+    public ListInvoicesRequest(){}
 }

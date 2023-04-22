@@ -62,11 +62,9 @@ public class Plan {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetPlansPlanIdResponse res = new Orb.Orb.models.operations.GetPlansPlanIdResponse() {{
+        Orb.Orb.models.operations.GetPlansPlanIdResponse res = new Orb.Orb.models.operations.GetPlansPlanIdResponse(contentType, httpRes.statusCode()) {{
             plan = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -107,10 +105,8 @@ public class Plan {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetPlansExternalPlanIdResponse res = new Orb.Orb.models.operations.GetPlansExternalPlanIdResponse() {{
+        Orb.Orb.models.operations.GetPlansExternalPlanIdResponse res = new Orb.Orb.models.operations.GetPlansExternalPlanIdResponse(contentType, httpRes.statusCode()) {{
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -146,10 +142,8 @@ public class Plan {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.ListPlansResponse res = new Orb.Orb.models.operations.ListPlansResponse() {{
+        Orb.Orb.models.operations.ListPlansResponse res = new Orb.Orb.models.operations.ListPlansResponse(contentType, httpRes.statusCode()) {{
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {

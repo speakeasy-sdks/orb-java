@@ -84,4 +84,9 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
         return this;
     }
     
+
+    public PostCustomersCustomerIdCreditsLedgerEntryRequestBody(@JsonProperty("amount") Double amount, @JsonProperty("entry_type") PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum entryType) {
+    this.amount = amount;
+this.entryType = entryType;
+  }
 }

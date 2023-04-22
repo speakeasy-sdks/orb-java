@@ -4,6 +4,7 @@
 
 package Orb.Orb.models.operations;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.net.http.HttpResponse;
 
 public class GetInvoiceInvoiceIdResponse {
@@ -38,4 +39,9 @@ public class GetInvoiceInvoiceIdResponse {
         return this;
     }
     
+
+    public GetInvoiceInvoiceIdResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
+    this.contentType = contentType;
+this.statusCode = statusCode;
+  }
 }

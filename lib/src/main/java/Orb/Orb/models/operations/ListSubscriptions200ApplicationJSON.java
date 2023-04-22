@@ -28,4 +28,6 @@ public class ListSubscriptions200ApplicationJSON {
         return this;
     }
     
+
+    public ListSubscriptions200ApplicationJSON(){}
 }

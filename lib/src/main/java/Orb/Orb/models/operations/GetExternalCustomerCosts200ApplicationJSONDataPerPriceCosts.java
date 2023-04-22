@@ -231,4 +231,8 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts {
         return this;
     }
     
+
+    public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts(@JsonProperty("price_groups") GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups[] priceGroups) {
+    this.priceGroups = priceGroups;
+  }
 }

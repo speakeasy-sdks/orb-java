@@ -21,4 +21,9 @@ public class ListCustomers200ApplicationJSONPaginationMetadata {
         return this;
     }
     
+
+    public ListCustomers200ApplicationJSONPaginationMetadata(@JsonProperty("has_more") Boolean hasMore, @JsonProperty("next_cursor") String nextCursor) {
+    this.hasMore = hasMore;
+this.nextCursor = nextCursor;
+  }
 }

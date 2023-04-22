@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PutEventsEventIdRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
@@ -24,4 +25,8 @@ public class PutEventsEventIdRequest {
         return this;
     }
     
+
+    public PutEventsEventIdRequest(@JsonProperty("event_id") String eventId) {
+    this.eventId = eventId;
+  }
 }

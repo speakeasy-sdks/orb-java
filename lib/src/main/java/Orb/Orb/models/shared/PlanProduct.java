@@ -35,4 +35,10 @@ public class PlanProduct {
         return this;
     }
     
+
+    public PlanProduct(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("id") String id, @JsonProperty("name") String name) {
+    this.createdAt = createdAt;
+this.id = id;
+this.name = name;
+  }
 }

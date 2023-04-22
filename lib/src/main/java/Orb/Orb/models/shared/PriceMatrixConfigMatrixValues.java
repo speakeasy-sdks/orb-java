@@ -25,4 +25,6 @@ public class PriceMatrixConfigMatrixValues {
         return this;
     }
     
+
+    public PriceMatrixConfigMatrixValues(){}
 }

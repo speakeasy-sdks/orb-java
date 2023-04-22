@@ -5,6 +5,7 @@
 package Orb.Orb.models.operations;
 
 import Orb.Orb.utils.SpeakeasyMetadata;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetPlansPlanIdRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=plan_id")
@@ -14,4 +15,8 @@ public class GetPlansPlanIdRequest {
         return this;
     }
     
+
+    public GetPlansPlanIdRequest(@JsonProperty("plan_id") String planId) {
+    this.planId = planId;
+  }
 }

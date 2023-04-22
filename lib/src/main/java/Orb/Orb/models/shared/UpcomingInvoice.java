@@ -87,4 +87,14 @@ public class UpcomingInvoice {
         return this;
     }
     
+
+    public UpcomingInvoice(@JsonProperty("amount_due") String amountDue, @JsonProperty("currency") String currency, @JsonProperty("customer") UpcomingInvoiceCustomer customer, @JsonProperty("line_items") UpcomingInvoiceLineItems[] lineItems, @JsonProperty("subscription") UpcomingInvoiceSubscription subscription, @JsonProperty("subtotal") String subtotal, @JsonProperty("target_date") LocalDate targetDate) {
+    this.amountDue = amountDue;
+this.currency = currency;
+this.customer = customer;
+this.lineItems = lineItems;
+this.subscription = subscription;
+this.subtotal = subtotal;
+this.targetDate = targetDate;
+  }
 }

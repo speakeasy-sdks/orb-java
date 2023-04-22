@@ -14,4 +14,8 @@ public class PostSubscriptionsRequestBodyPriceOverrides2UnitConfig {
         return this;
     }
     
+
+    public PostSubscriptionsRequestBodyPriceOverrides2UnitConfig(@JsonProperty("unit_amount") String unitAmount) {
+    this.unitAmount = unitAmount;
+  }
 }

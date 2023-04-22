@@ -28,4 +28,6 @@ public class PricePackageConfig {
         return this;
     }
     
+
+    public PricePackageConfig(){}
 }

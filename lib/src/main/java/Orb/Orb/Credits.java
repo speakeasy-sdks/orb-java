@@ -112,11 +112,9 @@ public class Credits {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryResponse res = new Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryResponse() {{
+        Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryResponse res = new Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryResponse(contentType, httpRes.statusCode()) {{
             creditLedgerEntry = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -156,11 +154,9 @@ public class Credits {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersCustomerIdCreditsResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdCreditsResponse() {{
+        Orb.Orb.models.operations.GetCustomersCustomerIdCreditsResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdCreditsResponse(contentType, httpRes.statusCode()) {{
             getCustomersCustomerIdCredits200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
@@ -230,11 +226,9 @@ public class Credits {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerResponse() {{
+        Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerResponse(contentType, httpRes.statusCode()) {{
             getCustomersCustomerIdCreditsLedger200ApplicationJSONObject = null;
         }};
-        res.statusCode = httpRes.statusCode();
-        res.contentType = contentType;
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
