@@ -136,17 +136,16 @@ public class Plan {
         return this;
     }
     
-
     public Plan(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("description") String description, @JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("id") String id, @JsonProperty("invoicing_currency") String invoicingCurrency, @JsonProperty("minimum") java.util.Map<String, Object> minimum, @JsonProperty("name") String name, @JsonProperty("prices") Price[] prices, @JsonProperty("product") PlanProduct product) {
-    this.createdAt = createdAt;
-this.currency = currency;
-this.description = description;
-this.discount = discount;
-this.id = id;
-this.invoicingCurrency = invoicingCurrency;
-this.minimum = minimum;
-this.name = name;
-this.prices = prices;
-this.product = product;
+        this.createdAt = createdAt;
+        this.currency = currency;
+        this.description = description;
+        this.discount = discount;
+        this.id = id;
+        this.invoicingCurrency = invoicingCurrency;
+        this.minimum = minimum;
+        this.name = name;
+        this.prices = prices;
+        this.product = product;
   }
 }

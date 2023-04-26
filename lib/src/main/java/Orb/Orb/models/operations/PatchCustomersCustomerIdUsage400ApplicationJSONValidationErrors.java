@@ -28,6 +28,5 @@ public class PatchCustomersCustomerIdUsage400ApplicationJSONValidationErrors {
         return this;
     }
     
-
     public PatchCustomersCustomerIdUsage400ApplicationJSONValidationErrors(){}
 }

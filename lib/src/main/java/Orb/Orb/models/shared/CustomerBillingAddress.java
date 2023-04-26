@@ -66,6 +66,5 @@ public class CustomerBillingAddress {
         return this;
     }
     
-
     public CustomerBillingAddress(){}
 }

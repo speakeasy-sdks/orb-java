@@ -21,9 +21,8 @@ public class CreditLedgerEntryCustomer {
         return this;
     }
     
-
     public CreditLedgerEntryCustomer(@JsonProperty("external_customer_id") String externalCustomerId, @JsonProperty("id") String id) {
-    this.externalCustomerId = externalCustomerId;
-this.id = id;
+        this.externalCustomerId = externalCustomerId;
+        this.id = id;
   }
 }

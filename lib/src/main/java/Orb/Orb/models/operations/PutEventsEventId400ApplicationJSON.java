@@ -53,6 +53,5 @@ public class PutEventsEventId400ApplicationJSON {
         return this;
     }
     
-
     public PutEventsEventId400ApplicationJSON(){}
 }

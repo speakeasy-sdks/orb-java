@@ -59,3 +59,9 @@ Based on:
 Based on:
 - OpenAPI Doc 1.0 https://prod.speakeasyapi.dev/v1/apis/Orb/version/v1.0/schema/download
 - Speakeasy CLI 1.22.1 (2.20.1) https://github.com/speakeasy-api/speakeasy
+
+## 2023-04-26 01:13:39
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://prod.speakeasyapi.dev/v1/apis/Orb/version/v1.0/schema/download
+- Speakeasy CLI 1.23.1 (2.21.1) https://github.com/speakeasy-api/speakeasy

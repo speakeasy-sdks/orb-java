@@ -28,6 +28,5 @@ public class PostIngest400ApplicationJSONValidationFailed {
         return this;
     }
     
-
     public PostIngest400ApplicationJSONValidationFailed(){}
 }

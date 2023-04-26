@@ -14,8 +14,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig(@JsonProperty("tiers") PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers[] tiers) {
-    this.tiers = tiers;
+        this.tiers = tiers;
   }
 }

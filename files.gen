@@ -285,4 +285,12 @@ lib/src/main/java/Orb/Orb/models/shared/PlanPhase.java
 lib/src/main/java/Orb/Orb/models/shared/SubscriptionStatusEnum.java
 lib/src/main/java/Orb/Orb/models/shared/Subscription.java
 lib/src/main/java/Orb/Orb/models/shared/Security.java
+docs/sdk/README.md
+docs/availability/README.md
+docs/credits/README.md
+docs/customer/README.md
+docs/event/README.md
+docs/invoice/README.md
+docs/plan/README.md
+docs/subscription/README.md
 USAGE.md

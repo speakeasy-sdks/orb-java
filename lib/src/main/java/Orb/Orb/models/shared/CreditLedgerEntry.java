@@ -129,18 +129,17 @@ public class CreditLedgerEntry {
         return this;
     }
     
-
     public CreditLedgerEntry(@JsonProperty("amount") Double amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatusEnum entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryTypeEnum entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("starting_balance") Double startingBalance) {
-    this.amount = amount;
-this.createdAt = createdAt;
-this.creditBlock = creditBlock;
-this.customer = customer;
-this.description = description;
-this.endingBalance = endingBalance;
-this.entryStatus = entryStatus;
-this.entryType = entryType;
-this.id = id;
-this.ledgerSequenceNumber = ledgerSequenceNumber;
-this.startingBalance = startingBalance;
+        this.amount = amount;
+        this.createdAt = createdAt;
+        this.creditBlock = creditBlock;
+        this.customer = customer;
+        this.description = description;
+        this.endingBalance = endingBalance;
+        this.entryStatus = entryStatus;
+        this.entryType = entryType;
+        this.id = id;
+        this.ledgerSequenceNumber = ledgerSequenceNumber;
+        this.startingBalance = startingBalance;
   }
 }

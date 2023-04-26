@@ -22,8 +22,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequest {
         return this;
     }
     
-
     public PostCustomersCustomerIdCreditsLedgerEntryRequest(@JsonProperty("customer_id") String customerId) {
-    this.customerId = customerId;
+        this.customerId = customerId;
   }
 }

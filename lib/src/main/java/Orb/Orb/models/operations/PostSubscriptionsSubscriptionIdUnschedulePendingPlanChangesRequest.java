@@ -15,8 +15,7 @@ public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesRequest 
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesRequest(@JsonProperty("subscription_id") String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+        this.subscriptionId = subscriptionId;
   }
 }

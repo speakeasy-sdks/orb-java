@@ -74,10 +74,9 @@ public class PlanPhase {
         return this;
     }
     
-
     public PlanPhase(@JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("duration_unit") PlanPhaseDurationUnitEnum durationUnit, @JsonProperty("minimum") java.util.Map<String, Object> minimum) {
-    this.discount = discount;
-this.durationUnit = durationUnit;
-this.minimum = minimum;
+        this.discount = discount;
+        this.durationUnit = durationUnit;
+        this.minimum = minimum;
   }
 }

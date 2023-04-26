@@ -55,10 +55,9 @@ public class PostSubscriptionsRequestBodyPriceOverrides1 {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides1(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides1ModelTypeEnum modelType, @JsonProperty("tiered_config") PostSubscriptionsRequestBodyPriceOverrides1TieredConfig tieredConfig) {
-    this.id = id;
-this.modelType = modelType;
-this.tieredConfig = tieredConfig;
+        this.id = id;
+        this.modelType = modelType;
+        this.tieredConfig = tieredConfig;
   }
 }

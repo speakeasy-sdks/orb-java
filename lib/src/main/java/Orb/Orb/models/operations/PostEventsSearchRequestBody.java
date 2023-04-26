@@ -31,6 +31,5 @@ public class PostEventsSearchRequestBody {
         return this;
     }
     
-
     public PostEventsSearchRequestBody(){}
 }

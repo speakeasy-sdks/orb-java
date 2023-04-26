@@ -14,8 +14,7 @@ public class PatchCustomersCustomerIdUsageRequestBody {
         return this;
     }
     
-
     public PatchCustomersCustomerIdUsageRequestBody(@JsonProperty("events") PatchCustomersCustomerIdUsageRequestBodyEvents[] events) {
-    this.events = events;
+        this.events = events;
   }
 }

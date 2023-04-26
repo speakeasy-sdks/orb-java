@@ -14,8 +14,7 @@ public class PatchExternalCustomersCustomerIdUsageRequestBody {
         return this;
     }
     
-
     public PatchExternalCustomersCustomerIdUsageRequestBody(@JsonProperty("events") PatchExternalCustomersCustomerIdUsageRequestBodyEvents[] events) {
-    this.events = events;
+        this.events = events;
   }
 }

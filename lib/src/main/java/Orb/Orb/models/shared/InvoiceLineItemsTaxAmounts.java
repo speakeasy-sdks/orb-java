@@ -37,10 +37,9 @@ public class InvoiceLineItemsTaxAmounts {
         return this;
     }
     
-
     public InvoiceLineItemsTaxAmounts(@JsonProperty("amount") String amount, @JsonProperty("tax_rate_description") String taxRateDescription, @JsonProperty("tax_rate_percentage") String taxRatePercentage) {
-    this.amount = amount;
-this.taxRateDescription = taxRateDescription;
-this.taxRatePercentage = taxRatePercentage;
+        this.amount = amount;
+        this.taxRateDescription = taxRateDescription;
+        this.taxRatePercentage = taxRatePercentage;
   }
 }

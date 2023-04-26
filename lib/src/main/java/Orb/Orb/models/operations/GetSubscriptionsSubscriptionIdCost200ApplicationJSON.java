@@ -24,9 +24,8 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSON {
         return this;
     }
     
-
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSON(@JsonProperty("data") GetSubscriptionsSubscriptionIdCost200ApplicationJSONData[] data, @JsonProperty("pagination_metadata") java.util.Map<String, Object> paginationMetadata) {
-    this.data = data;
-this.paginationMetadata = paginationMetadata;
+        this.data = data;
+        this.paginationMetadata = paginationMetadata;
   }
 }

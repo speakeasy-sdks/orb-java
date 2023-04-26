@@ -39,6 +39,5 @@ public class PostSubscriptionsRequestBodyPhaseOverrides {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPhaseOverrides(){}
 }

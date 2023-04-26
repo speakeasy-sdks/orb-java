@@ -33,6 +33,5 @@ public class PriceBulkBpsConfigTiers {
         return this;
     }
     
-
     public PriceBulkBpsConfigTiers(){}
 }

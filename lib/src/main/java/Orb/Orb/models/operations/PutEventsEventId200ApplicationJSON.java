@@ -23,6 +23,5 @@ public class PutEventsEventId200ApplicationJSON {
         return this;
     }
     
-
     public PutEventsEventId200ApplicationJSON(){}
 }

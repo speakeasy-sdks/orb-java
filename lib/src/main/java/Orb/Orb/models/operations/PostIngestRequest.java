@@ -24,6 +24,5 @@ public class PostIngestRequest {
         return this;
     }
     
-
     public PostIngestRequest(){}
 }

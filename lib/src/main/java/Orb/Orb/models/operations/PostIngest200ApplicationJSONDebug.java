@@ -28,6 +28,5 @@ public class PostIngest200ApplicationJSONDebug {
         return this;
     }
     
-
     public PostIngest200ApplicationJSONDebug(){}
 }

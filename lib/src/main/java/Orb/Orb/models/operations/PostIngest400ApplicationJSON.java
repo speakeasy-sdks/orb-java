@@ -33,8 +33,7 @@ public class PostIngest400ApplicationJSON {
         return this;
     }
     
-
     public PostIngest400ApplicationJSON(@JsonProperty("validation_failed") PostIngest400ApplicationJSONValidationFailed[] validationFailed) {
-    this.validationFailed = validationFailed;
+        this.validationFailed = validationFailed;
   }
 }

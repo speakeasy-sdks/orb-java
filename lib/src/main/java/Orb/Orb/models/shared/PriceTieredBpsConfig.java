@@ -20,6 +20,5 @@ public class PriceTieredBpsConfig {
         return this;
     }
     
-
     public PriceTieredBpsConfig(){}
 }

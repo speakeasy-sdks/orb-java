@@ -55,10 +55,9 @@ public class GetCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups {
         return this;
     }
     
-
     public GetCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups(@JsonProperty("grouping_key") String groupingKey, @JsonProperty("grouping_value") String groupingValue, @JsonProperty("total") String total) {
-    this.groupingKey = groupingKey;
-this.groupingValue = groupingValue;
-this.total = total;
+        this.groupingKey = groupingKey;
+        this.groupingValue = groupingValue;
+        this.total = total;
   }
 }

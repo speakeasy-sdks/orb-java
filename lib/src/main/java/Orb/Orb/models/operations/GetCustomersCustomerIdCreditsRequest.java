@@ -18,8 +18,7 @@ public class GetCustomersCustomerIdCreditsRequest {
         return this;
     }
     
-
     public GetCustomersCustomerIdCreditsRequest(@JsonProperty("customer_id") String customerId) {
-    this.customerId = customerId;
+        this.customerId = customerId;
   }
 }

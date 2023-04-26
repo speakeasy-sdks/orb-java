@@ -22,8 +22,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequest {
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequest(@JsonProperty("subscription_id") String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+        this.subscriptionId = subscriptionId;
   }
 }

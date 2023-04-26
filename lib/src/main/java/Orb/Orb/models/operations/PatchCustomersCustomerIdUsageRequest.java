@@ -43,10 +43,9 @@ public class PatchCustomersCustomerIdUsageRequest {
         return this;
     }
     
-
     public PatchCustomersCustomerIdUsageRequest(@JsonProperty("customer_id") String customerId, @JsonProperty("timeframe_end") OffsetDateTime timeframeEnd, @JsonProperty("timeframe_start") OffsetDateTime timeframeStart) {
-    this.customerId = customerId;
-this.timeframeEnd = timeframeEnd;
-this.timeframeStart = timeframeStart;
+        this.customerId = customerId;
+        this.timeframeEnd = timeframeEnd;
+        this.timeframeStart = timeframeStart;
   }
 }

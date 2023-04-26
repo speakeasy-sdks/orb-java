@@ -57,12 +57,11 @@ public class GetCustomerCosts200ApplicationJSONData {
         return this;
     }
     
-
     public GetCustomerCosts200ApplicationJSONData(@JsonProperty("per_price_costs") GetCustomerCosts200ApplicationJSONDataPerPriceCosts[] perPriceCosts, @JsonProperty("subtotal") String subtotal, @JsonProperty("timeframe_end") OffsetDateTime timeframeEnd, @JsonProperty("timeframe_start") OffsetDateTime timeframeStart, @JsonProperty("total") String total) {
-    this.perPriceCosts = perPriceCosts;
-this.subtotal = subtotal;
-this.timeframeEnd = timeframeEnd;
-this.timeframeStart = timeframeStart;
-this.total = total;
+        this.perPriceCosts = perPriceCosts;
+        this.subtotal = subtotal;
+        this.timeframeEnd = timeframeEnd;
+        this.timeframeStart = timeframeStart;
+        this.total = total;
   }
 }

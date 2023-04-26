@@ -15,8 +15,7 @@ public class GetPlansPlanIdRequest {
         return this;
     }
     
-
     public GetPlansPlanIdRequest(@JsonProperty("plan_id") String planId) {
-    this.planId = planId;
+        this.planId = planId;
   }
 }

@@ -25,8 +25,7 @@ public class PutCustomersCustomerIdRequest {
         return this;
     }
     
-
     public PutCustomersCustomerIdRequest(@JsonProperty("customer_id") String customerId) {
-    this.customerId = customerId;
+        this.customerId = customerId;
   }
 }

@@ -14,8 +14,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides3BulkConfig {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides3BulkConfig(@JsonProperty("tiers") PostSubscriptionsRequestBodyPriceOverrides3BulkConfigTiers[] tiers) {
-    this.tiers = tiers;
+        this.tiers = tiers;
   }
 }

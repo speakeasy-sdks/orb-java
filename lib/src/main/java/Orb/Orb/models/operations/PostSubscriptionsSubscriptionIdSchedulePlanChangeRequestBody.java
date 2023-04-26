@@ -88,8 +88,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody(@JsonProperty("change_option") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum changeOption) {
-    this.changeOption = changeOption;
+        this.changeOption = changeOption;
   }
 }

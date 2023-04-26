@@ -22,8 +22,7 @@ public class GetPlansExternalPlanIdRequest {
         return this;
     }
     
-
     public GetPlansExternalPlanIdRequest(@JsonProperty("external_plan_id") String externalPlanId) {
-    this.externalPlanId = externalPlanId;
+        this.externalPlanId = externalPlanId;
   }
 }

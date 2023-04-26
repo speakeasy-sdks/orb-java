@@ -17,6 +17,5 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig(){}
 }

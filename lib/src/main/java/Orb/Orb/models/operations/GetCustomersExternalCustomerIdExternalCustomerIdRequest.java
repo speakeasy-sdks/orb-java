@@ -15,8 +15,7 @@ public class GetCustomersExternalCustomerIdExternalCustomerIdRequest {
         return this;
     }
     
-
     public GetCustomersExternalCustomerIdExternalCustomerIdRequest(@JsonProperty("external_customer_id") String externalCustomerId) {
-    this.externalCustomerId = externalCustomerId;
+        this.externalCustomerId = externalCustomerId;
   }
 }

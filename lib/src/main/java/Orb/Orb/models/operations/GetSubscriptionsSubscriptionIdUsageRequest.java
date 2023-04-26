@@ -66,8 +66,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
         return this;
     }
     
-
     public GetSubscriptionsSubscriptionIdUsageRequest(@JsonProperty("subscription_id") String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+        this.subscriptionId = subscriptionId;
   }
 }

@@ -28,6 +28,5 @@ public class GetSubscriptionsSubscriptionIdSchedule200ApplicationJSON {
         return this;
     }
     
-
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSON(){}
 }

@@ -65,11 +65,10 @@ public class UpcomingInvoiceLineItemsSubLineItems {
         return this;
     }
     
-
     public UpcomingInvoiceLineItemsSubLineItems(@JsonProperty("amount") String amount, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("type") UpcomingInvoiceLineItemsSubLineItemsTypeEnum type) {
-    this.amount = amount;
-this.name = name;
-this.quantity = quantity;
-this.type = type;
+        this.amount = amount;
+        this.name = name;
+        this.quantity = quantity;
+        this.type = type;
   }
 }

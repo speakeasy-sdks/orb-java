@@ -45,9 +45,8 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum modelType) {
-    this.id = id;
-this.modelType = modelType;
+        this.id = id;
+        this.modelType = modelType;
   }
 }

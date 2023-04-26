@@ -21,9 +21,8 @@ public class PostSubscriptionsRequestBodyPriceOverrides4PackageConfig {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides4PackageConfig(@JsonProperty("package_amount") String packageAmount, @JsonProperty("package_size") Double packageSize) {
-    this.packageAmount = packageAmount;
-this.packageSize = packageSize;
+        this.packageAmount = packageAmount;
+        this.packageSize = packageSize;
   }
 }

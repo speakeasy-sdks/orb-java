@@ -35,11 +35,10 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(@JsonProperty("bps") Double bps, @JsonProperty("maximum_amount") String maximumAmount, @JsonProperty("minimum_amount") String minimumAmount, @JsonProperty("per_unit_maximum") String perUnitMaximum) {
-    this.bps = bps;
-this.maximumAmount = maximumAmount;
-this.minimumAmount = minimumAmount;
-this.perUnitMaximum = perUnitMaximum;
+        this.bps = bps;
+        this.maximumAmount = maximumAmount;
+        this.minimumAmount = minimumAmount;
+        this.perUnitMaximum = perUnitMaximum;
   }
 }

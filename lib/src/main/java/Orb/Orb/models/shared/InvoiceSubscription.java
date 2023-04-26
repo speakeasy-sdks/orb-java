@@ -17,8 +17,7 @@ public class InvoiceSubscription {
         return this;
     }
     
-
     public InvoiceSubscription(@JsonProperty("id") String id) {
-    this.id = id;
+        this.id = id;
   }
 }

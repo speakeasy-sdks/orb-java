@@ -24,8 +24,7 @@ public class PlanTrialConfig {
         return this;
     }
     
-
     public PlanTrialConfig(@JsonProperty("trial_period_unit") PlanTrialConfigTrialPeriodUnitEnum trialPeriodUnit) {
-    this.trialPeriodUnit = trialPeriodUnit;
+        this.trialPeriodUnit = trialPeriodUnit;
   }
 }

@@ -21,9 +21,8 @@ public class PostSubscriptionsRequestBodyPriceOverrides5BpsConfig {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides5BpsConfig(@JsonProperty("bps") Double bps, @JsonProperty("per_unit_maximum") String perUnitMaximum) {
-    this.bps = bps;
-this.perUnitMaximum = perUnitMaximum;
+        this.bps = bps;
+        this.perUnitMaximum = perUnitMaximum;
   }
 }

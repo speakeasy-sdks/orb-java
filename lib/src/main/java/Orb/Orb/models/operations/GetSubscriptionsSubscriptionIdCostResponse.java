@@ -39,9 +39,8 @@ public class GetSubscriptionsSubscriptionIdCostResponse {
         return this;
     }
     
-
     public GetSubscriptionsSubscriptionIdCostResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
-    this.contentType = contentType;
-this.statusCode = statusCode;
+        this.contentType = contentType;
+        this.statusCode = statusCode;
   }
 }

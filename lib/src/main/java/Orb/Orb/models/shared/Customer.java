@@ -142,16 +142,15 @@ public class Customer {
         return this;
     }
     
-
     public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProviderEnum paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("timezone") String timezone) {
-    this.balance = balance;
-this.createdAt = createdAt;
-this.currency = currency;
-this.email = email;
-this.id = id;
-this.name = name;
-this.paymentProvider = paymentProvider;
-this.paymentProviderId = paymentProviderId;
-this.timezone = timezone;
+        this.balance = balance;
+        this.createdAt = createdAt;
+        this.currency = currency;
+        this.email = email;
+        this.id = id;
+        this.name = name;
+        this.paymentProvider = paymentProvider;
+        this.paymentProviderId = paymentProviderId;
+        this.timezone = timezone;
   }
 }

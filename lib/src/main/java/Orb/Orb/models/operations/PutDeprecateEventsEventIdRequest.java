@@ -18,8 +18,7 @@ public class PutDeprecateEventsEventIdRequest {
         return this;
     }
     
-
     public PutDeprecateEventsEventIdRequest(@JsonProperty("event_id") String eventId) {
-    this.eventId = eventId;
+        this.eventId = eventId;
   }
 }

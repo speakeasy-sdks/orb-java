@@ -24,9 +24,8 @@ public class UpcomingInvoiceCustomer {
         return this;
     }
     
-
     public UpcomingInvoiceCustomer(@JsonProperty("external_customer_id") String externalCustomerId, @JsonProperty("id") String id) {
-    this.externalCustomerId = externalCustomerId;
-this.id = id;
+        this.externalCustomerId = externalCustomerId;
+        this.id = id;
   }
 }

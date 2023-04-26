@@ -20,8 +20,7 @@ public class CustomerBalanceTransactionInvoice {
         return this;
     }
     
-
     public CustomerBalanceTransactionInvoice(@JsonProperty("id") String id) {
-    this.id = id;
+        this.id = id;
   }
 }

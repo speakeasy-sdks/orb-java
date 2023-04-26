@@ -15,8 +15,7 @@ public class GetInvoicesUpcomingRequest {
         return this;
     }
     
-
     public GetInvoicesUpcomingRequest(@JsonProperty("subscription_id") String subscriptionId) {
-    this.subscriptionId = subscriptionId;
+        this.subscriptionId = subscriptionId;
   }
 }

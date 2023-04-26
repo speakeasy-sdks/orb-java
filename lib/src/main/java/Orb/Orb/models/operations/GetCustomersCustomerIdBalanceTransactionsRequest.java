@@ -15,8 +15,7 @@ public class GetCustomersCustomerIdBalanceTransactionsRequest {
         return this;
     }
     
-
     public GetCustomersCustomerIdBalanceTransactionsRequest(@JsonProperty("customer_id") String customerId) {
-    this.customerId = customerId;
+        this.customerId = customerId;
   }
 }

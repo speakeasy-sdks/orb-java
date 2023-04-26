@@ -17,8 +17,7 @@ public class GetPing200ApplicationJSON {
         return this;
     }
     
-
     public GetPing200ApplicationJSON(@JsonProperty("response") String response) {
-    this.response = response;
+        this.response = response;
   }
 }

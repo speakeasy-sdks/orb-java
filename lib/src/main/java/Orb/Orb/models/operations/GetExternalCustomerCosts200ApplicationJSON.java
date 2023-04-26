@@ -24,9 +24,8 @@ public class GetExternalCustomerCosts200ApplicationJSON {
         return this;
     }
     
-
     public GetExternalCustomerCosts200ApplicationJSON(@JsonProperty("data") GetExternalCustomerCosts200ApplicationJSONData[] data, @JsonProperty("pagination_metadata") java.util.Map<String, Object> paginationMetadata) {
-    this.data = data;
-this.paginationMetadata = paginationMetadata;
+        this.data = data;
+        this.paginationMetadata = paginationMetadata;
   }
 }

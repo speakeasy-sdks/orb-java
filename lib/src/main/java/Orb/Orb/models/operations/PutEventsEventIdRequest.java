@@ -25,8 +25,7 @@ public class PutEventsEventIdRequest {
         return this;
     }
     
-
     public PutEventsEventIdRequest(@JsonProperty("event_id") String eventId) {
-    this.eventId = eventId;
+        this.eventId = eventId;
   }
 }

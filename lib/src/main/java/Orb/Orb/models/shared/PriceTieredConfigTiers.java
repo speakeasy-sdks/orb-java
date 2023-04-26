@@ -33,6 +33,5 @@ public class PriceTieredConfigTiers {
         return this;
     }
     
-
     public PriceTieredConfigTiers(){}
 }

@@ -15,8 +15,7 @@ public class GetInvoiceInvoiceIdRequest {
         return this;
     }
     
-
     public GetInvoiceInvoiceIdRequest(@JsonProperty("invoice_id") String invoiceId) {
-    this.invoiceId = invoiceId;
+        this.invoiceId = invoiceId;
   }
 }

@@ -24,8 +24,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata {
         return this;
     }
     
-
     public GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata(@JsonProperty("has_more") Boolean hasMore) {
-    this.hasMore = hasMore;
+        this.hasMore = hasMore;
   }
 }

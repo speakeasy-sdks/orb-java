@@ -17,6 +17,5 @@ public class PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig(){}
 }

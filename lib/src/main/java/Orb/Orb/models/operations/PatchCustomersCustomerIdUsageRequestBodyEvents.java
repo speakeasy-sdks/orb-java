@@ -37,10 +37,9 @@ public class PatchCustomersCustomerIdUsageRequestBodyEvents {
         return this;
     }
     
-
     public PatchCustomersCustomerIdUsageRequestBodyEvents(@JsonProperty("event_name") String eventName, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") String timestamp) {
-    this.eventName = eventName;
-this.properties = properties;
-this.timestamp = timestamp;
+        this.eventName = eventName;
+        this.properties = properties;
+        this.timestamp = timestamp;
   }
 }

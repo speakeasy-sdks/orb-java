@@ -66,6 +66,5 @@ public class PostCustomersRequestBodyBillingAddress {
         return this;
     }
     
-
     public PostCustomersRequestBodyBillingAddress(){}
 }

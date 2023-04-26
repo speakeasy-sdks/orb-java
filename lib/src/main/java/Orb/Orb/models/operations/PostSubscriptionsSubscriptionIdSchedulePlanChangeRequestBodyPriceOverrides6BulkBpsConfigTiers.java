@@ -28,10 +28,9 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
-
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfigTiers(@JsonProperty("bps") Double bps, @JsonProperty("maximum_amount") String maximumAmount, @JsonProperty("per_unit_maximum") String perUnitMaximum) {
-    this.bps = bps;
-this.maximumAmount = maximumAmount;
-this.perUnitMaximum = perUnitMaximum;
+        this.bps = bps;
+        this.maximumAmount = maximumAmount;
+        this.perUnitMaximum = perUnitMaximum;
   }
 }

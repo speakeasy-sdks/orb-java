@@ -20,6 +20,5 @@ public class PriceBulkBpsConfig {
         return this;
     }
     
-
     public PriceBulkBpsConfig(){}
 }

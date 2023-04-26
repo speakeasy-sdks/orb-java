@@ -28,6 +28,5 @@ public class PostEventsSearch200ApplicationJSON {
         return this;
     }
     
-
     public PostEventsSearch200ApplicationJSON(){}
 }

@@ -24,9 +24,8 @@ public class ListCustomers200ApplicationJSON {
         return this;
     }
     
-
     public ListCustomers200ApplicationJSON(@JsonProperty("data") Orb.Orb.models.shared.Customer[] data, @JsonProperty("pagination_metadata") ListCustomers200ApplicationJSONPaginationMetadata paginationMetadata) {
-    this.data = data;
-this.paginationMetadata = paginationMetadata;
+        this.data = data;
+        this.paginationMetadata = paginationMetadata;
   }
 }

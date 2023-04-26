@@ -17,6 +17,5 @@ public class PriceBillableMetric {
         return this;
     }
     
-
     public PriceBillableMetric(){}
 }

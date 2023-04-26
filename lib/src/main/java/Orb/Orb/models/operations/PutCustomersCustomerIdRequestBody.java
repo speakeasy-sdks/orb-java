@@ -77,6 +77,5 @@ public class PutCustomersCustomerIdRequestBody {
         return this;
     }
     
-
     public PutCustomersCustomerIdRequestBody(){}
 }

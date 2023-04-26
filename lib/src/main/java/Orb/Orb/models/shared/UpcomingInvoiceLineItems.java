@@ -93,15 +93,14 @@ public class UpcomingInvoiceLineItems {
         return this;
     }
     
-
     public UpcomingInvoiceLineItems(@JsonProperty("amount") String amount, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("grouping") UpcomingInvoiceLineItemsGrouping grouping, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("sub_line_items") UpcomingInvoiceLineItemsSubLineItems[] subLineItems, @JsonProperty("subtotal") String subtotal) {
-    this.amount = amount;
-this.endDate = endDate;
-this.grouping = grouping;
-this.name = name;
-this.quantity = quantity;
-this.startDate = startDate;
-this.subLineItems = subLineItems;
-this.subtotal = subtotal;
+        this.amount = amount;
+        this.endDate = endDate;
+        this.grouping = grouping;
+        this.name = name;
+        this.quantity = quantity;
+        this.startDate = startDate;
+        this.subLineItems = subLineItems;
+        this.subtotal = subtotal;
   }
 }

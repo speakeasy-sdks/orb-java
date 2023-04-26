@@ -45,8 +45,7 @@ public class GetCustomersCustomerIdCreditsLedgerRequest {
         return this;
     }
     
-
     public GetCustomersCustomerIdCreditsLedgerRequest(@JsonProperty("customer_id") String customerId) {
-    this.customerId = customerId;
+        this.customerId = customerId;
   }
 }

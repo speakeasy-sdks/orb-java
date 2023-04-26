@@ -28,6 +28,5 @@ public class ListInvoices200ApplicationJSON {
         return this;
     }
     
-
     public ListInvoices200ApplicationJSON(){}
 }

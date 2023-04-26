@@ -133,6 +133,5 @@ public class PostSubscriptionsRequestBody {
         return this;
     }
     
-
     public PostSubscriptionsRequestBody(){}
 }

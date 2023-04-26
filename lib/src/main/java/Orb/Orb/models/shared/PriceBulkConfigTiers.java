@@ -25,6 +25,5 @@ public class PriceBulkConfigTiers {
         return this;
     }
     
-
     public PriceBulkConfigTiers(){}
 }

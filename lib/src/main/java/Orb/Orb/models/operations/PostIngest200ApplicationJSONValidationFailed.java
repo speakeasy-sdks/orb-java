@@ -31,6 +31,5 @@ public class PostIngest200ApplicationJSONValidationFailed {
         return this;
     }
     
-
     public PostIngest200ApplicationJSONValidationFailed(){}
 }

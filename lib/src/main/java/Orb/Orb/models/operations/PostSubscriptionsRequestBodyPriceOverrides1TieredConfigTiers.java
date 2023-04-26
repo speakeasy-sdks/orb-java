@@ -33,6 +33,5 @@ public class PostSubscriptionsRequestBodyPriceOverrides1TieredConfigTiers {
         return this;
     }
     
-
     public PostSubscriptionsRequestBodyPriceOverrides1TieredConfigTiers(){}
 }
