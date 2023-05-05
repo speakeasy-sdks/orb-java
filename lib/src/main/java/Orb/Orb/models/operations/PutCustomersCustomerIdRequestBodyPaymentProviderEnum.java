@@ -16,7 +16,7 @@ public enum PutCustomersCustomerIdRequestBodyPaymentProviderEnum {
     QUICKBOOKS("quickbooks"),
     BILL_COM("bill.com"),
     STRIPE_CHARGE("stripe_charge"),
-    NULL_("null");
+    LESS_THAN_NIL_GREATER_THAN("<nil>");
 
     @JsonValue
     public final String value;

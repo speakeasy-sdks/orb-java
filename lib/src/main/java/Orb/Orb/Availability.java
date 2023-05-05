@@ -32,14 +32,6 @@ public class Availability {
 		this._genVersion = genVersion;
 	}
 
-    /**
-     * Check availability
-     * This endpoint allows you to test your connection to the Orb API and check the validity of your API key, passed in the `Authorization` header. This is particularly useful for checking that your environment is set up properly, and is a great choice for connectors and integrations.
-     * 
-     * This API does not have any side-effects or return any Orb resources.
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public Orb.Orb.models.operations.GetPingResponse ping() throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/ping");

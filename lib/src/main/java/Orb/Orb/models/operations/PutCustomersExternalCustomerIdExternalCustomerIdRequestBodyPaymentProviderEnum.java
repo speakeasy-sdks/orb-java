@@ -16,7 +16,7 @@ public enum PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentPr
     STRIPE_CHARGE("stripe_charge"),
     STRIPE_INVOICE("stripe_invoice"),
     BILL_COM("bill.com"),
-    NULL_("null");
+    LESS_THAN_NIL_GREATER_THAN("<nil>");
 
     @JsonValue
     public final String value;

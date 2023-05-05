@@ -6,11 +6,11 @@ Actions related to credit management.
 
 ### Available Operations
 
-* [create](#create) - Add credit ledger entry
+* [get](#get) - Add credit ledger entry
 * [getCredits](#getcredits) - Retrieve credit balance
 * [getCreditsLedger](#getcreditsledger) - View credits ledger
 
-## create
+## get
 
 This endpoint allows you to create a new ledger entry for a specified customer's balance. This can be used to increment balance, deduct credits, and change the expiry date of existing credits.
 
@@ -99,7 +99,7 @@ public class Application {
                 }};;
             }};            
 
-            PostCustomersCustomerIdCreditsLedgerEntryResponse res = sdk.credits.create(req);
+            PostCustomersCustomerIdCreditsLedgerEntryResponse res = sdk.credits.get(req);
 
             if (res.creditLedgerEntry != null) {
                 // handle response

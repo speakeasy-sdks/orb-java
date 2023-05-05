@@ -35,13 +35,6 @@ public class Invoice {
 		this._genVersion = genVersion;
 	}
 
-    /**
-     * Retrieve an Invoice
-     * This endpoint is used to fetch an [`Invoice`](../reference/Orb-API.json/components/schemas/Invoice) given an identifier.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse get(Orb.Orb.models.operations.GetInvoiceInvoiceIdRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetInvoiceInvoiceIdRequest.class, baseUrl, "/invoices/{invoice_id}", request, null);
@@ -73,13 +66,6 @@ public class Invoice {
         return res;
     }
 
-    /**
-     * Retrieve upcoming invoice
-     * This endpoint can be used to fetch the [`UpcomingInvoice`](../reference/Orb-API.json/components/schemas/Upcoming%20Invoice) for the current billing period given a subscription.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public Orb.Orb.models.operations.GetInvoicesUpcomingResponse getUpcoming(Orb.Orb.models.operations.GetInvoicesUpcomingRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/invoices/upcoming");
@@ -117,15 +103,6 @@ public class Invoice {
         return res;
     }
 
-    /**
-     * List invoices
-     * This endpoint returns a list of all [`Invoice`](../reference/Orb-API.json/components/schemas/Invoice)s for an account in a list format. 
-     * 
-     * The list of invoices is ordered starting from the most recently issued invoice date. The response also includes `pagination_metadata`, which lets the caller retrieve the next page of results if they exist.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
     public Orb.Orb.models.operations.ListInvoicesResponse list(Orb.Orb.models.operations.ListInvoicesRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/invoices");

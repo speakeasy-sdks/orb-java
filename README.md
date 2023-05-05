@@ -17,7 +17,7 @@
 ### Gradle
 
 ```groovy
-implementation 'Orb.Orb:Orb:0.8.0'
+implementation 'Orb.Orb:Orb:0.9.0'
 ```
 <!-- End SDK Installation -->
 
@@ -90,7 +90,7 @@ public class Application {
 
 ### [credits](docs/credits/README.md)
 
-* [create](docs/credits/README.md#create) - Add credit ledger entry
+* [get](docs/credits/README.md#get) - Add credit ledger entry
 * [getCredits](docs/credits/README.md#getcredits) - Retrieve credit balance
 * [getCreditsLedger](docs/credits/README.md#getcreditsledger) - View credits ledger
 
