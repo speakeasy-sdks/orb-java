@@ -17,6 +17,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONData {
      */
     @JsonProperty("balance")
     public Double balance;
+
     public GetCustomersCustomerIdCredits200ApplicationJSONData withBalance(Double balance) {
         this.balance = balance;
         return this;
@@ -29,6 +30,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONData {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("expiry_date")
     public OffsetDateTime expiryDate;
+
     public GetCustomersCustomerIdCredits200ApplicationJSONData withExpiryDate(OffsetDateTime expiryDate) {
         this.expiryDate = expiryDate;
         return this;
@@ -36,6 +38,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONData {
     
     @JsonProperty("id")
     public String id;
+
     public GetCustomersCustomerIdCredits200ApplicationJSONData withId(String id) {
         this.id = id;
         return this;
@@ -46,6 +49,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONData {
      */
     @JsonProperty("per_unit_cost_basis")
     public String perUnitCostBasis;
+
     public GetCustomersCustomerIdCredits200ApplicationJSONData withPerUnitCostBasis(String perUnitCostBasis) {
         this.perUnitCostBasis = perUnitCostBasis;
         return this;

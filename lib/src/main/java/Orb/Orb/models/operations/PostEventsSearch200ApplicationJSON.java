@@ -15,6 +15,7 @@ public class PostEventsSearch200ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("data")
     public Orb.Orb.models.shared.Event[] data;
+
     public PostEventsSearch200ApplicationJSON withData(Orb.Orb.models.shared.Event[] data) {
         this.data = data;
         return this;
@@ -23,6 +24,7 @@ public class PostEventsSearch200ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("pagination_metadata")
     public java.util.Map<String, Object> paginationMetadata;
+
     public PostEventsSearch200ApplicationJSON withPaginationMetadata(java.util.Map<String, Object> paginationMetadata) {
         this.paginationMetadata = paginationMetadata;
         return this;

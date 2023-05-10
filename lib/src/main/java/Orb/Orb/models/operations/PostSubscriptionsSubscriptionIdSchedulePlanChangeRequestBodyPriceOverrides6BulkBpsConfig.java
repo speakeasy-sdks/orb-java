@@ -12,6 +12,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiers")
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfigTiers[] tiers;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfig withTiers(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfigTiers[] tiers) {
         this.tiers = tiers;
         return this;

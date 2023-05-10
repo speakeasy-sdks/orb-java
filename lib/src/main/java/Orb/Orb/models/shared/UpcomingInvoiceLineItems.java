@@ -17,6 +17,7 @@ public class UpcomingInvoiceLineItems {
      */
     @JsonProperty("amount")
     public String amount;
+
     public UpcomingInvoiceLineItems withAmount(String amount) {
         this.amount = amount;
         return this;
@@ -29,6 +30,7 @@ public class UpcomingInvoiceLineItems {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("end_date")
     public OffsetDateTime endDate;
+
     public UpcomingInvoiceLineItems withEndDate(OffsetDateTime endDate) {
         this.endDate = endDate;
         return this;
@@ -39,6 +41,7 @@ public class UpcomingInvoiceLineItems {
      */
     @JsonProperty("grouping")
     public UpcomingInvoiceLineItemsGrouping grouping;
+
     public UpcomingInvoiceLineItems withGrouping(UpcomingInvoiceLineItemsGrouping grouping) {
         this.grouping = grouping;
         return this;
@@ -49,6 +52,7 @@ public class UpcomingInvoiceLineItems {
      */
     @JsonProperty("name")
     public String name;
+
     public UpcomingInvoiceLineItems withName(String name) {
         this.name = name;
         return this;
@@ -56,6 +60,7 @@ public class UpcomingInvoiceLineItems {
     
     @JsonProperty("quantity")
     public Double quantity;
+
     public UpcomingInvoiceLineItems withQuantity(Double quantity) {
         this.quantity = quantity;
         return this;
@@ -68,6 +73,7 @@ public class UpcomingInvoiceLineItems {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("start_date")
     public OffsetDateTime startDate;
+
     public UpcomingInvoiceLineItems withStartDate(OffsetDateTime startDate) {
         this.startDate = startDate;
         return this;
@@ -78,6 +84,7 @@ public class UpcomingInvoiceLineItems {
      */
     @JsonProperty("sub_line_items")
     public UpcomingInvoiceLineItemsSubLineItems[] subLineItems;
+
     public UpcomingInvoiceLineItems withSubLineItems(UpcomingInvoiceLineItemsSubLineItems[] subLineItems) {
         this.subLineItems = subLineItems;
         return this;
@@ -88,6 +95,7 @@ public class UpcomingInvoiceLineItems {
      */
     @JsonProperty("subtotal")
     public String subtotal;
+
     public UpcomingInvoiceLineItems withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;

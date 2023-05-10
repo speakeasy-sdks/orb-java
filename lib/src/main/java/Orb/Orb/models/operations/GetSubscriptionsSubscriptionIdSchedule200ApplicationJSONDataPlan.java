@@ -12,6 +12,7 @@ public class GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONDataPlan {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     public String id;
+
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONDataPlan withId(String id) {
         this.id = id;
         return this;
@@ -20,6 +21,7 @@ public class GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONDataPlan {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     public String name;
+
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONDataPlan withName(String name) {
         this.name = name;
         return this;

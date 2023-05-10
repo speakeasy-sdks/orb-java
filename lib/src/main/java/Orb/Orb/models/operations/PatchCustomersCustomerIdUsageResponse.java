@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PatchCustomersCustomerIdUsageResponse {
     
     public String contentType;
+
     public PatchCustomersCustomerIdUsageResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class PatchCustomersCustomerIdUsageResponse {
     
     
     public Integer statusCode;
+
     public PatchCustomersCustomerIdUsageResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class PatchCustomersCustomerIdUsageResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PatchCustomersCustomerIdUsageResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class PatchCustomersCustomerIdUsageResponse {
      */
     
     public PatchCustomersCustomerIdUsage200ApplicationJSON patchCustomersCustomerIdUsage200ApplicationJSONObject;
+
     public PatchCustomersCustomerIdUsageResponse withPatchCustomersCustomerIdUsage200ApplicationJSONObject(PatchCustomersCustomerIdUsage200ApplicationJSON patchCustomersCustomerIdUsage200ApplicationJSONObject) {
         this.patchCustomersCustomerIdUsage200ApplicationJSONObject = patchCustomersCustomerIdUsage200ApplicationJSONObject;
         return this;
@@ -44,6 +48,7 @@ public class PatchCustomersCustomerIdUsageResponse {
      */
     
     public PatchCustomersCustomerIdUsage400ApplicationJSON patchCustomersCustomerIdUsage400ApplicationJSONObject;
+
     public PatchCustomersCustomerIdUsageResponse withPatchCustomersCustomerIdUsage400ApplicationJSONObject(PatchCustomersCustomerIdUsage400ApplicationJSON patchCustomersCustomerIdUsage400ApplicationJSONObject) {
         this.patchCustomersCustomerIdUsage400ApplicationJSONObject = patchCustomersCustomerIdUsage400ApplicationJSONObject;
         return this;

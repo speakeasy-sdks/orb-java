@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetSubscriptionsSubscriptionIdScheduleResponse {
     
     public String contentType;
+
     public GetSubscriptionsSubscriptionIdScheduleResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetSubscriptionsSubscriptionIdScheduleResponse {
     
     
     public Integer statusCode;
+
     public GetSubscriptionsSubscriptionIdScheduleResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetSubscriptionsSubscriptionIdScheduleResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetSubscriptionsSubscriptionIdScheduleResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class GetSubscriptionsSubscriptionIdScheduleResponse {
      */
     
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSON getSubscriptionsSubscriptionIdSchedule200ApplicationJSONObject;
+
     public GetSubscriptionsSubscriptionIdScheduleResponse withGetSubscriptionsSubscriptionIdSchedule200ApplicationJSONObject(GetSubscriptionsSubscriptionIdSchedule200ApplicationJSON getSubscriptionsSubscriptionIdSchedule200ApplicationJSONObject) {
         this.getSubscriptionsSubscriptionIdSchedule200ApplicationJSONObject = getSubscriptionsSubscriptionIdSchedule200ApplicationJSONObject;
         return this;

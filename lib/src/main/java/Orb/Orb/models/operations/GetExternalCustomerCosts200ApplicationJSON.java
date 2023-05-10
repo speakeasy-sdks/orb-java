@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetExternalCustomerCosts200ApplicationJSON {
     @JsonProperty("data")
     public GetExternalCustomerCosts200ApplicationJSONData[] data;
+
     public GetExternalCustomerCosts200ApplicationJSON withData(GetExternalCustomerCosts200ApplicationJSONData[] data) {
         this.data = data;
         return this;
@@ -19,6 +20,7 @@ public class GetExternalCustomerCosts200ApplicationJSON {
     
     @JsonProperty("pagination_metadata")
     public java.util.Map<String, Object> paginationMetadata;
+
     public GetExternalCustomerCosts200ApplicationJSON withPaginationMetadata(java.util.Map<String, Object> paginationMetadata) {
         this.paginationMetadata = paginationMetadata;
         return this;

@@ -15,6 +15,7 @@ public class UpcomingInvoiceLineItemsSubLineItemsMatrixConfig {
      */
     @JsonProperty("dimension_values")
     public String[] dimensionValues;
+
     public UpcomingInvoiceLineItemsSubLineItemsMatrixConfig withDimensionValues(String[] dimensionValues) {
         this.dimensionValues = dimensionValues;
         return this;

@@ -12,6 +12,7 @@ public class PriceMatrixConfigMatrixValues {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("dimension_values")
     public String[] dimensionValues;
+
     public PriceMatrixConfigMatrixValues withDimensionValues(String[] dimensionValues) {
         this.dimensionValues = dimensionValues;
         return this;
@@ -20,6 +21,7 @@ public class PriceMatrixConfigMatrixValues {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public PriceMatrixConfigMatrixValues withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

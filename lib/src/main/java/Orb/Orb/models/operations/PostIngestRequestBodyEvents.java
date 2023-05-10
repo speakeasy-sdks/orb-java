@@ -15,6 +15,7 @@ public class PostIngestRequestBodyEvents {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customer_id")
     public String customerId;
+
     public PostIngestRequestBodyEvents withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -25,6 +26,7 @@ public class PostIngestRequestBodyEvents {
      */
     @JsonProperty("event_name")
     public String eventName;
+
     public PostIngestRequestBodyEvents withEventName(String eventName) {
         this.eventName = eventName;
         return this;
@@ -36,6 +38,7 @@ public class PostIngestRequestBodyEvents {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public PostIngestRequestBodyEvents withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -46,6 +49,7 @@ public class PostIngestRequestBodyEvents {
      */
     @JsonProperty("idempotency_key")
     public String idempotencyKey;
+
     public PostIngestRequestBodyEvents withIdempotencyKey(String idempotencyKey) {
         this.idempotencyKey = idempotencyKey;
         return this;
@@ -56,6 +60,7 @@ public class PostIngestRequestBodyEvents {
      */
     @JsonProperty("properties")
     public java.util.Map<String, Object> properties;
+
     public PostIngestRequestBodyEvents withProperties(java.util.Map<String, Object> properties) {
         this.properties = properties;
         return this;
@@ -66,6 +71,7 @@ public class PostIngestRequestBodyEvents {
      */
     @JsonProperty("timestamp")
     public String timestamp;
+
     public PostIngestRequestBodyEvents withTimestamp(String timestamp) {
         this.timestamp = timestamp;
         return this;

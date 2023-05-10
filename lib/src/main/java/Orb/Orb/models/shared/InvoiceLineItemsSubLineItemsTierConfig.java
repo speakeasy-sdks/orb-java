@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InvoiceLineItemsSubLineItemsTierConfig {
     @JsonProperty("first_unit")
     public Double firstUnit;
+
     public InvoiceLineItemsSubLineItemsTierConfig withFirstUnit(Double firstUnit) {
         this.firstUnit = firstUnit;
         return this;
@@ -19,6 +20,7 @@ public class InvoiceLineItemsSubLineItemsTierConfig {
     
     @JsonProperty("last_unit")
     public Double lastUnit;
+
     public InvoiceLineItemsSubLineItemsTierConfig withLastUnit(Double lastUnit) {
         this.lastUnit = lastUnit;
         return this;
@@ -26,6 +28,7 @@ public class InvoiceLineItemsSubLineItemsTierConfig {
     
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public InvoiceLineItemsSubLineItemsTierConfig withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

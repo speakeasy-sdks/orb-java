@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetCustomersCustomerIdCreditsLedgerResponse {
     
     public String contentType;
+
     public GetCustomersCustomerIdCreditsLedgerResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetCustomersCustomerIdCreditsLedgerResponse {
     
     
     public Integer statusCode;
+
     public GetCustomersCustomerIdCreditsLedgerResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetCustomersCustomerIdCreditsLedgerResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetCustomersCustomerIdCreditsLedgerResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class GetCustomersCustomerIdCreditsLedgerResponse {
      */
     
     public GetCustomersCustomerIdCreditsLedger200ApplicationJSON getCustomersCustomerIdCreditsLedger200ApplicationJSONObject;
+
     public GetCustomersCustomerIdCreditsLedgerResponse withGetCustomersCustomerIdCreditsLedger200ApplicationJSONObject(GetCustomersCustomerIdCreditsLedger200ApplicationJSON getCustomersCustomerIdCreditsLedger200ApplicationJSONObject) {
         this.getCustomersCustomerIdCreditsLedger200ApplicationJSONObject = getCustomersCustomerIdCreditsLedger200ApplicationJSONObject;
         return this;

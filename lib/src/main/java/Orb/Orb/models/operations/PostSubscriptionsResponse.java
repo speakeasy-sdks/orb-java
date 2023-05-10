@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PostSubscriptionsResponse {
     
     public String contentType;
+
     public PostSubscriptionsResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class PostSubscriptionsResponse {
     
     
     public Integer statusCode;
+
     public PostSubscriptionsResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class PostSubscriptionsResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PostSubscriptionsResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class PostSubscriptionsResponse {
      */
     
     public Orb.Orb.models.shared.Subscription subscription;
+
     public PostSubscriptionsResponse withSubscription(Orb.Orb.models.shared.Subscription subscription) {
         this.subscription = subscription;
         return this;

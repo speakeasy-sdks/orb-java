@@ -12,6 +12,7 @@ public class PatchExternalCustomersCustomerIdUsage400ApplicationJSONValidationEr
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("idempotency_key")
     public String idempotencyKey;
+
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSONValidationErrors withIdempotencyKey(String idempotencyKey) {
         this.idempotencyKey = idempotencyKey;
         return this;
@@ -23,6 +24,7 @@ public class PatchExternalCustomersCustomerIdUsage400ApplicationJSONValidationEr
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("validation_errors")
     public String[] validationErrors;
+
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSONValidationErrors withValidationErrors(String[] validationErrors) {
         this.validationErrors = validationErrors;
         return this;

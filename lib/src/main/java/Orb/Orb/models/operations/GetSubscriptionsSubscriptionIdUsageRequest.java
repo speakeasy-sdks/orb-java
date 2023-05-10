@@ -14,6 +14,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=billable_metric_id")
     public String billableMetricId;
+
     public GetSubscriptionsSubscriptionIdUsageRequest withBillableMetricId(String billableMetricId) {
         this.billableMetricId = billableMetricId;
         return this;
@@ -24,6 +25,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=granularity")
     public GetSubscriptionsSubscriptionIdUsageGranularityEnum granularity;
+
     public GetSubscriptionsSubscriptionIdUsageRequest withGranularity(GetSubscriptionsSubscriptionIdUsageGranularityEnum granularity) {
         this.granularity = granularity;
         return this;
@@ -34,6 +36,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=group_by")
     public String groupBy;
+
     public GetSubscriptionsSubscriptionIdUsageRequest withGroupBy(String groupBy) {
         this.groupBy = groupBy;
         return this;
@@ -41,6 +44,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
     
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=subscription_id")
     public String subscriptionId;
+
     public GetSubscriptionsSubscriptionIdUsageRequest withSubscriptionId(String subscriptionId) {
         this.subscriptionId = subscriptionId;
         return this;
@@ -51,6 +55,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_end")
     public OffsetDateTime timeframeEnd;
+
     public GetSubscriptionsSubscriptionIdUsageRequest withTimeframeEnd(OffsetDateTime timeframeEnd) {
         this.timeframeEnd = timeframeEnd;
         return this;
@@ -61,6 +66,7 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_start")
     public OffsetDateTime timeframeStart;
+
     public GetSubscriptionsSubscriptionIdUsageRequest withTimeframeStart(OffsetDateTime timeframeStart) {
         this.timeframeStart = timeframeStart;
         return this;

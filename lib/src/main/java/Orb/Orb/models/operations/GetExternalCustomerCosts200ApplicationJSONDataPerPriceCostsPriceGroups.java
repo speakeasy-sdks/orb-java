@@ -14,6 +14,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGro
      */
     @JsonProperty("grouping_key")
     public String groupingKey;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups withGroupingKey(String groupingKey) {
         this.groupingKey = groupingKey;
         return this;
@@ -21,6 +22,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGro
     
     @JsonProperty("grouping_value")
     public String groupingValue;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups withGroupingValue(String groupingValue) {
         this.groupingValue = groupingValue;
         return this;
@@ -32,6 +34,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGro
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("secondary_grouping_key")
     public String secondaryGroupingKey;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups withSecondaryGroupingKey(String secondaryGroupingKey) {
         this.secondaryGroupingKey = secondaryGroupingKey;
         return this;
@@ -40,6 +43,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGro
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("secondary_grouping_value")
     public String secondaryGroupingValue;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups withSecondaryGroupingValue(String secondaryGroupingValue) {
         this.secondaryGroupingValue = secondaryGroupingValue;
         return this;
@@ -50,6 +54,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGro
      */
     @JsonProperty("total")
     public String total;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups withTotal(String total) {
         this.total = total;
         return this;

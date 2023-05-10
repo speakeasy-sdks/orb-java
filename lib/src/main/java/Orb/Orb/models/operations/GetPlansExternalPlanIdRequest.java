@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetPlansExternalPlanIdRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
     public Orb.Orb.models.shared.Plan plan;
+
     public GetPlansExternalPlanIdRequest withPlan(Orb.Orb.models.shared.Plan plan) {
         this.plan = plan;
         return this;
@@ -17,6 +18,7 @@ public class GetPlansExternalPlanIdRequest {
     
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=external_plan_id")
     public String externalPlanId;
+
     public GetPlansExternalPlanIdRequest withExternalPlanId(String externalPlanId) {
         this.externalPlanId = externalPlanId;
         return this;

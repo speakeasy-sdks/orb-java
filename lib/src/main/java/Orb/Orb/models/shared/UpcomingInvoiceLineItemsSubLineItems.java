@@ -14,6 +14,7 @@ public class UpcomingInvoiceLineItemsSubLineItems {
      */
     @JsonProperty("amount")
     public String amount;
+
     public UpcomingInvoiceLineItemsSubLineItems withAmount(String amount) {
         this.amount = amount;
         return this;
@@ -25,6 +26,7 @@ public class UpcomingInvoiceLineItemsSubLineItems {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("matrix_config")
     public UpcomingInvoiceLineItemsSubLineItemsMatrixConfig matrixConfig;
+
     public UpcomingInvoiceLineItemsSubLineItems withMatrixConfig(UpcomingInvoiceLineItemsSubLineItemsMatrixConfig matrixConfig) {
         this.matrixConfig = matrixConfig;
         return this;
@@ -32,6 +34,7 @@ public class UpcomingInvoiceLineItemsSubLineItems {
     
     @JsonProperty("name")
     public String name;
+
     public UpcomingInvoiceLineItemsSubLineItems withName(String name) {
         this.name = name;
         return this;
@@ -39,6 +42,7 @@ public class UpcomingInvoiceLineItemsSubLineItems {
     
     @JsonProperty("quantity")
     public Double quantity;
+
     public UpcomingInvoiceLineItemsSubLineItems withQuantity(Double quantity) {
         this.quantity = quantity;
         return this;
@@ -50,6 +54,7 @@ public class UpcomingInvoiceLineItemsSubLineItems {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tier_config")
     public UpcomingInvoiceLineItemsSubLineItemsTierConfig tierConfig;
+
     public UpcomingInvoiceLineItemsSubLineItems withTierConfig(UpcomingInvoiceLineItemsSubLineItemsTierConfig tierConfig) {
         this.tierConfig = tierConfig;
         return this;
@@ -60,6 +65,7 @@ public class UpcomingInvoiceLineItemsSubLineItems {
      */
     @JsonProperty("type")
     public UpcomingInvoiceLineItemsSubLineItemsTypeEnum type;
+
     public UpcomingInvoiceLineItemsSubLineItems withType(UpcomingInvoiceLineItemsSubLineItemsTypeEnum type) {
         this.type = type;
         return this;

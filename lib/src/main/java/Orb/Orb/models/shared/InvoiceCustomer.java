@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InvoiceCustomer {
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public InvoiceCustomer withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -19,6 +20,7 @@ public class InvoiceCustomer {
     
     @JsonProperty("id")
     public String id;
+
     public InvoiceCustomer withId(String id) {
         this.id = id;
         return this;

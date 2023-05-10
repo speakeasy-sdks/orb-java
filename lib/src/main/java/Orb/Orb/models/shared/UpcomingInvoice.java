@@ -21,6 +21,7 @@ public class UpcomingInvoice {
      */
     @JsonProperty("amount_due")
     public String amountDue;
+
     public UpcomingInvoice withAmountDue(String amountDue) {
         this.amountDue = amountDue;
         return this;
@@ -31,6 +32,7 @@ public class UpcomingInvoice {
      */
     @JsonProperty("currency")
     public String currency;
+
     public UpcomingInvoice withCurrency(String currency) {
         this.currency = currency;
         return this;
@@ -41,6 +43,7 @@ public class UpcomingInvoice {
      */
     @JsonProperty("customer")
     public UpcomingInvoiceCustomer customer;
+
     public UpcomingInvoice withCustomer(UpcomingInvoiceCustomer customer) {
         this.customer = customer;
         return this;
@@ -51,6 +54,7 @@ public class UpcomingInvoice {
      */
     @JsonProperty("line_items")
     public UpcomingInvoiceLineItems[] lineItems;
+
     public UpcomingInvoice withLineItems(UpcomingInvoiceLineItems[] lineItems) {
         this.lineItems = lineItems;
         return this;
@@ -61,6 +65,7 @@ public class UpcomingInvoice {
      */
     @JsonProperty("subscription")
     public UpcomingInvoiceSubscription subscription;
+
     public UpcomingInvoice withSubscription(UpcomingInvoiceSubscription subscription) {
         this.subscription = subscription;
         return this;
@@ -71,6 +76,7 @@ public class UpcomingInvoice {
      */
     @JsonProperty("subtotal")
     public String subtotal;
+
     public UpcomingInvoice withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;
@@ -82,6 +88,7 @@ public class UpcomingInvoice {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("target_date")
     public LocalDate targetDate;
+
     public UpcomingInvoice withTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
         return this;

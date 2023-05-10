@@ -11,6 +11,7 @@ import java.time.OffsetDateTime;
 public class GetExternalCustomerCostsRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=external_customer_id")
     public String externalCustomerId;
+
     public GetExternalCustomerCostsRequest withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -21,6 +22,7 @@ public class GetExternalCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=group_by")
     public String groupBy;
+
     public GetExternalCustomerCostsRequest withGroupBy(String groupBy) {
         this.groupBy = groupBy;
         return this;
@@ -31,6 +33,7 @@ public class GetExternalCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_end")
     public String timeframeEnd;
+
     public GetExternalCustomerCostsRequest withTimeframeEnd(String timeframeEnd) {
         this.timeframeEnd = timeframeEnd;
         return this;
@@ -41,6 +44,7 @@ public class GetExternalCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_start")
     public OffsetDateTime timeframeStart;
+
     public GetExternalCustomerCostsRequest withTimeframeStart(OffsetDateTime timeframeStart) {
         this.timeframeStart = timeframeStart;
         return this;
@@ -51,6 +55,7 @@ public class GetExternalCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=view_mode")
     public GetExternalCustomerCostsViewModeEnum viewMode;
+
     public GetExternalCustomerCostsRequest withViewMode(GetExternalCustomerCostsViewModeEnum viewMode) {
         this.viewMode = viewMode;
         return this;

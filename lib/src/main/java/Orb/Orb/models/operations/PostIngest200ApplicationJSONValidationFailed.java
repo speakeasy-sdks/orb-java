@@ -15,6 +15,7 @@ public class PostIngest200ApplicationJSONValidationFailed {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("idempotency_key")
     public String idempotencyKey;
+
     public PostIngest200ApplicationJSONValidationFailed withIdempotencyKey(String idempotencyKey) {
         this.idempotencyKey = idempotencyKey;
         return this;
@@ -26,6 +27,7 @@ public class PostIngest200ApplicationJSONValidationFailed {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("validation_errors")
     public java.util.Map<String, Object>[] validationErrors;
+
     public PostIngest200ApplicationJSONValidationFailed withValidationErrors(java.util.Map<String, Object>[] validationErrors) {
         this.validationErrors = validationErrors;
         return this;

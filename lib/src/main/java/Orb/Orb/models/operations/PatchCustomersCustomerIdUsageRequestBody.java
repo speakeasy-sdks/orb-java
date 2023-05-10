@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PatchCustomersCustomerIdUsageRequestBody {
     @JsonProperty("events")
     public PatchCustomersCustomerIdUsageRequestBodyEvents[] events;
+
     public PatchCustomersCustomerIdUsageRequestBody withEvents(PatchCustomersCustomerIdUsageRequestBodyEvents[] events) {
         this.events = events;
         return this;

@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse {
     
     public String contentType;
+
     public PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse
     
     
     public Integer statusCode;
+
     public PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse
      */
     
     public Orb.Orb.models.shared.Subscription subscription;
+
     public PostSubscriptionsSubscriptionIdUnschedulePendingPlanChangesResponse withSubscription(Orb.Orb.models.shared.Subscription subscription) {
         this.subscription = subscription;
         return this;

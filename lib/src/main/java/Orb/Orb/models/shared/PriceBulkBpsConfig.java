@@ -15,6 +15,7 @@ public class PriceBulkBpsConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiers")
     public PriceBulkBpsConfigTiers[] tiers;
+
     public PriceBulkBpsConfig withTiers(PriceBulkBpsConfigTiers[] tiers) {
         this.tiers = tiers;
         return this;

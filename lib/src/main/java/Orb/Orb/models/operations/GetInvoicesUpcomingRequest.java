@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetInvoicesUpcomingRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=subscription_id")
     public String subscriptionId;
+
     public GetInvoicesUpcomingRequest withSubscriptionId(String subscriptionId) {
         this.subscriptionId = subscriptionId;
         return this;

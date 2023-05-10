@@ -29,6 +29,7 @@ public class Subscription {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("active_plan_phase_order")
     public Double activePlanPhaseOrder;
+
     public Subscription withActivePlanPhaseOrder(Double activePlanPhaseOrder) {
         this.activePlanPhaseOrder = activePlanPhaseOrder;
         return this;
@@ -38,6 +39,7 @@ public class Subscription {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Subscription withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -51,6 +53,7 @@ public class Subscription {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("current_billing_period_end_date")
     public OffsetDateTime currentBillingPeriodEndDate;
+
     public Subscription withCurrentBillingPeriodEndDate(OffsetDateTime currentBillingPeriodEndDate) {
         this.currentBillingPeriodEndDate = currentBillingPeriodEndDate;
         return this;
@@ -64,6 +67,7 @@ public class Subscription {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("current_billing_period_start_date")
     public OffsetDateTime currentBillingPeriodStartDate;
+
     public Subscription withCurrentBillingPeriodStartDate(OffsetDateTime currentBillingPeriodStartDate) {
         this.currentBillingPeriodStartDate = currentBillingPeriodStartDate;
         return this;
@@ -80,6 +84,7 @@ public class Subscription {
      */
     @JsonProperty("customer")
     public Customer customer;
+
     public Subscription withCustomer(Customer customer) {
         this.customer = customer;
         return this;
@@ -92,6 +97,7 @@ public class Subscription {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("end_date")
     public OffsetDateTime endDate;
+
     public Subscription withEndDate(OffsetDateTime endDate) {
         this.endDate = endDate;
         return this;
@@ -99,6 +105,7 @@ public class Subscription {
     
     @JsonProperty("id")
     public String id;
+
     public Subscription withId(String id) {
         this.id = id;
         return this;
@@ -106,6 +113,7 @@ public class Subscription {
     
     @JsonProperty("plan")
     public Plan plan;
+
     public Subscription withPlan(Plan plan) {
         this.plan = plan;
         return this;
@@ -118,6 +126,7 @@ public class Subscription {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("start_date")
     public OffsetDateTime startDate;
+
     public Subscription withStartDate(OffsetDateTime startDate) {
         this.startDate = startDate;
         return this;
@@ -125,6 +134,7 @@ public class Subscription {
     
     @JsonProperty("status")
     public SubscriptionStatusEnum status;
+
     public Subscription withStatus(SubscriptionStatusEnum status) {
         this.status = status;
         return this;

@@ -12,6 +12,7 @@ public class PostIngest400ApplicationJSONValidationFailed {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("idempotency_key")
     public String idempotencyKey;
+
     public PostIngest400ApplicationJSONValidationFailed withIdempotencyKey(String idempotencyKey) {
         this.idempotencyKey = idempotencyKey;
         return this;
@@ -23,6 +24,7 @@ public class PostIngest400ApplicationJSONValidationFailed {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("validation_errors")
     public String[] validationErrors;
+
     public PostIngest400ApplicationJSONValidationFailed withValidationErrors(String[] validationErrors) {
         this.validationErrors = validationErrors;
         return this;

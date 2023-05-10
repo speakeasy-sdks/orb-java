@@ -15,6 +15,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billing_address")
     public PostCustomersRequestBodyBillingAddress billingAddress;
+
     public PostCustomersRequestBody withBillingAddress(PostCustomersRequestBodyBillingAddress billingAddress) {
         this.billingAddress = billingAddress;
         return this;
@@ -26,6 +27,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("currency")
     public String currency;
+
     public PostCustomersRequestBody withCurrency(String currency) {
         this.currency = currency;
         return this;
@@ -36,6 +38,7 @@ public class PostCustomersRequestBody {
      */
     @JsonProperty("email")
     public String email;
+
     public PostCustomersRequestBody withEmail(String email) {
         this.email = email;
         return this;
@@ -47,6 +50,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public PostCustomersRequestBody withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -57,6 +61,7 @@ public class PostCustomersRequestBody {
      */
     @JsonProperty("name")
     public String name;
+
     public PostCustomersRequestBody withName(String name) {
         this.name = name;
         return this;
@@ -70,6 +75,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider")
     public PostCustomersRequestBodyPaymentProviderEnum paymentProvider;
+
     public PostCustomersRequestBody withPaymentProvider(PostCustomersRequestBodyPaymentProviderEnum paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
@@ -81,6 +87,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider_id")
     public String paymentProviderId;
+
     public PostCustomersRequestBody withPaymentProviderId(String paymentProviderId) {
         this.paymentProviderId = paymentProviderId;
         return this;
@@ -92,6 +99,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shipping_address")
     public PostCustomersRequestBodyShippingAddress shippingAddress;
+
     public PostCustomersRequestBody withShippingAddress(PostCustomersRequestBodyShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
         return this;
@@ -103,6 +111,7 @@ public class PostCustomersRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("timezone")
     public String timezone;
+
     public PostCustomersRequestBody withTimezone(String timezone) {
         this.timezone = timezone;
         return this;

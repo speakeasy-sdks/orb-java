@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetCustomersCustomerIdCredits200ApplicationJSON {
     @JsonProperty("data")
     public GetCustomersCustomerIdCredits200ApplicationJSONData[] data;
+
     public GetCustomersCustomerIdCredits200ApplicationJSON withData(GetCustomersCustomerIdCredits200ApplicationJSONData[] data) {
         this.data = data;
         return this;
@@ -19,6 +20,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSON {
     
     @JsonProperty("pagination_metadata")
     public GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata paginationMetadata;
+
     public GetCustomersCustomerIdCredits200ApplicationJSON withPaginationMetadata(GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata paginationMetadata) {
         this.paginationMetadata = paginationMetadata;
         return this;

@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig {
     @JsonProperty("tiers")
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers[] tiers;
+
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig withTiers(PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers[] tiers) {
         this.tiers = tiers;
         return this;

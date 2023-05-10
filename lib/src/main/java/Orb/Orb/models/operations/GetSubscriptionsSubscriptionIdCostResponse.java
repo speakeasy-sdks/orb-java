@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetSubscriptionsSubscriptionIdCostResponse {
     
     public String contentType;
+
     public GetSubscriptionsSubscriptionIdCostResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetSubscriptionsSubscriptionIdCostResponse {
     
     
     public Integer statusCode;
+
     public GetSubscriptionsSubscriptionIdCostResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetSubscriptionsSubscriptionIdCostResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetSubscriptionsSubscriptionIdCostResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class GetSubscriptionsSubscriptionIdCostResponse {
      */
     
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSON getSubscriptionsSubscriptionIdCost200ApplicationJSONObject;
+
     public GetSubscriptionsSubscriptionIdCostResponse withGetSubscriptionsSubscriptionIdCost200ApplicationJSONObject(GetSubscriptionsSubscriptionIdCost200ApplicationJSON getSubscriptionsSubscriptionIdCost200ApplicationJSONObject) {
         this.getSubscriptionsSubscriptionIdCost200ApplicationJSONObject = getSubscriptionsSubscriptionIdCost200ApplicationJSONObject;
         return this;

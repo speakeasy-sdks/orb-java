@@ -23,6 +23,7 @@ public class Plan {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("base_plan_id")
     public String basePlanId;
+
     public Plan withBasePlanId(String basePlanId) {
         this.basePlanId = basePlanId;
         return this;
@@ -32,6 +33,7 @@ public class Plan {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Plan withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -42,6 +44,7 @@ public class Plan {
      */
     @JsonProperty("currency")
     public String currency;
+
     public Plan withCurrency(String currency) {
         this.currency = currency;
         return this;
@@ -49,6 +52,7 @@ public class Plan {
     
     @JsonProperty("description")
     public String description;
+
     public Plan withDescription(String description) {
         this.description = description;
         return this;
@@ -56,6 +60,7 @@ public class Plan {
     
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public Plan withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -67,6 +72,7 @@ public class Plan {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_plan_id")
     public String externalPlanId;
+
     public Plan withExternalPlanId(String externalPlanId) {
         this.externalPlanId = externalPlanId;
         return this;
@@ -74,6 +80,7 @@ public class Plan {
     
     @JsonProperty("id")
     public String id;
+
     public Plan withId(String id) {
         this.id = id;
         return this;
@@ -84,6 +91,7 @@ public class Plan {
      */
     @JsonProperty("invoicing_currency")
     public String invoicingCurrency;
+
     public Plan withInvoicingCurrency(String invoicingCurrency) {
         this.invoicingCurrency = invoicingCurrency;
         return this;
@@ -91,6 +99,7 @@ public class Plan {
     
     @JsonProperty("minimum")
     public java.util.Map<String, Object> minimum;
+
     public Plan withMinimum(java.util.Map<String, Object> minimum) {
         this.minimum = minimum;
         return this;
@@ -98,6 +107,7 @@ public class Plan {
     
     @JsonProperty("name")
     public String name;
+
     public Plan withName(String name) {
         this.name = name;
         return this;
@@ -106,6 +116,7 @@ public class Plan {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("plan_phases")
     public PlanPhase[] planPhases;
+
     public Plan withPlanPhases(PlanPhase[] planPhases) {
         this.planPhases = planPhases;
         return this;
@@ -116,6 +127,7 @@ public class Plan {
      */
     @JsonProperty("prices")
     public Price[] prices;
+
     public Plan withPrices(Price[] prices) {
         this.prices = prices;
         return this;
@@ -123,6 +135,7 @@ public class Plan {
     
     @JsonProperty("product")
     public PlanProduct product;
+
     public Plan withProduct(PlanProduct product) {
         this.product = product;
         return this;
@@ -131,6 +144,7 @@ public class Plan {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("trial_config")
     public PlanTrialConfig trialConfig;
+
     public Plan withTrialConfig(PlanTrialConfig trialConfig) {
         this.trialConfig = trialConfig;
         return this;

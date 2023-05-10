@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class ListSubscriptionsResponse {
     
     public String contentType;
+
     public ListSubscriptionsResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class ListSubscriptionsResponse {
     
     
     public Integer statusCode;
+
     public ListSubscriptionsResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class ListSubscriptionsResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public ListSubscriptionsResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class ListSubscriptionsResponse {
      */
     
     public ListSubscriptions200ApplicationJSON listSubscriptions200ApplicationJSONObject;
+
     public ListSubscriptionsResponse withListSubscriptions200ApplicationJSONObject(ListSubscriptions200ApplicationJSON listSubscriptions200ApplicationJSONObject) {
         this.listSubscriptions200ApplicationJSONObject = listSubscriptions200ApplicationJSONObject;
         return this;

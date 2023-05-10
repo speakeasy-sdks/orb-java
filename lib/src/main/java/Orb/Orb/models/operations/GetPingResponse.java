@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetPingResponse {
     
     public String contentType;
+
     public GetPingResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetPingResponse {
     
     
     public Integer statusCode;
+
     public GetPingResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetPingResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetPingResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class GetPingResponse {
      */
     
     public GetPing200ApplicationJSON getPing200ApplicationJSONObject;
+
     public GetPingResponse withGetPing200ApplicationJSONObject(GetPing200ApplicationJSON getPing200ApplicationJSONObject) {
         this.getPing200ApplicationJSONObject = getPing200ApplicationJSONObject;
         return this;

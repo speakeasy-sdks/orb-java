@@ -13,6 +13,7 @@ public class GetCustomersCustomerIdRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customer_id")
     public String customerId;
+
     public GetCustomersCustomerIdRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;

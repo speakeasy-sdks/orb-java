@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetInvoicesUpcomingResponse {
     
     public String contentType;
+
     public GetInvoicesUpcomingResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetInvoicesUpcomingResponse {
     
     
     public Integer statusCode;
+
     public GetInvoicesUpcomingResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetInvoicesUpcomingResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetInvoicesUpcomingResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class GetInvoicesUpcomingResponse {
      */
     
     public Orb.Orb.models.shared.UpcomingInvoice upcomingInvoice;
+
     public GetInvoicesUpcomingResponse withUpcomingInvoice(Orb.Orb.models.shared.UpcomingInvoice upcomingInvoice) {
         this.upcomingInvoice = upcomingInvoice;
         return this;

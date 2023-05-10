@@ -15,6 +15,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("city")
     public String city;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress withCity(String city) {
         this.city = city;
         return this;
@@ -26,6 +27,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("country")
     public String country;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress withCountry(String country) {
         this.country = country;
         return this;
@@ -34,6 +36,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("line1")
     public String line1;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress withLine1(String line1) {
         this.line1 = line1;
         return this;
@@ -42,6 +45,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("line2")
     public String line2;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress withLine2(String line2) {
         this.line2 = line2;
         return this;
@@ -53,6 +57,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("postal_code")
     public String postalCode;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress withPostalCode(String postalCode) {
         this.postalCode = postalCode;
         return this;
@@ -61,6 +66,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShipping
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("state")
     public String state;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress withState(String state) {
         this.state = state;
         return this;

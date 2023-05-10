@@ -19,6 +19,7 @@ public class GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONData {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("end_date")
     public OffsetDateTime endDate;
+
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONData withEndDate(OffsetDateTime endDate) {
         this.endDate = endDate;
         return this;
@@ -27,6 +28,7 @@ public class GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONData {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("plan")
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONDataPlan plan;
+
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONData withPlan(GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONDataPlan plan) {
         this.plan = plan;
         return this;
@@ -37,6 +39,7 @@ public class GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONData {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("start_date")
     public OffsetDateTime startDate;
+
     public GetSubscriptionsSubscriptionIdSchedule200ApplicationJSONData withStartDate(OffsetDateTime startDate) {
         this.startDate = startDate;
         return this;

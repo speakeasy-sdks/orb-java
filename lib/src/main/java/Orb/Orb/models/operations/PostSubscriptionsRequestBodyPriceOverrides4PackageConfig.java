@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsRequestBodyPriceOverrides4PackageConfig {
     @JsonProperty("package_amount")
     public String packageAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides4PackageConfig withPackageAmount(String packageAmount) {
         this.packageAmount = packageAmount;
         return this;
@@ -16,6 +17,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides4PackageConfig {
     
     @JsonProperty("package_size")
     public Double packageSize;
+
     public PostSubscriptionsRequestBodyPriceOverrides4PackageConfig withPackageSize(Double packageSize) {
         this.packageSize = packageSize;
         return this;

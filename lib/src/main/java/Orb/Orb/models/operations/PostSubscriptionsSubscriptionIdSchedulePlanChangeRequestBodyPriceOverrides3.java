@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 {
     @JsonProperty("bulk_config")
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfig bulkConfig;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 withBulkConfig(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfig bulkConfig) {
         this.bulkConfig = bulkConfig;
         return this;
@@ -21,6 +22,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 withId(String id) {
         this.id = id;
         return this;
@@ -32,6 +34,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -39,6 +42,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     
     @JsonProperty("model_type")
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelTypeEnum modelType;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;

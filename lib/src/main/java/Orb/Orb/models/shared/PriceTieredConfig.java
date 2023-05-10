@@ -15,6 +15,7 @@ public class PriceTieredConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiers")
     public PriceTieredConfigTiers[] tiers;
+
     public PriceTieredConfig withTiers(PriceTieredConfigTiers[] tiers) {
         this.tiers = tiers;
         return this;

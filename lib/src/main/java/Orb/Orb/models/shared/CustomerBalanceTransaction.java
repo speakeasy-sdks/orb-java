@@ -20,6 +20,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("action")
     public CustomerBalanceTransactionActionEnum action;
+
     public CustomerBalanceTransaction withAction(CustomerBalanceTransactionActionEnum action) {
         this.action = action;
         return this;
@@ -30,6 +31,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("amount")
     public String amount;
+
     public CustomerBalanceTransaction withAmount(String amount) {
         this.amount = amount;
         return this;
@@ -42,6 +44,7 @@ public class CustomerBalanceTransaction {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public CustomerBalanceTransaction withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -52,6 +55,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("description")
     public String description;
+
     public CustomerBalanceTransaction withDescription(String description) {
         this.description = description;
         return this;
@@ -62,6 +66,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("ending_balance")
     public String endingBalance;
+
     public CustomerBalanceTransaction withEndingBalance(String endingBalance) {
         this.endingBalance = endingBalance;
         return this;
@@ -72,6 +77,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("id")
     public String id;
+
     public CustomerBalanceTransaction withId(String id) {
         this.id = id;
         return this;
@@ -82,6 +88,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("invoice")
     public CustomerBalanceTransactionInvoice invoice;
+
     public CustomerBalanceTransaction withInvoice(CustomerBalanceTransactionInvoice invoice) {
         this.invoice = invoice;
         return this;
@@ -92,6 +99,7 @@ public class CustomerBalanceTransaction {
      */
     @JsonProperty("starting_balance")
     public String startingBalance;
+
     public CustomerBalanceTransaction withStartingBalance(String startingBalance) {
         this.startingBalance = startingBalance;
         return this;

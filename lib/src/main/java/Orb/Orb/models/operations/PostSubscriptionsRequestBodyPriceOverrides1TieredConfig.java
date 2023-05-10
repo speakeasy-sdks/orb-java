@@ -12,6 +12,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides1TieredConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiers")
     public PostSubscriptionsRequestBodyPriceOverrides1TieredConfigTiers[] tiers;
+
     public PostSubscriptionsRequestBodyPriceOverrides1TieredConfig withTiers(PostSubscriptionsRequestBodyPriceOverrides1TieredConfigTiers[] tiers) {
         this.tiers = tiers;
         return this;

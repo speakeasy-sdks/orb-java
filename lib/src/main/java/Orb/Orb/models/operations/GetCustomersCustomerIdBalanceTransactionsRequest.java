@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetCustomersCustomerIdBalanceTransactionsRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customer_id")
     public String customerId;
+
     public GetCustomersCustomerIdBalanceTransactionsRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;

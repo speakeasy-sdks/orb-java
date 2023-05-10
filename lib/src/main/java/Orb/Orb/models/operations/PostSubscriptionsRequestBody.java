@@ -17,6 +17,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("align_billing_with_subscription_start_date")
     public Boolean alignBillingWithSubscriptionStartDate;
+
     public PostSubscriptionsRequestBody withAlignBillingWithSubscriptionStartDate(Boolean alignBillingWithSubscriptionStartDate) {
         this.alignBillingWithSubscriptionStartDate = alignBillingWithSubscriptionStartDate;
         return this;
@@ -28,6 +29,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customer_id")
     public String customerId;
+
     public PostSubscriptionsRequestBody withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -39,6 +41,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public PostSubscriptionsRequestBody withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -50,6 +53,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_marketplace")
     public PostSubscriptionsRequestBodyExternalMarketplaceEnum externalMarketplace;
+
     public PostSubscriptionsRequestBody withExternalMarketplace(PostSubscriptionsRequestBodyExternalMarketplaceEnum externalMarketplace) {
         this.externalMarketplace = externalMarketplace;
         return this;
@@ -61,6 +65,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_marketplace_reporting_id")
     public String externalMarketplaceReportingId;
+
     public PostSubscriptionsRequestBody withExternalMarketplaceReportingId(String externalMarketplaceReportingId) {
         this.externalMarketplaceReportingId = externalMarketplaceReportingId;
         return this;
@@ -72,6 +77,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_plan_id")
     public String externalPlanId;
+
     public PostSubscriptionsRequestBody withExternalPlanId(String externalPlanId) {
         this.externalPlanId = externalPlanId;
         return this;
@@ -83,6 +89,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBody withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -94,6 +101,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("phase_overrides")
     public PostSubscriptionsRequestBodyPhaseOverrides[] phaseOverrides;
+
     public PostSubscriptionsRequestBody withPhaseOverrides(PostSubscriptionsRequestBodyPhaseOverrides[] phaseOverrides) {
         this.phaseOverrides = phaseOverrides;
         return this;
@@ -105,6 +113,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("plan_id")
     public String planId;
+
     public PostSubscriptionsRequestBody withPlanId(String planId) {
         this.planId = planId;
         return this;
@@ -116,6 +125,7 @@ public class PostSubscriptionsRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price_overrides")
     public Object[] priceOverrides;
+
     public PostSubscriptionsRequestBody withPriceOverrides(Object[] priceOverrides) {
         this.priceOverrides = priceOverrides;
         return this;
@@ -128,6 +138,7 @@ public class PostSubscriptionsRequestBody {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("start_date")
     public LocalDate startDate;
+
     public PostSubscriptionsRequestBody withStartDate(LocalDate startDate) {
         this.startDate = startDate;
         return this;

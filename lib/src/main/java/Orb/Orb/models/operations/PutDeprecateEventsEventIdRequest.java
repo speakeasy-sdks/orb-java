@@ -13,6 +13,7 @@ public class PutDeprecateEventsEventIdRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=event_id")
     public String eventId;
+
     public PutDeprecateEventsEventIdRequest withEventId(String eventId) {
         this.eventId = eventId;
         return this;

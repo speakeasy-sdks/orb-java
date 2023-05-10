@@ -18,6 +18,7 @@ public class PatchCustomersCustomerIdUsage200ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("duplicate")
     public java.util.Map<String, Object>[] duplicate;
+
     public PatchCustomersCustomerIdUsage200ApplicationJSON withDuplicate(java.util.Map<String, Object>[] duplicate) {
         this.duplicate = duplicate;
         return this;
@@ -29,6 +30,7 @@ public class PatchCustomersCustomerIdUsage200ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("ingested")
     public String[] ingested;
+
     public PatchCustomersCustomerIdUsage200ApplicationJSON withIngested(String[] ingested) {
         this.ingested = ingested;
         return this;

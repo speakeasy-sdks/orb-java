@@ -17,6 +17,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
      */
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1 withId(String id) {
         this.id = id;
         return this;
@@ -28,6 +29,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -35,6 +37,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     
     @JsonProperty("model_type")
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelTypeEnum modelType;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;
@@ -42,6 +45,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     
     @JsonProperty("tiered_config")
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig tieredConfig;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1 withTieredConfig(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig tieredConfig) {
         this.tieredConfig = tieredConfig;
         return this;

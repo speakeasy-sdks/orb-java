@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetPlansPlanIdResponse {
     
     public String contentType;
+
     public GetPlansPlanIdResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -20,6 +21,7 @@ public class GetPlansPlanIdResponse {
      */
     
     public Orb.Orb.models.shared.Plan plan;
+
     public GetPlansPlanIdResponse withPlan(Orb.Orb.models.shared.Plan plan) {
         this.plan = plan;
         return this;
@@ -27,6 +29,7 @@ public class GetPlansPlanIdResponse {
     
     
     public Integer statusCode;
+
     public GetPlansPlanIdResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -34,6 +37,7 @@ public class GetPlansPlanIdResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetPlansPlanIdResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;

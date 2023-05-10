@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetInvoiceInvoiceIdRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=invoice_id")
     public String invoiceId;
+
     public GetInvoiceInvoiceIdRequest withInvoiceId(String invoiceId) {
         this.invoiceId = invoiceId;
         return this;

@@ -18,6 +18,7 @@ public class PutEventsEventId400ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
     public Long status;
+
     public PutEventsEventId400ApplicationJSON withStatus(Long status) {
         this.status = status;
         return this;
@@ -29,6 +30,7 @@ public class PutEventsEventId400ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("title")
     public String title;
+
     public PutEventsEventId400ApplicationJSON withTitle(String title) {
         this.title = title;
         return this;
@@ -37,6 +39,7 @@ public class PutEventsEventId400ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("type")
     public String type;
+
     public PutEventsEventId400ApplicationJSON withType(String type) {
         this.type = type;
         return this;
@@ -48,6 +51,7 @@ public class PutEventsEventId400ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("validation_errors")
     public String[] validationErrors;
+
     public PutEventsEventId400ApplicationJSON withValidationErrors(String[] validationErrors) {
         this.validationErrors = validationErrors;
         return this;

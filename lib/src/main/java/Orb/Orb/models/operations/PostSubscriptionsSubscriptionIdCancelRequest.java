@@ -13,6 +13,7 @@ public class PostSubscriptionsSubscriptionIdCancelRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=cancel_option")
     public PostSubscriptionsSubscriptionIdCancelCancelOptionEnum cancelOption;
+
     public PostSubscriptionsSubscriptionIdCancelRequest withCancelOption(PostSubscriptionsSubscriptionIdCancelCancelOptionEnum cancelOption) {
         this.cancelOption = cancelOption;
         return this;
@@ -20,6 +21,7 @@ public class PostSubscriptionsSubscriptionIdCancelRequest {
     
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=subscription_id")
     public String subscriptionId;
+
     public PostSubscriptionsSubscriptionIdCancelRequest withSubscriptionId(String subscriptionId) {
         this.subscriptionId = subscriptionId;
         return this;

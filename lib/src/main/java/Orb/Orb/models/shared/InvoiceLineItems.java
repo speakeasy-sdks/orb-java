@@ -17,6 +17,7 @@ public class InvoiceLineItems {
      */
     @JsonProperty("amount")
     public String amount;
+
     public InvoiceLineItems withAmount(String amount) {
         this.amount = amount;
         return this;
@@ -24,6 +25,7 @@ public class InvoiceLineItems {
     
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public InvoiceLineItems withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -36,6 +38,7 @@ public class InvoiceLineItems {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("end_date")
     public OffsetDateTime endDate;
+
     public InvoiceLineItems withEndDate(OffsetDateTime endDate) {
         this.endDate = endDate;
         return this;
@@ -46,6 +49,7 @@ public class InvoiceLineItems {
      */
     @JsonProperty("grouping")
     public InvoiceLineItemsGrouping grouping;
+
     public InvoiceLineItems withGrouping(InvoiceLineItemsGrouping grouping) {
         this.grouping = grouping;
         return this;
@@ -53,6 +57,7 @@ public class InvoiceLineItems {
     
     @JsonProperty("minimum")
     public java.util.Map<String, Object> minimum;
+
     public InvoiceLineItems withMinimum(java.util.Map<String, Object> minimum) {
         this.minimum = minimum;
         return this;
@@ -63,6 +68,7 @@ public class InvoiceLineItems {
      */
     @JsonProperty("name")
     public String name;
+
     public InvoiceLineItems withName(String name) {
         this.name = name;
         return this;
@@ -70,6 +76,7 @@ public class InvoiceLineItems {
     
     @JsonProperty("quantity")
     public Double quantity;
+
     public InvoiceLineItems withQuantity(Double quantity) {
         this.quantity = quantity;
         return this;
@@ -82,6 +89,7 @@ public class InvoiceLineItems {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("start_date")
     public OffsetDateTime startDate;
+
     public InvoiceLineItems withStartDate(OffsetDateTime startDate) {
         this.startDate = startDate;
         return this;
@@ -92,6 +100,7 @@ public class InvoiceLineItems {
      */
     @JsonProperty("sub_line_items")
     public InvoiceLineItemsSubLineItems[] subLineItems;
+
     public InvoiceLineItems withSubLineItems(InvoiceLineItemsSubLineItems[] subLineItems) {
         this.subLineItems = subLineItems;
         return this;
@@ -102,6 +111,7 @@ public class InvoiceLineItems {
      */
     @JsonProperty("subtotal")
     public String subtotal;
+
     public InvoiceLineItems withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;
@@ -112,6 +122,7 @@ public class InvoiceLineItems {
      */
     @JsonProperty("tax_amounts")
     public InvoiceLineItemsTaxAmounts[] taxAmounts;
+
     public InvoiceLineItems withTaxAmounts(InvoiceLineItemsTaxAmounts[] taxAmounts) {
         this.taxAmounts = taxAmounts;
         return this;

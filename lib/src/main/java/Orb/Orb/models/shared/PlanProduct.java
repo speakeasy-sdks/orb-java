@@ -16,6 +16,7 @@ public class PlanProduct {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public PlanProduct withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -23,6 +24,7 @@ public class PlanProduct {
     
     @JsonProperty("id")
     public String id;
+
     public PlanProduct withId(String id) {
         this.id = id;
         return this;
@@ -30,6 +32,7 @@ public class PlanProduct {
     
     @JsonProperty("name")
     public String name;
+
     public PlanProduct withName(String name) {
         this.name = name;
         return this;

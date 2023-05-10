@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetPing200ApplicationJSON {
     @JsonProperty("response")
     public String response;
+
     public GetPing200ApplicationJSON withResponse(String response) {
         this.response = response;
         return this;

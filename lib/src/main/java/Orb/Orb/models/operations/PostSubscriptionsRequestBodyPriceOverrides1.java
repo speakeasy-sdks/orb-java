@@ -15,6 +15,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides1 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PostSubscriptionsRequestBodyPriceOverrides1 withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -25,6 +26,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides1 {
      */
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsRequestBodyPriceOverrides1 withId(String id) {
         this.id = id;
         return this;
@@ -36,6 +38,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides1 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides1 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -43,6 +46,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides1 {
     
     @JsonProperty("model_type")
     public PostSubscriptionsRequestBodyPriceOverrides1ModelTypeEnum modelType;
+
     public PostSubscriptionsRequestBodyPriceOverrides1 withModelType(PostSubscriptionsRequestBodyPriceOverrides1ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;
@@ -50,6 +54,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides1 {
     
     @JsonProperty("tiered_config")
     public PostSubscriptionsRequestBodyPriceOverrides1TieredConfig tieredConfig;
+
     public PostSubscriptionsRequestBodyPriceOverrides1 withTieredConfig(PostSubscriptionsRequestBodyPriceOverrides1TieredConfig tieredConfig) {
         this.tieredConfig = tieredConfig;
         return this;

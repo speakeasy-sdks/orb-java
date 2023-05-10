@@ -28,6 +28,7 @@ public class Customer {
      */
     @JsonProperty("balance")
     public String balance;
+
     public Customer withBalance(String balance) {
         this.balance = balance;
         return this;
@@ -39,6 +40,7 @@ public class Customer {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billing_address")
     public CustomerBillingAddress billingAddress;
+
     public Customer withBillingAddress(CustomerBillingAddress billingAddress) {
         this.billingAddress = billingAddress;
         return this;
@@ -48,6 +50,7 @@ public class Customer {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Customer withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -58,6 +61,7 @@ public class Customer {
      */
     @JsonProperty("currency")
     public String currency;
+
     public Customer withCurrency(String currency) {
         this.currency = currency;
         return this;
@@ -68,6 +72,7 @@ public class Customer {
      */
     @JsonProperty("email")
     public String email;
+
     public Customer withEmail(String email) {
         this.email = email;
         return this;
@@ -79,6 +84,7 @@ public class Customer {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public Customer withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -89,6 +95,7 @@ public class Customer {
      */
     @JsonProperty("id")
     public String id;
+
     public Customer withId(String id) {
         this.id = id;
         return this;
@@ -96,6 +103,7 @@ public class Customer {
     
     @JsonProperty("name")
     public String name;
+
     public Customer withName(String name) {
         this.name = name;
         return this;
@@ -106,6 +114,7 @@ public class Customer {
      */
     @JsonProperty("payment_provider")
     public CustomerPaymentProviderEnum paymentProvider;
+
     public Customer withPaymentProvider(CustomerPaymentProviderEnum paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
@@ -116,6 +125,7 @@ public class Customer {
      */
     @JsonProperty("payment_provider_id")
     public String paymentProviderId;
+
     public Customer withPaymentProviderId(String paymentProviderId) {
         this.paymentProviderId = paymentProviderId;
         return this;
@@ -127,6 +137,7 @@ public class Customer {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shipping_address")
     public CustomerShippingAddress shippingAddress;
+
     public Customer withShippingAddress(CustomerShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
         return this;
@@ -137,6 +148,7 @@ public class Customer {
      */
     @JsonProperty("timezone")
     public String timezone;
+
     public Customer withTimezone(String timezone) {
         this.timezone = timezone;
         return this;

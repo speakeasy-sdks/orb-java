@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetExternalCustomerCostsResponse {
     
     public String contentType;
+
     public GetExternalCustomerCostsResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetExternalCustomerCostsResponse {
     
     
     public Integer statusCode;
+
     public GetExternalCustomerCostsResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetExternalCustomerCostsResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetExternalCustomerCostsResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class GetExternalCustomerCostsResponse {
      */
     
     public GetExternalCustomerCosts200ApplicationJSON getExternalCustomerCosts200ApplicationJSONObject;
+
     public GetExternalCustomerCostsResponse withGetExternalCustomerCosts200ApplicationJSONObject(GetExternalCustomerCosts200ApplicationJSON getExternalCustomerCosts200ApplicationJSONObject) {
         this.getExternalCustomerCosts200ApplicationJSONObject = getExternalCustomerCosts200ApplicationJSONObject;
         return this;

@@ -15,6 +15,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PostSubscriptionsRequestBodyPriceOverrides7 withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -22,6 +23,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
     
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsRequestBodyPriceOverrides7 withId(String id) {
         this.id = id;
         return this;
@@ -33,6 +35,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides7 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -40,6 +43,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
     
     @JsonProperty("model_type")
     public PostSubscriptionsRequestBodyPriceOverrides7ModelTypeEnum modelType;
+
     public PostSubscriptionsRequestBodyPriceOverrides7 withModelType(PostSubscriptionsRequestBodyPriceOverrides7ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;
@@ -47,6 +51,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
     
     @JsonProperty("tiered_bps_config")
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig;
+
     public PostSubscriptionsRequestBodyPriceOverrides7 withTieredBpsConfig(PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig) {
         this.tieredBpsConfig = tieredBpsConfig;
         return this;

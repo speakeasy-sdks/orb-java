@@ -18,6 +18,7 @@ public class PutCustomersCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billing_address")
     public PutCustomersCustomerIdRequestBodyBillingAddress billingAddress;
+
     public PutCustomersCustomerIdRequestBody withBillingAddress(PutCustomersCustomerIdRequestBodyBillingAddress billingAddress) {
         this.billingAddress = billingAddress;
         return this;
@@ -29,6 +30,7 @@ public class PutCustomersCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("email")
     public String email;
+
     public PutCustomersCustomerIdRequestBody withEmail(String email) {
         this.email = email;
         return this;
@@ -37,6 +39,7 @@ public class PutCustomersCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     public String name;
+
     public PutCustomersCustomerIdRequestBody withName(String name) {
         this.name = name;
         return this;
@@ -50,6 +53,7 @@ public class PutCustomersCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider")
     public PutCustomersCustomerIdRequestBodyPaymentProviderEnum paymentProvider;
+
     public PutCustomersCustomerIdRequestBody withPaymentProvider(PutCustomersCustomerIdRequestBodyPaymentProviderEnum paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
@@ -61,6 +65,7 @@ public class PutCustomersCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider_id")
     public String paymentProviderId;
+
     public PutCustomersCustomerIdRequestBody withPaymentProviderId(String paymentProviderId) {
         this.paymentProviderId = paymentProviderId;
         return this;
@@ -72,6 +77,7 @@ public class PutCustomersCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shipping_address")
     public PutCustomersCustomerIdRequestBodyShippingAddress shippingAddress;
+
     public PutCustomersCustomerIdRequestBody withShippingAddress(PutCustomersCustomerIdRequestBodyShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
         return this;

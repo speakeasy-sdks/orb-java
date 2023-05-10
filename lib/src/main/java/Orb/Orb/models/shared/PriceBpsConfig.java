@@ -15,6 +15,7 @@ public class PriceBpsConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bps")
     public Double bps;
+
     public PriceBpsConfig withBps(Double bps) {
         this.bps = bps;
         return this;
@@ -23,6 +24,7 @@ public class PriceBpsConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("per_unit_maximum")
     public String perUnitMaximum;
+
     public PriceBpsConfig withPerUnitMaximum(String perUnitMaximum) {
         this.perUnitMaximum = perUnitMaximum;
         return this;

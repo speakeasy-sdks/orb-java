@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UpcomingInvoiceLineItemsGrouping {
     @JsonProperty("key")
     public String key;
+
     public UpcomingInvoiceLineItemsGrouping withKey(String key) {
         this.key = key;
         return this;
@@ -19,6 +20,7 @@ public class UpcomingInvoiceLineItemsGrouping {
     
     @JsonProperty("value")
     public String value;
+
     public UpcomingInvoiceLineItemsGrouping withValue(String value) {
         this.value = value;
         return this;

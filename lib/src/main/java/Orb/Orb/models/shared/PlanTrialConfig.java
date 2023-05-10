@@ -12,6 +12,7 @@ public class PlanTrialConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("trial_period")
     public Double trialPeriod;
+
     public PlanTrialConfig withTrialPeriod(Double trialPeriod) {
         this.trialPeriod = trialPeriod;
         return this;
@@ -19,6 +20,7 @@ public class PlanTrialConfig {
     
     @JsonProperty("trial_period_unit")
     public PlanTrialConfigTrialPeriodUnitEnum trialPeriodUnit;
+
     public PlanTrialConfig withTrialPeriodUnit(PlanTrialConfigTrialPeriodUnitEnum trialPeriodUnit) {
         this.trialPeriodUnit = trialPeriodUnit;
         return this;

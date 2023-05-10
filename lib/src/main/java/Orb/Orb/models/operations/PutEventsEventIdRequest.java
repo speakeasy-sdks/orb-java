@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PutEventsEventIdRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
     public PutEventsEventIdRequestBody requestBody;
+
     public PutEventsEventIdRequest withRequestBody(PutEventsEventIdRequestBody requestBody) {
         this.requestBody = requestBody;
         return this;
@@ -20,6 +21,7 @@ public class PutEventsEventIdRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=event_id")
     public String eventId;
+
     public PutEventsEventIdRequest withEventId(String eventId) {
         this.eventId = eventId;
         return this;

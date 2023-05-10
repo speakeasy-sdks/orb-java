@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UpcomingInvoiceSubscription {
     @JsonProperty("id")
     public String id;
+
     public UpcomingInvoiceSubscription withId(String id) {
         this.id = id;
         return this;

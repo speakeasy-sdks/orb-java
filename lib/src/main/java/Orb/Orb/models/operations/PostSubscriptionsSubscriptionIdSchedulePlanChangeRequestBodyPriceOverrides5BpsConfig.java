@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5BpsConfig {
     @JsonProperty("bps")
     public Double bps;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5BpsConfig withBps(Double bps) {
         this.bps = bps;
         return this;
@@ -16,6 +17,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     
     @JsonProperty("per_unit_maximum")
     public String perUnitMaximum;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5BpsConfig withPerUnitMaximum(String perUnitMaximum) {
         this.perUnitMaximum = perUnitMaximum;
         return this;

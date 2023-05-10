@@ -12,6 +12,7 @@ public class PostSubscriptionsRequestBodyPhaseOverrides {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PostSubscriptionsRequestBodyPhaseOverrides withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -23,6 +24,7 @@ public class PostSubscriptionsRequestBodyPhaseOverrides {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPhaseOverrides withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -34,6 +36,7 @@ public class PostSubscriptionsRequestBodyPhaseOverrides {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("order")
     public Double order;
+
     public PostSubscriptionsRequestBodyPhaseOverrides withOrder(Double order) {
         this.order = order;
         return this;

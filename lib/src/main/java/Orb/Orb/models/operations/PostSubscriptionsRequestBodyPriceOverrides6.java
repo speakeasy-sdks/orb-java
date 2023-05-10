@@ -15,6 +15,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides6 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bulk_bps_config")
     public PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig bulkBpsConfig;
+
     public PostSubscriptionsRequestBodyPriceOverrides6 withBulkBpsConfig(PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig bulkBpsConfig) {
         this.bulkBpsConfig = bulkBpsConfig;
         return this;
@@ -23,6 +24,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides6 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PostSubscriptionsRequestBodyPriceOverrides6 withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -30,6 +32,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides6 {
     
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsRequestBodyPriceOverrides6 withId(String id) {
         this.id = id;
         return this;
@@ -41,6 +44,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides6 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides6 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -48,6 +52,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides6 {
     
     @JsonProperty("model_type")
     public PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum modelType;
+
     public PostSubscriptionsRequestBodyPriceOverrides6 withModelType(PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;

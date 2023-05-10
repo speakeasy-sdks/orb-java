@@ -14,6 +14,7 @@ public class GetCustomerCostsRequest {
      */
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customer_id")
     public String customerId;
+
     public GetCustomerCostsRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -24,6 +25,7 @@ public class GetCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=group_by")
     public String groupBy;
+
     public GetCustomerCostsRequest withGroupBy(String groupBy) {
         this.groupBy = groupBy;
         return this;
@@ -34,6 +36,7 @@ public class GetCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_end")
     public String timeframeEnd;
+
     public GetCustomerCostsRequest withTimeframeEnd(String timeframeEnd) {
         this.timeframeEnd = timeframeEnd;
         return this;
@@ -44,6 +47,7 @@ public class GetCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_start")
     public OffsetDateTime timeframeStart;
+
     public GetCustomerCostsRequest withTimeframeStart(OffsetDateTime timeframeStart) {
         this.timeframeStart = timeframeStart;
         return this;
@@ -54,6 +58,7 @@ public class GetCustomerCostsRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=view_mode")
     public GetCustomerCostsViewModeEnum viewMode;
+
     public GetCustomerCostsRequest withViewMode(GetCustomerCostsViewModeEnum viewMode) {
         this.viewMode = viewMode;
         return this;

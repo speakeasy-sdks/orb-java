@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PostCustomersCustomerIdCreditsLedgerEntryResponse {
     
     public String contentType;
+
     public PostCustomersCustomerIdCreditsLedgerEntryResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -20,6 +21,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryResponse {
      */
     
     public Orb.Orb.models.shared.CreditLedgerEntry creditLedgerEntry;
+
     public PostCustomersCustomerIdCreditsLedgerEntryResponse withCreditLedgerEntry(Orb.Orb.models.shared.CreditLedgerEntry creditLedgerEntry) {
         this.creditLedgerEntry = creditLedgerEntry;
         return this;
@@ -27,6 +29,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryResponse {
     
     
     public Integer statusCode;
+
     public PostCustomersCustomerIdCreditsLedgerEntryResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -34,6 +37,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PostCustomersCustomerIdCreditsLedgerEntryResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;

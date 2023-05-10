@@ -24,6 +24,7 @@ public class CreditLedgerEntry {
      */
     @JsonProperty("amount")
     public Double amount;
+
     public CreditLedgerEntry withAmount(Double amount) {
         this.amount = amount;
         return this;
@@ -33,6 +34,7 @@ public class CreditLedgerEntry {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public CreditLedgerEntry withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -43,6 +45,7 @@ public class CreditLedgerEntry {
      */
     @JsonProperty("credit_block")
     public CreditLedgerEntryCreditBlock creditBlock;
+
     public CreditLedgerEntry withCreditBlock(CreditLedgerEntryCreditBlock creditBlock) {
         this.creditBlock = creditBlock;
         return this;
@@ -50,6 +53,7 @@ public class CreditLedgerEntry {
     
     @JsonProperty("customer")
     public CreditLedgerEntryCustomer customer;
+
     public CreditLedgerEntry withCustomer(CreditLedgerEntryCustomer customer) {
         this.customer = customer;
         return this;
@@ -60,6 +64,7 @@ public class CreditLedgerEntry {
      */
     @JsonProperty("description")
     public String description;
+
     public CreditLedgerEntry withDescription(String description) {
         this.description = description;
         return this;
@@ -67,6 +72,7 @@ public class CreditLedgerEntry {
     
     @JsonProperty("ending_balance")
     public Double endingBalance;
+
     public CreditLedgerEntry withEndingBalance(Double endingBalance) {
         this.endingBalance = endingBalance;
         return this;
@@ -77,6 +83,7 @@ public class CreditLedgerEntry {
      */
     @JsonProperty("entry_status")
     public CreditLedgerEntryEntryStatusEnum entryStatus;
+
     public CreditLedgerEntry withEntryStatus(CreditLedgerEntryEntryStatusEnum entryStatus) {
         this.entryStatus = entryStatus;
         return this;
@@ -84,6 +91,7 @@ public class CreditLedgerEntry {
     
     @JsonProperty("entry_type")
     public CreditLedgerEntryEntryTypeEnum entryType;
+
     public CreditLedgerEntry withEntryType(CreditLedgerEntryEntryTypeEnum entryType) {
         this.entryType = entryType;
         return this;
@@ -92,6 +100,7 @@ public class CreditLedgerEntry {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event_id")
     public String eventId;
+
     public CreditLedgerEntry withEventId(String eventId) {
         this.eventId = eventId;
         return this;
@@ -99,6 +108,7 @@ public class CreditLedgerEntry {
     
     @JsonProperty("id")
     public String id;
+
     public CreditLedgerEntry withId(String id) {
         this.id = id;
         return this;
@@ -109,6 +119,7 @@ public class CreditLedgerEntry {
      */
     @JsonProperty("ledger_sequence_number")
     public Double ledgerSequenceNumber;
+
     public CreditLedgerEntry withLedgerSequenceNumber(Double ledgerSequenceNumber) {
         this.ledgerSequenceNumber = ledgerSequenceNumber;
         return this;
@@ -117,6 +128,7 @@ public class CreditLedgerEntry {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price_id")
     public String priceId;
+
     public CreditLedgerEntry withPriceId(String priceId) {
         this.priceId = priceId;
         return this;
@@ -124,6 +136,7 @@ public class CreditLedgerEntry {
     
     @JsonProperty("starting_balance")
     public Double startingBalance;
+
     public CreditLedgerEntry withStartingBalance(Double startingBalance) {
         this.startingBalance = startingBalance;
         return this;

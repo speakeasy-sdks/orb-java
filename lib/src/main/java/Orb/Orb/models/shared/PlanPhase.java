@@ -15,6 +15,7 @@ public class PlanPhase {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     public String description;
+
     public PlanPhase withDescription(String description) {
         this.description = description;
         return this;
@@ -22,6 +23,7 @@ public class PlanPhase {
     
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PlanPhase withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -33,6 +35,7 @@ public class PlanPhase {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("duration")
     public Long duration;
+
     public PlanPhase withDuration(Long duration) {
         this.duration = duration;
         return this;
@@ -43,6 +46,7 @@ public class PlanPhase {
      */
     @JsonProperty("duration_unit")
     public PlanPhaseDurationUnitEnum durationUnit;
+
     public PlanPhase withDurationUnit(PlanPhaseDurationUnitEnum durationUnit) {
         this.durationUnit = durationUnit;
         return this;
@@ -50,6 +54,7 @@ public class PlanPhase {
     
     @JsonProperty("minimum")
     public java.util.Map<String, Object> minimum;
+
     public PlanPhase withMinimum(java.util.Map<String, Object> minimum) {
         this.minimum = minimum;
         return this;
@@ -58,6 +63,7 @@ public class PlanPhase {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     public String name;
+
     public PlanPhase withName(String name) {
         this.name = name;
         return this;
@@ -69,6 +75,7 @@ public class PlanPhase {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("order")
     public Long order;
+
     public PlanPhase withOrder(Long order) {
         this.order = order;
         return this;

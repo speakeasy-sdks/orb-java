@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsRequestBodyPriceOverrides2UnitConfig {
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides2UnitConfig withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

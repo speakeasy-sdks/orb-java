@@ -15,6 +15,7 @@ public class PatchExternalCustomersCustomerIdUsage400ApplicationJSON {
      */
     @JsonProperty("status")
     public Long status;
+
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSON withStatus(Long status) {
         this.status = status;
         return this;
@@ -25,6 +26,7 @@ public class PatchExternalCustomersCustomerIdUsage400ApplicationJSON {
      */
     @JsonProperty("title")
     public String title;
+
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSON withTitle(String title) {
         this.title = title;
         return this;
@@ -32,6 +34,7 @@ public class PatchExternalCustomersCustomerIdUsage400ApplicationJSON {
     
     @JsonProperty("type")
     public String type;
+
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSON withType(String type) {
         this.type = type;
         return this;
@@ -42,6 +45,7 @@ public class PatchExternalCustomersCustomerIdUsage400ApplicationJSON {
      */
     @JsonProperty("validation_errors")
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSONValidationErrors[] validationErrors;
+
     public PatchExternalCustomersCustomerIdUsage400ApplicationJSON withValidationErrors(PatchExternalCustomersCustomerIdUsage400ApplicationJSONValidationErrors[] validationErrors) {
         this.validationErrors = validationErrors;
         return this;

@@ -20,6 +20,7 @@ public class PutEventsEventIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("customer_id")
     public String customerId;
+
     public PutEventsEventIdRequestBody withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -30,6 +31,7 @@ public class PutEventsEventIdRequestBody {
      */
     @JsonProperty("event_name")
     public String eventName;
+
     public PutEventsEventIdRequestBody withEventName(String eventName) {
         this.eventName = eventName;
         return this;
@@ -41,6 +43,7 @@ public class PutEventsEventIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public PutEventsEventIdRequestBody withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -51,6 +54,7 @@ public class PutEventsEventIdRequestBody {
      */
     @JsonProperty("properties")
     public java.util.Map<String, Object> properties;
+
     public PutEventsEventIdRequestBody withProperties(java.util.Map<String, Object> properties) {
         this.properties = properties;
         return this;
@@ -63,6 +67,7 @@ public class PutEventsEventIdRequestBody {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("timestamp")
     public OffsetDateTime timestamp;
+
     public PutEventsEventIdRequestBody withTimestamp(OffsetDateTime timestamp) {
         this.timestamp = timestamp;
         return this;

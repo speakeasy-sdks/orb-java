@@ -15,6 +15,7 @@ public class CustomerBalanceTransactionInvoice {
      */
     @JsonProperty("id")
     public String id;
+
     public CustomerBalanceTransactionInvoice withId(String id) {
         this.id = id;
         return this;

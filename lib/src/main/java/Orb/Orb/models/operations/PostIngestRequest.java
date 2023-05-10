@@ -9,6 +9,7 @@ import Orb.Orb.utils.SpeakeasyMetadata;
 public class PostIngestRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
     public PostIngestRequestBody requestBody;
+
     public PostIngestRequest withRequestBody(PostIngestRequestBody requestBody) {
         this.requestBody = requestBody;
         return this;
@@ -19,6 +20,7 @@ public class PostIngestRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=debug")
     public PostIngestDebugEnum debug;
+
     public PostIngestRequest withDebug(PostIngestDebugEnum debug) {
         this.debug = debug;
         return this;

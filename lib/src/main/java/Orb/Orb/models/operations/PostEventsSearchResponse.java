@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PostEventsSearchResponse {
     
     public String contentType;
+
     public PostEventsSearchResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class PostEventsSearchResponse {
     
     
     public Integer statusCode;
+
     public PostEventsSearchResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class PostEventsSearchResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PostEventsSearchResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class PostEventsSearchResponse {
      */
     
     public PostEventsSearch200ApplicationJSON postEventsSearch200ApplicationJSONObject;
+
     public PostEventsSearchResponse withPostEventsSearch200ApplicationJSONObject(PostEventsSearch200ApplicationJSON postEventsSearch200ApplicationJSONObject) {
         this.postEventsSearch200ApplicationJSONObject = postEventsSearch200ApplicationJSONObject;
         return this;

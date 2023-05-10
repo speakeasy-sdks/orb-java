@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata {
     @JsonProperty("has_more")
     public Boolean hasMore;
+
     public GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata withHasMore(Boolean hasMore) {
         this.hasMore = hasMore;
         return this;
@@ -19,6 +20,7 @@ public class GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("next_cursor")
     public String nextCursor;
+
     public GetCustomersCustomerIdCredits200ApplicationJSONPaginationMetadata withNextCursor(String nextCursor) {
         this.nextCursor = nextCursor;
         return this;

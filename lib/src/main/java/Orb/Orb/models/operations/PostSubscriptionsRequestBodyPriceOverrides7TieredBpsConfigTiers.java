@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers {
     @JsonProperty("bps")
     public Double bps;
+
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers withBps(Double bps) {
         this.bps = bps;
         return this;
@@ -16,6 +17,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers {
     
     @JsonProperty("maximum_amount")
     public String maximumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers withMaximumAmount(String maximumAmount) {
         this.maximumAmount = maximumAmount;
         return this;
@@ -23,6 +25,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers {
     
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -30,6 +33,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers {
     
     @JsonProperty("per_unit_maximum")
     public String perUnitMaximum;
+
     public PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers withPerUnitMaximum(String perUnitMaximum) {
         this.perUnitMaximum = perUnitMaximum;
         return this;

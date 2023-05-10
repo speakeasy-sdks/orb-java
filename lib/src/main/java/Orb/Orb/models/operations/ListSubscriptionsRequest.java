@@ -9,6 +9,7 @@ import Orb.Orb.utils.SpeakeasyMetadata;
 public class ListSubscriptionsRequest {
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=customer_id")
     public String customerId;
+
     public ListSubscriptionsRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -16,6 +17,7 @@ public class ListSubscriptionsRequest {
     
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=external_customer_id")
     public String externalCustomerId;
+
     public ListSubscriptionsRequest withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;

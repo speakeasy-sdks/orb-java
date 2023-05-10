@@ -13,6 +13,7 @@ import java.time.LocalDate;
 public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     @JsonProperty("amount")
     public Double amount;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withAmount(Double amount) {
         this.amount = amount;
         return this;
@@ -24,6 +25,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("block_id")
     public String blockId;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withBlockId(String blockId) {
         this.blockId = blockId;
         return this;
@@ -35,6 +37,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("description")
     public String description;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withDescription(String description) {
         this.description = description;
         return this;
@@ -42,6 +45,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     
     @JsonProperty("entry_type")
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum entryType;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withEntryType(PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum entryType) {
         this.entryType = entryType;
         return this;
@@ -56,6 +60,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("expiry_date")
     public LocalDate expiryDate;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
         return this;
@@ -67,6 +72,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("per_unit_cost_basis")
     public String perUnitCostBasis;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withPerUnitCostBasis(String perUnitCostBasis) {
         this.perUnitCostBasis = perUnitCostBasis;
         return this;
@@ -79,6 +85,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("target_expiry_date")
     public LocalDate targetExpiryDate;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withTargetExpiryDate(LocalDate targetExpiryDate) {
         this.targetExpiryDate = targetExpiryDate;
         return this;

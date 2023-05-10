@@ -12,6 +12,7 @@ public class PatchExternalCustomersCustomerIdUsageRequestBodyEvents {
      */
     @JsonProperty("event_name")
     public String eventName;
+
     public PatchExternalCustomersCustomerIdUsageRequestBodyEvents withEventName(String eventName) {
         this.eventName = eventName;
         return this;
@@ -22,6 +23,7 @@ public class PatchExternalCustomersCustomerIdUsageRequestBodyEvents {
      */
     @JsonProperty("properties")
     public java.util.Map<String, Object> properties;
+
     public PatchExternalCustomersCustomerIdUsageRequestBodyEvents withProperties(java.util.Map<String, Object> properties) {
         this.properties = properties;
         return this;
@@ -32,6 +34,7 @@ public class PatchExternalCustomersCustomerIdUsageRequestBodyEvents {
      */
     @JsonProperty("timestamp")
     public String timestamp;
+
     public PatchExternalCustomersCustomerIdUsageRequestBodyEvents withTimestamp(String timestamp) {
         this.timestamp = timestamp;
         return this;

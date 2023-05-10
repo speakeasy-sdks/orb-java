@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetCustomersCustomerIdCreditsLedgerRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customer_id")
     public String customerId;
+
     public GetCustomersCustomerIdCreditsLedgerRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -20,6 +21,7 @@ public class GetCustomersCustomerIdCreditsLedgerRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=entry_status")
     public GetCustomersCustomerIdCreditsLedgerEntryStatusEnum entryStatus;
+
     public GetCustomersCustomerIdCreditsLedgerRequest withEntryStatus(GetCustomersCustomerIdCreditsLedgerEntryStatusEnum entryStatus) {
         this.entryStatus = entryStatus;
         return this;
@@ -30,6 +32,7 @@ public class GetCustomersCustomerIdCreditsLedgerRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=entry_type")
     public GetCustomersCustomerIdCreditsLedgerEntryTypeEnum entryType;
+
     public GetCustomersCustomerIdCreditsLedgerRequest withEntryType(GetCustomersCustomerIdCreditsLedgerEntryTypeEnum entryType) {
         this.entryType = entryType;
         return this;
@@ -40,6 +43,7 @@ public class GetCustomersCustomerIdCreditsLedgerRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=minimum_amount")
     public Double minimumAmount;
+
     public GetCustomersCustomerIdCreditsLedgerRequest withMinimumAmount(Double minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;

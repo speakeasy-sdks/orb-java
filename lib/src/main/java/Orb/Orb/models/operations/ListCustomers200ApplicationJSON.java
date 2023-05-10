@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ListCustomers200ApplicationJSON {
     @JsonProperty("data")
     public Orb.Orb.models.shared.Customer[] data;
+
     public ListCustomers200ApplicationJSON withData(Orb.Orb.models.shared.Customer[] data) {
         this.data = data;
         return this;
@@ -19,6 +20,7 @@ public class ListCustomers200ApplicationJSON {
     
     @JsonProperty("pagination_metadata")
     public ListCustomers200ApplicationJSONPaginationMetadata paginationMetadata;
+
     public ListCustomers200ApplicationJSON withPaginationMetadata(ListCustomers200ApplicationJSONPaginationMetadata paginationMetadata) {
         this.paginationMetadata = paginationMetadata;
         return this;

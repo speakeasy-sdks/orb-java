@@ -12,6 +12,7 @@ public class ListInvoicesRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=customer_id")
     public String customerId;
+
     public ListInvoicesRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -22,6 +23,7 @@ public class ListInvoicesRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=external_customer_id")
     public String externalCustomerId;
+
     public ListInvoicesRequest withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -32,6 +34,7 @@ public class ListInvoicesRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=subscription_id")
     public String subscriptionId;
+
     public ListInvoicesRequest withSubscriptionId(String subscriptionId) {
         this.subscriptionId = subscriptionId;
         return this;

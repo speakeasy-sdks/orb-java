@@ -15,6 +15,7 @@ public class PricePackageConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("package_amount")
     public String packageAmount;
+
     public PricePackageConfig withPackageAmount(String packageAmount) {
         this.packageAmount = packageAmount;
         return this;
@@ -23,6 +24,7 @@ public class PricePackageConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("package_size")
     public Double packageSize;
+
     public PricePackageConfig withPackageSize(Double packageSize) {
         this.packageSize = packageSize;
         return this;

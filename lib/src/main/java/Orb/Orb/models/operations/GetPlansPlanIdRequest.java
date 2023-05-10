@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetPlansPlanIdRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=plan_id")
     public String planId;
+
     public GetPlansPlanIdRequest withPlanId(String planId) {
         this.planId = planId;
         return this;

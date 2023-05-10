@@ -12,6 +12,7 @@ public class PriceTieredConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("first_unit")
     public String firstUnit;
+
     public PriceTieredConfigTiers withFirstUnit(String firstUnit) {
         this.firstUnit = firstUnit;
         return this;
@@ -20,6 +21,7 @@ public class PriceTieredConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("last_unit")
     public String lastUnit;
+
     public PriceTieredConfigTiers withLastUnit(String lastUnit) {
         this.lastUnit = lastUnit;
         return this;
@@ -28,6 +30,7 @@ public class PriceTieredConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public PriceTieredConfigTiers withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

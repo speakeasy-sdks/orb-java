@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetCustomersExternalCustomerIdExternalCustomerIdResponse {
     
     public String contentType;
+
     public GetCustomersExternalCustomerIdExternalCustomerIdResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -20,6 +21,7 @@ public class GetCustomersExternalCustomerIdExternalCustomerIdResponse {
      */
     
     public Orb.Orb.models.shared.Customer customer;
+
     public GetCustomersExternalCustomerIdExternalCustomerIdResponse withCustomer(Orb.Orb.models.shared.Customer customer) {
         this.customer = customer;
         return this;
@@ -27,6 +29,7 @@ public class GetCustomersExternalCustomerIdExternalCustomerIdResponse {
     
     
     public Integer statusCode;
+
     public GetCustomersExternalCustomerIdExternalCustomerIdResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -34,6 +37,7 @@ public class GetCustomersExternalCustomerIdExternalCustomerIdResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetCustomersExternalCustomerIdExternalCustomerIdResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;

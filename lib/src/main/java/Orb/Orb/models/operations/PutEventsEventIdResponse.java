@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PutEventsEventIdResponse {
     
     public String contentType;
+
     public PutEventsEventIdResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class PutEventsEventIdResponse {
     
     
     public Integer statusCode;
+
     public PutEventsEventIdResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class PutEventsEventIdResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PutEventsEventIdResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class PutEventsEventIdResponse {
      */
     
     public PutEventsEventId200ApplicationJSON putEventsEventId200ApplicationJSONObject;
+
     public PutEventsEventIdResponse withPutEventsEventId200ApplicationJSONObject(PutEventsEventId200ApplicationJSON putEventsEventId200ApplicationJSONObject) {
         this.putEventsEventId200ApplicationJSONObject = putEventsEventId200ApplicationJSONObject;
         return this;
@@ -44,6 +48,7 @@ public class PutEventsEventIdResponse {
      */
     
     public PutEventsEventId400ApplicationJSON putEventsEventId400ApplicationJSONObject;
+
     public PutEventsEventIdResponse withPutEventsEventId400ApplicationJSONObject(PutEventsEventId400ApplicationJSON putEventsEventId400ApplicationJSONObject) {
         this.putEventsEventId400ApplicationJSONObject = putEventsEventId400ApplicationJSONObject;
         return this;

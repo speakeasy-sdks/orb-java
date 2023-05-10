@@ -17,6 +17,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("align_billing_with_plan_change_date")
     public Boolean alignBillingWithPlanChangeDate;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withAlignBillingWithPlanChangeDate(Boolean alignBillingWithPlanChangeDate) {
         this.alignBillingWithPlanChangeDate = alignBillingWithPlanChangeDate;
         return this;
@@ -29,6 +30,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("change_date")
     public LocalDate changeDate;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withChangeDate(LocalDate changeDate) {
         this.changeDate = changeDate;
         return this;
@@ -39,6 +41,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
      */
     @JsonProperty("change_option")
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum changeOption;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withChangeOption(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum changeOption) {
         this.changeOption = changeOption;
         return this;
@@ -50,6 +53,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_plan_id")
     public String externalPlanId;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withExternalPlanId(String externalPlanId) {
         this.externalPlanId = externalPlanId;
         return this;
@@ -61,6 +65,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -72,6 +77,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("plan_id")
     public String planId;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withPlanId(String planId) {
         this.planId = planId;
         return this;
@@ -83,6 +89,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price_overrides")
     public Object[] priceOverrides;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withPriceOverrides(Object[] priceOverrides) {
         this.priceOverrides = priceOverrides;
         return this;

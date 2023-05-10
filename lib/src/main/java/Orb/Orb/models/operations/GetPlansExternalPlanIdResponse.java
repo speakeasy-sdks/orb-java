@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class GetPlansExternalPlanIdResponse {
     
     public String contentType;
+
     public GetPlansExternalPlanIdResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class GetPlansExternalPlanIdResponse {
     
     
     public Integer statusCode;
+
     public GetPlansExternalPlanIdResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class GetPlansExternalPlanIdResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public GetPlansExternalPlanIdResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;

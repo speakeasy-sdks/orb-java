@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class PutDeprecateEventsEventIdResponse {
     
     public String contentType;
+
     public PutDeprecateEventsEventIdResponse withContentType(String contentType) {
         this.contentType = contentType;
         return this;
@@ -17,6 +18,7 @@ public class PutDeprecateEventsEventIdResponse {
     
     
     public Integer statusCode;
+
     public PutDeprecateEventsEventIdResponse withStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
         return this;
@@ -24,6 +26,7 @@ public class PutDeprecateEventsEventIdResponse {
     
     
     public HttpResponse<byte[]> rawResponse;
+
     public PutDeprecateEventsEventIdResponse withRawResponse(HttpResponse<byte[]> rawResponse) {
         this.rawResponse = rawResponse;
         return this;
@@ -34,6 +37,7 @@ public class PutDeprecateEventsEventIdResponse {
      */
     
     public PutDeprecateEventsEventId200ApplicationJSON putDeprecateEventsEventId200ApplicationJSONObject;
+
     public PutDeprecateEventsEventIdResponse withPutDeprecateEventsEventId200ApplicationJSONObject(PutDeprecateEventsEventId200ApplicationJSON putDeprecateEventsEventId200ApplicationJSONObject) {
         this.putDeprecateEventsEventId200ApplicationJSONObject = putDeprecateEventsEventId200ApplicationJSONObject;
         return this;
@@ -44,6 +48,7 @@ public class PutDeprecateEventsEventIdResponse {
      */
     
     public PutDeprecateEventsEventId400ApplicationJSON putDeprecateEventsEventId400ApplicationJSONObject;
+
     public PutDeprecateEventsEventIdResponse withPutDeprecateEventsEventId400ApplicationJSONObject(PutDeprecateEventsEventId400ApplicationJSON putDeprecateEventsEventId400ApplicationJSONObject) {
         this.putDeprecateEventsEventId400ApplicationJSONObject = putDeprecateEventsEventId400ApplicationJSONObject;
         return this;

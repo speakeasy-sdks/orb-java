@@ -22,6 +22,7 @@ public class Invoice {
      */
     @JsonProperty("amount_due")
     public String amountDue;
+
     public Invoice withAmountDue(String amountDue) {
         this.amountDue = amountDue;
         return this;
@@ -34,6 +35,7 @@ public class Invoice {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Invoice withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -44,6 +46,7 @@ public class Invoice {
      */
     @JsonProperty("currency")
     public String currency;
+
     public Invoice withCurrency(String currency) {
         this.currency = currency;
         return this;
@@ -54,6 +57,7 @@ public class Invoice {
      */
     @JsonProperty("customer")
     public InvoiceCustomer customer;
+
     public Invoice withCustomer(InvoiceCustomer customer) {
         this.customer = customer;
         return this;
@@ -64,6 +68,7 @@ public class Invoice {
      */
     @JsonProperty("customer_balance_transactions")
     public CustomerBalanceTransaction[] customerBalanceTransactions;
+
     public Invoice withCustomerBalanceTransactions(CustomerBalanceTransaction[] customerBalanceTransactions) {
         this.customerBalanceTransactions = customerBalanceTransactions;
         return this;
@@ -71,6 +76,7 @@ public class Invoice {
     
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public Invoice withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -83,6 +89,7 @@ public class Invoice {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("due_date")
     public OffsetDateTime dueDate;
+
     public Invoice withDueDate(OffsetDateTime dueDate) {
         this.dueDate = dueDate;
         return this;
@@ -90,6 +97,7 @@ public class Invoice {
     
     @JsonProperty("id")
     public String id;
+
     public Invoice withId(String id) {
         this.id = id;
         return this;
@@ -102,6 +110,7 @@ public class Invoice {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("invoice_date")
     public OffsetDateTime invoiceDate;
+
     public Invoice withInvoiceDate(OffsetDateTime invoiceDate) {
         this.invoiceDate = invoiceDate;
         return this;
@@ -112,6 +121,7 @@ public class Invoice {
      */
     @JsonProperty("invoice_pdf")
     public String invoicePdf;
+
     public Invoice withInvoicePdf(String invoicePdf) {
         this.invoicePdf = invoicePdf;
         return this;
@@ -122,6 +132,7 @@ public class Invoice {
      */
     @JsonProperty("line_items")
     public InvoiceLineItems[] lineItems;
+
     public Invoice withLineItems(InvoiceLineItems[] lineItems) {
         this.lineItems = lineItems;
         return this;
@@ -129,6 +140,7 @@ public class Invoice {
     
     @JsonProperty("minimum")
     public java.util.Map<String, Object> minimum;
+
     public Invoice withMinimum(java.util.Map<String, Object> minimum) {
         this.minimum = minimum;
         return this;
@@ -140,6 +152,7 @@ public class Invoice {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
     public InvoiceStatusEnum status;
+
     public Invoice withStatus(InvoiceStatusEnum status) {
         this.status = status;
         return this;
@@ -150,6 +163,7 @@ public class Invoice {
      */
     @JsonProperty("subscription")
     public InvoiceSubscription subscription;
+
     public Invoice withSubscription(InvoiceSubscription subscription) {
         this.subscription = subscription;
         return this;
@@ -160,6 +174,7 @@ public class Invoice {
      */
     @JsonProperty("subtotal")
     public String subtotal;
+
     public Invoice withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;
@@ -170,6 +185,7 @@ public class Invoice {
      */
     @JsonProperty("total")
     public String total;
+
     public Invoice withTotal(String total) {
         this.total = total;
         return this;

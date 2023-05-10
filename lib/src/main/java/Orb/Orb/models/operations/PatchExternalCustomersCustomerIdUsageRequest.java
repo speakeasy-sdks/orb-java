@@ -11,6 +11,7 @@ import java.time.OffsetDateTime;
 public class PatchExternalCustomersCustomerIdUsageRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
     public PatchExternalCustomersCustomerIdUsageRequestBody requestBody;
+
     public PatchExternalCustomersCustomerIdUsageRequest withRequestBody(PatchExternalCustomersCustomerIdUsageRequestBody requestBody) {
         this.requestBody = requestBody;
         return this;
@@ -18,6 +19,7 @@ public class PatchExternalCustomersCustomerIdUsageRequest {
     
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=external_customer_id")
     public String externalCustomerId;
+
     public PatchExternalCustomersCustomerIdUsageRequest withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -28,6 +30,7 @@ public class PatchExternalCustomersCustomerIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_end")
     public OffsetDateTime timeframeEnd;
+
     public PatchExternalCustomersCustomerIdUsageRequest withTimeframeEnd(OffsetDateTime timeframeEnd) {
         this.timeframeEnd = timeframeEnd;
         return this;
@@ -38,6 +41,7 @@ public class PatchExternalCustomersCustomerIdUsageRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_start")
     public OffsetDateTime timeframeStart;
+
     public PatchExternalCustomersCustomerIdUsageRequest withTimeframeStart(OffsetDateTime timeframeStart) {
         this.timeframeStart = timeframeStart;
         return this;

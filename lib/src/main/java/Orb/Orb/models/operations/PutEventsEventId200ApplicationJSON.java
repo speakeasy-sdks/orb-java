@@ -18,6 +18,7 @@ public class PutEventsEventId200ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("amended")
     public String amended;
+
     public PutEventsEventId200ApplicationJSON withAmended(String amended) {
         this.amended = amended;
         return this;

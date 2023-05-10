@@ -14,6 +14,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
      */
     @JsonProperty("grouping_key")
     public String groupingKey;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups withGroupingKey(String groupingKey) {
         this.groupingKey = groupingKey;
         return this;
@@ -21,6 +22,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
     
     @JsonProperty("grouping_value")
     public String groupingValue;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups withGroupingValue(String groupingValue) {
         this.groupingValue = groupingValue;
         return this;
@@ -32,6 +34,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("secondary_grouping_key")
     public String secondaryGroupingKey;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups withSecondaryGroupingKey(String secondaryGroupingKey) {
         this.secondaryGroupingKey = secondaryGroupingKey;
         return this;
@@ -40,6 +43,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("secondary_grouping_value")
     public String secondaryGroupingValue;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups withSecondaryGroupingValue(String secondaryGroupingValue) {
         this.secondaryGroupingValue = secondaryGroupingValue;
         return this;
@@ -50,6 +54,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCos
      */
     @JsonProperty("total")
     public String total;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCostsPriceGroups withTotal(String total) {
         this.total = total;
         return this;

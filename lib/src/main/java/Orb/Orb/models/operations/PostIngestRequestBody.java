@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostIngestRequestBody {
     @JsonProperty("events")
     public PostIngestRequestBodyEvents[] events;
+
     public PostIngestRequestBody withEvents(PostIngestRequestBodyEvents[] events) {
         this.events = events;
         return this;

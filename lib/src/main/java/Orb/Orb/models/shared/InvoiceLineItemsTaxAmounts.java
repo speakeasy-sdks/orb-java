@@ -12,6 +12,7 @@ public class InvoiceLineItemsTaxAmounts {
      */
     @JsonProperty("amount")
     public String amount;
+
     public InvoiceLineItemsTaxAmounts withAmount(String amount) {
         this.amount = amount;
         return this;
@@ -22,6 +23,7 @@ public class InvoiceLineItemsTaxAmounts {
      */
     @JsonProperty("tax_rate_description")
     public String taxRateDescription;
+
     public InvoiceLineItemsTaxAmounts withTaxRateDescription(String taxRateDescription) {
         this.taxRateDescription = taxRateDescription;
         return this;
@@ -32,6 +34,7 @@ public class InvoiceLineItemsTaxAmounts {
      */
     @JsonProperty("tax_rate_percentage")
     public String taxRatePercentage;
+
     public InvoiceLineItemsTaxAmounts withTaxRatePercentage(String taxRatePercentage) {
         this.taxRatePercentage = taxRatePercentage;
         return this;

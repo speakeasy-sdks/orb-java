@@ -12,6 +12,7 @@ public class PriceBulkBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bps")
     public Double bps;
+
     public PriceBulkBpsConfigTiers withBps(Double bps) {
         this.bps = bps;
         return this;
@@ -20,6 +21,7 @@ public class PriceBulkBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("maximum_amount")
     public String maximumAmount;
+
     public PriceBulkBpsConfigTiers withMaximumAmount(String maximumAmount) {
         this.maximumAmount = maximumAmount;
         return this;
@@ -28,6 +30,7 @@ public class PriceBulkBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("per_unit_maximum")
     public String perUnitMaximum;
+
     public PriceBulkBpsConfigTiers withPerUnitMaximum(String perUnitMaximum) {
         this.perUnitMaximum = perUnitMaximum;
         return this;

@@ -196,6 +196,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billable_metric")
     public PriceBillableMetric billableMetric;
+
     public Price withBillableMetric(PriceBillableMetric billableMetric) {
         this.billableMetric = billableMetric;
         return this;
@@ -207,6 +208,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bps_config")
     public PriceBpsConfig bpsConfig;
+
     public Price withBpsConfig(PriceBpsConfig bpsConfig) {
         this.bpsConfig = bpsConfig;
         return this;
@@ -218,6 +220,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bulk_bps_config")
     public PriceBulkBpsConfig bulkBpsConfig;
+
     public Price withBulkBpsConfig(PriceBulkBpsConfig bulkBpsConfig) {
         this.bulkBpsConfig = bulkBpsConfig;
         return this;
@@ -229,6 +232,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bulk_config")
     public PriceBulkConfig bulkConfig;
+
     public Price withBulkConfig(PriceBulkConfig bulkConfig) {
         this.bulkConfig = bulkConfig;
         return this;
@@ -237,6 +241,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("cadence")
     public PriceCadenceEnum cadence;
+
     public Price withCadence(PriceCadenceEnum cadence) {
         this.cadence = cadence;
         return this;
@@ -247,6 +252,7 @@ public class Price {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
     public OffsetDateTime createdAt;
+
     public Price withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -257,6 +263,7 @@ public class Price {
      */
     @JsonProperty("currency")
     public String currency;
+
     public Price withCurrency(String currency) {
         this.currency = currency;
         return this;
@@ -264,6 +271,7 @@ public class Price {
     
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public Price withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -275,6 +283,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fixed_price_quantity")
     public Double fixedPriceQuantity;
+
     public Price withFixedPriceQuantity(Double fixedPriceQuantity) {
         this.fixedPriceQuantity = fixedPriceQuantity;
         return this;
@@ -283,6 +292,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("id")
     public String id;
+
     public Price withId(String id) {
         this.id = id;
         return this;
@@ -294,6 +304,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("matrix_config")
     public PriceMatrixConfig matrixConfig;
+
     public Price withMatrixConfig(PriceMatrixConfig matrixConfig) {
         this.matrixConfig = matrixConfig;
         return this;
@@ -301,6 +312,7 @@ public class Price {
     
     @JsonProperty("minimum")
     public java.util.Map<String, Object> minimum;
+
     public Price withMinimum(java.util.Map<String, Object> minimum) {
         this.minimum = minimum;
         return this;
@@ -309,6 +321,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("model_type")
     public PriceModelTypeEnum modelType;
+
     public Price withModelType(PriceModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;
@@ -317,6 +330,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     public String name;
+
     public Price withName(String name) {
         this.name = name;
         return this;
@@ -328,6 +342,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("package_config")
     public PricePackageConfig packageConfig;
+
     public Price withPackageConfig(PricePackageConfig packageConfig) {
         this.packageConfig = packageConfig;
         return this;
@@ -338,6 +353,7 @@ public class Price {
      */
     @JsonProperty("plan_phase_order")
     public Double planPhaseOrder;
+
     public Price withPlanPhaseOrder(Double planPhaseOrder) {
         this.planPhaseOrder = planPhaseOrder;
         return this;
@@ -349,6 +365,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiered_bps_config")
     public PriceTieredBpsConfig tieredBpsConfig;
+
     public Price withTieredBpsConfig(PriceTieredBpsConfig tieredBpsConfig) {
         this.tieredBpsConfig = tieredBpsConfig;
         return this;
@@ -360,6 +377,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiered_config")
     public PriceTieredConfig tieredConfig;
+
     public Price withTieredConfig(PriceTieredConfig tieredConfig) {
         this.tieredConfig = tieredConfig;
         return this;
@@ -371,6 +389,7 @@ public class Price {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unit_config")
     public PriceUnitConfig unitConfig;
+
     public Price withUnitConfig(PriceUnitConfig unitConfig) {
         this.unitConfig = unitConfig;
         return this;

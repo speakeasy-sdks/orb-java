@@ -18,6 +18,7 @@ public class PostIngest400ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("debug")
     public PostIngest400ApplicationJSONDebug debug;
+
     public PostIngest400ApplicationJSON withDebug(PostIngest400ApplicationJSONDebug debug) {
         this.debug = debug;
         return this;
@@ -28,6 +29,7 @@ public class PostIngest400ApplicationJSON {
      */
     @JsonProperty("validation_failed")
     public PostIngest400ApplicationJSONValidationFailed[] validationFailed;
+
     public PostIngest400ApplicationJSON withValidationFailed(PostIngest400ApplicationJSONValidationFailed[] validationFailed) {
         this.validationFailed = validationFailed;
         return this;

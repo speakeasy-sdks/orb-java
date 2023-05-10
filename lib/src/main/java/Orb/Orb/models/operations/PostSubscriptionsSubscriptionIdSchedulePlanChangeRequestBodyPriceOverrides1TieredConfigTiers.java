@@ -12,6 +12,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("first_unit")
     public String firstUnit;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers withFirstUnit(String firstUnit) {
         this.firstUnit = firstUnit;
         return this;
@@ -20,6 +21,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("last_unit")
     public String lastUnit;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers withLastUnit(String lastUnit) {
         this.lastUnit = lastUnit;
         return this;
@@ -28,6 +30,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

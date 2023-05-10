@@ -15,6 +15,7 @@ public class PriceUnitConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public PriceUnitConfig withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

@@ -14,6 +14,7 @@ public class Event {
      */
     @JsonProperty("customer_id")
     public String customerId;
+
     public Event withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;
@@ -24,6 +25,7 @@ public class Event {
      */
     @JsonProperty("event_name")
     public String eventName;
+
     public Event withEventName(String eventName) {
         this.eventName = eventName;
         return this;
@@ -35,6 +37,7 @@ public class Event {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_customer_id")
     public String externalCustomerId;
+
     public Event withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
@@ -45,6 +48,7 @@ public class Event {
      */
     @JsonProperty("id")
     public String id;
+
     public Event withId(String id) {
         this.id = id;
         return this;
@@ -55,6 +59,7 @@ public class Event {
      */
     @JsonProperty("properties")
     public java.util.Map<String, Object> properties;
+
     public Event withProperties(java.util.Map<String, Object> properties) {
         this.properties = properties;
         return this;
@@ -65,6 +70,7 @@ public class Event {
      */
     @JsonProperty("timestamp")
     public String timestamp;
+
     public Event withTimestamp(String timestamp) {
         this.timestamp = timestamp;
         return this;

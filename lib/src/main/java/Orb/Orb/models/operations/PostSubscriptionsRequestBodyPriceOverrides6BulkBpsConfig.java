@@ -12,6 +12,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("tiers")
     public PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers[] tiers;
+
     public PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig withTiers(PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers[] tiers) {
         this.tiers = tiers;
         return this;

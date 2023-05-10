@@ -12,6 +12,7 @@ public class PriceBulkConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("maximum_units")
     public String maximumUnits;
+
     public PriceBulkConfigTiers withMaximumUnits(String maximumUnits) {
         this.maximumUnits = maximumUnits;
         return this;
@@ -20,6 +21,7 @@ public class PriceBulkConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("unit_amount")
     public String unitAmount;
+
     public PriceBulkConfigTiers withUnitAmount(String unitAmount) {
         this.unitAmount = unitAmount;
         return this;

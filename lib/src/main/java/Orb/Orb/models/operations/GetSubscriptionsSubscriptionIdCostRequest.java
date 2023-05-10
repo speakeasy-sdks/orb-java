@@ -14,6 +14,7 @@ public class GetSubscriptionsSubscriptionIdCostRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=group_by")
     public String groupBy;
+
     public GetSubscriptionsSubscriptionIdCostRequest withGroupBy(String groupBy) {
         this.groupBy = groupBy;
         return this;
@@ -21,6 +22,7 @@ public class GetSubscriptionsSubscriptionIdCostRequest {
     
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=subscription_id")
     public String subscriptionId;
+
     public GetSubscriptionsSubscriptionIdCostRequest withSubscriptionId(String subscriptionId) {
         this.subscriptionId = subscriptionId;
         return this;
@@ -31,6 +33,7 @@ public class GetSubscriptionsSubscriptionIdCostRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_end")
     public OffsetDateTime timeframeEnd;
+
     public GetSubscriptionsSubscriptionIdCostRequest withTimeframeEnd(OffsetDateTime timeframeEnd) {
         this.timeframeEnd = timeframeEnd;
         return this;
@@ -41,6 +44,7 @@ public class GetSubscriptionsSubscriptionIdCostRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=timeframe_start")
     public OffsetDateTime timeframeStart;
+
     public GetSubscriptionsSubscriptionIdCostRequest withTimeframeStart(OffsetDateTime timeframeStart) {
         this.timeframeStart = timeframeStart;
         return this;
@@ -51,6 +55,7 @@ public class GetSubscriptionsSubscriptionIdCostRequest {
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=view_mode")
     public String viewMode;
+
     public GetSubscriptionsSubscriptionIdCostRequest withViewMode(String viewMode) {
         this.viewMode = viewMode;
         return this;

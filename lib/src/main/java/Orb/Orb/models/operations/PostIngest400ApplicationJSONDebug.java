@@ -15,6 +15,7 @@ public class PostIngest400ApplicationJSONDebug {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("duplicate")
     public String[] duplicate;
+
     public PostIngest400ApplicationJSONDebug withDuplicate(String[] duplicate) {
         this.duplicate = duplicate;
         return this;
@@ -23,6 +24,7 @@ public class PostIngest400ApplicationJSONDebug {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("ingested")
     public String[] ingested;
+
     public PostIngest400ApplicationJSONDebug withIngested(String[] ingested) {
         this.ingested = ingested;
         return this;

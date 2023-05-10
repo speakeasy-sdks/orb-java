@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostSubscriptionsRequestBodyPriceOverrides5 {
     @JsonProperty("bps_config")
     public PostSubscriptionsRequestBodyPriceOverrides5BpsConfig bpsConfig;
+
     public PostSubscriptionsRequestBodyPriceOverrides5 withBpsConfig(PostSubscriptionsRequestBodyPriceOverrides5BpsConfig bpsConfig) {
         this.bpsConfig = bpsConfig;
         return this;
@@ -22,6 +23,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides5 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PostSubscriptionsRequestBodyPriceOverrides5 withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -29,6 +31,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides5 {
     
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsRequestBodyPriceOverrides5 withId(String id) {
         this.id = id;
         return this;
@@ -40,6 +43,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides5 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides5 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -47,6 +51,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides5 {
     
     @JsonProperty("model_type")
     public PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum modelType;
+
     public PostSubscriptionsRequestBodyPriceOverrides5 withModelType(PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;

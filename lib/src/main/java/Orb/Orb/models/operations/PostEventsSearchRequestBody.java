@@ -15,6 +15,7 @@ public class PostEventsSearchRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("event_ids")
     public String[] eventIds;
+
     public PostEventsSearchRequestBody withEventIds(String[] eventIds) {
         this.eventIds = eventIds;
         return this;
@@ -26,6 +27,7 @@ public class PostEventsSearchRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("invoice_id")
     public String invoiceId;
+
     public PostEventsSearchRequestBody withInvoiceId(String invoiceId) {
         this.invoiceId = invoiceId;
         return this;

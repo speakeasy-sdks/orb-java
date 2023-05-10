@@ -194,6 +194,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price")
     public Orb.Orb.models.shared.Price price;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts withPrice(Orb.Orb.models.shared.Price price) {
         this.price = price;
         return this;
@@ -204,6 +205,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts {
      */
     @JsonProperty("price_groups")
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups[] priceGroups;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts withPriceGroups(GetExternalCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups[] priceGroups) {
         this.priceGroups = priceGroups;
         return this;
@@ -215,6 +217,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subtotal")
     public String subtotal;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;
@@ -226,6 +229,7 @@ public class GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("total")
     public String total;
+
     public GetExternalCustomerCosts200ApplicationJSONDataPerPriceCosts withTotal(String total) {
         this.total = total;
         return this;

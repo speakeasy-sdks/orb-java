@@ -194,6 +194,7 @@ public class GetCustomerCosts200ApplicationJSONDataPerPriceCosts {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price")
     public Orb.Orb.models.shared.Price price;
+
     public GetCustomerCosts200ApplicationJSONDataPerPriceCosts withPrice(Orb.Orb.models.shared.Price price) {
         this.price = price;
         return this;
@@ -204,6 +205,7 @@ public class GetCustomerCosts200ApplicationJSONDataPerPriceCosts {
      */
     @JsonProperty("price_groups")
     public GetCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups[] priceGroups;
+
     public GetCustomerCosts200ApplicationJSONDataPerPriceCosts withPriceGroups(GetCustomerCosts200ApplicationJSONDataPerPriceCostsPriceGroups[] priceGroups) {
         this.priceGroups = priceGroups;
         return this;
@@ -215,6 +217,7 @@ public class GetCustomerCosts200ApplicationJSONDataPerPriceCosts {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("subtotal")
     public String subtotal;
+
     public GetCustomerCosts200ApplicationJSONDataPerPriceCosts withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;
@@ -226,6 +229,7 @@ public class GetCustomerCosts200ApplicationJSONDataPerPriceCosts {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("total")
     public String total;
+
     public GetCustomerCosts200ApplicationJSONDataPerPriceCosts withTotal(String total) {
         this.total = total;
         return this;

@@ -18,6 +18,7 @@ public class PutDeprecateEventsEventId200ApplicationJSON {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("deprecated")
     public String deprecated;
+
     public PutDeprecateEventsEventId200ApplicationJSON withDeprecated(String deprecated) {
         this.deprecated = deprecated;
         return this;

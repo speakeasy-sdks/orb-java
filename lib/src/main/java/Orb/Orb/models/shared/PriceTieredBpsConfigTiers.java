@@ -12,6 +12,7 @@ public class PriceTieredBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("bps")
     public Double bps;
+
     public PriceTieredBpsConfigTiers withBps(Double bps) {
         this.bps = bps;
         return this;
@@ -20,6 +21,7 @@ public class PriceTieredBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("maximum_amount")
     public String maximumAmount;
+
     public PriceTieredBpsConfigTiers withMaximumAmount(String maximumAmount) {
         this.maximumAmount = maximumAmount;
         return this;
@@ -28,6 +30,7 @@ public class PriceTieredBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PriceTieredBpsConfigTiers withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -36,6 +39,7 @@ public class PriceTieredBpsConfigTiers {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("per_unit_maximum")
     public String perUnitMaximum;
+
     public PriceTieredBpsConfigTiers withPerUnitMaximum(String perUnitMaximum) {
         this.perUnitMaximum = perUnitMaximum;
         return this;

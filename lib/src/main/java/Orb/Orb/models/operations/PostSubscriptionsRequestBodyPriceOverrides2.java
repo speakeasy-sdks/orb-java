@@ -15,6 +15,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides2 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("discount")
     public java.util.Map<String, Object> discount;
+
     public PostSubscriptionsRequestBodyPriceOverrides2 withDiscount(java.util.Map<String, Object> discount) {
         this.discount = discount;
         return this;
@@ -23,6 +24,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides2 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("fixed_price_quantity")
     public Long fixedPriceQuantity;
+
     public PostSubscriptionsRequestBodyPriceOverrides2 withFixedPriceQuantity(Long fixedPriceQuantity) {
         this.fixedPriceQuantity = fixedPriceQuantity;
         return this;
@@ -30,6 +32,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides2 {
     
     @JsonProperty("id")
     public String id;
+
     public PostSubscriptionsRequestBodyPriceOverrides2 withId(String id) {
         this.id = id;
         return this;
@@ -41,6 +44,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides2 {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("minimum_amount")
     public String minimumAmount;
+
     public PostSubscriptionsRequestBodyPriceOverrides2 withMinimumAmount(String minimumAmount) {
         this.minimumAmount = minimumAmount;
         return this;
@@ -48,6 +52,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides2 {
     
     @JsonProperty("model_type")
     public PostSubscriptionsRequestBodyPriceOverrides2ModelTypeEnum modelType;
+
     public PostSubscriptionsRequestBodyPriceOverrides2 withModelType(PostSubscriptionsRequestBodyPriceOverrides2ModelTypeEnum modelType) {
         this.modelType = modelType;
         return this;
@@ -55,6 +60,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides2 {
     
     @JsonProperty("unit_config")
     public PostSubscriptionsRequestBodyPriceOverrides2UnitConfig unitConfig;
+
     public PostSubscriptionsRequestBodyPriceOverrides2 withUnitConfig(PostSubscriptionsRequestBodyPriceOverrides2UnitConfig unitConfig) {
         this.unitConfig = unitConfig;
         return this;

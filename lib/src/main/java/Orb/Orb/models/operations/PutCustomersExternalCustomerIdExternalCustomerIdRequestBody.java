@@ -15,6 +15,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billing_address")
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyBillingAddress billingAddress;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withBillingAddress(PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyBillingAddress billingAddress) {
         this.billingAddress = billingAddress;
         return this;
@@ -23,6 +24,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("email")
     public String email;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withEmail(String email) {
         this.email = email;
         return this;
@@ -31,6 +33,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("name")
     public String name;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withName(String name) {
         this.name = name;
         return this;
@@ -44,6 +47,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider")
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProviderEnum paymentProvider;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withPaymentProvider(PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProviderEnum paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
@@ -55,6 +59,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider_id")
     public String paymentProviderId;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withPaymentProviderId(String paymentProviderId) {
         this.paymentProviderId = paymentProviderId;
         return this;
@@ -66,6 +71,7 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shipping_address")
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress shippingAddress;
+
     public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withShippingAddress(PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
         return this;

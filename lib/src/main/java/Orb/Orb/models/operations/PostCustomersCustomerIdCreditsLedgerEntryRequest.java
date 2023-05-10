@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PostCustomersCustomerIdCreditsLedgerEntryRequest {
     @SpeakeasyMetadata("request:mediaType=application/json")
     public PostCustomersCustomerIdCreditsLedgerEntryRequestBody requestBody;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequest withRequestBody(PostCustomersCustomerIdCreditsLedgerEntryRequestBody requestBody) {
         this.requestBody = requestBody;
         return this;
@@ -17,6 +18,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequest {
     
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=customer_id")
     public String customerId;
+
     public PostCustomersCustomerIdCreditsLedgerEntryRequest withCustomerId(String customerId) {
         this.customerId = customerId;
         return this;

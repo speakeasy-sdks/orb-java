@@ -14,6 +14,7 @@ import java.time.OffsetDateTime;
 public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONData {
     @JsonProperty("per_price_costs")
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCosts[] perPriceCosts;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONData withPerPriceCosts(GetSubscriptionsSubscriptionIdCost200ApplicationJSONDataPerPriceCosts[] perPriceCosts) {
         this.perPriceCosts = perPriceCosts;
         return this;
@@ -24,6 +25,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONData {
      */
     @JsonProperty("subtotal")
     public String subtotal;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONData withSubtotal(String subtotal) {
         this.subtotal = subtotal;
         return this;
@@ -33,6 +35,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONData {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("timeframe_end")
     public OffsetDateTime timeframeEnd;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONData withTimeframeEnd(OffsetDateTime timeframeEnd) {
         this.timeframeEnd = timeframeEnd;
         return this;
@@ -42,6 +45,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONData {
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("timeframe_start")
     public OffsetDateTime timeframeStart;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONData withTimeframeStart(OffsetDateTime timeframeStart) {
         this.timeframeStart = timeframeStart;
         return this;
@@ -52,6 +56,7 @@ public class GetSubscriptionsSubscriptionIdCost200ApplicationJSONData {
      */
     @JsonProperty("total")
     public String total;
+
     public GetSubscriptionsSubscriptionIdCost200ApplicationJSONData withTotal(String total) {
         this.total = total;
         return this;

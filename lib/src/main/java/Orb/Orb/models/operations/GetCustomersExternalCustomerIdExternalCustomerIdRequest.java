@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GetCustomersExternalCustomerIdExternalCustomerIdRequest {
     @SpeakeasyMetadata("pathParam:style=simple,explode=false,name=external_customer_id")
     public String externalCustomerId;
+
     public GetCustomersExternalCustomerIdExternalCustomerIdRequest withExternalCustomerId(String externalCustomerId) {
         this.externalCustomerId = externalCustomerId;
         return this;
