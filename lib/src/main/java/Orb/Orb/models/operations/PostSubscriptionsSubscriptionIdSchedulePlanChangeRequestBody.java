@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
     /**
-     * Reset billing periods to be aligned with the plan change\u2019s effective date.
+     * Reset billing periods to be aligned with the plan change’s effective date.
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("align_billing_with_plan_change_date")

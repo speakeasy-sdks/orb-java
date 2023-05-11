@@ -154,7 +154,7 @@ public class Event {
      * ## Required fields
      * Because events streamed to Orb are meant to be as flexible as possible, there are only a few required fields in every event.
      * 
-     * - We recommend that `idempotency_key` are unique strings that you generated with V4 UUIDs, but only require that they uniquely identify an event (i.e. don\u2019t collide).
+     * - We recommend that `idempotency_key` are unique strings that you generated with V4 UUIDs, but only require that they uniquely identify an event (i.e. don’t collide).
      * - The `timestamp` field in the event body will be used to determine which billable period a given event falls into. For example, with a monthly billing cycle starting from the first of December, Orb will calculate metrics based on events that fall into the range `12-01 00:00:00 &lt;= timestamp &lt; 01-01 00:00:00`.
      * 
      * ## Logging metadata
@@ -180,7 +180,7 @@ public class Event {
      * 
      * ## Event validation
      * 
-     * Orb\u2019s validation ensures that you recognize errors in your events as quickly as possible, and the API provides informative error messages to help you fix problems quickly.
+     * Orb’s validation ensures that you recognize errors in your events as quickly as possible, and the API provides informative error messages to help you fix problems quickly.
      * 
      * We validate the following:
      * 
@@ -202,7 +202,7 @@ public class Event {
      * 
      * To take advantage of the real-time features of the Orb platform and avoid any chance of dropped events by producers, we recommend reporting events to Orb frequently. Optionally, events can also be briefly aggregated at the source, as this API accepts an array of event bodies.
      * 
-     * Orb does not currently enforce a hard rate-limit for API usage or a maximum request payload size, but please give us a heads up if you\u2019re changing either of these factors by an order of magnitude from initial setup.
+     * Orb does not currently enforce a hard rate-limit for API usage or a maximum request payload size, but please give us a heads up if you’re changing either of these factors by an order of magnitude from initial setup.
      * 
      * ## Testing in debug mode
      * The ingestion API supports a debug mode, which returns additional verbose output to indicate which event idempotency keys were newly ingested or duplicates from previous requests. To enable this mode, mark `debug=true` as a query parameter.

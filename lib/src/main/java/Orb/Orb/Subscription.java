@@ -700,9 +700,9 @@ public class Subscription {
      *         },
      *         ...
      *       ],
-     *       \u201cmetric_group\u201d: {
-     *          \u201cproperty_key\u201d: \u201cregion\u201d,
-     *          \u201cproperty_value\u201d: \u201casia/pacific\u201d
+     *       “metric_group”: {
+     *          “property_key”: “region”,
+     *          “property_value”: “asia/pacific”
      *       },
      *       "billable_metric": {
      *         "id": "Fe9pbpMk86xpwdGB",
