@@ -51,7 +51,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("praesentium") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -134,7 +134,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("laboriosam") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -630,7 +630,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("repellat") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -737,7 +737,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("a") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -778,7 +778,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("labore") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -820,7 +820,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("repudiandae") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -981,7 +981,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("quod") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -1026,7 +1026,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("excepturi") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -1066,7 +1066,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("aut") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 

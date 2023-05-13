@@ -17,7 +17,7 @@
 ### Gradle
 
 ```groovy
-implementation 'Orb.Orb:Orb:0.9.4'
+implementation 'Orb.Orb:Orb:0.10.0'
 ```
 <!-- End SDK Installation -->
 
@@ -39,7 +39,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("corrupti") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 

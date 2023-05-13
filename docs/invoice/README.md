@@ -29,7 +29,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("consequuntur") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -66,7 +66,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("natus") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -105,7 +105,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("sunt") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 

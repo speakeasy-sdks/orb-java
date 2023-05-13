@@ -35,7 +35,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("maxime") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -99,7 +99,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("excepturi") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -841,7 +841,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("suscipit") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 

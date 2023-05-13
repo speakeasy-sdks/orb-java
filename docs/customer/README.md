@@ -45,7 +45,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("deleniti") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -106,7 +106,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("est") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -155,7 +155,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("laborum") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -194,7 +194,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dolorem") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -299,7 +299,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("explicabo") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -343,7 +343,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("nemo") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -388,7 +388,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("iure") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -429,7 +429,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("culpa") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -495,7 +495,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("doloremque") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -611,7 +611,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("labore") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
@@ -667,7 +667,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("eligendi") {{
-                    bearerAuth = "Bearer YOUR_BEARER_TOKEN_HERE";
+                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
