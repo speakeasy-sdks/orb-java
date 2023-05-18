@@ -50,6 +50,7 @@ public class Invoice {
         req.setMethod("GET");
         req.setURL(url);
         
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
         
@@ -88,6 +89,7 @@ public class Invoice {
         req.setMethod("GET");
         req.setURL(url);
         
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.GetInvoicesUpcomingRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -134,6 +136,7 @@ public class Invoice {
         req.setMethod("GET");
         req.setURL(url);
         
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.ListInvoicesRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
