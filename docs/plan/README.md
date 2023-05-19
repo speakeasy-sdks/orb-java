@@ -70,10 +70,10 @@ import Orb.Orb.models.operations.GetPlansExternalPlanIdRequest;
 import Orb.Orb.models.operations.GetPlansExternalPlanIdResponse;
 import Orb.Orb.models.shared.Plan;
 import Orb.Orb.models.shared.PlanPhase;
-import Orb.Orb.models.shared.PlanPhaseDurationUnitEnum;
+import Orb.Orb.models.shared.PlanPhaseDurationUnit;
 import Orb.Orb.models.shared.PlanProduct;
 import Orb.Orb.models.shared.PlanTrialConfig;
-import Orb.Orb.models.shared.PlanTrialConfigTrialPeriodUnitEnum;
+import Orb.Orb.models.shared.PlanTrialConfigTrialPeriodUnit;
 import Orb.Orb.models.shared.Price;
 import Orb.Orb.models.shared.PriceBillableMetric;
 import Orb.Orb.models.shared.PriceBpsConfig;
@@ -81,10 +81,10 @@ import Orb.Orb.models.shared.PriceBulkBpsConfig;
 import Orb.Orb.models.shared.PriceBulkBpsConfigTiers;
 import Orb.Orb.models.shared.PriceBulkConfig;
 import Orb.Orb.models.shared.PriceBulkConfigTiers;
-import Orb.Orb.models.shared.PriceCadenceEnum;
+import Orb.Orb.models.shared.PriceCadence;
 import Orb.Orb.models.shared.PriceMatrixConfig;
 import Orb.Orb.models.shared.PriceMatrixConfigMatrixValues;
-import Orb.Orb.models.shared.PriceModelTypeEnum;
+import Orb.Orb.models.shared.PriceModelType;
 import Orb.Orb.models.shared.PricePackageConfig;
 import Orb.Orb.models.shared.PriceTieredBpsConfig;
 import Orb.Orb.models.shared.PriceTieredBpsConfigTiers;
@@ -163,7 +163,7 @@ public class Application {
                                                 }}),
                                             }};
                                         }};
-                                        cadence = PriceCadenceEnum.ANNUAL;
+                                        cadence = PriceCadence.ANNUAL;
                                         createdAt = OffsetDateTime.parse("2021-04-17T07:36:26.867Z");
                                         currency = "USD";
                                         discount = new java.util.HashMap<String, Object>() {{
@@ -213,7 +213,7 @@ public class Application {
                                         minimum = new java.util.HashMap<String, Object>() {{
                                             put("dolorum", "a");
                                         }};
-                                        modelType = PriceModelTypeEnum.PACKAGE_;
+                                        modelType = PriceModelType.PACKAGE_;
                                         name = "Tyrone Emard";
                                         packageConfig = new PricePackageConfig() {{
                                             packageAmount = "amet";
@@ -293,7 +293,7 @@ public class Application {
                                                 }}),
                                             }};
                                         }};
-                                        cadence = PriceCadenceEnum.ANNUAL;
+                                        cadence = PriceCadence.ANNUAL;
                                         createdAt = OffsetDateTime.parse("2022-06-27T23:25:59.184Z");
                                         currency = "USD";
                                         discount = new java.util.HashMap<String, Object>() {{
@@ -330,7 +330,7 @@ public class Application {
                                         minimum = new java.util.HashMap<String, Object>() {{
                                             put("maiores", "quasi");
                                         }};
-                                        modelType = PriceModelTypeEnum.PACKAGE_;
+                                        modelType = PriceModelType.PACKAGE_;
                                         name = "Marshall Wiza";
                                         packageConfig = new PricePackageConfig() {{
                                             packageAmount = "quisquam";
@@ -429,7 +429,7 @@ public class Application {
                                                 }}),
                                             }};
                                         }};
-                                        cadence = PriceCadenceEnum.MONTHLY;
+                                        cadence = PriceCadence.MONTHLY;
                                         createdAt = OffsetDateTime.parse("2022-07-13T15:11:40.912Z");
                                         currency = "USD";
                                         discount = new java.util.HashMap<String, Object>() {{
@@ -484,7 +484,7 @@ public class Application {
                                             put("a", "nulla");
                                             put("quas", "esse");
                                         }};
-                                        modelType = PriceModelTypeEnum.UNIT;
+                                        modelType = PriceModelType.UNIT;
                                         name = "Jeremiah Mayer";
                                         packageConfig = new PricePackageConfig() {{
                                             packageAmount = "quia";
@@ -584,7 +584,7 @@ public class Application {
                                                 }}),
                                             }};
                                         }};
-                                        cadence = PriceCadenceEnum.ANNUAL;
+                                        cadence = PriceCadence.ANNUAL;
                                         createdAt = OffsetDateTime.parse("2020-08-05T23:44:45.300Z");
                                         currency = "USD";
                                         discount = new java.util.HashMap<String, Object>() {{
@@ -619,7 +619,7 @@ public class Application {
                                             put("laboriosam", "ipsa");
                                             put("voluptates", "libero");
                                         }};
-                                        modelType = PriceModelTypeEnum.UNIT;
+                                        modelType = PriceModelType.UNIT;
                                         name = "Otis Goldner";
                                         packageConfig = new PricePackageConfig() {{
                                             packageAmount = "voluptas";
@@ -678,7 +678,7 @@ public class Application {
                         add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                             put("voluptate", "reiciendis");
                                             put("ex", "sit");
-                                        }}, PlanPhaseDurationUnitEnum.MONTHLY,                 new java.util.HashMap<String, Object>() {{
+                                        }}, PlanPhaseDurationUnit.MONTHLY,                 new java.util.HashMap<String, Object>() {{
                                             put("praesentium", "facilis");
                                             put("quaerat", "incidunt");
                                             put("ipsam", "debitis");
@@ -689,7 +689,7 @@ public class Application {
                                 put("reiciendis", "perferendis");
                             }};
                             duration = 546885L;
-                            durationUnit = PlanPhaseDurationUnitEnum.ANNUAL;
+                            durationUnit = PlanPhaseDurationUnit.ANNUAL;
                             minimum = new java.util.HashMap<String, Object>() {{
                                 put("sed", "provident");
                                 put("eius", "necessitatibus");
@@ -701,7 +701,7 @@ public class Application {
                                             put("error", "hic");
                                             put("expedita", "debitis");
                                             put("neque", "dolorum");
-                                        }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                        }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                             put("dolorum", "corrupti");
                                             put("accusamus", "tempora");
                                             put("atque", "fugit");
@@ -713,7 +713,7 @@ public class Application {
                                 put("nulla", "magni");
                             }};
                             duration = 48690L;
-                            durationUnit = PlanPhaseDurationUnitEnum.ANNUAL;
+                            durationUnit = PlanPhaseDurationUnit.ANNUAL;
                             minimum = new java.util.HashMap<String, Object>() {{
                                 put("veniam", "in");
                                 put("officiis", "beatae");
@@ -725,7 +725,7 @@ public class Application {
                                             put("dicta", "architecto");
                                             put("occaecati", "labore");
                                             put("quidem", "atque");
-                                        }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                        }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                             put("tenetur", "laboriosam");
                                             put("alias", "amet");
                                             put("deserunt", "voluptate");
@@ -738,7 +738,7 @@ public class Application {
                                 put("ipsam", "sit");
                             }};
                             duration = 530537L;
-                            durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                            durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                             minimum = new java.util.HashMap<String, Object>() {{
                                 put("corporis", "et");
                                 put("blanditiis", "ex");
@@ -753,7 +753,7 @@ public class Application {
                                             put("amet", "assumenda");
                                             put("ea", "atque");
                                             put("error", "officiis");
-                                        }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                        }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                             put("natus", "minima");
                                             put("aspernatur", "ex");
                                             put("maiores", "corrupti");
@@ -767,7 +767,7 @@ public class Application {
                                 put("quidem", "reprehenderit");
                             }};
                             duration = 813679L;
-                            durationUnit = PlanPhaseDurationUnitEnum.ANNUAL;
+                            durationUnit = PlanPhaseDurationUnit.ANNUAL;
                             minimum = new java.util.HashMap<String, Object>() {{
                                 put("mollitia", "veniam");
                                 put("voluptatem", "quisquam");
@@ -777,7 +777,7 @@ public class Application {
                             order = 693957L;
                         }}),
                     }};
-                    trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnitEnum.DAYS) {{
+                    trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnit.DAYS) {{
                         trialPeriod = 5027.21;
                     }};;
                 }};;
@@ -812,10 +812,10 @@ import Orb.Orb.models.operations.ListPlansRequestBody;
 import Orb.Orb.models.operations.ListPlansResponse;
 import Orb.Orb.models.shared.Plan;
 import Orb.Orb.models.shared.PlanPhase;
-import Orb.Orb.models.shared.PlanPhaseDurationUnitEnum;
+import Orb.Orb.models.shared.PlanPhaseDurationUnit;
 import Orb.Orb.models.shared.PlanProduct;
 import Orb.Orb.models.shared.PlanTrialConfig;
-import Orb.Orb.models.shared.PlanTrialConfigTrialPeriodUnitEnum;
+import Orb.Orb.models.shared.PlanTrialConfigTrialPeriodUnit;
 import Orb.Orb.models.shared.Price;
 import Orb.Orb.models.shared.PriceBillableMetric;
 import Orb.Orb.models.shared.PriceBpsConfig;
@@ -823,10 +823,10 @@ import Orb.Orb.models.shared.PriceBulkBpsConfig;
 import Orb.Orb.models.shared.PriceBulkBpsConfigTiers;
 import Orb.Orb.models.shared.PriceBulkConfig;
 import Orb.Orb.models.shared.PriceBulkConfigTiers;
-import Orb.Orb.models.shared.PriceCadenceEnum;
+import Orb.Orb.models.shared.PriceCadence;
 import Orb.Orb.models.shared.PriceMatrixConfig;
 import Orb.Orb.models.shared.PriceMatrixConfigMatrixValues;
-import Orb.Orb.models.shared.PriceModelTypeEnum;
+import Orb.Orb.models.shared.PriceModelType;
 import Orb.Orb.models.shared.PricePackageConfig;
 import Orb.Orb.models.shared.PriceTieredBpsConfig;
 import Orb.Orb.models.shared.PriceTieredBpsConfigTiers;
@@ -905,7 +905,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.ANNUAL;
+                                            cadence = PriceCadence.ANNUAL;
                                             createdAt = OffsetDateTime.parse("2021-10-09T11:02:42.252Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -956,7 +956,7 @@ public class Application {
                                                 put("fugiat", "unde");
                                                 put("officiis", "ducimus");
                                             }};
-                                            modelType = PriceModelTypeEnum.TIERED;
+                                            modelType = PriceModelType.TIERED;
                                             name = "Ms. Sabrina Schaden";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "fugiat";
@@ -1042,7 +1042,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.QUARTERLY;
+                                            cadence = PriceCadence.QUARTERLY;
                                             createdAt = OffsetDateTime.parse("2021-11-28T13:56:44.956Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -1093,7 +1093,7 @@ public class Application {
                                                 put("distinctio", "in");
                                                 put("exercitationem", "labore");
                                             }};
-                                            modelType = PriceModelTypeEnum.BULK;
+                                            modelType = PriceModelType.BULK;
                                             name = "Dr. Joel Kirlin";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "aperiam";
@@ -1154,7 +1154,7 @@ public class Application {
                             add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                                 put("nemo", "recusandae");
                                                 put("esse", "provident");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("reiciendis", "provident");
                                                 put("aspernatur", "ullam");
                                             }}) {{
@@ -1165,7 +1165,7 @@ public class Application {
                                     put("dolores", "id");
                                 }};
                                 duration = 327988L;
-                                durationUnit = PlanPhaseDurationUnitEnum.MONTHLY;
+                                durationUnit = PlanPhaseDurationUnit.MONTHLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("nesciunt", "quae");
                                     put("recusandae", "omnis");
@@ -1176,7 +1176,7 @@ public class Application {
                             }}),
                             add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                                 put("rerum", "tempora");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("fugit", "cumque");
                                             }}) {{
                                 description = "quasi";
@@ -1186,7 +1186,7 @@ public class Application {
                                     put("animi", "ex");
                                 }};
                                 duration = 397257L;
-                                durationUnit = PlanPhaseDurationUnitEnum.MONTHLY;
+                                durationUnit = PlanPhaseDurationUnit.MONTHLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("doloribus", "ullam");
                                     put("in", "nam");
@@ -1201,7 +1201,7 @@ public class Application {
                                                 put("earum", "perspiciatis");
                                                 put("maiores", "debitis");
                                                 put("aliquid", "porro");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("fugit", "cumque");
                                             }}) {{
                                 description = "quae";
@@ -1209,7 +1209,7 @@ public class Application {
                                     put("velit", "aspernatur");
                                 }};
                                 duration = 432281L;
-                                durationUnit = PlanPhaseDurationUnitEnum.MONTHLY;
+                                durationUnit = PlanPhaseDurationUnit.MONTHLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("at", "impedit");
                                     put("eos", "sapiente");
@@ -1254,7 +1254,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.QUARTERLY;
+                                cadence = PriceCadence.QUARTERLY;
                                 createdAt = OffsetDateTime.parse("2022-05-12T16:43:21.506Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -1284,7 +1284,7 @@ public class Application {
                                     put("sapiente", "rem");
                                     put("minus", "nemo");
                                 }};
-                                modelType = PriceModelTypeEnum.MATRIX;
+                                modelType = PriceModelType.MATRIX;
                                 name = "Marion Aufderhar";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "impedit";
@@ -1367,7 +1367,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.QUARTERLY;
+                                cadence = PriceCadence.QUARTERLY;
                                 createdAt = OffsetDateTime.parse("2022-06-12T12:59:53.732Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -1404,7 +1404,7 @@ public class Application {
                                     put("reprehenderit", "est");
                                     put("quis", "sint");
                                 }};
-                                modelType = PriceModelTypeEnum.MATRIX;
+                                modelType = PriceModelType.MATRIX;
                                 name = "Irvin Tromp";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "voluptas";
@@ -1485,7 +1485,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.MONTHLY;
+                                cadence = PriceCadence.MONTHLY;
                                 createdAt = OffsetDateTime.parse("2021-08-20T03:23:43.072Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -1536,7 +1536,7 @@ public class Application {
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("totam", "dolore");
                                 }};
-                                modelType = PriceModelTypeEnum.BULK_BPS;
+                                modelType = PriceModelType.BULK_BPS;
                                 name = "Kenneth Johnson";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "assumenda";
@@ -1605,9 +1605,9 @@ public class Application {
                             id = "2443da7c-e52b-4895-8537-c6454efb0b34";
                             name = "Sergio Hirthe";
                         }};
-                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnitEnum.DAYS) {{
+                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnit.DAYS) {{
                             trialPeriod = 7708.73;
-                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnitEnum.DAYS;
+                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnit.DAYS;
                         }};
                     }}),
                     add(new Plan(OffsetDateTime.parse("2022-11-18T14:17:14.435Z"), "minus", "commodi",                 new java.util.HashMap<String, Object>() {{
@@ -1654,7 +1654,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.QUARTERLY;
+                                            cadence = PriceCadence.QUARTERLY;
                                             createdAt = OffsetDateTime.parse("2022-08-17T19:35:32.022Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -1708,7 +1708,7 @@ public class Application {
                                                 put("iste", "corporis");
                                                 put("accusantium", "illo");
                                             }};
-                                            modelType = PriceModelTypeEnum.UNIT;
+                                            modelType = PriceModelType.UNIT;
                                             name = "Gordon Strosin";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "pariatur";
@@ -1807,7 +1807,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.QUARTERLY;
+                                            cadence = PriceCadence.QUARTERLY;
                                             createdAt = OffsetDateTime.parse("2020-08-28T06:25:44.919Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -1840,7 +1840,7 @@ public class Application {
                                                 put("natus", "quaerat");
                                                 put("doloribus", "quia");
                                             }};
-                                            modelType = PriceModelTypeEnum.MATRIX;
+                                            modelType = PriceModelType.MATRIX;
                                             name = "Noel Hauck";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "nemo";
@@ -1930,7 +1930,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.ANNUAL;
+                                            cadence = PriceCadence.ANNUAL;
                                             createdAt = OffsetDateTime.parse("2021-03-09T05:37:08.074Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -1968,7 +1968,7 @@ public class Application {
                                                 put("quia", "necessitatibus");
                                                 put("accusantium", "ad");
                                             }};
-                                            modelType = PriceModelTypeEnum.PACKAGE_;
+                                            modelType = PriceModelType.PACKAGE_;
                                             name = "Lori Larkin";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "iusto";
@@ -2079,7 +2079,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.ANNUAL;
+                                            cadence = PriceCadence.ANNUAL;
                                             createdAt = OffsetDateTime.parse("2022-03-06T22:12:49.401Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -2134,7 +2134,7 @@ public class Application {
                                                 put("suscipit", "harum");
                                                 put("ducimus", "doloremque");
                                             }};
-                                            modelType = PriceModelTypeEnum.UNIT;
+                                            modelType = PriceModelType.UNIT;
                                             name = "Mathew Lockman";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "iure";
@@ -2205,7 +2205,7 @@ public class Application {
                                                 put("facilis", "reiciendis");
                                                 put("a", "iste");
                                                 put("dicta", "quos");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("modi", "itaque");
                                                 put("maxime", "modi");
                                             }}) {{
@@ -2216,7 +2216,7 @@ public class Application {
                                     put("recusandae", "voluptates");
                                 }};
                                 duration = 251627L;
-                                durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                                durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("ullam", "quisquam");
                                 }};
@@ -2226,7 +2226,7 @@ public class Application {
                             add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                                 put("distinctio", "eius");
                                                 put("ipsa", "rem");
-                                            }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                                 put("veniam", "saepe");
                                             }}) {{
                                 description = "consequuntur";
@@ -2237,7 +2237,7 @@ public class Application {
                                     put("reiciendis", "ab");
                                 }};
                                 duration = 573444L;
-                                durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                                durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("iure", "odio");
                                     put("nesciunt", "debitis");
@@ -2250,7 +2250,7 @@ public class Application {
                                                 put("nesciunt", "commodi");
                                                 put("sapiente", "consequuntur");
                                                 put("veniam", "debitis");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("ut", "numquam");
                                                 put("tenetur", "adipisci");
                                                 put("libero", "in");
@@ -2263,7 +2263,7 @@ public class Application {
                                     put("velit", "vitae");
                                 }};
                                 duration = 201096L;
-                                durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                                durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("repellat", "nemo");
                                 }};
@@ -2272,7 +2272,7 @@ public class Application {
                             }}),
                             add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                                 put("praesentium", "dolor");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("facilis", "impedit");
                                                 put("sit", "nemo");
                                                 put("culpa", "consequuntur");
@@ -2283,7 +2283,7 @@ public class Application {
                                     put("beatae", "hic");
                                 }};
                                 duration = 392319L;
-                                durationUnit = PlanPhaseDurationUnitEnum.ANNUAL;
+                                durationUnit = PlanPhaseDurationUnit.ANNUAL;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("ducimus", "fuga");
                                 }};
@@ -2350,7 +2350,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.QUARTERLY;
+                                cadence = PriceCadence.QUARTERLY;
                                 createdAt = OffsetDateTime.parse("2022-01-28T05:32:22.367Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -2390,7 +2390,7 @@ public class Application {
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("voluptatem", "facere");
                                 }};
-                                modelType = PriceModelTypeEnum.MATRIX;
+                                modelType = PriceModelType.MATRIX;
                                 name = "Miss William Bechtelar";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "blanditiis";
@@ -2444,9 +2444,9 @@ public class Application {
                             id = "0960a668-151a-4472-af92-3c5949f83f35";
                             name = "Adrienne White";
                         }};
-                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnitEnum.DAYS) {{
+                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnit.DAYS) {{
                             trialPeriod = 5983.16;
-                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnitEnum.DAYS;
+                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnit.DAYS;
                         }};
                     }}),
                     add(new Plan(OffsetDateTime.parse("2022-02-28T18:10:48.265Z"), "eos", "magnam",                 new java.util.HashMap<String, Object>() {{
@@ -2508,7 +2508,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.MONTHLY;
+                                            cadence = PriceCadence.MONTHLY;
                                             createdAt = OffsetDateTime.parse("2022-07-25T13:23:50.414Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -2548,7 +2548,7 @@ public class Application {
                                                 put("nostrum", "eveniet");
                                                 put("laboriosam", "ratione");
                                             }};
-                                            modelType = PriceModelTypeEnum.BPS;
+                                            modelType = PriceModelType.BPS;
                                             name = "Gilberto Wisozk";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "consequatur";
@@ -2623,7 +2623,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.QUARTERLY;
+                                            cadence = PriceCadence.QUARTERLY;
                                             createdAt = OffsetDateTime.parse("2022-01-18T13:21:09.532Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -2660,7 +2660,7 @@ public class Application {
                                             minimum = new java.util.HashMap<String, Object>() {{
                                                 put("officiis", "eum");
                                             }};
-                                            modelType = PriceModelTypeEnum.TIERED_BPS;
+                                            modelType = PriceModelType.TIERED_BPS;
                                             name = "Andrew Hammes";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "labore";
@@ -2753,7 +2753,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.QUARTERLY;
+                                            cadence = PriceCadence.QUARTERLY;
                                             createdAt = OffsetDateTime.parse("2021-06-24T14:54:46.838Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -2797,7 +2797,7 @@ public class Application {
                                                 put("tempore", "recusandae");
                                                 put("nostrum", "officia");
                                             }};
-                                            modelType = PriceModelTypeEnum.PACKAGE_;
+                                            modelType = PriceModelType.PACKAGE_;
                                             name = "Lewis Mante";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "necessitatibus";
@@ -2892,7 +2892,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.ANNUAL;
+                                            cadence = PriceCadence.ANNUAL;
                                             createdAt = OffsetDateTime.parse("2022-03-22T14:59:15.400Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -2929,7 +2929,7 @@ public class Application {
                                             minimum = new java.util.HashMap<String, Object>() {{
                                                 put("voluptas", "ratione");
                                             }};
-                                            modelType = PriceModelTypeEnum.BPS;
+                                            modelType = PriceModelType.BPS;
                                             name = "Carlton Bahringer";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "ducimus";
@@ -2990,7 +2990,7 @@ public class Application {
                                                 put("similique", "eligendi");
                                                 put("tempore", "amet");
                                                 put("debitis", "nobis");
-                                            }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                                 put("id", "atque");
                                                 put("quibusdam", "sit");
                                                 put("quo", "veniam");
@@ -3003,7 +3003,7 @@ public class Application {
                                     put("nisi", "aliquid");
                                 }};
                                 duration = 589712L;
-                                durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                                durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("ab", "itaque");
                                     put("quisquam", "eaque");
@@ -3017,7 +3017,7 @@ public class Application {
                                                 put("tenetur", "voluptate");
                                                 put("quam", "quod");
                                                 put("vitae", "sapiente");
-                                            }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                                 put("voluptate", "inventore");
                                                 put("facere", "maxime");
                                                 put("fuga", "ab");
@@ -3031,7 +3031,7 @@ public class Application {
                                     put("quam", "atque");
                                 }};
                                 duration = 638363L;
-                                durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                                durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("a", "laborum");
                                 }};
@@ -3043,7 +3043,7 @@ public class Application {
                                                 put("tenetur", "molestias");
                                                 put("ipsam", "esse");
                                                 put("laborum", "perspiciatis");
-                                            }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                                 put("quasi", "quas");
                                                 put("odio", "commodi");
                                             }}) {{
@@ -3052,7 +3052,7 @@ public class Application {
                                     put("animi", "sequi");
                                 }};
                                 duration = 757471L;
-                                durationUnit = PlanPhaseDurationUnitEnum.QUARTERLY;
+                                durationUnit = PlanPhaseDurationUnit.QUARTERLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("laborum", "omnis");
                                 }};
@@ -3063,7 +3063,7 @@ public class Application {
                                                 put("provident", "dolor");
                                                 put("sint", "aperiam");
                                                 put("eaque", "eum");
-                                            }}, PlanPhaseDurationUnitEnum.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.QUARTERLY,                 new java.util.HashMap<String, Object>() {{
                                                 put("autem", "assumenda");
                                                 put("explicabo", "fugiat");
                                                 put("doloremque", "voluptatem");
@@ -3074,7 +3074,7 @@ public class Application {
                                     put("explicabo", "et");
                                 }};
                                 duration = 860027L;
-                                durationUnit = PlanPhaseDurationUnitEnum.MONTHLY;
+                                durationUnit = PlanPhaseDurationUnit.MONTHLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("illum", "a");
                                     put("impedit", "unde");
@@ -3124,7 +3124,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.MONTHLY;
+                                cadence = PriceCadence.MONTHLY;
                                 createdAt = OffsetDateTime.parse("2022-04-22T18:37:10.708Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -3150,7 +3150,7 @@ public class Application {
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("beatae", "aliquid");
                                 }};
-                                modelType = PriceModelTypeEnum.BULK;
+                                modelType = PriceModelType.BULK;
                                 name = "Ms. Kristin Hane";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "quaerat";
@@ -3202,9 +3202,9 @@ public class Application {
                             id = "8502a55e-7f73-4bc8-85e3-20a319f4badf";
                             name = "Jesus Kreiger";
                         }};
-                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnitEnum.DAYS) {{
+                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnit.DAYS) {{
                             trialPeriod = 7063.28;
-                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnitEnum.DAYS;
+                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnit.DAYS;
                         }};
                     }}),
                     add(new Plan(OffsetDateTime.parse("2021-11-12T01:17:53.470Z"), "odio", "omnis",                 new java.util.HashMap<String, Object>() {{
@@ -3260,7 +3260,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.QUARTERLY;
+                                            cadence = PriceCadence.QUARTERLY;
                                             createdAt = OffsetDateTime.parse("2022-02-12T13:11:34.622Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -3306,7 +3306,7 @@ public class Application {
                                                 put("fuga", "cumque");
                                                 put("consequuntur", "maiores");
                                             }};
-                                            modelType = PriceModelTypeEnum.PACKAGE_;
+                                            modelType = PriceModelType.PACKAGE_;
                                             name = "Faith Lubowitz";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "sit";
@@ -3386,7 +3386,7 @@ public class Application {
                                                     }}),
                                                 }};
                                             }};
-                                            cadence = PriceCadenceEnum.ANNUAL;
+                                            cadence = PriceCadence.ANNUAL;
                                             createdAt = OffsetDateTime.parse("2022-02-20T10:34:20.495Z");
                                             currency = "USD";
                                             discount = new java.util.HashMap<String, Object>() {{
@@ -3444,7 +3444,7 @@ public class Application {
                                                 put("animi", "possimus");
                                                 put("libero", "ullam");
                                             }};
-                                            modelType = PriceModelTypeEnum.BULK;
+                                            modelType = PriceModelType.BULK;
                                             name = "Nick Torp";
                                             packageConfig = new PricePackageConfig() {{
                                                 packageAmount = "odio";
@@ -3514,7 +3514,7 @@ public class Application {
                             add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                                 put("voluptatem", "illo");
                                                 put("iure", "incidunt");
-                                            }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                                 put("ea", "asperiores");
                                             }}) {{
                                 description = "doloremque";
@@ -3524,7 +3524,7 @@ public class Application {
                                     put("qui", "deserunt");
                                 }};
                                 duration = 754784L;
-                                durationUnit = PlanPhaseDurationUnitEnum.MONTHLY;
+                                durationUnit = PlanPhaseDurationUnit.MONTHLY;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("dolor", "est");
                                     put("reiciendis", "possimus");
@@ -3535,7 +3535,7 @@ public class Application {
                             }}),
                             add(new PlanPhase(                new java.util.HashMap<String, Object>() {{
                                                 put("ad", "a");
-                                            }}, PlanPhaseDurationUnitEnum.ANNUAL,                 new java.util.HashMap<String, Object>() {{
+                                            }}, PlanPhaseDurationUnit.ANNUAL,                 new java.util.HashMap<String, Object>() {{
                                                 put("atque", "quaerat");
                                                 put("aperiam", "dignissimos");
                                                 put("quam", "modi");
@@ -3547,7 +3547,7 @@ public class Application {
                                     put("nemo", "molestias");
                                 }};
                                 duration = 102019L;
-                                durationUnit = PlanPhaseDurationUnitEnum.ANNUAL;
+                                durationUnit = PlanPhaseDurationUnit.ANNUAL;
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("praesentium", "facilis");
                                     put("assumenda", "repudiandae");
@@ -3602,7 +3602,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.QUARTERLY;
+                                cadence = PriceCadence.QUARTERLY;
                                 createdAt = OffsetDateTime.parse("2022-09-20T03:07:59.187Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -3654,7 +3654,7 @@ public class Application {
                                 minimum = new java.util.HashMap<String, Object>() {{
                                     put("sint", "eligendi");
                                 }};
-                                modelType = PriceModelTypeEnum.BPS;
+                                modelType = PriceModelType.BPS;
                                 name = "Whitney Nienow";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "quas";
@@ -3734,7 +3734,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.QUARTERLY;
+                                cadence = PriceCadence.QUARTERLY;
                                 createdAt = OffsetDateTime.parse("2021-01-29T02:22:12.222Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -3783,7 +3783,7 @@ public class Application {
                                     put("laboriosam", "eos");
                                     put("amet", "incidunt");
                                 }};
-                                modelType = PriceModelTypeEnum.BULK_BPS;
+                                modelType = PriceModelType.BULK_BPS;
                                 name = "Dominick Kling";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "omnis";
@@ -3896,7 +3896,7 @@ public class Application {
                                         }}),
                                     }};
                                 }};
-                                cadence = PriceCadenceEnum.MONTHLY;
+                                cadence = PriceCadence.MONTHLY;
                                 createdAt = OffsetDateTime.parse("2020-11-07T12:44:30.685Z");
                                 currency = "USD";
                                 discount = new java.util.HashMap<String, Object>() {{
@@ -3950,7 +3950,7 @@ public class Application {
                                     put("optio", "quo");
                                     put("repudiandae", "tempora");
                                 }};
-                                modelType = PriceModelTypeEnum.TIERED_BPS;
+                                modelType = PriceModelType.TIERED_BPS;
                                 name = "Angel Kris";
                                 packageConfig = new PricePackageConfig() {{
                                     packageAmount = "aliquid";
@@ -3991,9 +3991,9 @@ public class Application {
                             id = "193a2454-67f9-4487-8c2d-5cc4972233e6";
                             name = "Karla Stehr";
                         }};
-                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnitEnum.DAYS) {{
+                        trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnit.DAYS) {{
                             trialPeriod = 316.05;
-                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnitEnum.DAYS;
+                            trialPeriodUnit = PlanTrialConfigTrialPeriodUnit.DAYS;
                         }};
                     }}),
                 }};

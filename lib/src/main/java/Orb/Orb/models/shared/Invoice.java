@@ -151,9 +151,9 @@ public class Invoice {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("status")
-    public InvoiceStatusEnum status;
+    public InvoiceStatus status;
 
-    public Invoice withStatus(InvoiceStatusEnum status) {
+    public Invoice withStatus(InvoiceStatus status) {
         this.status = status;
         return this;
     }

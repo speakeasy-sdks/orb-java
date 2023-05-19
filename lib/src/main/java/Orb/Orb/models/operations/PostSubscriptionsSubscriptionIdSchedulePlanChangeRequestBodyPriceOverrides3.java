@@ -41,14 +41,14 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     }
     
     @JsonProperty("model_type")
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelTypeEnum modelType;
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelType modelType;
 
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelTypeEnum modelType) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelType modelType) {
         this.modelType = modelType;
         return this;
     }
     
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3(@JsonProperty("bulk_config") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfig bulkConfig, @JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelTypeEnum modelType) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3(@JsonProperty("bulk_config") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfig bulkConfig, @JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelType modelType) {
         this.bulkConfig = bulkConfig;
         this.id = id;
         this.modelType = modelType;

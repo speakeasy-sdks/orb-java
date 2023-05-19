@@ -20,9 +20,9 @@ public class GetCustomersCustomerIdCreditsLedgerRequest {
      * Filters to a single status of ledger entry
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=entry_status")
-    public GetCustomersCustomerIdCreditsLedgerEntryStatusEnum entryStatus;
+    public GetCustomersCustomerIdCreditsLedgerEntryStatus entryStatus;
 
-    public GetCustomersCustomerIdCreditsLedgerRequest withEntryStatus(GetCustomersCustomerIdCreditsLedgerEntryStatusEnum entryStatus) {
+    public GetCustomersCustomerIdCreditsLedgerRequest withEntryStatus(GetCustomersCustomerIdCreditsLedgerEntryStatus entryStatus) {
         this.entryStatus = entryStatus;
         return this;
     }
@@ -31,9 +31,9 @@ public class GetCustomersCustomerIdCreditsLedgerRequest {
      * Filter to a single type of ledger entry
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=entry_type")
-    public GetCustomersCustomerIdCreditsLedgerEntryTypeEnum entryType;
+    public GetCustomersCustomerIdCreditsLedgerEntryType entryType;
 
-    public GetCustomersCustomerIdCreditsLedgerRequest withEntryType(GetCustomersCustomerIdCreditsLedgerEntryTypeEnum entryType) {
+    public GetCustomersCustomerIdCreditsLedgerRequest withEntryType(GetCustomersCustomerIdCreditsLedgerEntryType entryType) {
         this.entryType = entryType;
         return this;
     }

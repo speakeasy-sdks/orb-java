@@ -44,9 +44,9 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
     }
     
     @JsonProperty("entry_type")
-    public PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum entryType;
+    public PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryType entryType;
 
-    public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withEntryType(PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum entryType) {
+    public PostCustomersCustomerIdCreditsLedgerEntryRequestBody withEntryType(PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryType entryType) {
         this.entryType = entryType;
         return this;
     }
@@ -91,7 +91,7 @@ public class PostCustomersCustomerIdCreditsLedgerEntryRequestBody {
         return this;
     }
     
-    public PostCustomersCustomerIdCreditsLedgerEntryRequestBody(@JsonProperty("amount") Double amount, @JsonProperty("entry_type") PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum entryType) {
+    public PostCustomersCustomerIdCreditsLedgerEntryRequestBody(@JsonProperty("amount") Double amount, @JsonProperty("entry_type") PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryType entryType) {
         this.amount = amount;
         this.entryType = entryType;
   }

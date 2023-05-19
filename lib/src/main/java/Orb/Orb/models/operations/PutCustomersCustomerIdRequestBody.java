@@ -52,9 +52,9 @@ public class PutCustomersCustomerIdRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider")
-    public PutCustomersCustomerIdRequestBodyPaymentProviderEnum paymentProvider;
+    public PutCustomersCustomerIdRequestBodyPaymentProvider paymentProvider;
 
-    public PutCustomersCustomerIdRequestBody withPaymentProvider(PutCustomersCustomerIdRequestBodyPaymentProviderEnum paymentProvider) {
+    public PutCustomersCustomerIdRequestBody withPaymentProvider(PutCustomersCustomerIdRequestBodyPaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
     }

@@ -209,7 +209,7 @@ We strongly recommend that you only use debug mode as part of testing your initi
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.PostIngestDebugEnum;
+import Orb.Orb.models.operations.PostIngestDebug;
 import Orb.Orb.models.operations.PostIngestRequest;
 import Orb.Orb.models.operations.PostIngestRequestBody;
 import Orb.Orb.models.operations.PostIngestRequestBodyEvents;
@@ -260,7 +260,7 @@ public class Application {
                                         timestamp = "2020-12-09T16:09:53Z";
                                     }}),
                                 }});;
-                debug = PostIngestDebugEnum.FALSE;
+                debug = PostIngestDebug.FALSE;
             }};            
 
             PostIngestResponse res = sdk.event.ingest(req);

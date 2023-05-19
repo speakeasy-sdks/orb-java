@@ -54,7 +54,8 @@ public class Plan {
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
         req.setURL(url);
-        
+
+        req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -98,7 +99,8 @@ public class Plan {
         req.setURL(url);
         SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "plan", "json");
         req.setBody(serializedRequestBody);
-        
+
+        req.addHeader("Accept", "*/*");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;
@@ -136,7 +138,8 @@ public class Plan {
         req.setURL(url);
         SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "json");
         req.setBody(serializedRequestBody);
-        
+
+        req.addHeader("Accept", "*/*");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
         
         HTTPClient client = this._securityClient;

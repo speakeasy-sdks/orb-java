@@ -41,7 +41,7 @@ Upcoming subscriptions are only eligible for immediate cancellation, which will 
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelCancelOptionEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelCancelOption;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelRequest;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdCancelResponse;
 import Orb.Orb.models.shared.Security;
@@ -55,7 +55,7 @@ public class Application {
                 }})
                 .build();
 
-            PostSubscriptionsSubscriptionIdCancelRequest req = new PostSubscriptionsSubscriptionIdCancelRequest(PostSubscriptionsSubscriptionIdCancelCancelOptionEnum.END_OF_SUBSCRIPTION_TERM, "consequuntur");            
+            PostSubscriptionsSubscriptionIdCancelRequest req = new PostSubscriptionsSubscriptionIdCancelRequest(PostSubscriptionsSubscriptionIdCancelCancelOption.END_OF_SUBSCRIPTION_TERM, "consequuntur");            
 
             PostSubscriptionsSubscriptionIdCancelResponse res = sdk.subscription.cancel(req);
 
@@ -99,30 +99,30 @@ package hello.world;
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequest;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOption;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2UnitConfig;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfig;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3BulkConfigTiers;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides3ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides4PackageConfig;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5BpsConfig;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides5ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfig;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfigTiers;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7;
-import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfig;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers;
 import Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeResponse;
@@ -139,22 +139,22 @@ public class Application {
                 .build();
 
             PostSubscriptionsSubscriptionIdSchedulePlanChangeRequest req = new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequest("nemo") {{
-                requestBody = new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum.END_OF_SUBSCRIPTION_TERM) {{
+                requestBody = new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOption.END_OF_SUBSCRIPTION_TERM) {{
                     alignBillingWithPlanChangeDate = false;
                     changeDate = LocalDate.parse("2022-01-01");
                     externalPlanId = "ZMwNQefe7J3ecf7W";
                     minimumAmount = "1.23";
                     planId = "ZMwNQefe7J3ecf7W";
                     priceOverrides = new Object[]{{
-                        add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2("cumque", PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2ModelTypeEnum.UNIT,                 new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2UnitConfig("quia");) {{
+                        add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2("cumque", PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2ModelType.UNIT,                 new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2UnitConfig("quia");) {{
                             id = "6fc6b9f5-87ce-4525-8676-41a8312e5047";
                             minimumAmount = "1.23";
-                            modelType = PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2ModelTypeEnum.UNIT;
+                            modelType = PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2ModelType.UNIT;
                             unitConfig = new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides2UnitConfig("ut") {{
                                 unitAmount = "libero";
                             }};
                         }}),
-                        add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1("mqBkze6HoCwL4ytV", PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelTypeEnum.TIERED,                 new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
+                        add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1("mqBkze6HoCwL4ytV", PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelType.TIERED,                 new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
                                             tiers = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers[]{{
                                                 add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
                                                     firstUnit = "0";
@@ -180,7 +180,7 @@ public class Application {
                                         }};) {{
                             id = "mqBkze6HoCwL4ytV";
                             minimumAmount = "1.23";
-                            modelType = PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelTypeEnum.TIERED;
+                            modelType = PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1ModelType.TIERED;
                             tieredConfig = new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
                                 tiers = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers[]{{
                                     add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
@@ -206,7 +206,7 @@ public class Application {
                                 }};
                             }};
                         }}),
-                        add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6("accusamus", PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum.BULK_BPS) {{
+                        add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6("accusamus", PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelType.BULK_BPS) {{
                             bulkBpsConfig = new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfig() {{
                                 tiers = new Orb.Orb.models.operations.PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfigTiers[]{{
                                     add(new PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6BulkBpsConfigTiers(7057.53, "minus", "vero") {{
@@ -223,7 +223,7 @@ public class Application {
                             }};
                             id = "bdd88e71-f6c4-4825-ad77-71e7fd074009";
                             minimumAmount = "1.23";
-                            modelType = PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum.BULK_BPS;
+                            modelType = PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelType.BULK_BPS;
                         }}),
                     }};
                 }};;
@@ -594,31 +594,31 @@ package hello.world;
 
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBody;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyExternalMarketplaceEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyExternalMarketplace;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPhaseOverrides;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides1;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides1ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides1ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides1TieredConfig;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides1TieredConfigTiers;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides2;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides2ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides2ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides2UnitConfig;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides3;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides3BulkConfig;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides3BulkConfigTiers;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides3ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides3ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides4;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides4ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides4ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides4PackageConfig;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides5;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides5BpsConfig;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides5ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides7;
-import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides7ModelTypeEnum;
+import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides7ModelType;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig;
 import Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfigTiers;
 import Orb.Orb.models.operations.PostSubscriptionsResponse;
@@ -638,7 +638,7 @@ public class Application {
                 alignBillingWithSubscriptionStartDate = false;
                 customerId = "97DPcZE9hxsbb9Y9";
                 externalCustomerId = "voluptatum";
-                externalMarketplace = PostSubscriptionsRequestBodyExternalMarketplaceEnum.GOOGLE;
+                externalMarketplace = PostSubscriptionsRequestBodyExternalMarketplace.GOOGLE;
                 externalMarketplaceReportingId = "project_number:983410661111";
                 externalPlanId = "facere";
                 minimumAmount = "1.23";
@@ -655,7 +655,7 @@ public class Application {
                 }};
                 planId = "ZMwNQefe7J3ecf7W";
                 priceOverrides = new Object[]{{
-                    add(new PostSubscriptionsRequestBodyPriceOverrides6("dolor", PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum.BULK_BPS) {{
+                    add(new PostSubscriptionsRequestBodyPriceOverrides6("dolor", PostSubscriptionsRequestBodyPriceOverrides6ModelType.BULK_BPS) {{
                         bulkBpsConfig = new PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig() {{
                             tiers = new Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers[]{{
                                 add(new PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers(5502.16, "quo", "ullam") {{
@@ -677,9 +677,9 @@ public class Application {
                         }};
                         id = "9bafeca6-1914-4981-80b6-4ff8ae170ef0";
                         minimumAmount = "1.23";
-                        modelType = PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum.BULK_BPS;
+                        modelType = PostSubscriptionsRequestBodyPriceOverrides6ModelType.BULK_BPS;
                     }}),
-                    add(new PostSubscriptionsRequestBodyPriceOverrides6("molestias", PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum.BULK_BPS) {{
+                    add(new PostSubscriptionsRequestBodyPriceOverrides6("molestias", PostSubscriptionsRequestBodyPriceOverrides6ModelType.BULK_BPS) {{
                         bulkBpsConfig = new PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfig() {{
                             tiers = new Orb.Orb.models.operations.PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers[]{{
                                 add(new PostSubscriptionsRequestBodyPriceOverrides6BulkBpsConfigTiers(9281.02, "numquam", "mollitia") {{
@@ -700,7 +700,7 @@ public class Application {
                         }};
                         id = "32aa5dcb-6682-4cb7-8f8c-fd5fb6e91b9a";
                         minimumAmount = "1.23";
-                        modelType = PostSubscriptionsRequestBodyPriceOverrides6ModelTypeEnum.BULK_BPS;
+                        modelType = PostSubscriptionsRequestBodyPriceOverrides6ModelType.BULK_BPS;
                     }}),
                 }};
                 startDate = LocalDate.parse("2022-01-01");
@@ -970,7 +970,7 @@ For example, if your compute metric has a separate unit price (i.e. a matrix pri
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageGranularityEnum;
+import Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageGranularity;
 import Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageRequest;
 import Orb.Orb.models.operations.GetSubscriptionsSubscriptionIdUsageResponse;
 import Orb.Orb.models.shared.Security;
@@ -987,7 +987,7 @@ public class Application {
 
             GetSubscriptionsSubscriptionIdUsageRequest req = new GetSubscriptionsSubscriptionIdUsageRequest("dolorem") {{
                 billableMetricId = "neque";
-                granularity = GetSubscriptionsSubscriptionIdUsageGranularityEnum.DAY;
+                granularity = GetSubscriptionsSubscriptionIdUsageGranularity.DAY;
                 groupBy = "ipsa";
                 timeframeEnd = OffsetDateTime.parse("2022-02-02T05:00:00Z");
                 timeframeStart = OffsetDateTime.parse("2022-02-02T05:00:00Z");

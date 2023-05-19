@@ -64,14 +64,14 @@ public class UpcomingInvoiceLineItemsSubLineItems {
      * An identifier for a sub line item that is specific to a pricing model.
      */
     @JsonProperty("type")
-    public UpcomingInvoiceLineItemsSubLineItemsTypeEnum type;
+    public UpcomingInvoiceLineItemsSubLineItemsType type;
 
-    public UpcomingInvoiceLineItemsSubLineItems withType(UpcomingInvoiceLineItemsSubLineItemsTypeEnum type) {
+    public UpcomingInvoiceLineItemsSubLineItems withType(UpcomingInvoiceLineItemsSubLineItemsType type) {
         this.type = type;
         return this;
     }
     
-    public UpcomingInvoiceLineItemsSubLineItems(@JsonProperty("amount") String amount, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("type") UpcomingInvoiceLineItemsSubLineItemsTypeEnum type) {
+    public UpcomingInvoiceLineItemsSubLineItems(@JsonProperty("amount") String amount, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("type") UpcomingInvoiceLineItemsSubLineItemsType type) {
         this.amount = amount;
         this.name = name;
         this.quantity = quantity;

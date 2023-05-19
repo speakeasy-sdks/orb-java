@@ -17,7 +17,7 @@
 ### Gradle
 
 ```groovy
-implementation 'Orb.Orb:Orb:0.13.0'
+implementation 'Orb.Orb:Orb:0.14.0'
 ```
 <!-- End SDK Installation -->
 
@@ -29,7 +29,7 @@ package hello.world;
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PostCustomersRequestBody;
 import Orb.Orb.models.operations.PostCustomersRequestBodyBillingAddress;
-import Orb.Orb.models.operations.PostCustomersRequestBodyPaymentProviderEnum;
+import Orb.Orb.models.operations.PostCustomersRequestBodyPaymentProvider;
 import Orb.Orb.models.operations.PostCustomersRequestBodyShippingAddress;
 import Orb.Orb.models.operations.PostCustomersResponse;
 import Orb.Orb.models.shared.Security;
@@ -54,7 +54,7 @@ public class Application {
                 }};;
                 currency = "suscipit";
                 externalCustomerId = "molestiae";
-                paymentProvider = PostCustomersRequestBodyPaymentProviderEnum.STRIPE_INVOICE;
+                paymentProvider = PostCustomersRequestBodyPaymentProvider.STRIPE_INVOICE;
                 paymentProviderId = "placeat";
                 shippingAddress = new PostCustomersRequestBodyShippingAddress() {{
                     city = "Jayceestead";

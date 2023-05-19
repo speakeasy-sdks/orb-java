@@ -19,14 +19,14 @@ public class PlanTrialConfig {
     }
     
     @JsonProperty("trial_period_unit")
-    public PlanTrialConfigTrialPeriodUnitEnum trialPeriodUnit;
+    public PlanTrialConfigTrialPeriodUnit trialPeriodUnit;
 
-    public PlanTrialConfig withTrialPeriodUnit(PlanTrialConfigTrialPeriodUnitEnum trialPeriodUnit) {
+    public PlanTrialConfig withTrialPeriodUnit(PlanTrialConfigTrialPeriodUnit trialPeriodUnit) {
         this.trialPeriodUnit = trialPeriodUnit;
         return this;
     }
     
-    public PlanTrialConfig(@JsonProperty("trial_period_unit") PlanTrialConfigTrialPeriodUnitEnum trialPeriodUnit) {
+    public PlanTrialConfig(@JsonProperty("trial_period_unit") PlanTrialConfigTrialPeriodUnit trialPeriodUnit) {
         this.trialPeriodUnit = trialPeriodUnit;
   }
 }

@@ -74,9 +74,9 @@ public class PostCustomersRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider")
-    public PostCustomersRequestBodyPaymentProviderEnum paymentProvider;
+    public PostCustomersRequestBodyPaymentProvider paymentProvider;
 
-    public PostCustomersRequestBody withPaymentProvider(PostCustomersRequestBodyPaymentProviderEnum paymentProvider) {
+    public PostCustomersRequestBody withPaymentProvider(PostCustomersRequestBodyPaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
     }

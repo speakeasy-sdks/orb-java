@@ -12,9 +12,9 @@ public class PostSubscriptionsSubscriptionIdCancelRequest {
      * Determines the timing of subscription cancellation
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=cancel_option")
-    public PostSubscriptionsSubscriptionIdCancelCancelOptionEnum cancelOption;
+    public PostSubscriptionsSubscriptionIdCancelCancelOption cancelOption;
 
-    public PostSubscriptionsSubscriptionIdCancelRequest withCancelOption(PostSubscriptionsSubscriptionIdCancelCancelOptionEnum cancelOption) {
+    public PostSubscriptionsSubscriptionIdCancelRequest withCancelOption(PostSubscriptionsSubscriptionIdCancelCancelOption cancelOption) {
         this.cancelOption = cancelOption;
         return this;
     }
@@ -27,7 +27,7 @@ public class PostSubscriptionsSubscriptionIdCancelRequest {
         return this;
     }
     
-    public PostSubscriptionsSubscriptionIdCancelRequest(@JsonProperty("cancel_option") PostSubscriptionsSubscriptionIdCancelCancelOptionEnum cancelOption, @JsonProperty("subscription_id") String subscriptionId) {
+    public PostSubscriptionsSubscriptionIdCancelRequest(@JsonProperty("cancel_option") PostSubscriptionsSubscriptionIdCancelCancelOption cancelOption, @JsonProperty("subscription_id") String subscriptionId) {
         this.cancelOption = cancelOption;
         this.subscriptionId = subscriptionId;
   }

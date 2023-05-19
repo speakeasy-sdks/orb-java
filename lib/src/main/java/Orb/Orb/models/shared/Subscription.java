@@ -133,14 +133,14 @@ public class Subscription {
     }
     
     @JsonProperty("status")
-    public SubscriptionStatusEnum status;
+    public SubscriptionStatus status;
 
-    public Subscription withStatus(SubscriptionStatusEnum status) {
+    public Subscription withStatus(SubscriptionStatus status) {
         this.status = status;
         return this;
     }
     
-    public Subscription(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("id") String id, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatusEnum status) {
+    public Subscription(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("id") String id, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatus status) {
         this.createdAt = createdAt;
         this.customer = customer;
         this.endDate = endDate;

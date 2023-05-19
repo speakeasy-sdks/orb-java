@@ -46,9 +46,9 @@ public class PutCustomersExternalCustomerIdExternalCustomerIdRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("payment_provider")
-    public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProviderEnum paymentProvider;
+    public PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProvider paymentProvider;
 
-    public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withPaymentProvider(PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProviderEnum paymentProvider) {
+    public PutCustomersExternalCustomerIdExternalCustomerIdRequestBody withPaymentProvider(PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
     }

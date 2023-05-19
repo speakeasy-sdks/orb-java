@@ -54,9 +54,9 @@ public class GetExternalCustomerCostsRequest {
      * Controls whether Orb returns cumulative costs since the start of the billing period, or incremental day-by-day costs. If your customer has minimums or discounts, it's strongly recommended that you use the default cumulative behavior.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=view_mode")
-    public GetExternalCustomerCostsViewModeEnum viewMode;
+    public GetExternalCustomerCostsViewMode viewMode;
 
-    public GetExternalCustomerCostsRequest withViewMode(GetExternalCustomerCostsViewModeEnum viewMode) {
+    public GetExternalCustomerCostsRequest withViewMode(GetExternalCustomerCostsViewMode viewMode) {
         this.viewMode = viewMode;
         return this;
     }

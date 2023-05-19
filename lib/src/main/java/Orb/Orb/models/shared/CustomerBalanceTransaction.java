@@ -19,9 +19,9 @@ public class CustomerBalanceTransaction {
      * Describes the reason that this transaction took place.
      */
     @JsonProperty("action")
-    public CustomerBalanceTransactionActionEnum action;
+    public CustomerBalanceTransactionAction action;
 
-    public CustomerBalanceTransaction withAction(CustomerBalanceTransactionActionEnum action) {
+    public CustomerBalanceTransaction withAction(CustomerBalanceTransactionAction action) {
         this.action = action;
         return this;
     }
@@ -105,7 +105,7 @@ public class CustomerBalanceTransaction {
         return this;
     }
     
-    public CustomerBalanceTransaction(@JsonProperty("action") CustomerBalanceTransactionActionEnum action, @JsonProperty("amount") String amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("ending_balance") String endingBalance, @JsonProperty("id") String id, @JsonProperty("invoice") CustomerBalanceTransactionInvoice invoice, @JsonProperty("starting_balance") String startingBalance) {
+    public CustomerBalanceTransaction(@JsonProperty("action") CustomerBalanceTransactionAction action, @JsonProperty("amount") String amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("ending_balance") String endingBalance, @JsonProperty("id") String id, @JsonProperty("invoice") CustomerBalanceTransactionInvoice invoice, @JsonProperty("starting_balance") String startingBalance) {
         this.action = action;
         this.amount = amount;
         this.createdAt = createdAt;

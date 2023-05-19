@@ -240,9 +240,9 @@ public class Price {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("cadence")
-    public PriceCadenceEnum cadence;
+    public PriceCadence cadence;
 
-    public Price withCadence(PriceCadenceEnum cadence) {
+    public Price withCadence(PriceCadence cadence) {
         this.cadence = cadence;
         return this;
     }
@@ -320,9 +320,9 @@ public class Price {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("model_type")
-    public PriceModelTypeEnum modelType;
+    public PriceModelType modelType;
 
-    public Price withModelType(PriceModelTypeEnum modelType) {
+    public Price withModelType(PriceModelType modelType) {
         this.modelType = modelType;
         return this;
     }

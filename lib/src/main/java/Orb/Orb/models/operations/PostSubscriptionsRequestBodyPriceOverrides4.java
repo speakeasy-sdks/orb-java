@@ -42,9 +42,9 @@ public class PostSubscriptionsRequestBodyPriceOverrides4 {
     }
     
     @JsonProperty("model_type")
-    public PostSubscriptionsRequestBodyPriceOverrides4ModelTypeEnum modelType;
+    public PostSubscriptionsRequestBodyPriceOverrides4ModelType modelType;
 
-    public PostSubscriptionsRequestBodyPriceOverrides4 withModelType(PostSubscriptionsRequestBodyPriceOverrides4ModelTypeEnum modelType) {
+    public PostSubscriptionsRequestBodyPriceOverrides4 withModelType(PostSubscriptionsRequestBodyPriceOverrides4ModelType modelType) {
         this.modelType = modelType;
         return this;
     }
@@ -57,7 +57,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides4 {
         return this;
     }
     
-    public PostSubscriptionsRequestBodyPriceOverrides4(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides4ModelTypeEnum modelType, @JsonProperty("package_config") PostSubscriptionsRequestBodyPriceOverrides4PackageConfig packageConfig) {
+    public PostSubscriptionsRequestBodyPriceOverrides4(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides4ModelType modelType, @JsonProperty("package_config") PostSubscriptionsRequestBodyPriceOverrides4PackageConfig packageConfig) {
         this.id = id;
         this.modelType = modelType;
         this.packageConfig = packageConfig;

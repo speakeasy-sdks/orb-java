@@ -42,14 +42,14 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     }
     
     @JsonProperty("model_type")
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum modelType;
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelType modelType;
 
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum modelType) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelType modelType) {
         this.modelType = modelType;
         return this;
     }
     
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelTypeEnum modelType) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides6ModelType modelType) {
         this.id = id;
         this.modelType = modelType;
   }

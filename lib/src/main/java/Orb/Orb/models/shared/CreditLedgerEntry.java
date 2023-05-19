@@ -82,17 +82,17 @@ public class CreditLedgerEntry {
      * Committed entries are older than the ingestion grace period, and cannot change. Pending entries are newer than the grace period and are subject to updates
      */
     @JsonProperty("entry_status")
-    public CreditLedgerEntryEntryStatusEnum entryStatus;
+    public CreditLedgerEntryEntryStatus entryStatus;
 
-    public CreditLedgerEntry withEntryStatus(CreditLedgerEntryEntryStatusEnum entryStatus) {
+    public CreditLedgerEntry withEntryStatus(CreditLedgerEntryEntryStatus entryStatus) {
         this.entryStatus = entryStatus;
         return this;
     }
     
     @JsonProperty("entry_type")
-    public CreditLedgerEntryEntryTypeEnum entryType;
+    public CreditLedgerEntryEntryType entryType;
 
-    public CreditLedgerEntry withEntryType(CreditLedgerEntryEntryTypeEnum entryType) {
+    public CreditLedgerEntry withEntryType(CreditLedgerEntryEntryType entryType) {
         this.entryType = entryType;
         return this;
     }
@@ -142,7 +142,7 @@ public class CreditLedgerEntry {
         return this;
     }
     
-    public CreditLedgerEntry(@JsonProperty("amount") Double amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatusEnum entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryTypeEnum entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("starting_balance") Double startingBalance) {
+    public CreditLedgerEntry(@JsonProperty("amount") Double amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatus entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryType entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("starting_balance") Double startingBalance) {
         this.amount = amount;
         this.createdAt = createdAt;
         this.creditBlock = creditBlock;

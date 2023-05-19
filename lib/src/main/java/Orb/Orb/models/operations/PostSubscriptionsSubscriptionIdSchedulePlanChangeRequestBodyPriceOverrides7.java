@@ -33,9 +33,9 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
     }
     
     @JsonProperty("model_type")
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelTypeEnum modelType;
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelType modelType;
 
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelTypeEnum modelType) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7 withModelType(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelType modelType) {
         this.modelType = modelType;
         return this;
     }
@@ -48,7 +48,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOv
         return this;
     }
     
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelTypeEnum modelType, @JsonProperty("tiered_bps_config") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7ModelType modelType, @JsonProperty("tiered_bps_config") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig) {
         this.id = id;
         this.modelType = modelType;
         this.tieredBpsConfig = tieredBpsConfig;

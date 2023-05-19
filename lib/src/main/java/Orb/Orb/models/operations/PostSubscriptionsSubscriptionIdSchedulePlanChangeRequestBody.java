@@ -40,9 +40,9 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
      * Determines the timing of the plan change
      */
     @JsonProperty("change_option")
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum changeOption;
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOption changeOption;
 
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withChangeOption(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum changeOption) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody withChangeOption(PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOption changeOption) {
         this.changeOption = changeOption;
         return this;
     }
@@ -95,7 +95,7 @@ public class PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody {
         return this;
     }
     
-    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody(@JsonProperty("change_option") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOptionEnum changeOption) {
+    public PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBody(@JsonProperty("change_option") PostSubscriptionsSubscriptionIdSchedulePlanChangeRequestBodyChangeOption changeOption) {
         this.changeOption = changeOption;
   }
 }

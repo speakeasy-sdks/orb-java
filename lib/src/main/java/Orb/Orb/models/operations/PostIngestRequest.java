@@ -19,9 +19,9 @@ public class PostIngestRequest {
      * Flag to enable additional debug information in the endpoint response
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=debug")
-    public PostIngestDebugEnum debug;
+    public PostIngestDebug debug;
 
-    public PostIngestRequest withDebug(PostIngestDebugEnum debug) {
+    public PostIngestRequest withDebug(PostIngestDebug debug) {
         this.debug = debug;
         return this;
     }

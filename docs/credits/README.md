@@ -75,7 +75,7 @@ package hello.world;
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryRequest;
 import Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryRequestBody;
-import Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum;
+import Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryType;
 import Orb.Orb.models.operations.PostCustomersCustomerIdCreditsLedgerEntryResponse;
 import Orb.Orb.models.shared.Security;
 import java.time.LocalDate;
@@ -90,7 +90,7 @@ public class Application {
                 .build();
 
             PostCustomersCustomerIdCreditsLedgerEntryRequest req = new PostCustomersCustomerIdCreditsLedgerEntryRequest("maiores") {{
-                requestBody = new PostCustomersCustomerIdCreditsLedgerEntryRequestBody(4736.08, PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryTypeEnum.EXPIRATION_CHANGE) {{
+                requestBody = new PostCustomersCustomerIdCreditsLedgerEntryRequestBody(4736.08, PostCustomersCustomerIdCreditsLedgerEntryRequestBodyEntryType.EXPIRATION_CHANGE) {{
                     blockId = "quod";
                     description = "esse";
                     expiryDate = LocalDate.parse("2023-01-01");
@@ -190,8 +190,8 @@ When a set of credits expire on pre-set expiration date, the customer's balance 
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerEntryStatusEnum;
-import Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerEntryTypeEnum;
+import Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerEntryStatus;
+import Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerEntryType;
 import Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerRequest;
 import Orb.Orb.models.operations.GetCustomersCustomerIdCreditsLedgerResponse;
 import Orb.Orb.models.shared.Security;
@@ -206,8 +206,8 @@ public class Application {
                 .build();
 
             GetCustomersCustomerIdCreditsLedgerRequest req = new GetCustomersCustomerIdCreditsLedgerRequest("nam") {{
-                entryStatus = GetCustomersCustomerIdCreditsLedgerEntryStatusEnum.PENDING;
-                entryType = GetCustomersCustomerIdCreditsLedgerEntryTypeEnum.EXPIRATION_CHANGE;
+                entryStatus = GetCustomersCustomerIdCreditsLedgerEntryStatus.PENDING;
+                entryType = GetCustomersCustomerIdCreditsLedgerEntryType.EXPIRATION_CHANGE;
                 minimumAmount = 1433.53;
             }};            
 

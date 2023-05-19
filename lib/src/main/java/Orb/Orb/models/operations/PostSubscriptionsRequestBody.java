@@ -52,9 +52,9 @@ public class PostSubscriptionsRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("external_marketplace")
-    public PostSubscriptionsRequestBodyExternalMarketplaceEnum externalMarketplace;
+    public PostSubscriptionsRequestBodyExternalMarketplace externalMarketplace;
 
-    public PostSubscriptionsRequestBody withExternalMarketplace(PostSubscriptionsRequestBodyExternalMarketplaceEnum externalMarketplace) {
+    public PostSubscriptionsRequestBody withExternalMarketplace(PostSubscriptionsRequestBodyExternalMarketplace externalMarketplace) {
         this.externalMarketplace = externalMarketplace;
         return this;
     }

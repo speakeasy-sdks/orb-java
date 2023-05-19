@@ -113,9 +113,9 @@ public class Customer {
      * The external payments or invoicing solution connected to this customer.
      */
     @JsonProperty("payment_provider")
-    public CustomerPaymentProviderEnum paymentProvider;
+    public CustomerPaymentProvider paymentProvider;
 
-    public Customer withPaymentProvider(CustomerPaymentProviderEnum paymentProvider) {
+    public Customer withPaymentProvider(CustomerPaymentProvider paymentProvider) {
         this.paymentProvider = paymentProvider;
         return this;
     }
@@ -154,7 +154,7 @@ public class Customer {
         return this;
     }
     
-    public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProviderEnum paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("timezone") String timezone) {
+    public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProvider paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("timezone") String timezone) {
         this.balance = balance;
         this.createdAt = createdAt;
         this.currency = currency;

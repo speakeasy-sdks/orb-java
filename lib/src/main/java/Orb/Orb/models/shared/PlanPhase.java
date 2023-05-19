@@ -45,9 +45,9 @@ public class PlanPhase {
      * Term for this plan, which is the maximum cadence among all component prices
      */
     @JsonProperty("duration_unit")
-    public PlanPhaseDurationUnitEnum durationUnit;
+    public PlanPhaseDurationUnit durationUnit;
 
-    public PlanPhase withDurationUnit(PlanPhaseDurationUnitEnum durationUnit) {
+    public PlanPhase withDurationUnit(PlanPhaseDurationUnit durationUnit) {
         this.durationUnit = durationUnit;
         return this;
     }
@@ -81,7 +81,7 @@ public class PlanPhase {
         return this;
     }
     
-    public PlanPhase(@JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("duration_unit") PlanPhaseDurationUnitEnum durationUnit, @JsonProperty("minimum") java.util.Map<String, Object> minimum) {
+    public PlanPhase(@JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("duration_unit") PlanPhaseDurationUnit durationUnit, @JsonProperty("minimum") java.util.Map<String, Object> minimum) {
         this.discount = discount;
         this.durationUnit = durationUnit;
         this.minimum = minimum;

@@ -50,14 +50,14 @@ public class PostSubscriptionsRequestBodyPriceOverrides5 {
     }
     
     @JsonProperty("model_type")
-    public PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum modelType;
+    public PostSubscriptionsRequestBodyPriceOverrides5ModelType modelType;
 
-    public PostSubscriptionsRequestBodyPriceOverrides5 withModelType(PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum modelType) {
+    public PostSubscriptionsRequestBodyPriceOverrides5 withModelType(PostSubscriptionsRequestBodyPriceOverrides5ModelType modelType) {
         this.modelType = modelType;
         return this;
     }
     
-    public PostSubscriptionsRequestBodyPriceOverrides5(@JsonProperty("bps_config") PostSubscriptionsRequestBodyPriceOverrides5BpsConfig bpsConfig, @JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides5ModelTypeEnum modelType) {
+    public PostSubscriptionsRequestBodyPriceOverrides5(@JsonProperty("bps_config") PostSubscriptionsRequestBodyPriceOverrides5BpsConfig bpsConfig, @JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides5ModelType modelType) {
         this.bpsConfig = bpsConfig;
         this.id = id;
         this.modelType = modelType;

@@ -24,9 +24,9 @@ public class GetSubscriptionsSubscriptionIdUsageRequest {
      * This determines the windowing of usage reporting.
      */
     @SpeakeasyMetadata("queryParam:style=form,explode=true,name=granularity")
-    public GetSubscriptionsSubscriptionIdUsageGranularityEnum granularity;
+    public GetSubscriptionsSubscriptionIdUsageGranularity granularity;
 
-    public GetSubscriptionsSubscriptionIdUsageRequest withGranularity(GetSubscriptionsSubscriptionIdUsageGranularityEnum granularity) {
+    public GetSubscriptionsSubscriptionIdUsageRequest withGranularity(GetSubscriptionsSubscriptionIdUsageGranularity granularity) {
         this.granularity = granularity;
         return this;
     }

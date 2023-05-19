@@ -35,7 +35,7 @@ package hello.world;
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PostCustomersRequestBody;
 import Orb.Orb.models.operations.PostCustomersRequestBodyBillingAddress;
-import Orb.Orb.models.operations.PostCustomersRequestBodyPaymentProviderEnum;
+import Orb.Orb.models.operations.PostCustomersRequestBodyPaymentProvider;
 import Orb.Orb.models.operations.PostCustomersRequestBodyShippingAddress;
 import Orb.Orb.models.operations.PostCustomersResponse;
 import Orb.Orb.models.shared.Security;
@@ -60,7 +60,7 @@ public class Application {
                 }};;
                 currency = "perferendis";
                 externalCustomerId = "ad";
-                paymentProvider = PostCustomersRequestBodyPaymentProviderEnum.STRIPE_INVOICE;
+                paymentProvider = PostCustomersRequestBodyPaymentProvider.STRIPE_INVOICE;
                 paymentProviderId = "sed";
                 shippingAddress = new PostCustomersRequestBodyShippingAddress() {{
                     city = "Fadelfurt";
@@ -290,7 +290,7 @@ package hello.world;
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.GetCustomerCostsRequest;
 import Orb.Orb.models.operations.GetCustomerCostsResponse;
-import Orb.Orb.models.operations.GetCustomerCostsViewModeEnum;
+import Orb.Orb.models.operations.GetCustomerCostsViewMode;
 import Orb.Orb.models.shared.Security;
 import java.time.OffsetDateTime;
 
@@ -307,7 +307,7 @@ public class Application {
                 groupBy = "enim";
                 timeframeEnd = "2022-03-01T05:00:00Z";
                 timeframeStart = OffsetDateTime.parse("2022-02-01T05:00:00Z");
-                viewMode = GetCustomerCostsViewModeEnum.CUMULATIVE;
+                viewMode = GetCustomerCostsViewMode.CUMULATIVE;
             }};            
 
             GetCustomerCostsResponse res = sdk.customer.getCosts(req);
@@ -334,7 +334,7 @@ package hello.world;
 import Orb.Orb.SDK;
 import Orb.Orb.models.operations.GetExternalCustomerCostsRequest;
 import Orb.Orb.models.operations.GetExternalCustomerCostsResponse;
-import Orb.Orb.models.operations.GetExternalCustomerCostsViewModeEnum;
+import Orb.Orb.models.operations.GetExternalCustomerCostsViewMode;
 import Orb.Orb.models.shared.Security;
 import java.time.OffsetDateTime;
 
@@ -351,7 +351,7 @@ public class Application {
                 groupBy = "excepturi";
                 timeframeEnd = "2022-03-01T05:00:00Z";
                 timeframeStart = OffsetDateTime.parse("2022-02-01T05:00:00Z");
-                viewMode = GetExternalCustomerCostsViewModeEnum.PERIODIC;
+                viewMode = GetExternalCustomerCostsViewMode.PERIODIC;
             }};            
 
             GetExternalCustomerCostsResponse res = sdk.customer.getCostsByExternalId(req);
@@ -419,7 +419,7 @@ import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PutCustomersCustomerIdRequest;
 import Orb.Orb.models.operations.PutCustomersCustomerIdRequestBody;
 import Orb.Orb.models.operations.PutCustomersCustomerIdRequestBodyBillingAddress;
-import Orb.Orb.models.operations.PutCustomersCustomerIdRequestBodyPaymentProviderEnum;
+import Orb.Orb.models.operations.PutCustomersCustomerIdRequestBodyPaymentProvider;
 import Orb.Orb.models.operations.PutCustomersCustomerIdRequestBodyShippingAddress;
 import Orb.Orb.models.operations.PutCustomersCustomerIdResponse;
 import Orb.Orb.models.shared.Security;
@@ -445,7 +445,7 @@ public class Application {
                     }};;
                     email = "Eugene_Brown31@gmail.com";
                     name = "Angelica Dietrich";
-                    paymentProvider = PutCustomersCustomerIdRequestBodyPaymentProviderEnum.STRIPE_CHARGE;
+                    paymentProvider = PutCustomersCustomerIdRequestBodyPaymentProvider.STRIPE_CHARGE;
                     paymentProviderId = "possimus";
                     shippingAddress = new PutCustomersCustomerIdRequestBodyShippingAddress() {{
                         city = "North Linahaven";
@@ -485,7 +485,7 @@ import Orb.Orb.SDK;
 import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequest;
 import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequestBody;
 import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyBillingAddress;
-import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProviderEnum;
+import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProvider;
 import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress;
 import Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse;
 import Orb.Orb.models.shared.Security;
@@ -511,7 +511,7 @@ public class Application {
                     }};;
                     email = "Curt_Pouros@gmail.com";
                     name = "Joel Lang";
-                    paymentProvider = PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProviderEnum.QUICKBOOKS;
+                    paymentProvider = PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyPaymentProvider.QUICKBOOKS;
                     paymentProviderId = "repudiandae";
                     shippingAddress = new PutCustomersExternalCustomerIdExternalCustomerIdRequestBodyShippingAddress() {{
                         city = "Arnoldoshire";

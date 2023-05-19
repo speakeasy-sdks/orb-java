@@ -42,9 +42,9 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
     }
     
     @JsonProperty("model_type")
-    public PostSubscriptionsRequestBodyPriceOverrides7ModelTypeEnum modelType;
+    public PostSubscriptionsRequestBodyPriceOverrides7ModelType modelType;
 
-    public PostSubscriptionsRequestBodyPriceOverrides7 withModelType(PostSubscriptionsRequestBodyPriceOverrides7ModelTypeEnum modelType) {
+    public PostSubscriptionsRequestBodyPriceOverrides7 withModelType(PostSubscriptionsRequestBodyPriceOverrides7ModelType modelType) {
         this.modelType = modelType;
         return this;
     }
@@ -57,7 +57,7 @@ public class PostSubscriptionsRequestBodyPriceOverrides7 {
         return this;
     }
     
-    public PostSubscriptionsRequestBodyPriceOverrides7(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides7ModelTypeEnum modelType, @JsonProperty("tiered_bps_config") PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig) {
+    public PostSubscriptionsRequestBodyPriceOverrides7(@JsonProperty("id") String id, @JsonProperty("model_type") PostSubscriptionsRequestBodyPriceOverrides7ModelType modelType, @JsonProperty("tiered_bps_config") PostSubscriptionsRequestBodyPriceOverrides7TieredBpsConfig tieredBpsConfig) {
         this.id = id;
         this.modelType = modelType;
         this.tieredBpsConfig = tieredBpsConfig;
