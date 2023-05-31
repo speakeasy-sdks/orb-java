@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 /**
- * Actions related to API availability.
+ * The Availability resource represents a customer's availability. Availability is created when a customer's invoice is paid, and is updated when a customer's transaction is refunded.
  */
 public class Availability {
 	
@@ -40,7 +40,7 @@ public class Availability {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetPingResponse ping() throws Exception {
+    public Orb.Orb.models.operations.PingResponse ping() throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/ping");
         
@@ -57,16 +57,16 @@ public class Availability {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetPingResponse res = new Orb.Orb.models.operations.GetPingResponse(contentType, httpRes.statusCode()) {{
-            getPing200ApplicationJSONObject = null;
+        Orb.Orb.models.operations.PingResponse res = new Orb.Orb.models.operations.PingResponse(contentType, httpRes.statusCode()) {{
+            ping200ApplicationJSONObject = null;
         }};
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.GetPing200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetPing200ApplicationJSON.class);
-                res.getPing200ApplicationJSONObject = out;
+                Orb.Orb.models.operations.Ping200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.Ping200ApplicationJSON.class);
+                res.ping200ApplicationJSONObject = out;
             }
         }
 

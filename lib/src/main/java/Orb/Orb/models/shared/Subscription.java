@@ -35,6 +35,29 @@ public class Subscription {
         return this;
     }
     
+    /**
+     * Determines whether issued invoices for this subscription will automatically be charged with the saved payment method on the due date. This property defaults to the plan's behavior.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("auto_collection")
+    public Boolean autoCollection;
+
+    public Subscription withAutoCollection(Boolean autoCollection) {
+        this.autoCollection = autoCollection;
+        return this;
+    }
+    
+    /**
+     * The day of the month on which the billing cycle is anchored. If the maximum number of days in a month is greater than this value, the last day of the month is the billing cycle day (e.g. billing_cycle_day=31 for April means the billing period begins on the 30th.
+     */
+    @JsonProperty("billing_cycle_day")
+    public Double billingCycleDay;
+
+    public Subscription withBillingCycleDay(Double billingCycleDay) {
+        this.billingCycleDay = billingCycleDay;
+        return this;
+    }
+    
     @JsonSerialize(using = DateTimeSerializer.class)
     @JsonDeserialize(using = DateTimeDeserializer.class)
     @JsonProperty("created_at")
@@ -76,17 +99,29 @@ public class Subscription {
     /**
      * A customer is a buyer of your products, and the other party to the billing relationship.
      * 
-     * In Orb, customers are assigned system generated identifiers automatically, but it's often desirable to have these match existing identifiers in your system. To avoid having to denormalize Orb ID information, you can pass in an `external_customer_id` with your own identifier. See [Customer ID Aliases](../docs/Customer-ID-Aliases.md) for further information about how these aliases work in Orb.
+     * In Orb, customers are assigned system generated identifiers automatically, but it's often desirable to have these match existing identifiers in your system. To avoid having to denormalize Orb ID information, you can pass in an `external_customer_id` with your own identifier. See [Customer ID Aliases](../guides/events-and-metrics/customer-aliases) for further information about how these aliases work in Orb.
      * 
      * In addition to having an identifier in your system, a customer may exist in a payment provider solution like Stripe. Use the `payment_provider_id` and the `payment_provider` enum field to express this mapping.
      * 
-     * A customer also has a timezone (from the standard [IANA timezone database](https://www.iana.org/time-zones)), which defaults to your account's timezone. See [Timezone localization](../docs/Timezone-localization.md) for information on what this timezone parameter influences within Orb.
+     * A customer also has a timezone (from the standard [IANA timezone database](https://www.iana.org/time-zones)), which defaults to your account's timezone. See [Timezone localization](../guides/product-catalog/) for information on what this timezone parameter influences within Orb.
      */
     @JsonProperty("customer")
     public Customer customer;
 
     public Subscription withCustomer(Customer customer) {
         this.customer = customer;
+        return this;
+    }
+    
+    /**
+     * Determines the default memo on this subscriptions' invoices. Note that if this is not provided, it is determined by the plan configuration.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("default_invoice_memo")
+    public String defaultInvoiceMemo;
+
+    public Subscription withDefaultInvoiceMemo(String defaultInvoiceMemo) {
+        this.defaultInvoiceMemo = defaultInvoiceMemo;
         return this;
     }
     
@@ -103,6 +138,17 @@ public class Subscription {
         return this;
     }
     
+    /**
+     * List of all fixed fee quantities associated with this subscription, with their start and end dates. This list contains the initial quantity along with quantity changes.
+     */
+    @JsonProperty("fixed_fee_quantity_schedule")
+    public SubscriptionFixedFeeQuantitySchedule[] fixedFeeQuantitySchedule;
+
+    public Subscription withFixedFeeQuantitySchedule(SubscriptionFixedFeeQuantitySchedule[] fixedFeeQuantitySchedule) {
+        this.fixedFeeQuantitySchedule = fixedFeeQuantitySchedule;
+        return this;
+    }
+    
     @JsonProperty("id")
     public String id;
 
@@ -111,11 +157,43 @@ public class Subscription {
         return this;
     }
     
+    /**
+     * User specified key-value pairs. If no metadata was specified at subscription creation time, this defaults to an empty dictionary.
+     */
+    @JsonProperty("metadata")
+    public java.util.Map<String, Object> metadata;
+
+    public Subscription withMetadata(java.util.Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+    
+    /**
+     * Determines the difference between the invoice issue date for subscription invoices as the date that they are due. A value of "0" here represents that the invoice is due on issue, whereas a value of 30 represents that the customer has a month to pay the invoice.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("net_terms")
+    public Long netTerms;
+
+    public Subscription withNetTerms(Long netTerms) {
+        this.netTerms = netTerms;
+        return this;
+    }
+    
     @JsonProperty("plan")
     public Plan plan;
 
     public Subscription withPlan(Plan plan) {
         this.plan = plan;
+        return this;
+    }
+    
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("redeemed_coupon")
+    public SubscriptionRedeemedCoupon redeemedCoupon;
+
+    public Subscription withRedeemedCoupon(SubscriptionRedeemedCoupon redeemedCoupon) {
+        this.redeemedCoupon = redeemedCoupon;
         return this;
     }
     
@@ -140,11 +218,14 @@ public class Subscription {
         return this;
     }
     
-    public Subscription(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("id") String id, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatus status) {
+    public Subscription(@JsonProperty("billing_cycle_day") Double billingCycleDay, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("fixed_fee_quantity_schedule") SubscriptionFixedFeeQuantitySchedule[] fixedFeeQuantitySchedule, @JsonProperty("id") String id, @JsonProperty("metadata") java.util.Map<String, Object> metadata, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatus status) {
+        this.billingCycleDay = billingCycleDay;
         this.createdAt = createdAt;
         this.customer = customer;
         this.endDate = endDate;
+        this.fixedFeeQuantitySchedule = fixedFeeQuantitySchedule;
         this.id = id;
+        this.metadata = metadata;
         this.plan = plan;
         this.startDate = startDate;
         this.status = status;

@@ -23,9 +23,9 @@ public class ListSubscriptions200ApplicationJSON {
     
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("pagination_metadata")
-    public java.util.Map<String, Object> paginationMetadata;
+    public Orb.Orb.models.shared.PaginationMetadata paginationMetadata;
 
-    public ListSubscriptions200ApplicationJSON withPaginationMetadata(java.util.Map<String, Object> paginationMetadata) {
+    public ListSubscriptions200ApplicationJSON withPaginationMetadata(Orb.Orb.models.shared.PaginationMetadata paginationMetadata) {
         this.paginationMetadata = paginationMetadata;
         return this;
     }

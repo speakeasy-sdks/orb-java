@@ -270,9 +270,9 @@ public class Price {
     }
     
     @JsonProperty("discount")
-    public java.util.Map<String, Object> discount;
+    public Discount discount;
 
-    public Price withDiscount(java.util.Map<String, Object> discount) {
+    public Price withDiscount(Discount discount) {
         this.discount = discount;
         return this;
     }
@@ -311,9 +311,9 @@ public class Price {
     }
     
     @JsonProperty("minimum")
-    public java.util.Map<String, Object> minimum;
+    public MinimumAmount minimum;
 
-    public Price withMinimum(java.util.Map<String, Object> minimum) {
+    public Price withMinimum(MinimumAmount minimum) {
         this.minimum = minimum;
         return this;
     }
@@ -395,7 +395,7 @@ public class Price {
         return this;
     }
     
-    public Price(@JsonProperty("currency") String currency, @JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("minimum") java.util.Map<String, Object> minimum, @JsonProperty("plan_phase_order") Double planPhaseOrder) {
+    public Price(@JsonProperty("currency") String currency, @JsonProperty("discount") Discount discount, @JsonProperty("minimum") MinimumAmount minimum, @JsonProperty("plan_phase_order") Double planPhaseOrder) {
         this.currency = currency;
         this.discount = discount;
         this.minimum = minimum;

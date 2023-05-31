@@ -7,6 +7,7 @@ package Orb.Orb;
 import Orb.Orb.utils.HTTPClient;
 import Orb.Orb.utils.HTTPRequest;
 import Orb.Orb.utils.JSON;
+import Orb.Orb.utils.SerializedBody;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
@@ -15,7 +16,7 @@ import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 /**
- * Actions related to invoice management.
+ * The Invoice resource represents an invoice that has been generated for a customer. Invoices are generated when a customer's billing interval has elapsed, and are updated when a customer's invoice is paid.
  */
 public class Invoice {
 	
@@ -36,15 +37,57 @@ public class Invoice {
 	}
 
     /**
+     * Create invoice line item
+     * This creates a one-off fixed fee [Invoice line item](../reference/Orb-API.json/components/schemas/Invoice-line-item) on an [Invoice](../reference/Orb-API.json/components/schemas/Invoice). This can only be done for invoices that are in a `draft` status.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.CreateInvoiceLineItemResponse create(Orb.Orb.models.operations.CreateInvoiceLineItemRequestBody request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/invoice_line_items");
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("POST");
+        req.setURL(url);
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "json");
+        req.setBody(serializedRequestBody);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.CreateInvoiceLineItemResponse res = new Orb.Orb.models.operations.CreateInvoiceLineItemResponse(contentType, httpRes.statusCode()) {{
+            invoiceLineItem = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 201) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.shared.InvoiceLineItem out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.InvoiceLineItem.class);
+                res.invoiceLineItem = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
      * Retrieve an Invoice
      * This endpoint is used to fetch an [`Invoice`](../reference/Orb-API.json/components/schemas/Invoice) given an identifier.
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse get(Orb.Orb.models.operations.GetInvoiceInvoiceIdRequest request) throws Exception {
+    public Orb.Orb.models.operations.FetchInvoiceResponse fetch(Orb.Orb.models.operations.FetchInvoiceRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetInvoiceInvoiceIdRequest.class, baseUrl, "/invoices/{invoice_id}", request, null);
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchInvoiceRequest.class, baseUrl, "/invoices/{invoice_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -59,7 +102,7 @@ public class Invoice {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse res = new Orb.Orb.models.operations.GetInvoiceInvoiceIdResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.FetchInvoiceResponse res = new Orb.Orb.models.operations.FetchInvoiceResponse(contentType, httpRes.statusCode()) {{
             invoice = null;
         }};
         res.rawResponse = httpRes;
@@ -77,12 +120,12 @@ public class Invoice {
 
     /**
      * Retrieve upcoming invoice
-     * This endpoint can be used to fetch the [`UpcomingInvoice`](../reference/Orb-API.json/components/schemas/Upcoming%20Invoice) for the current billing period given a subscription.
+     * This endpoint can be used to fetch the [`Upcoming Invoice`](../reference/Orb-API.json/components/schemas/UpcomingInvoice) for the current billing period given a subscription.
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetInvoicesUpcomingResponse getUpcoming(Orb.Orb.models.operations.GetInvoicesUpcomingRequest request) throws Exception {
+    public Orb.Orb.models.operations.FetchUpcomingInvoiceResponse fetchUpcoming(Orb.Orb.models.operations.FetchUpcomingInvoiceRequest request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/invoices/upcoming");
         
@@ -92,7 +135,7 @@ public class Invoice {
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.GetInvoicesUpcomingRequest.class, request, null);
+        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchUpcomingInvoiceRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -105,7 +148,7 @@ public class Invoice {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetInvoicesUpcomingResponse res = new Orb.Orb.models.operations.GetInvoicesUpcomingResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.FetchUpcomingInvoiceResponse res = new Orb.Orb.models.operations.FetchUpcomingInvoiceResponse(contentType, httpRes.statusCode()) {{
             upcomingInvoice = null;
         }};
         res.rawResponse = httpRes;
@@ -125,7 +168,9 @@ public class Invoice {
      * List invoices
      * This endpoint returns a list of all [`Invoice`](../reference/Orb-API.json/components/schemas/Invoice)s for an account in a list format. 
      * 
-     * The list of invoices is ordered starting from the most recently issued invoice date. The response also includes `pagination_metadata`, which lets the caller retrieve the next page of results if they exist.
+     * The list of invoices is ordered starting from the most recently issued invoice date. The response also includes [`pagination_metadata`](../api/pagination), which lets the caller retrieve the next page of results if they exist.
+     * 
+     * By default, this only returns invoices that are `issued`, `paid`, or `synced`.
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
@@ -164,6 +209,50 @@ public class Invoice {
                 Orb.Orb.models.operations.ListInvoices200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.ListInvoices200ApplicationJSON.class);
                 res.listInvoices200ApplicationJSONObject = out;
             }
+        }
+
+        return res;
+    }
+
+    /**
+     * Void an invoice
+     * This endpoint allows an invoice's status to be set the `void` status. This can only be done to invoices that are in the `issued` status.
+     * 
+     * If the associated invoice has used the customer balance to change the amount due, the customer balance operation will be reverted. For example, if the invoice used $10 of customer balance, that amount will be added back to the customer balance upon voiding.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.PostInvoicesInvoiceIdVoidResponse void_(Orb.Orb.models.operations.PostInvoicesInvoiceIdVoidRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PostInvoicesInvoiceIdVoidRequest.class, baseUrl, "/invoices/{invoice_id}/void", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("POST");
+        req.setURL(url);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.PostInvoicesInvoiceIdVoidResponse res = new Orb.Orb.models.operations.PostInvoicesInvoiceIdVoidResponse(contentType, httpRes.statusCode()) {{
+            invoice = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 201) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.shared.Invoice out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Invoice.class);
+                res.invoice = out;
+            }
+        }
+        else if (httpRes.statusCode() == 400) {
         }
 
         return res;

@@ -23,6 +23,14 @@ public class UpcomingInvoiceLineItems {
         return this;
     }
     
+    @JsonProperty("discount")
+    public Discount discount;
+
+    public UpcomingInvoiceLineItems withDiscount(Discount discount) {
+        this.discount = discount;
+        return this;
+    }
+    
     /**
      * The end date of the range of time applied for this line item's price.
      */
@@ -44,6 +52,14 @@ public class UpcomingInvoiceLineItems {
 
     public UpcomingInvoiceLineItems withGrouping(UpcomingInvoiceLineItemsGrouping grouping) {
         this.grouping = grouping;
+        return this;
+    }
+    
+    @JsonProperty("minimum")
+    public MinimumAmount minimum;
+
+    public UpcomingInvoiceLineItems withMinimum(MinimumAmount minimum) {
+        this.minimum = minimum;
         return this;
     }
     
@@ -101,10 +117,12 @@ public class UpcomingInvoiceLineItems {
         return this;
     }
     
-    public UpcomingInvoiceLineItems(@JsonProperty("amount") String amount, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("grouping") UpcomingInvoiceLineItemsGrouping grouping, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("sub_line_items") UpcomingInvoiceLineItemsSubLineItems[] subLineItems, @JsonProperty("subtotal") String subtotal) {
+    public UpcomingInvoiceLineItems(@JsonProperty("amount") String amount, @JsonProperty("discount") Discount discount, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("grouping") UpcomingInvoiceLineItemsGrouping grouping, @JsonProperty("minimum") MinimumAmount minimum, @JsonProperty("name") String name, @JsonProperty("quantity") Double quantity, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("sub_line_items") UpcomingInvoiceLineItemsSubLineItems[] subLineItems, @JsonProperty("subtotal") String subtotal) {
         this.amount = amount;
+        this.discount = discount;
         this.endDate = endDate;
         this.grouping = grouping;
+        this.minimum = minimum;
         this.name = name;
         this.quantity = quantity;
         this.startDate = startDate;

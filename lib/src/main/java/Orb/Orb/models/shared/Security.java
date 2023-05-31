@@ -9,14 +9,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Security {
     @SpeakeasyMetadata("security:scheme=true,type=http,subtype=bearer,name=Authorization")
-    public String bearerAuth;
+    public String apiKeyAuth;
 
-    public Security withBearerAuth(String bearerAuth) {
-        this.bearerAuth = bearerAuth;
+    public Security withAPIKeyAuth(String apiKeyAuth) {
+        this.apiKeyAuth = apiKeyAuth;
         return this;
     }
     
-    public Security(@JsonProperty("bearerAuth") String bearerAuth) {
-        this.bearerAuth = bearerAuth;
+    public Security(@JsonProperty("APIKeyAuth") String apiKeyAuth) {
+        this.apiKeyAuth = apiKeyAuth;
   }
 }

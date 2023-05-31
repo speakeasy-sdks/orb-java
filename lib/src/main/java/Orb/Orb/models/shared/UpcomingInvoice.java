@@ -49,6 +49,25 @@ public class UpcomingInvoice {
         return this;
     }
     
+    @JsonProperty("discount")
+    public Discount discount;
+
+    public UpcomingInvoice withDiscount(Discount discount) {
+        this.discount = discount;
+        return this;
+    }
+    
+    /**
+     * A URL for the invoice portal.
+     */
+    @JsonProperty("hosted_invoice_url")
+    public String hostedInvoiceUrl;
+
+    public UpcomingInvoice withHostedInvoiceUrl(String hostedInvoiceUrl) {
+        this.hostedInvoiceUrl = hostedInvoiceUrl;
+        return this;
+    }
+    
     /**
      * The breakdown of prices in this invoice.
      */
@@ -57,6 +76,14 @@ public class UpcomingInvoice {
 
     public UpcomingInvoice withLineItems(UpcomingInvoiceLineItems[] lineItems) {
         this.lineItems = lineItems;
+        return this;
+    }
+    
+    @JsonProperty("minimum")
+    public MinimumAmount minimum;
+
+    public UpcomingInvoice withMinimum(MinimumAmount minimum) {
+        this.minimum = minimum;
         return this;
     }
     
@@ -94,11 +121,14 @@ public class UpcomingInvoice {
         return this;
     }
     
-    public UpcomingInvoice(@JsonProperty("amount_due") String amountDue, @JsonProperty("currency") String currency, @JsonProperty("customer") UpcomingInvoiceCustomer customer, @JsonProperty("line_items") UpcomingInvoiceLineItems[] lineItems, @JsonProperty("subscription") UpcomingInvoiceSubscription subscription, @JsonProperty("subtotal") String subtotal, @JsonProperty("target_date") LocalDate targetDate) {
+    public UpcomingInvoice(@JsonProperty("amount_due") String amountDue, @JsonProperty("currency") String currency, @JsonProperty("customer") UpcomingInvoiceCustomer customer, @JsonProperty("discount") Discount discount, @JsonProperty("hosted_invoice_url") String hostedInvoiceUrl, @JsonProperty("line_items") UpcomingInvoiceLineItems[] lineItems, @JsonProperty("minimum") MinimumAmount minimum, @JsonProperty("subscription") UpcomingInvoiceSubscription subscription, @JsonProperty("subtotal") String subtotal, @JsonProperty("target_date") LocalDate targetDate) {
         this.amountDue = amountDue;
         this.currency = currency;
         this.customer = customer;
+        this.discount = discount;
+        this.hostedInvoiceUrl = hostedInvoiceUrl;
         this.lineItems = lineItems;
+        this.minimum = minimum;
         this.subscription = subscription;
         this.subtotal = subtotal;
         this.targetDate = targetDate;

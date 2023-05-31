@@ -2,7 +2,7 @@
 
 ## Overview
 
-Actions related to API availability.
+The Availability resource represents a customer's availability. Availability is created when a customer's invoice is paid, and is updated when a customer's transaction is refunded.
 
 ### Available Operations
 
@@ -20,21 +20,21 @@ This API does not have any side-effects or return any Orb resources.
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.GetPingResponse;
+import Orb.Orb.models.operations.PingResponse;
 import Orb.Orb.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("at") {{
-                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
+                .setSecurity(new Security("provident") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
-            GetPingResponse res = sdk.availability.ping();
+            PingResponse res = sdk.availability.ping();
 
-            if (res.getPing200ApplicationJSONObject != null) {
+            if (res.ping200ApplicationJSONObject != null) {
                 // handle response
             }
         } catch (Exception e) {

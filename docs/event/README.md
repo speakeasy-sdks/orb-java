@@ -2,16 +2,173 @@
 
 ## Overview
 
-Actions related to event management.
+The Event resource represents an event that has been created for a customer. Events are created when a customer's invoice is paid, and are updated when a customer's transaction is refunded.
 
 ### Available Operations
 
-* [deprecate](#deprecate) - Deprecate single event
+* [amend](#amend) - Amend single event
+* [closeBackfill](#closebackfill) - Close a backfill
+* [create](#create) - Create a backfill
+* [deprecateEvent](#deprecateevent) - Deprecate single event
 * [ingest](#ingest) - Ingest events
+* [listBackfills](#listbackfills) - List backfills
+* [revertBackfill](#revertbackfill) - Revert a backfill
 * [search](#search) - Search events
-* [update](#update) - Amend single event
 
-## deprecate
+## amend
+
+This endpoint is used to amend a single usage event with a given `event_id`. `event_id` refers to the `idempotency_key` passed in during ingestion. The event will maintain its existing `event_id` after the amendment.
+
+This endpoint will mark the existing event as ignored, and Orb will only use the new event passed in the body of this request as the source of truth for that `event_id`. Note that a single event can be amended any number of times, so the same event can be overwritten in subsequent calls to this endpoint, or overwritten using the [Amend customer usage](amend-usage) endpoint. Only a single event with a given `event_id` will be considered the source of truth at any given time.
+
+This is a powerful and audit-safe mechanism to retroactively update a single event in cases where you need to:
+* update an event with new metadata as you iterate on your pricing model
+* update an event based on the result of an external API call (ex. call to a payment gateway succeeded or failed)
+
+This amendment API is always audit-safe. The process will still retain the original event, though it will be ignored for billing calculations. For auditing and data fidelity purposes, Orb never overwrites or permanently deletes ingested usage data.
+
+## Request validation
+* The `timestamp` of the new event must match the `timestamp` of the existing event already ingested. As with ingestion, all timestamps must be sent in ISO8601 format with UTC timezone offset.
+* The `customer_id` or `external_customer_id` of the new event must match the `customer_id` or `external_customer_id` of the existing event already ingested. Exactly one of `customer_id` and `external_customer_id` should be specified, and similar to ingestion, the ID must identify a Customer resource within Orb. Unlike ingestion, for event amendment, we strictly enforce that the Customer must be in the Orb system, even during the initial integration period. We do not allow updating the `Customer` an event is associated with.
+* Orb does not accept an `idempotency_key` with the event in this endpoint, since this request is by design idempotent. On retryable errors, you should retry the request and assume the amendment operation has not succeeded until receipt of a 2xx. 
+* The event's `timestamp` must fall within the customer's current subscription's billing period, or within the grace period of the customer's current subscription's previous billing period.
+
+### Example Usage
+
+```java
+package hello.world;
+
+import Orb.Orb.SDK;
+import Orb.Orb.models.operations.AmendEventRequest;
+import Orb.Orb.models.operations.AmendEventRequestBody;
+import Orb.Orb.models.operations.AmendEventResponse;
+import Orb.Orb.models.shared.Security;
+import java.time.OffsetDateTime;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security("earum") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                }})
+                .build();
+
+            AmendEventRequest req = new AmendEventRequest("fQp2wSmK7CF9oPcu") {{
+                requestBody = new AmendEventRequestBody("modi",                 new java.util.HashMap<String, Object>() {{
+                                    put("dolorum", "deleniti");
+                                    put("pariatur", "provident");
+                                    put("nobis", "libero");
+                                }}, OffsetDateTime.parse("2020-12-09T16:09:53Z")) {{
+                    customerId = "delectus";
+                    externalCustomerId = "quaerat";
+                }};;
+            }};            
+
+            AmendEventResponse res = sdk.event.amend(req);
+
+            if (res.amendEvent200ApplicationJSONObject != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+## closeBackfill
+
+Closing a backfill makes the updated usage visible in Orb. Upon closing a backfill, Orb will asynchronously reflect the updated usage in invoice amounts and usage graphs. Once all of the updates are complete, the backfill's status will transition to `reflected`.
+
+
+
+### Example Usage
+
+```java
+package hello.world;
+
+import Orb.Orb.SDK;
+import Orb.Orb.models.operations.CloseBackfillRequest;
+import Orb.Orb.models.operations.CloseBackfillResponse;
+import Orb.Orb.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security("quos") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                }})
+                .build();
+
+            CloseBackfillRequest req = new CloseBackfillRequest("aliquid");            
+
+            CloseBackfillResponse res = sdk.event.closeBackfill(req);
+
+            if (res.backfill != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+## create
+
+Creating the backfill enables adding or replacing past events, even those that are older than the ingestion grace period. Performing a backfill in Orb involves 3 steps:
+
+1. Create the backfill, specifying its parameters.
+2. [Ingest](ingest) usage events, referencing the backfill (query parameter `backfill_id`).
+3. [Close](close-backfill) the backfill, propagating the update in past usage throughout Orb.
+
+Changes from a backfill are not reflected until the backfill is closed, so you won’t need to worry about your customers seeing partially updated usage data. Backfills are also reversible, so you’ll be able to revert a backfill if you’ve made a mistake.
+
+This endpoint will return a backfill object, which contains an `id`. That `id` can then be used as the `backfill_id` query parameter to the event ingestion endpoint to associate ingested events with this backfill. The effects (e.g. updated usage graphs) of this backfill will not take place until the backfill is closed.
+
+If the `replace_existing_events` is `true`, existing events in the backfill's timeframe will be replaced with the newly ingested events associated with the backfill. If `false`, newly ingested events will be added to the existing events.
+
+### Example Usage
+
+```java
+package hello.world;
+
+import Orb.Orb.SDK;
+import Orb.Orb.models.operations.CreateBackfillRequestBody;
+import Orb.Orb.models.operations.CreateBackfillResponse;
+import Orb.Orb.models.shared.Security;
+import java.time.OffsetDateTime;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security("dolorem") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                }})
+                .build();
+
+            CreateBackfillRequestBody req = new CreateBackfillRequestBody(false, OffsetDateTime.parse("2022-10-11T19:23:49.728Z"), OffsetDateTime.parse("2022-10-13T03:45:19.154Z")) {{
+                closeTime = OffsetDateTime.parse("2021-04-17T07:36:26.867Z");
+                customerId = "cum";
+                externalCustomerId = "voluptate";
+            }};            
+
+            CreateBackfillResponse res = sdk.event.create(req);
+
+            if (res.backfill != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+## deprecateEvent
 
 This endpoint is used to deprecate a single usage event with a given `event_id`. `event_id` refers to the `idempotency_key` passed in during ingestion. 
 
@@ -21,7 +178,7 @@ This is a powerful and audit-safe mechanism to retroactively deprecate a single 
 * no longer bill for an event that was improperly reported
 * no longer bill for an event based on the result of an external API call (ex. call to a payment gateway failed and the user should not be billed)
 
-If you want to only change specific properties of an event, but keep the event as part of the billing calculation, use the [Amend single event](../reference/Orb-API.json/paths/~1events~1{event_id}/put) endpoint instead.
+If you want to only change specific properties of an event, but keep the event as part of the billing calculation, use the [Amend single event](amend-event) endpoint instead.
 
 This API is always audit-safe. The process will still retain the deprecated event, though it will be ignored for billing calculations. For auditing and data fidelity purposes, Orb never overwrites or permanently deletes ingested usage data.
 
@@ -36,24 +193,24 @@ This API is always audit-safe. The process will still retain the deprecated even
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.PutDeprecateEventsEventIdRequest;
-import Orb.Orb.models.operations.PutDeprecateEventsEventIdResponse;
+import Orb.Orb.models.operations.DeprecateEventRequest;
+import Orb.Orb.models.operations.DeprecateEventResponse;
 import Orb.Orb.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("deserunt") {{
-                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
+                .setSecurity(new Security("dignissimos") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
-            PutDeprecateEventsEventIdRequest req = new PutDeprecateEventsEventIdRequest("fQp2wSmK7CF9oPcu");            
+            DeprecateEventRequest req = new DeprecateEventRequest("fQp2wSmK7CF9oPcu");            
 
-            PutDeprecateEventsEventIdResponse res = sdk.event.deprecate(req);
+            DeprecateEventResponse res = sdk.event.deprecateEvent(req);
 
-            if (res.putDeprecateEventsEventId200ApplicationJSONObject != null) {
+            if (res.deprecateEvent200ApplicationJSONObject != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -209,63 +366,121 @@ We strongly recommend that you only use debug mode as part of testing your initi
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.PostIngestDebug;
-import Orb.Orb.models.operations.PostIngestRequest;
-import Orb.Orb.models.operations.PostIngestRequestBody;
-import Orb.Orb.models.operations.PostIngestRequestBodyEvents;
-import Orb.Orb.models.operations.PostIngestResponse;
+import Orb.Orb.models.operations.IngestDebug;
+import Orb.Orb.models.operations.IngestRequest;
+import Orb.Orb.models.operations.IngestRequestBody;
+import Orb.Orb.models.operations.IngestRequestBodyEvents;
+import Orb.Orb.models.operations.IngestResponse;
 import Orb.Orb.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("nisi") {{
-                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
+                .setSecurity(new Security("reiciendis") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
-            PostIngestRequest req = new PostIngestRequest() {{
-                requestBody = new PostIngestRequestBody(                new Orb.Orb.models.operations.PostIngestRequestBodyEvents[]{{
-                                    add(new PostIngestRequestBodyEvents("labore", "suscipit",                 new java.util.HashMap<String, Object>() {{
-                                                        put("nobis", "eum");
-                                                        put("vero", "aspernatur");
-                                                        put("architecto", "magnam");
+            IngestRequest req = new IngestRequest() {{
+                requestBody = new IngestRequestBody(                new Orb.Orb.models.operations.IngestRequestBodyEvents[]{{
+                                    add(new IngestRequestBodyEvents("quaerat", "accusamus",                 new java.util.HashMap<String, Object>() {{
+                                                        put("voluptatibus", "voluptas");
+                                                        put("natus", "eos");
+                                                        put("atque", "sit");
                                                     }}, "2020-12-09T16:09:53Z") {{
-                                        customerId = "natus";
-                                        eventName = "omnis";
-                                        externalCustomerId = "molestiae";
-                                        idempotencyKey = "perferendis";
+                                        customerId = "dolorum";
+                                        eventName = "numquam";
+                                        externalCustomerId = "veritatis";
+                                        idempotencyKey = "ipsa";
                                         properties = new java.util.HashMap<String, Object>() {{
-                                            put("magnam", "distinctio");
-                                            put("id", "labore");
-                                        }};
-                                        timestamp = "2020-12-09T16:09:53Z";
-                                    }}),
-                                    add(new PostIngestRequestBodyEvents("eum", "dolor",                 new java.util.HashMap<String, Object>() {{
-                                                        put("odit", "nemo");
-                                                        put("quasi", "iure");
-                                                        put("doloribus", "debitis");
-                                                        put("eius", "maxime");
-                                                    }}, "2020-12-09T16:09:53Z") {{
-                                        customerId = "et";
-                                        eventName = "excepturi";
-                                        externalCustomerId = "ullam";
-                                        idempotencyKey = "provident";
-                                        properties = new java.util.HashMap<String, Object>() {{
-                                            put("sint", "accusantium");
-                                            put("mollitia", "reiciendis");
-                                            put("mollitia", "ad");
+                                            put("iure", "odio");
                                         }};
                                         timestamp = "2020-12-09T16:09:53Z";
                                     }}),
                                 }});;
-                debug = PostIngestDebug.FALSE;
+                backfillId = "fugiat";
+                debug = IngestDebug.TRUE;
             }};            
 
-            PostIngestResponse res = sdk.event.ingest(req);
+            IngestResponse res = sdk.event.ingest(req);
 
-            if (res.postIngest200ApplicationJSONObject != null) {
+            if (res.ingest200ApplicationJSONObject != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+## listBackfills
+
+This endpoint returns a list of all [backfills](../reference/Orb-API.json/components/schemas/Backfill) in a list format. 
+
+The list of backfills is ordered starting from the most recently created backfill. The response also includes [`pagination_metadata`](../api/pagination), which lets the caller retrieve the next page of results if they exist. More information about pagination can be found in the [Pagination-metadata schema](../reference/Orb-API.json/components/schemas/Pagination-metadata).
+
+### Example Usage
+
+```java
+package hello.world;
+
+import Orb.Orb.SDK;
+import Orb.Orb.models.operations.ListBackfillsResponse;
+import Orb.Orb.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security("soluta") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                }})
+                .build();
+
+            ListBackfillsResponse res = sdk.event.listBackfills();
+
+            if (res.listBackfills200ApplicationJSONObject != null) {
+                // handle response
+            }
+        } catch (Exception e) {
+            // handle exception
+        }
+    }
+}
+```
+
+## revertBackfill
+
+Reverting a backfill undoes all the effects of closing the backfill. If the backfill is reflected, the status will transition to `pending_revert` while the effects of the backfill are undone. Once all effects are undone, the backfill will transition to `reverted`.
+
+If a backfill is reverted before its closed, no usage will be updated as a result of the backfill and it will immediately transition to `reverted`.
+
+### Example Usage
+
+```java
+package hello.world;
+
+import Orb.Orb.SDK;
+import Orb.Orb.models.operations.RevertBackfillRequest;
+import Orb.Orb.models.operations.RevertBackfillResponse;
+import Orb.Orb.models.shared.Security;
+
+public class Application {
+    public static void main(String[] args) {
+        try {
+            SDK sdk = SDK.builder()
+                .setSecurity(new Security("dolorum") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                }})
+                .build();
+
+            RevertBackfillRequest req = new RevertBackfillRequest("iusto");            
+
+            RevertBackfillResponse res = sdk.event.revertBackfill(req);
+
+            if (res.backfill != null) {
                 // handle response
             }
         } catch (Exception e) {
@@ -277,13 +492,13 @@ public class Application {
 
 ## search
 
-This endpoint returns a filtered set of events for an account in a paginated list format. 
+This endpoint returns a filtered set of events for an account in a [paginated list format](../api/pagination). 
 
 Note that this is a `POST` endpoint rather than a `GET` endpoint because it employs a JSON body for search criteria rather than query parameters, allowing for a more flexible search syntax.
 
 Note that a search criteria _must_ be specified. Currently, Orb supports the following criteria:
 - `event_ids`: This is an explicit array of IDs to filter by. Note that an event's ID is the `idempotency_key` that was originally used for ingestion.
-- `invoice_id`: This is an issued Orb invoice ID (see also [List Invoices](../reference/Orb-API.json/paths/~1invoices/get)). Orb will fetch all events that were used to calculate the invoice. In the common case, this will be a list of events whose `timestamp` property falls within the billing period specified by the invoice.
+- `invoice_id`: This is an issued Orb invoice ID (see also [List Invoices](list-invoices)). Orb will fetch all events that were used to calculate the invoice. In the common case, this will be a list of events whose `timestamp` property falls within the billing period specified by the invoice.
 
 By default, Orb does not return _deprecated_ events in this endpoint.
 
@@ -295,91 +510,31 @@ By default, Orb will not throw a `404` if no events matched, Orb will return an 
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.PostEventsSearchRequestBody;
-import Orb.Orb.models.operations.PostEventsSearchResponse;
+import Orb.Orb.models.operations.SearchEventsRequestBody;
+import Orb.Orb.models.operations.SearchEventsResponse;
 import Orb.Orb.models.shared.Security;
 
 public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("facilis") {{
-                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
+                .setSecurity(new Security("voluptate") {{
+                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
                 }})
                 .build();
 
-            PostEventsSearchRequestBody req = new PostEventsSearchRequestBody() {{
+            SearchEventsRequestBody req = new SearchEventsRequestBody() {{
                 eventIds = new String[]{{
-                    add("architecto"),
-                    add("architecto"),
+                    add("deleniti"),
+                    add("omnis"),
+                    add("necessitatibus"),
                 }};
-                invoiceId = "repudiandae";
+                invoiceId = "distinctio";
             }};            
 
-            PostEventsSearchResponse res = sdk.event.search(req);
+            SearchEventsResponse res = sdk.event.search(req);
 
-            if (res.postEventsSearch200ApplicationJSONObject != null) {
-                // handle response
-            }
-        } catch (Exception e) {
-            // handle exception
-        }
-    }
-}
-```
-
-## update
-
-This endpoint is used to amend a single usage event with a given `event_id`. `event_id` refers to the `idempotency_key` passed in during ingestion. The event will maintain its existing `event_id` after the amendment.
-
-This endpoint will mark the existing event as ignored, and Orb will only use the new event passed in the body of this request as the source of truth for that `event_id`. Note that a single event can be amended any number of times, so the same event can be overwritten in subsequent calls to this endpoint, or overwritten using the [Amend customer usage](../reference/Orb-API.json/paths/~1customers~1{customer_id}~1usage/patch) endpoint. Only a single event with a given `event_id` will be considered the source of truth at any given time.
-
-This is a powerful and audit-safe mechanism to retroactively update a single event in cases where you need to:
-* update an event with new metadata as you iterate on your pricing model
-* update an event based on the result of an external API call (ex. call to a payment gateway succeeded or failed)
-
-This amendment API is always audit-safe. The process will still retain the original event, though it will be ignored for billing calculations. For auditing and data fidelity purposes, Orb never overwrites or permanently deletes ingested usage data.
-
-## Request validation
-* The `timestamp` of the new event must match the `timestamp` of the existing event already ingested. As with ingestion, all timestamps must be sent in ISO8601 format with UTC timezone offset.
-* The `customer_id` or `external_customer_id` of the new event must match the `customer_id` or `external_customer_id` of the existing event already ingested. Exactly one of `customer_id` and `external_customer_id` should be specified, and similar to ingestion, the ID must identify a Customer resource within Orb. Unlike ingestion, for event amendment, we strictly enforce that the Customer must be in the Orb system, even during the initial integration period. We do not allow updating the `Customer` an event is associated with.
-* Orb does not accept an `idempotency_key` with the event in this endpoint, since this request is by design idempotent. On retryable errors, you should retry the request and assume the amendment operation has not succeeded until receipt of a 2xx. 
-* The event's `timestamp` must fall within the customer's current subscription's billing period, or within the grace period of the customer's current subscription's previous billing period.
-
-### Example Usage
-
-```java
-package hello.world;
-
-import Orb.Orb.SDK;
-import Orb.Orb.models.operations.PutEventsEventIdRequest;
-import Orb.Orb.models.operations.PutEventsEventIdRequestBody;
-import Orb.Orb.models.operations.PutEventsEventIdResponse;
-import Orb.Orb.models.shared.Security;
-import java.time.OffsetDateTime;
-
-public class Application {
-    public static void main(String[] args) {
-        try {
-            SDK sdk = SDK.builder()
-                .setSecurity(new Security("ullam") {{
-                    bearerAuth = "YOUR_BEARER_TOKEN_HERE";
-                }})
-                .build();
-
-            PutEventsEventIdRequest req = new PutEventsEventIdRequest("fQp2wSmK7CF9oPcu") {{
-                requestBody = new PutEventsEventIdRequestBody("expedita",                 new java.util.HashMap<String, Object>() {{
-                                    put("repellat", "quibusdam");
-                                    put("sed", "saepe");
-                                }}, OffsetDateTime.parse("2020-12-09T16:09:53Z")) {{
-                    customerId = "pariatur";
-                    externalCustomerId = "accusantium";
-                }};;
-            }};            
-
-            PutEventsEventIdResponse res = sdk.event.update(req);
-
-            if (res.putEventsEventId200ApplicationJSONObject != null) {
+            if (res.searchEvents200ApplicationJSONObject != null) {
                 // handle response
             }
         } catch (Exception e) {

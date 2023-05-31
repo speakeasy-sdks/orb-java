@@ -32,6 +32,17 @@ public class ListPlansResponse {
         return this;
     }
     
+    /**
+     * OK
+     */
+    
+    public ListPlans200ApplicationJSON listPlans200ApplicationJSONObject;
+
+    public ListPlansResponse withListPlans200ApplicationJSONObject(ListPlans200ApplicationJSON listPlans200ApplicationJSONObject) {
+        this.listPlans200ApplicationJSONObject = listPlans200ApplicationJSONObject;
+        return this;
+    }
+    
     public ListPlansResponse(@JsonProperty("ContentType") String contentType, @JsonProperty("StatusCode") Integer statusCode) {
         this.contentType = contentType;
         this.statusCode = statusCode;

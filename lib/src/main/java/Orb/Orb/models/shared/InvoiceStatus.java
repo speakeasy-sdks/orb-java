@@ -7,12 +7,14 @@ package Orb.Orb.models.shared;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * InvoiceStatus - The status of this invoice as known to Orb. Invoices that have been issued for past billing periods are marked `"issued"`. Invoices will be marked `"paid"` upon confirmation of successful automatic payment collection by Orb. Invoices synced to an external billing provider (such as Bill.com, QuickBooks, or Stripe Invoicing) will be marked as `"synced"`.
+ * InvoiceStatus - The status of this invoice as known to Orb. Invoices start in `"draft"` state for a given billing period, and are automatically transitioned to `"issued"` when that billing period ends. Invoices will be marked `"paid"` upon confirmation of successful automatic payment collection by Orb. Invoices may be manually voided; those will be in the terminal `"void"` state. Invoices synced to an external billing provider (such as Bill.com, QuickBooks, or Stripe Invoicing) will be marked as `"synced"`.
  */
 public enum InvoiceStatus {
     ISSUED("issued"),
     PAID("paid"),
-    SYNCED("synced");
+    SYNCED("synced"),
+    VOID_("void"),
+    DRAFT("draft");
 
     @JsonValue
     public final String value;

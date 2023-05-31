@@ -16,6 +16,17 @@ public class GetPlansExternalPlanIdResponse {
         return this;
     }
     
+    /**
+     * OK
+     */
+    
+    public Orb.Orb.models.shared.Plan plan;
+
+    public GetPlansExternalPlanIdResponse withPlan(Orb.Orb.models.shared.Plan plan) {
+        this.plan = plan;
+        return this;
+    }
+    
     
     public Integer statusCode;
 

@@ -14,14 +14,15 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.time.OffsetDateTime;
 
 /**
- * CreditLedgerEntry - A credit ledger entry is a single entry in the customer balance ledger. More details about working with real-time balances are [here](../docs/Credits.md).
+ * CreditLedgerEntry - A credit ledger entry is a single entry in the customer balance ledger. More details about working with real-time balances are [here](../guides/product-catalog/prepurchase).
  * 
  * To support late and out-of-order event reporting, ledger entries are marked as either __committed_ or _pending_. Committed entries are finalized and will not change. Pending entries can be updated up until the event reporting grace period. 
  */
 public class CreditLedgerEntry {
     /**
-     * Number of credits that were impacted
+     * Number of credits that were impacted. Required on creation for increment and decrement entries.
      */
+    @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("amount")
     public Double amount;
 
@@ -125,6 +126,29 @@ public class CreditLedgerEntry {
         return this;
     }
     
+    /**
+     * User-specified metadata dictionary that's specified when adding a ledger entry. This contains key/value pairs if metadata is specified, but otherwise is an empty dictionary.
+     */
+    @JsonProperty("metadata")
+    public java.util.Map<String, Object> metadata;
+
+    public CreditLedgerEntry withMetadata(java.util.Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+    
+    /**
+     * In the case of an expiration change ledger entry, this represents the expiration time of the new block.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("new_block_expiry_date")
+    public String newBlockExpiryDate;
+
+    public CreditLedgerEntry withNewBlockExpiryDate(String newBlockExpiryDate) {
+        this.newBlockExpiryDate = newBlockExpiryDate;
+        return this;
+    }
+    
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("price_id")
     public String priceId;
@@ -142,8 +166,7 @@ public class CreditLedgerEntry {
         return this;
     }
     
-    public CreditLedgerEntry(@JsonProperty("amount") Double amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatus entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryType entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("starting_balance") Double startingBalance) {
-        this.amount = amount;
+    public CreditLedgerEntry(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatus entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryType entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("metadata") java.util.Map<String, Object> metadata, @JsonProperty("starting_balance") Double startingBalance) {
         this.createdAt = createdAt;
         this.creditBlock = creditBlock;
         this.customer = customer;
@@ -153,6 +176,7 @@ public class CreditLedgerEntry {
         this.entryType = entryType;
         this.id = id;
         this.ledgerSequenceNumber = ledgerSequenceNumber;
+        this.metadata = metadata;
         this.startingBalance = startingBalance;
   }
 }

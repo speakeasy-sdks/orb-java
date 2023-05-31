@@ -22,9 +22,9 @@ public class PlanPhase {
     }
     
     @JsonProperty("discount")
-    public java.util.Map<String, Object> discount;
+    public Discount discount;
 
-    public PlanPhase withDiscount(java.util.Map<String, Object> discount) {
+    public PlanPhase withDiscount(Discount discount) {
         this.discount = discount;
         return this;
     }
@@ -53,9 +53,9 @@ public class PlanPhase {
     }
     
     @JsonProperty("minimum")
-    public java.util.Map<String, Object> minimum;
+    public MinimumAmount minimum;
 
-    public PlanPhase withMinimum(java.util.Map<String, Object> minimum) {
+    public PlanPhase withMinimum(MinimumAmount minimum) {
         this.minimum = minimum;
         return this;
     }
@@ -81,7 +81,7 @@ public class PlanPhase {
         return this;
     }
     
-    public PlanPhase(@JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("duration_unit") PlanPhaseDurationUnit durationUnit, @JsonProperty("minimum") java.util.Map<String, Object> minimum) {
+    public PlanPhase(@JsonProperty("discount") Discount discount, @JsonProperty("duration_unit") PlanPhaseDurationUnit durationUnit, @JsonProperty("minimum") MinimumAmount minimum) {
         this.discount = discount;
         this.durationUnit = durationUnit;
         this.minimum = minimum;

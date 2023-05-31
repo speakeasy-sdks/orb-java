@@ -6,6 +6,8 @@ package Orb.Orb.models.shared;
 
 import Orb.Orb.utils.DateTimeDeserializer;
 import Orb.Orb.utils.DateTimeSerializer;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -47,6 +49,18 @@ public class CustomerBalanceTransaction {
 
     public CustomerBalanceTransaction withCreatedAt(OffsetDateTime createdAt) {
         this.createdAt = createdAt;
+        return this;
+    }
+    
+    /**
+     * The Credit note associated with this transaction. This may appear as the result of a credit note being applied to an invoice and balance is added back to the customer balance or it is being reapplied to the invoice.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("credit_note")
+    public CustomerBalanceTransactionCreditNote creditNote;
+
+    public CustomerBalanceTransaction withCreditNote(CustomerBalanceTransactionCreditNote creditNote) {
+        this.creditNote = creditNote;
         return this;
     }
     
@@ -105,7 +119,15 @@ public class CustomerBalanceTransaction {
         return this;
     }
     
-    public CustomerBalanceTransaction(@JsonProperty("action") CustomerBalanceTransactionAction action, @JsonProperty("amount") String amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("ending_balance") String endingBalance, @JsonProperty("id") String id, @JsonProperty("invoice") CustomerBalanceTransactionInvoice invoice, @JsonProperty("starting_balance") String startingBalance) {
+    @JsonProperty("type")
+    public CustomerBalanceTransactionType type;
+
+    public CustomerBalanceTransaction withType(CustomerBalanceTransactionType type) {
+        this.type = type;
+        return this;
+    }
+    
+    public CustomerBalanceTransaction(@JsonProperty("action") CustomerBalanceTransactionAction action, @JsonProperty("amount") String amount, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("description") String description, @JsonProperty("ending_balance") String endingBalance, @JsonProperty("id") String id, @JsonProperty("invoice") CustomerBalanceTransactionInvoice invoice, @JsonProperty("starting_balance") String startingBalance, @JsonProperty("type") CustomerBalanceTransactionType type) {
         this.action = action;
         this.amount = amount;
         this.createdAt = createdAt;
@@ -114,5 +136,6 @@ public class CustomerBalanceTransaction {
         this.id = id;
         this.invoice = invoice;
         this.startingBalance = startingBalance;
+        this.type = type;
   }
 }

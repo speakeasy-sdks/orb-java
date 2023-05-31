@@ -16,13 +16,25 @@ import java.time.OffsetDateTime;
 /**
  * Customer - A customer is a buyer of your products, and the other party to the billing relationship.
  * 
- * In Orb, customers are assigned system generated identifiers automatically, but it's often desirable to have these match existing identifiers in your system. To avoid having to denormalize Orb ID information, you can pass in an `external_customer_id` with your own identifier. See [Customer ID Aliases](../docs/Customer-ID-Aliases.md) for further information about how these aliases work in Orb.
+ * In Orb, customers are assigned system generated identifiers automatically, but it's often desirable to have these match existing identifiers in your system. To avoid having to denormalize Orb ID information, you can pass in an `external_customer_id` with your own identifier. See [Customer ID Aliases](../guides/events-and-metrics/customer-aliases) for further information about how these aliases work in Orb.
  * 
  * In addition to having an identifier in your system, a customer may exist in a payment provider solution like Stripe. Use the `payment_provider_id` and the `payment_provider` enum field to express this mapping.
  * 
- * A customer also has a timezone (from the standard [IANA timezone database](https://www.iana.org/time-zones)), which defaults to your account's timezone. See [Timezone localization](../docs/Timezone-localization.md) for information on what this timezone parameter influences within Orb.
+ * A customer also has a timezone (from the standard [IANA timezone database](https://www.iana.org/time-zones)), which defaults to your account's timezone. See [Timezone localization](../guides/product-catalog/) for information on what this timezone parameter influences within Orb.
  */
 public class Customer {
+    /**
+     * Determines whether Orb attempts to automatically collect payment for issued invoices from the saved payment method.  Note that if payment provider is set, auto collection will be turned on unless explicitly updated.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("auto_collection")
+    public Boolean autoCollection;
+
+    public Customer withAutoCollection(Boolean autoCollection) {
+        this.autoCollection = autoCollection;
+        return this;
+    }
+    
     /**
      * The customer's current balance in their currency.
      */
@@ -39,9 +51,9 @@ public class Customer {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("billing_address")
-    public CustomerBillingAddress billingAddress;
+    public BillingAddress billingAddress;
 
-    public Customer withBillingAddress(CustomerBillingAddress billingAddress) {
+    public Customer withBillingAddress(BillingAddress billingAddress) {
         this.billingAddress = billingAddress;
         return this;
     }
@@ -79,6 +91,18 @@ public class Customer {
     }
     
     /**
+     * Determines whether Orb will send automated emails to this customer. This setting is superseded by the account-wide email setting for email delivery.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("email_delivery")
+    public Boolean emailDelivery;
+
+    public Customer withEmailDelivery(Boolean emailDelivery) {
+        this.emailDelivery = emailDelivery;
+        return this;
+    }
+    
+    /**
      * An optional user-defined ID for this customer resource, used throughout the system as an alias for this Customer. Use this field to identify a customer by an existing identifier in your system.
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -98,6 +122,17 @@ public class Customer {
 
     public Customer withId(String id) {
         this.id = id;
+        return this;
+    }
+    
+    /**
+     * User specified key-value pairs. If there is no metadata for the customer, this defaults to an empty dictionary.
+     */
+    @JsonProperty("metadata")
+    public java.util.Map<String, Object> metadata;
+
+    public Customer withMetadata(java.util.Map<String, Object> metadata) {
+        this.metadata = metadata;
         return this;
     }
     
@@ -136,10 +171,107 @@ public class Customer {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("shipping_address")
-    public CustomerShippingAddress shippingAddress;
+    public ShippingAddress shippingAddress;
 
-    public Customer withShippingAddress(CustomerShippingAddress shippingAddress) {
+    public Customer withShippingAddress(ShippingAddress shippingAddress) {
         this.shippingAddress = shippingAddress;
+        return this;
+    }
+    
+    /**
+     * Tax IDs are commonly required to be displayed on customer invoices, which are added to the headers of invoices.
+     * 
+     * 
+     * ### Supported Tax ID Countries and Types
+     * 
+     * 
+     * | Country        | Type         | Description                                 |
+     * |----------------|--------------|---------------------------------------------|
+     * | Australia      | `au_abn`     | Australian Business Number (AU ABN)	        |
+     * | Australia      | `au_arn`     | Australian Taxation Office Reference Number |
+     * | Austria        | `eu_vat`     | European VAT number                         |
+     * | Belgium        | `eu_vat`     | European VAT number                         |
+     * | Brazil         | `br_cnpj`    | Brazilian CNPJ number                       |
+     * | Brazil         | `br_cpf`     | Brazilian CPF number	                       |
+     * | Bulgaria       | `bg_uic`     | Bulgaria Unified Identification Code        |
+     * | Bulgaria       | `eu_vat`     | European VAT number                         |
+     * | Canada         | `ca_bn`      | Canadian BN                                 |
+     * | Canada         | `ca_gst_hst` | Canadian GST/HST number                     |
+     * | Canada         | `ca_pst_bc`  | Canadian PST number (British Columbia)      |
+     * | Canada         | `ca_pst_mb`  | Canadian PST number (Manitoba)              |
+     * | Canada         | `ca_pst_sk`  | Canadian PST number (Saskatchewan)          |
+     * | Canada         | `ca_qst`     | Canadian QST number (Québec)                |
+     * | Chile          | `cl_tin`     | Chilean TIN                                 |
+     * | Croatia        | `eu_vat`     | European VAT number                         |
+     * | Cyprus         | `eu_vat`     | European VAT number                         |
+     * | Czech Republic | `eu_vat`     | European VAT number                         |
+     * | Denmark        | `eu_vat`     | European VAT number                         |
+     * | Egypt          | `eg_tin`     | Egyptian Tax Identification Number	         |
+     * | Estonia   | `eu_vat`     | European VAT number   |                                                                             
+     * | EU        | `eu_oss_vat` | European One Stop Shop VAT number for non-Union scheme                                                   |
+     * | Finland   | `eu_vat`     | European VAT number                                                                                      |
+     * | France    | `eu_vat`     | European VAT number                                                                                      |
+     * | Georgia   | `ge_vat`     | Georgian VAT                                                                                             |
+     * | Germany   | `eu_vat`     | European VAT number                                                                                      |
+     * | Greece    | `eu_vat`     | European VAT number                                                                                      |
+     * | Hong Kong | `hk_br`      | Hong Kong BR number                                                                                      |
+     * | Hungary   | `eu_vat`     | European VAT number                                                                                      |
+     * | Hungary   | `hu_tin`     | Hungary tax number (adószám)	                                                                            |
+     * | Iceland   | `is_vat`     | Icelandic VAT                                                                                            |
+     * | India     | `in_gst`     | Indian GST number                                                                                        |
+     * | Indonesia | `id_npwp`    | Indonesian NPWP number                                                                                   |
+     * | Ireland   | `eu_vat`     | European VAT number                                                                                      |
+     * | Israel    | `il_vat`     | Israel VAT                                                                                               |
+     * | Italy     | `eu_vat`     | European VAT number                                                                                      |
+     * | Japan     | `jp_cn`      | Japanese Corporate Number (*Hōjin Bangō*)                                                                |
+     * | Japan     | `jp_rn`      | Japanese Registered Foreign Businesses' Registration Number (*Tōroku Kokugai Jigyōsha no Tōroku Bangō*)	 |
+     * | Japan     | `jp_trn`     | Japanese Tax Registration Number (*Tōroku Bangō*)	                                                       |
+     * | Kenya     | `ke_pin`     | Kenya Revenue Authority Personal Identification Number                                                   |
+     * | Latvia    | `eu_vat`     | European VAT number                                                                                  |
+     * | Liechtenstein | `li_uid`  | Liechtensteinian UID number           |
+     * | Lithuania     | `eu_vat`  | European VAT number	                  |
+     * | Luxembourg    | `eu_vat`  | European VAT number	                  |
+     * | Malaysia      | `my_frp`  | Malaysian FRP number                  |
+     * | Malaysia      | `my_itn`  | Malaysian ITN                         |
+     * | Malaysia      | `my_sst`  | Malaysian SST number                  |
+     * | Malta         | `eu_vat ` | European VAT number                   |
+     * | Mexico        | `mx_rfc`  | Mexican RFC number                    |
+     * | Netherlands   | `eu_vat`  | European VAT number	                  |
+     * | New Zealand   | `nz_gst`  | New Zealand GST number	               |
+     * | Norway        | `no_vat`  | Norwegian VAT number                  |
+     * | Philippines   | `ph_tin	` | Philippines Tax Identification Number |
+     * | Poland        | `eu_vat`  | European VAT number                   |
+     * | Portugal      | `eu_vat`  | European VAT number                   |
+     * | Romania       | `eu_vat`  | European VAT number                   |
+     * | Russia        | `ru_inn`  | Russian INN                           |
+     * | Russia        | `ru_kpp`  | Russian KPP                           |
+     * | Saudi Arabia  | `sg_gst`  | Singaporean GST                       |
+     * | Singapore     | `sg_uen`  | Singaporean UEN	                      |
+     * | Slovakia      | `eu_vat`  | European VAT number                   |
+     * | Slovenia      | `eu_vat`  | European VAT number                   |
+     * | Slovenia             | `si_tin` | Slovenia tax number (davčna številka)	             |
+     * | South Africa	        | `za_vat` | South African VAT number                           |
+     * | South Korea          | `kr_brn` | Korean BRN                                         |
+     * | Spain                | `es_cif` | Spanish NIF number (previously Spanish CIF number) |
+     * | Spain                | `eu_vat` | European VAT number	                               |
+     * | Sweden               | `eu_vat` | European VAT number                                |
+     * | Switzerland          | `ch_vat` | Switzerland VAT number	                            |
+     * | Taiwan               | `tw_vat` | Taiwanese VAT	                                     |
+     * | Thailand             | `th_vat` | Thai VAT                                           |
+     * | Turkey               | `tr_tin` | Turkish Tax Identification Number                  |
+     * | Ukraine              | `ua_vat` | Ukrainian VAT                                      |
+     * | United Arab Emirates | `ae_trn` | United Arab Emirates TRN	                          |
+     * | United Kingdom       | `eu_vat` | Northern Ireland VAT number                        |
+     * | United Kingdom       | `gb_vat` | United Kingdom VAT number                          |
+     * | United States        | `us_ein` | United States EIN                                  |
+     * 
+     * 
+     */
+    @JsonProperty("tax_id")
+    public CustomerTaxId taxId;
+
+    public Customer withTaxId(CustomerTaxId taxId) {
+        this.taxId = taxId;
         return this;
     }
     
@@ -154,15 +286,17 @@ public class Customer {
         return this;
     }
     
-    public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProvider paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("timezone") String timezone) {
+    public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("metadata") java.util.Map<String, Object> metadata, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProvider paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("tax_id") CustomerTaxId taxId, @JsonProperty("timezone") String timezone) {
         this.balance = balance;
         this.createdAt = createdAt;
         this.currency = currency;
         this.email = email;
         this.id = id;
+        this.metadata = metadata;
         this.name = name;
         this.paymentProvider = paymentProvider;
         this.paymentProviderId = paymentProviderId;
+        this.taxId = taxId;
         this.timezone = timezone;
   }
 }

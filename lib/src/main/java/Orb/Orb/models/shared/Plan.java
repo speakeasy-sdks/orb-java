@@ -18,6 +18,18 @@ import java.time.OffsetDateTime;
  */
 public class Plan {
     /**
+     * The parent plan if the given plan was created by overriding one or more of the parent's prices
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("base_plan")
+    public PlanBasePlan basePlan;
+
+    public Plan withBasePlan(PlanBasePlan basePlan) {
+        this.basePlan = basePlan;
+        return this;
+    }
+    
+    /**
      * The parent plan id if the given plan was created by overriding one or more of the parent's prices
      */
     @JsonInclude(Include.NON_ABSENT)
@@ -50,6 +62,18 @@ public class Plan {
         return this;
     }
     
+    /**
+     * The default memo text on the invoices corresponding to subscriptions on this plan. Note that each subscription may configure its own memo.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("default_invoice_memo")
+    public String defaultInvoiceMemo;
+
+    public Plan withDefaultInvoiceMemo(String defaultInvoiceMemo) {
+        this.defaultInvoiceMemo = defaultInvoiceMemo;
+        return this;
+    }
+    
     @JsonProperty("description")
     public String description;
 
@@ -59,9 +83,9 @@ public class Plan {
     }
     
     @JsonProperty("discount")
-    public java.util.Map<String, Object> discount;
+    public Discount discount;
 
-    public Plan withDiscount(java.util.Map<String, Object> discount) {
+    public Plan withDiscount(Discount discount) {
         this.discount = discount;
         return this;
     }
@@ -98,9 +122,9 @@ public class Plan {
     }
     
     @JsonProperty("minimum")
-    public java.util.Map<String, Object> minimum;
+    public MinimumAmount minimum;
 
-    public Plan withMinimum(java.util.Map<String, Object> minimum) {
+    public Plan withMinimum(MinimumAmount minimum) {
         this.minimum = minimum;
         return this;
     }
@@ -110,6 +134,18 @@ public class Plan {
 
     public Plan withName(String name) {
         this.name = name;
+        return this;
+    }
+    
+    /**
+     * Determines the difference between the invoice issue date and the due date. A value of "0" here signifies that invoices are due on issue, whereas a value of "30" means that the customer has a month to pay the invoice before its overdue. Note that individual subscriptions or invoices may set a different net terms configuration.
+     */
+    @JsonInclude(Include.NON_ABSENT)
+    @JsonProperty("net_terms")
+    public Long netTerms;
+
+    public Plan withNetTerms(Long netTerms) {
+        this.netTerms = netTerms;
         return this;
     }
     
@@ -150,7 +186,7 @@ public class Plan {
         return this;
     }
     
-    public Plan(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("description") String description, @JsonProperty("discount") java.util.Map<String, Object> discount, @JsonProperty("id") String id, @JsonProperty("invoicing_currency") String invoicingCurrency, @JsonProperty("minimum") java.util.Map<String, Object> minimum, @JsonProperty("name") String name, @JsonProperty("prices") Price[] prices, @JsonProperty("product") PlanProduct product) {
+    public Plan(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("description") String description, @JsonProperty("discount") Discount discount, @JsonProperty("id") String id, @JsonProperty("invoicing_currency") String invoicingCurrency, @JsonProperty("minimum") MinimumAmount minimum, @JsonProperty("name") String name, @JsonProperty("prices") Price[] prices, @JsonProperty("product") PlanProduct product) {
         this.createdAt = createdAt;
         this.currency = currency;
         this.description = description;

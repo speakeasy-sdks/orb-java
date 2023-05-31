@@ -15,7 +15,7 @@ import java.time.OffsetDateTime;
 import org.apache.http.NameValuePair;
 
 /**
- * Actions related to customer management.
+ * The Customer resource represents a customer of your service. Customers are created when a customer is created in your service, and are updated when a customer's information is updated in your service.
  */
 public class Customer {
 	
@@ -36,18 +36,183 @@ public class Customer {
 	}
 
     /**
+     * Amend customer usage
+     * This endpoint is used to amend usage within a timeframe for a customer that has an active subscription.
+     * 
+     * This endpoint will mark _all_ existing events within `[timeframe_start, timeframe_end)` as _ignored_  for billing  purposes, and Orb will only use the _new_ events passed in the body of this request as the source of truth for that timeframe moving forwards. Note that a given time period can be amended any number of times, so events can be overwritten in subsequent calls to this endpoint.
+     * 
+     * This is a powerful and audit-safe mechanism to retroactively change usage data in cases where you need to:
+     * - decrease historical usage consumption because of degraded service availability in your systems
+     * - account for gaps from your usage reporting mechanism
+     * - make point-in-time fixes for specific event records, while retaining the original time of usage and associated metadata
+     * 
+     * This amendment API is designed with two explicit goals:
+     * 1. Amendments are **always audit-safe**. The amendment process will still retain original events in the timeframe, though they will be ignored for billing calculations. For auditing and data fidelity purposes, Orb never overwrites or permanently deletes ingested usage data.
+     * 2. Amendments always preserve data **consistency**. In other words, either an amendment is fully processed by the system (and the new events for the timeframe are honored rather than the existing ones) or the amendment request fails. To maintain this important property, Orb prevents _partial event ingestion_ on this endpoint.
+     * 
+     * 
+     * ## Response semantics
+     *  - Either all events are ingested successfully, or all fail to ingest (returning a `4xx` or `5xx` response code).
+     * - Any event that fails schema validation will lead to a `4xx` response. In this case, to maintain data consistency, Orb will not ingest any events and will also not deprecate existing events in the time period.
+     * - You can assume that the amendment is successful on receipt of a `2xx` response.While a successful response from this endpoint indicates that the new events have been ingested, updating usage totals happens asynchronously and may be delayed by a few minutes. 
+     * 
+     * As emphasized above, Orb will never show an inconsistent state (e.g. in invoice previews or dashboards); either it will show the existing state (before the amendment) or the new state (with new events in the requested timeframe).
+     * 
+     * 
+     * ## Sample request body
+     * 
+     * ```json
+     * {
+     * 	"events": [{
+     * 		"event_name": "payment_processed",
+     * 		"timestamp": "2022-03-24T07:15:00Z",
+     * 		"properties": {
+     * 			"amount": 100
+     * 		}
+     * 	}, {
+     * 		"event_name": "payment_failed",
+     * 		"timestamp": "2022-03-24T07:15:00Z",
+     * 		"properties": {
+     * 			"amount": 100
+     * 		}
+     * 	}]
+     * }
+     * ```
+     * 
+     * ## Request Validation
+     * - The `timestamp` of each event reported must fall within the bounds of `timeframe_start` and `timeframe_end`. As with ingestion, all timestamps must be sent in ISO8601 format with UTC timezone offset.
+     * 
+     * - Orb **does not accept an `idempotency_key`** with each event in this endpoint, since the entirety of the event list must be ingested to ensure consistency. On retryable errors, you should retry the request in its entirety, and assume that the amendment operation has not succeeded until receipt of a `2xx`.
+     * 
+     * - Both `timeframe_start` and `timeframe_end` must be timestamps in the past. Furthermore, Orb will generally validate that the `timeframe_start` and `timeframe_end` fall within the customer's _current_ subscription billing period. However, Orb does allow amendments while in the grace period of the previous billing period; in this instance, the timeframe can start before the current period.
+     * 
+     * 
+     * ## API Limits
+     * Note that Orb does not currently enforce a hard rate-limit for API usage or a maximum request payload size. Similar to the event ingestion API, this API is architected for high-throughput ingestion. It is also safe to _programmatically_ call this endpoint if your system can automatically detect a need for historical amendment.
+     * 
+     * In order to overwrite timeframes with a very large number of events, we suggest using multiple calls with small adjacent (e.g. every hour) timeframes.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.AmendUsageResponse amend(Orb.Orb.models.operations.AmendUsageRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.AmendUsageRequest.class, baseUrl, "/customers/{customer_id}/usage", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("PATCH");
+        req.setURL(url);
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
+        req.setBody(serializedRequestBody);
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.AmendUsageRequest.class, request, null);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
+        }
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.AmendUsageResponse res = new Orb.Orb.models.operations.AmendUsageResponse(contentType, httpRes.statusCode()) {{
+            amendUsage200ApplicationJSONObject = null;
+            amendUsage400ApplicationJSONObject = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.operations.AmendUsage200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.AmendUsage200ApplicationJSON.class);
+                res.amendUsage200ApplicationJSONObject = out;
+            }
+        }
+        else if (httpRes.statusCode() == 400) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.operations.AmendUsage400ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.AmendUsage400ApplicationJSON.class);
+                res.amendUsage400ApplicationJSONObject = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * Amend customer usage by external ID
+     * This endpoint's resource and semantics exactly mirror [Amend customer usage](amend-usage) but operates on an [external customer ID](../guides/events-and-metrics/customer-aliases) rather than an Orb issued identifier.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.AmendUsageExternalCustomerIdResponse amendByExternalId(Orb.Orb.models.operations.AmendUsageExternalCustomerIdRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.AmendUsageExternalCustomerIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/usage", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("PATCH");
+        req.setURL(url);
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
+        req.setBody(serializedRequestBody);
+
+        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.AmendUsageExternalCustomerIdRequest.class, request, null);
+        if (queryParams != null) {
+            for (NameValuePair queryParam : queryParams) {
+                req.addQueryParam(queryParam);
+            }
+        }
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.AmendUsageExternalCustomerIdResponse res = new Orb.Orb.models.operations.AmendUsageExternalCustomerIdResponse(contentType, httpRes.statusCode()) {{
+            amendUsageExternalCustomerId200ApplicationJSONObject = null;
+            amendUsageExternalCustomerId400ApplicationJSONObject = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.operations.AmendUsageExternalCustomerId200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.AmendUsageExternalCustomerId200ApplicationJSON.class);
+                res.amendUsageExternalCustomerId200ApplicationJSONObject = out;
+            }
+        }
+        else if (httpRes.statusCode() == 400) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.operations.AmendUsageExternalCustomerId400ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.AmendUsageExternalCustomerId400ApplicationJSON.class);
+                res.amendUsageExternalCustomerId400ApplicationJSONObject = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
      * Create customer
      * This operation is used to create an Orb customer, who is party to the core billing relationship. See [Customer](../reference/Orb-API.json/components/schemas/Customer) for an overview of the customer resource.
      * 
      * This endpoint is critical in the following Orb functionality:
      * * Automated charges can be configured by setting `payment_provider` and `payment_provider_id` to automatically issue invoices
-     * * [Customer ID Aliases](../docs/Customer-ID-Aliases.md) can be configured by setting `external_customer_id`
-     * * [Timezone localization](../docs/Timezone-localization.md) can be configured on a per-customer basis by setting the `timezone` parameter
+     * * [Customer ID Aliases](../guides/events-and-metrics/customer-aliases) can be configured by setting `external_customer_id`
+     * * [Timezone localization](../guides/product-catalog/timezones) can be configured on a per-customer basis by setting the `timezone` parameter
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.PostCustomersResponse create(Orb.Orb.models.operations.PostCustomersRequestBody request) throws Exception {
+    public Orb.Orb.models.operations.CreateCustomerResponse create(Orb.Orb.models.operations.CreateCustomerRequestBody request) throws Exception {
         String baseUrl = this._serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/customers");
         
@@ -66,7 +231,7 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PostCustomersResponse res = new Orb.Orb.models.operations.PostCustomersResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.CreateCustomerResponse res = new Orb.Orb.models.operations.CreateCustomerResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
         res.rawResponse = httpRes;
@@ -77,6 +242,84 @@ public class Customer {
                 Orb.Orb.models.shared.Customer out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Customer.class);
                 res.customer = out;
             }
+        }
+
+        return res;
+    }
+
+    /**
+     * Create a customer balance transaction
+     * Creates an immutable balance transaction that updates the customer's balance and returns back the newly created [transaction](../reference/Orb-API.json/components/schemas/Customer-balance-transaction).
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsResponse createTransaction(Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsRequest.class, baseUrl, "/customers/{customer_id}/balance_transactions", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("POST");
+        req.setURL(url);
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
+        req.setBody(serializedRequestBody);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsResponse res = new Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsResponse(contentType, httpRes.statusCode()) {{
+            customerBalanceTransaction = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.shared.CustomerBalanceTransaction out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.CustomerBalanceTransaction.class);
+                res.customerBalanceTransaction = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * Delete a customer
+     * This performs a deletion of this customer, its subscriptions, and its invoices. This operation is irreversible. Note that this is a _soft_ deletion, but the data will be inaccessible through the API and Orb dashboard. For hard-deletion, please reach out to the Orb team directly.
+     * 
+     * **Note**: This operation happens asynchronously and can be expected to take a few minutes to propagate to related resources. However, querying for the customer on subsequent GET requests while deletion is in process will reflect its deletion with a `deleted: true` property. Once the customer deletion has been fully processed, the customer will not be returned in the API.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.DeleteCustomerResponse delete(Orb.Orb.models.operations.DeleteCustomerRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.DeleteCustomerRequest.class, baseUrl, "/customers/{customer_id}", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("DELETE");
+        req.setURL(url);
+
+        req.addHeader("Accept", "*/*");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.DeleteCustomerResponse res = new Orb.Orb.models.operations.DeleteCustomerResponse(contentType, httpRes.statusCode()) {{
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 204) {
         }
 
         return res;
@@ -84,16 +327,17 @@ public class Customer {
 
     /**
      * Retrieve a customer
-     * This endpoint is used to fetch customer details given an identifier.
+     * This endpoint is used to fetch customer details given an identifier. If the `Customer` is in the process of being deleted, only the properties `id` and `deleted: true` will be returned.
      * 
      * See the [Customer resource](Orb-API.json/components/schemas/Customer) for a full discussion of the Customer model.
+     * 
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetCustomersCustomerIdResponse get(Orb.Orb.models.operations.GetCustomersCustomerIdRequest request) throws Exception {
+    public Orb.Orb.models.operations.FetchCustomerResponse fetch(Orb.Orb.models.operations.FetchCustomerRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetCustomersCustomerIdRequest.class, baseUrl, "/customers/{customer_id}", request, null);
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerRequest.class, baseUrl, "/customers/{customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -108,7 +352,7 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersCustomerIdResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.FetchCustomerResponse res = new Orb.Orb.models.operations.FetchCustomerResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
         res.rawResponse = httpRes;
@@ -118,58 +362,6 @@ public class Customer {
                 ObjectMapper mapper = JSON.getMapper();
                 Orb.Orb.models.shared.Customer out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Customer.class);
                 res.customer = out;
-            }
-        }
-
-        return res;
-    }
-
-    /**
-     * Get customer balance transactions
-     * # The customer balance
-     * 
-     * The customer balance is an amount in the customer's currency, which Orb automatically applies to subsequent invoices. This balance can be adjusted manually via Orb's webapp on the customer details page. You can use this balance to provide a fixed mid-period credit to the customer. Commonly, this is done due to system downtime/SLA violation, or an adhoc adjustment discussed with the customer.
-     * 
-     * If the balance is a positive value at the time of invoicing, it represents that the customer has credit that should be used to offset the amount due on the next issued invoice. In this case, Orb will automatically reduce the next invoice by the balance amount, and roll over any remaining balance if the invoice is fully discounted.
-     * 
-     * If the balance is a negative value at the time of invoicing, Orb will increase the invoice's amount due with a positive adjustment, and reset the balance to 0.
-     * 
-     * This endpoint retrieves all customer balance transactions in reverse chronological order for a single customer, providing a complete audit trail of all adjustments and invoice applications.
-     * 
-     * ## Eligibility
-     * 
-     * The customer balance can only be applied to invoices or adjusted manually if invoices are not synced to a separate invoicing provider. If a payment gateway such as Stripe is used, the balance will be applied to the invoice before forwarding payment to the gateway.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse getBalance(Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsRequest.class, baseUrl, "/customers/{customer_id}/balance_transactions", request, null);
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("GET");
-        req.setURL(url);
-
-        req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        
-        HTTPClient client = this._securityClient;
-        
-        HttpResponse<byte[]> httpRes = client.send(req);
-
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-
-        Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse res = new Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactionsResponse(contentType, httpRes.statusCode()) {{
-            getCustomersCustomerIdBalanceTransactions200ApplicationJSONObject = null;
-        }};
-        res.rawResponse = httpRes;
-        
-        if (httpRes.statusCode() == 200) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactions200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetCustomersCustomerIdBalanceTransactions200ApplicationJSON.class);
-                res.getCustomersCustomerIdBalanceTransactions200ApplicationJSONObject = out;
             }
         }
 
@@ -178,16 +370,16 @@ public class Customer {
 
     /**
      * Retrieve a customer by external ID
-     * This endpoint is used to fetch customer details given an `external_customer_id` (see [Customer ID Aliases](../docs/Customer-ID-Aliases.md)).
+     * This endpoint is used to fetch customer details given an `external_customer_id` (see [Customer ID Aliases](../guides/events-and-metrics/customer-aliases)).
      * 
-     * Note that the resource and semantics of this endpoint exactly mirror [Get Customer](Orb-API.json/paths/~1customers/get).
+     * Note that the resource and semantics of this endpoint exactly mirror [Get Customer](fetch-customer).
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse getByExternalId(Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdRequest request) throws Exception {
+    public Orb.Orb.models.operations.FetchCustomerExternalIdResponse fetchByExternalId(Orb.Orb.models.operations.FetchCustomerExternalIdRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}", request, null);
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -202,7 +394,7 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse res = new Orb.Orb.models.operations.GetCustomersExternalCustomerIdExternalCustomerIdResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.FetchCustomerExternalIdResponse res = new Orb.Orb.models.operations.FetchCustomerExternalIdResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
         res.rawResponse = httpRes;
@@ -220,12 +412,12 @@ public class Customer {
 
     /**
      * View customer costs
-     * This endpoint is used to fetch a day-by-day snapshot of a customer's costs in Orb, calculated by applying pricing information to the underlying usage (see the [subscription usage endpoint](../reference/Orb-API.json/paths/~1subscriptions~1{subscription_id}~1usage/get) to fetch usage per metric, in usage units rather than a currency). 
+     * This endpoint is used to fetch a day-by-day snapshot of a customer's costs in Orb, calculated by applying pricing information to the underlying usage (see the [subscription usage endpoint](gcription-usage) to fetch usage per metric, in usage units rather than a currency). 
      * 
      * This endpoint can be leveraged for internal tooling and to provide a more transparent billing experience for your end users:
      * 
      * 1. Understand the cost breakdown per line item historically and in real-time for the current billing period. 
-     * 2. Provide customer visibility into how different services are contributing to the overall invoice with a per-day timeseries (as compared to the [upcoming invoice](../reference/Orb-API.json/paths/~1invoices~1upcoming/get) resource, which represents a snapshot for the current period).
+     * 2. Provide customer visibility into how different services are contributing to the overall invoice with a per-day timeseries (as compared to the [upcoming invoice](fetch-upcoming-invoice) resource, which represents a snapshot for the current period).
      * 3. Assess how minimums and discounts affect your customers by teasing apart costs directly as a result of usage, as opposed to minimums and discounts at the plan and price level.
      * 4. Gain insight into key customer health metrics, such as the percent utilization of the minimum committed spend.
      * 
@@ -291,9 +483,9 @@ public class Customer {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetCustomerCostsResponse getCosts(Orb.Orb.models.operations.GetCustomerCostsRequest request) throws Exception {
+    public Orb.Orb.models.operations.FetchCustomerCostsResponse fetchCosts(Orb.Orb.models.operations.FetchCustomerCostsRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetCustomerCostsRequest.class, baseUrl, "/customers/{customer_id}/costs", request, null);
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCostsRequest.class, baseUrl, "/customers/{customer_id}/costs", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -301,7 +493,7 @@ public class Customer {
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.GetCustomerCostsRequest.class, request, null);
+        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchCustomerCostsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -314,16 +506,16 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetCustomerCostsResponse res = new Orb.Orb.models.operations.GetCustomerCostsResponse(contentType, httpRes.statusCode()) {{
-            getCustomerCosts200ApplicationJSONObject = null;
+        Orb.Orb.models.operations.FetchCustomerCostsResponse res = new Orb.Orb.models.operations.FetchCustomerCostsResponse(contentType, httpRes.statusCode()) {{
+            fetchCustomerCosts200ApplicationJSONObject = null;
         }};
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.GetCustomerCosts200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetCustomerCosts200ApplicationJSON.class);
-                res.getCustomerCosts200ApplicationJSONObject = out;
+                Orb.Orb.models.operations.FetchCustomerCosts200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.FetchCustomerCosts200ApplicationJSON.class);
+                res.fetchCustomerCosts200ApplicationJSONObject = out;
             }
         }
 
@@ -332,14 +524,14 @@ public class Customer {
 
     /**
      * View customer costs by external customer ID
-     * This endpoint's resource and semantics exactly mirror [View customer costs](../reference/Orb-API.json/paths/~1customers~1{customer_id}~1costs/get) but operates on an [external customer ID](../docs/Customer-ID-Aliases.md) rather than an Orb issued identifier.
+     * This endpoint's resource and semantics exactly mirror [View customer costs](fetch-customer-costs) but operates on an [external customer ID](../guides/events-and-metrics/customer-aliases) rather than an Orb issued identifier.
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.GetExternalCustomerCostsResponse getCostsByExternalId(Orb.Orb.models.operations.GetExternalCustomerCostsRequest request) throws Exception {
+    public Orb.Orb.models.operations.FetchCustomerCostsExternalIdResponse fetchCostsByExternalId(Orb.Orb.models.operations.FetchCustomerCostsExternalIdRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.GetExternalCustomerCostsRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/costs", request, null);
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCostsExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/costs", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("GET");
@@ -347,7 +539,7 @@ public class Customer {
 
         req.addHeader("Accept", "application/json");
         req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.GetExternalCustomerCostsRequest.class, request, null);
+        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchCustomerCostsExternalIdRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
                 req.addQueryParam(queryParam);
@@ -360,16 +552,68 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.GetExternalCustomerCostsResponse res = new Orb.Orb.models.operations.GetExternalCustomerCostsResponse(contentType, httpRes.statusCode()) {{
-            getExternalCustomerCosts200ApplicationJSONObject = null;
+        Orb.Orb.models.operations.FetchCustomerCostsExternalIdResponse res = new Orb.Orb.models.operations.FetchCustomerCostsExternalIdResponse(contentType, httpRes.statusCode()) {{
+            fetchCustomerCostsExternalId200ApplicationJSONObject = null;
         }};
         res.rawResponse = httpRes;
         
         if (httpRes.statusCode() == 200) {
             if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
                 ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.GetExternalCustomerCosts200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.GetExternalCustomerCosts200ApplicationJSON.class);
-                res.getExternalCustomerCosts200ApplicationJSONObject = out;
+                Orb.Orb.models.operations.FetchCustomerCostsExternalId200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.FetchCustomerCostsExternalId200ApplicationJSON.class);
+                res.fetchCustomerCostsExternalId200ApplicationJSONObject = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * Get customer balance transactions
+     * # The customer balance
+     * 
+     * The customer balance is an amount in the customer's currency, which Orb automatically applies to subsequent invoices. This balance can be adjusted manually via Orb's webapp on the customer details page. You can use this balance to provide a fixed mid-period credit to the customer. Commonly, this is done due to system downtime/SLA violation, or an adhoc adjustment discussed with the customer.
+     * 
+     * If the balance is a positive value at the time of invoicing, it represents that the customer has credit that should be used to offset the amount due on the next issued invoice. In this case, Orb will automatically reduce the next invoice by the balance amount, and roll over any remaining balance if the invoice is fully discounted.
+     * 
+     * If the balance is a negative value at the time of invoicing, Orb will increase the invoice's amount due with a positive adjustment, and reset the balance to 0.
+     * 
+     * This endpoint retrieves all customer balance transactions in reverse chronological order for a single customer, providing a complete audit trail of all adjustments and invoice applications.
+     * 
+     * ## Eligibility
+     * 
+     * The customer balance can only be applied to invoices or adjusted manually if invoices are not synced to a separate invoicing provider. If a payment gateway such as Stripe is used, the balance will be applied to the invoice before forwarding payment to the gateway.
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.ListBalanceTransactionsResponse fetchTransactions(Orb.Orb.models.operations.ListBalanceTransactionsRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.ListBalanceTransactionsRequest.class, baseUrl, "/customers/{customer_id}/balance_transactions", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("GET");
+        req.setURL(url);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.ListBalanceTransactionsResponse res = new Orb.Orb.models.operations.ListBalanceTransactionsResponse(contentType, httpRes.statusCode()) {{
+            listBalanceTransactions200ApplicationJSONObject = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.operations.ListBalanceTransactions200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.ListBalanceTransactions200ApplicationJSON.class);
+                res.listBalanceTransactions200ApplicationJSONObject = out;
             }
         }
 
@@ -380,7 +624,7 @@ public class Customer {
      * List customers
      * 
      * 
-     * This endpoint returns a list of all customers for an account. The list of customers is ordered starting from the most recently created customer. This endpoint follows Orb's [standardized pagination format](../docs/Pagination.md).
+     * This endpoint returns a list of all customers for an account. The list of customers is ordered starting from the most recently created customer. This endpoint follows Orb's [standardized pagination format](../api/pagination).
      * 
      * See [Customer](../reference/Orb-API.json/components/schemas/Customer) for an overview of the customer model.
      * @return the response from the API call
@@ -420,17 +664,61 @@ public class Customer {
     }
 
     /**
+     * Update a customer by external ID
+     * This endpoint is used to update customer details given an `external_customer_id` (see [Customer ID Aliases](../guides/events-and-metrics/customer-aliases)).
+     * 
+     * Note that the resource and semantics of this endpoint exactly mirror [Update Customer](update-customer).
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.UpdateCustomerExternalIdResponse updateByExternalId(Orb.Orb.models.operations.UpdateCustomerExternalIdRequest request) throws Exception {
+        String baseUrl = this._serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UpdateCustomerExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}", request, null);
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("PUT");
+        req.setURL(url);
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
+        req.setBody(serializedRequestBody);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        
+        HTTPClient client = this._securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.UpdateCustomerExternalIdResponse res = new Orb.Orb.models.operations.UpdateCustomerExternalIdResponse(contentType, httpRes.statusCode()) {{
+            customer = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.shared.Customer out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Customer.class);
+                res.customer = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
      * Update customer
-     * This endpoint can be used to update the `payment_provider`, `payment_provider_id`, `name`, `email`, `shipping_address`, and `billing_address` of an existing customer.
+     * This endpoint can be used to update the `payment_provider`, `payment_provider_id`, `name`, `email`, `email_delivery`, `auto_collection`, `shipping_address`, and `billing_address` of an existing customer.
      * 
      * Other fields on a customer are currently immutable.
      * @param request the request object containing all of the parameters for the API call
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.PutCustomersCustomerIdResponse update(Orb.Orb.models.operations.PutCustomersCustomerIdRequest request) throws Exception {
+    public Orb.Orb.models.operations.UpdateCustomerResponse updateCustomer(Orb.Orb.models.operations.UpdateCustomerRequest request) throws Exception {
         String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PutCustomersCustomerIdRequest.class, baseUrl, "/customers/{customer_id}", request, null);
+        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UpdateCustomerRequest.class, baseUrl, "/customers/{customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("PUT");
@@ -447,7 +735,7 @@ public class Customer {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.PutCustomersCustomerIdResponse res = new Orb.Orb.models.operations.PutCustomersCustomerIdResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.UpdateCustomerResponse res = new Orb.Orb.models.operations.UpdateCustomerResponse(contentType, httpRes.statusCode()) {{
             customer = null;
         }};
         res.rawResponse = httpRes;
@@ -457,215 +745,6 @@ public class Customer {
                 ObjectMapper mapper = JSON.getMapper();
                 Orb.Orb.models.shared.Customer out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Customer.class);
                 res.customer = out;
-            }
-        }
-
-        return res;
-    }
-
-    /**
-     * Update a customer by external ID
-     * This endpoint is used to update customer details given an `external_customer_id` (see [Customer ID Aliases](../docs/Customer-ID-Aliases.md)).
-     * 
-     * Note that the resource and semantics of this endpoint exactly mirror [Update Customer](Orb-API.json/paths/~1customers~1{customer_id}/put).
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse updateByExternalId(Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}", request, null);
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("PUT");
-        req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
-        req.setBody(serializedRequestBody);
-
-        req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        
-        HTTPClient client = this._securityClient;
-        
-        HttpResponse<byte[]> httpRes = client.send(req);
-
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-
-        Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse res = new Orb.Orb.models.operations.PutCustomersExternalCustomerIdExternalCustomerIdResponse(contentType, httpRes.statusCode()) {{
-            customer = null;
-        }};
-        res.rawResponse = httpRes;
-        
-        if (httpRes.statusCode() == 200) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.shared.Customer out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Customer.class);
-                res.customer = out;
-            }
-        }
-
-        return res;
-    }
-
-    /**
-     * Amend customer usage
-     * This endpoint is used to amend usage within a timeframe for a customer that has an active subscription.
-     * 
-     * This endpoint will mark _all_ existing events within `[timeframe_start, timeframe_end)` as _ignored_  for billing  purposes, and Orb will only use the _new_ events passed in the body of this request as the source of truth for that timeframe moving forwards. Note that a given time period can be amended any number of times, so events can be overwritten in subsequent calls to this endpoint.
-     * 
-     * This is a powerful and audit-safe mechanism to retroactively change usage data in cases where you need to:
-     * - decrease historical usage consumption because of degraded service availability in your systems
-     * - account for gaps from your usage reporting mechanism
-     * - make point-in-time fixes for specific event records, while retaining the original time of usage and associated metadata
-     * 
-     * This amendment API is designed with two explicit goals:
-     * 1. Amendments are **always audit-safe**. The amendment process will still retain original events in the timeframe, though they will be ignored for billing calculations. For auditing and data fidelity purposes, Orb never overwrites or permanently deletes ingested usage data.
-     * 2. Amendments always preserve data **consistency**. In other words, either an amendment is fully processed by the system (and the new events for the timeframe are honored rather than the existing ones) or the amendment request fails. To maintain this important property, Orb prevents _partial event ingestion_ on this endpoint.
-     * 
-     * 
-     * ## Response semantics
-     *  - Either all events are ingested successfully, or all fail to ingest (returning a `4xx` or `5xx` response code).
-     * - Any event that fails schema validation will lead to a `4xx` response. In this case, to maintain data consistency, Orb will not ingest any events and will also not deprecate existing events in the time period.
-     * - You can assume that the amendment is successful on receipt of a `2xx` response.While a successful response from this endpoint indicates that the new events have been ingested, updating usage totals happens asynchronously and may be delayed by a few minutes. 
-     * 
-     * As emphasized above, Orb will never show an inconsistent state (e.g. in invoice previews or dashboards); either it will show the existing state (before the amendment) or the new state (with new events in the requested timeframe).
-     * 
-     * 
-     * ## Sample request body
-     * 
-     * ```json
-     * {
-     * 	"events": [{
-     * 		"event_name": "payment_processed",
-     * 		"timestamp": "2022-03-24T07:15:00Z",
-     * 		"properties": {
-     * 			"amount": 100
-     * 		}
-     * 	}, {
-     * 		"event_name": "payment_failed",
-     * 		"timestamp": "2022-03-24T07:15:00Z",
-     * 		"properties": {
-     * 			"amount": 100
-     * 		}
-     * 	}]
-     * }
-     * ```
-     * 
-     * ## Request Validation
-     * - The `timestamp` of each event reported must fall within the bounds of `timeframe_start` and `timeframe_end`. As with ingestion, all timestamps must be sent in ISO8601 format with UTC timezone offset.
-     * 
-     * - Orb **does not accept an `idempotency_key`** with each event in this endpoint, since the entirety of the event list must be ingested to ensure consistency. On retryable errors, you should retry the request in its entirety, and assume that the amendment operation has not succeeded until receipt of a `2xx`.
-     * 
-     * - Both `timeframe_start` and `timeframe_end` must be timestamps in the past. Furthermore, Orb will generally validate that the `timeframe_start` and `timeframe_end` fall within the customer's _current_ subscription billing period. However, Orb does allow amendments while in the grace period of the previous billing period; in this instance, the timeframe can start before the current period.
-     * 
-     * 
-     * ## API Limits
-     * Note that Orb does not currently enforce a hard rate-limit for API usage or a maximum request payload size. Similar to the event ingestion API, this API is architected for high-throughput ingestion. It is also safe to _programmatically_ call this endpoint if your system can automatically detect a need for historical amendment.
-     * 
-     * In order to overwrite timeframes with a very large number of events, we suggest using multiple calls with small adjacent (e.g. every hour) timeframes.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse updateUsage(Orb.Orb.models.operations.PatchCustomersCustomerIdUsageRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PatchCustomersCustomerIdUsageRequest.class, baseUrl, "/customers/{customer_id}/usage", request, null);
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("PATCH");
-        req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
-        req.setBody(serializedRequestBody);
-
-        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.PatchCustomersCustomerIdUsageRequest.class, request, null);
-        if (queryParams != null) {
-            for (NameValuePair queryParam : queryParams) {
-                req.addQueryParam(queryParam);
-            }
-        }
-        
-        HTTPClient client = this._securityClient;
-        
-        HttpResponse<byte[]> httpRes = client.send(req);
-
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-
-        Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse res = new Orb.Orb.models.operations.PatchCustomersCustomerIdUsageResponse(contentType, httpRes.statusCode()) {{
-            patchCustomersCustomerIdUsage200ApplicationJSONObject = null;
-            patchCustomersCustomerIdUsage400ApplicationJSONObject = null;
-        }};
-        res.rawResponse = httpRes;
-        
-        if (httpRes.statusCode() == 200) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.PatchCustomersCustomerIdUsage200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.PatchCustomersCustomerIdUsage200ApplicationJSON.class);
-                res.patchCustomersCustomerIdUsage200ApplicationJSONObject = out;
-            }
-        }
-        else if (httpRes.statusCode() == 400) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.PatchCustomersCustomerIdUsage400ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.PatchCustomersCustomerIdUsage400ApplicationJSON.class);
-                res.patchCustomersCustomerIdUsage400ApplicationJSONObject = out;
-            }
-        }
-
-        return res;
-    }
-
-    /**
-     * Amend customer usage by external ID
-     * This endpoint's resource and semantics exactly mirror [Amend customer usage](../reference/Orb-API.json/paths/~1customers~1{customer_id}~1usage/patch) but operates on an [external customer ID](see (../docs/Customer-ID-Aliases.md)) rather than an Orb issued identifier.
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse updateUsageByExternalId(Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/usage", request, null);
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("PATCH");
-        req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "requestBody", "json");
-        req.setBody(serializedRequestBody);
-
-        req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
-        java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageRequest.class, request, null);
-        if (queryParams != null) {
-            for (NameValuePair queryParam : queryParams) {
-                req.addQueryParam(queryParam);
-            }
-        }
-        
-        HTTPClient client = this._securityClient;
-        
-        HttpResponse<byte[]> httpRes = client.send(req);
-
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-
-        Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse res = new Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsageResponse(contentType, httpRes.statusCode()) {{
-            patchExternalCustomersCustomerIdUsage200ApplicationJSONObject = null;
-            patchExternalCustomersCustomerIdUsage400ApplicationJSONObject = null;
-        }};
-        res.rawResponse = httpRes;
-        
-        if (httpRes.statusCode() == 200) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsage200ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsage200ApplicationJSON.class);
-                res.patchExternalCustomersCustomerIdUsage200ApplicationJSONObject = out;
-            }
-        }
-        else if (httpRes.statusCode() == 400) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsage400ApplicationJSON out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.operations.PatchExternalCustomersCustomerIdUsage400ApplicationJSON.class);
-                res.patchExternalCustomersCustomerIdUsage400ApplicationJSONObject = out;
             }
         }
 
