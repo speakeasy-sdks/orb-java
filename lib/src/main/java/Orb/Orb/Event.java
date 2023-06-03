@@ -19,20 +19,10 @@ import org.apache.http.NameValuePair;
  */
 public class Event {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Event(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Event(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -57,7 +47,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.AmendEventResponse amend(Orb.Orb.models.operations.AmendEventRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.AmendEventRequest.class, baseUrl, "/events/{event_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -67,9 +57,9 @@ public class Event {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -109,7 +99,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.CloseBackfillResponse closeBackfill(Orb.Orb.models.operations.CloseBackfillRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.CloseBackfillRequest.class, baseUrl, "/events/backfills/{backfill_id}/close", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -117,9 +107,9 @@ public class Event {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -159,7 +149,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.CreateBackfillResponse create(Orb.Orb.models.operations.CreateBackfillRequestBody request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/events/backfills");
         
         HTTPRequest req = new HTTPRequest();
@@ -169,9 +159,9 @@ public class Event {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -216,7 +206,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.DeprecateEventResponse deprecateEvent(Orb.Orb.models.operations.DeprecateEventRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.DeprecateEventRequest.class, baseUrl, "/events/{event_id}/deprecate", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -224,9 +214,9 @@ public class Event {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -400,7 +390,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.IngestResponse ingest(Orb.Orb.models.operations.IngestRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/ingest");
         
         HTTPRequest req = new HTTPRequest();
@@ -410,7 +400,7 @@ public class Event {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.IngestRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -418,7 +408,7 @@ public class Event {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -457,7 +447,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ListBackfillsResponse listBackfills() throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/events/backfills");
         
         HTTPRequest req = new HTTPRequest();
@@ -465,9 +455,9 @@ public class Event {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -499,7 +489,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.RevertBackfillResponse revertBackfill(Orb.Orb.models.operations.RevertBackfillRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.RevertBackfillRequest.class, baseUrl, "/events/backfills/{backfill_id}/revert", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -507,9 +497,9 @@ public class Event {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -549,7 +539,7 @@ public class Event {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.SearchEventsResponse search(Orb.Orb.models.operations.SearchEventsRequestBody request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/events/search");
         
         HTTPRequest req = new HTTPRequest();
@@ -559,9 +549,9 @@ public class Event {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

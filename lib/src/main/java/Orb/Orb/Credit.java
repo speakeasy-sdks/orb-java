@@ -19,20 +19,10 @@ import org.apache.http.NameValuePair;
  */
 public class Credit {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Credit(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Credit(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -43,7 +33,7 @@ public class Credit {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.AddLedgerEntryExternalIdResponse addByExternalId(Orb.Orb.models.operations.AddLedgerEntryExternalIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.AddLedgerEntryExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/credits/ledger_entry", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -53,9 +43,9 @@ public class Credit {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -141,7 +131,7 @@ public class Credit {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.CreateLedgerEntryResponse create(Orb.Orb.models.operations.CreateLedgerEntryRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.CreateLedgerEntryRequest.class, baseUrl, "/customers/{customer_id}/credits/ledger_entry", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -151,9 +141,9 @@ public class Credit {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -187,7 +177,7 @@ public class Credit {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerCreditsResponse fetch(Orb.Orb.models.operations.FetchCustomerCreditsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCreditsRequest.class, baseUrl, "/customers/{customer_id}/credits", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -195,9 +185,9 @@ public class Credit {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -227,7 +217,7 @@ public class Credit {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerCreditsExternalIdResponse fetchByExternalId(Orb.Orb.models.operations.FetchCustomerCreditsExternalIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCreditsExternalIdRequest.class, baseUrl, "/customers/external_customer_id.{external_customer_id}/credits", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -235,9 +225,9 @@ public class Credit {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -297,7 +287,7 @@ public class Credit {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerCreditsLedgerResponse fetchLedger(Orb.Orb.models.operations.FetchCustomerCreditsLedgerRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCreditsLedgerRequest.class, baseUrl, "/customers/{customer_id}/credits/ledger", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -305,7 +295,7 @@ public class Credit {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchCustomerCreditsLedgerRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -313,7 +303,7 @@ public class Credit {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -343,7 +333,7 @@ public class Credit {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerCreditsLedgerExternalIdResponse fetchLedgerByExternalId(Orb.Orb.models.operations.FetchCustomerCreditsLedgerExternalIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCreditsLedgerExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/credits/ledger", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -351,7 +341,7 @@ public class Credit {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchCustomerCreditsLedgerExternalIdRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -359,7 +349,7 @@ public class Credit {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

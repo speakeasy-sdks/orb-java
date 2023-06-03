@@ -19,20 +19,10 @@ import org.apache.http.NameValuePair;
  */
 public class Coupon {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Coupon(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Coupon(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -43,7 +33,7 @@ public class Coupon {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ArchiveCouponResponse archive(Orb.Orb.models.operations.ArchiveCouponRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.ArchiveCouponRequest.class, baseUrl, "/coupons/{coupon_id}/archive", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -51,9 +41,9 @@ public class Coupon {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -83,7 +73,7 @@ public class Coupon {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.CreateCouponResponse create(Orb.Orb.models.shared.CouponInput request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/coupons");
         
         HTTPRequest req = new HTTPRequest();
@@ -93,9 +83,9 @@ public class Coupon {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "*/*");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -119,7 +109,7 @@ public class Coupon {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCouponResponse fetch(Orb.Orb.models.operations.FetchCouponRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCouponRequest.class, baseUrl, "/coupons/{coupon_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -127,9 +117,9 @@ public class Coupon {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -161,7 +151,7 @@ public class Coupon {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ListCouponsResponse list(Orb.Orb.models.operations.ListCouponsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/coupons");
         
         HTTPRequest req = new HTTPRequest();
@@ -169,7 +159,7 @@ public class Coupon {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.ListCouponsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -177,7 +167,7 @@ public class Coupon {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -207,7 +197,7 @@ public class Coupon {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ListCouponSubscriptionsResponse listSubscriptions(Orb.Orb.models.operations.ListCouponSubscriptionsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.ListCouponSubscriptionsRequest.class, baseUrl, "/coupons/{coupon_id}/subscriptions", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -215,9 +205,9 @@ public class Coupon {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

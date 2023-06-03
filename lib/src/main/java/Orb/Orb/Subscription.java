@@ -19,20 +19,10 @@ import org.apache.http.NameValuePair;
  */
 public class Subscription {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Subscription(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Subscription(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -63,7 +53,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.CancelSubscriptionResponse cancel(Orb.Orb.models.operations.CancelSubscriptionRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.CancelSubscriptionRequest.class, baseUrl, "/subscriptions/{subscription_id}/cancel", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -73,9 +63,9 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -446,26 +436,26 @@ public class Subscription {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.CreateSubscriptionRawResponse create(byte[] request) throws Exception {
-        String baseUrl = this._serverUrl;
+    public Orb.Orb.models.operations.CreateSubscriptionJsonResponse create(Orb.Orb.models.operations.CreateSubscriptionApplicationJSON request) throws Exception {
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "raw");
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "json");
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.CreateSubscriptionRawResponse res = new Orb.Orb.models.operations.CreateSubscriptionRawResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.CreateSubscriptionJsonResponse res = new Orb.Orb.models.operations.CreateSubscriptionJsonResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
         res.rawResponse = httpRes;
@@ -830,26 +820,26 @@ public class Subscription {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.CreateSubscriptionJsonResponse create(Orb.Orb.models.operations.CreateSubscriptionApplicationJSON request) throws Exception {
-        String baseUrl = this._serverUrl;
+    public Orb.Orb.models.operations.CreateSubscriptionRawResponse create(byte[] request) throws Exception {
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "json");
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "raw");
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.CreateSubscriptionJsonResponse res = new Orb.Orb.models.operations.CreateSubscriptionJsonResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.CreateSubscriptionRawResponse res = new Orb.Orb.models.operations.CreateSubscriptionRawResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
         res.rawResponse = httpRes;
@@ -873,7 +863,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchSubscriptionResponse fetch(Orb.Orb.models.operations.FetchSubscriptionRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchSubscriptionRequest.class, baseUrl, "/subscriptions/{subscription_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -881,9 +871,9 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -916,7 +906,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchSubscriptionCostsResponse fetchCosts(Orb.Orb.models.operations.FetchSubscriptionCostsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchSubscriptionCostsRequest.class, baseUrl, "/subscriptions/{subscription_id}/costs", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -924,7 +914,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchSubscriptionCostsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -932,7 +922,7 @@ public class Subscription {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -962,7 +952,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchSubscriptionScheduleResponse fetchSchedule(Orb.Orb.models.operations.FetchSubscriptionScheduleRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchSubscriptionScheduleRequest.class, baseUrl, "/subscriptions/{subscription_id}/schedule", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -970,9 +960,9 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1123,7 +1113,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchSubscriptionUsageResponse fetchUsage(Orb.Orb.models.operations.FetchSubscriptionUsageRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchSubscriptionUsageRequest.class, baseUrl, "/subscriptions/{subscription_id}/usage", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1131,7 +1121,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchSubscriptionUsageRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -1139,7 +1129,7 @@ public class Subscription {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1171,7 +1161,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ListSubscriptionsResponse list(Orb.Orb.models.operations.ListSubscriptionsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
         
         HTTPRequest req = new HTTPRequest();
@@ -1179,7 +1169,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.ListSubscriptionsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -1187,7 +1177,7 @@ public class Subscription {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1235,7 +1225,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.SchedulePlanChangeResponse schedulePlanChange(Orb.Orb.models.operations.SchedulePlanChangeRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.SchedulePlanChangeRequest.class, baseUrl, "/subscriptions/{subscription_id}/schedule_plan_change", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1245,9 +1235,9 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1279,7 +1269,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.UnscheduleCancellationResponse unscheduleCancellation(Orb.Orb.models.operations.UnscheduleCancellationRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UnscheduleCancellationRequest.class, baseUrl, "/subscriptions/{subscription_id}/unschedule_cancellation", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1287,9 +1277,9 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1319,7 +1309,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.UnschedulePlanChangeResponse unschedulePlanChange(Orb.Orb.models.operations.UnschedulePlanChangeRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UnschedulePlanChangeRequest.class, baseUrl, "/subscriptions/{subscription_id}/unschedule_pending_plan_changes", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1327,9 +1317,9 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -1365,7 +1355,7 @@ public class Subscription {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.UpdateFixedFeeQuantityResponse updateFixedFeeQuantity(Orb.Orb.models.operations.UpdateFixedFeeQuantityRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UpdateFixedFeeQuantityRequest.class, baseUrl, "/subscriptions/{subscription_id}/update_fixed_fee_quantity", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -1375,9 +1365,9 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 

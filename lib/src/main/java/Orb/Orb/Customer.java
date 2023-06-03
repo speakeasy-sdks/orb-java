@@ -19,20 +19,10 @@ import org.apache.http.NameValuePair;
  */
 public class Customer {
 	
-	private HTTPClient _defaultClient;
-	private HTTPClient _securityClient;
-	private String _serverUrl;
-	private String _language;
-	private String _sdkVersion;
-	private String _genVersion;
+	private SDKConfiguration sdkConfiguration;
 
-	public Customer(HTTPClient defaultClient, HTTPClient securityClient, String serverUrl, String language, String sdkVersion, String genVersion) {
-		this._defaultClient = defaultClient;
-		this._securityClient = securityClient;
-		this._serverUrl = serverUrl;
-		this._language = language;
-		this._sdkVersion = sdkVersion;
-		this._genVersion = genVersion;
+	public Customer(SDKConfiguration sdkConfiguration) {
+		this.sdkConfiguration = sdkConfiguration;
 	}
 
     /**
@@ -96,7 +86,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.AmendUsageResponse amend(Orb.Orb.models.operations.AmendUsageRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.AmendUsageRequest.class, baseUrl, "/customers/{customer_id}/usage", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -106,7 +96,7 @@ public class Customer {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.AmendUsageRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -114,7 +104,7 @@ public class Customer {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -152,7 +142,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.AmendUsageExternalCustomerIdResponse amendByExternalId(Orb.Orb.models.operations.AmendUsageExternalCustomerIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.AmendUsageExternalCustomerIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/usage", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -162,7 +152,7 @@ public class Customer {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json;q=1, application/json;q=0");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.AmendUsageExternalCustomerIdRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -170,7 +160,7 @@ public class Customer {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -213,7 +203,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.CreateCustomerResponse create(Orb.Orb.models.operations.CreateCustomerRequestBody request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/customers");
         
         HTTPRequest req = new HTTPRequest();
@@ -223,9 +213,9 @@ public class Customer {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -255,7 +245,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsResponse createTransaction(Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.PostCustomersCustomerIdBalanceTransactionsRequest.class, baseUrl, "/customers/{customer_id}/balance_transactions", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -265,9 +255,9 @@ public class Customer {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -299,7 +289,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.DeleteCustomerResponse delete(Orb.Orb.models.operations.DeleteCustomerRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.DeleteCustomerRequest.class, baseUrl, "/customers/{customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -307,9 +297,9 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "*/*");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -336,7 +326,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerResponse fetch(Orb.Orb.models.operations.FetchCustomerRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerRequest.class, baseUrl, "/customers/{customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -344,9 +334,9 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -378,7 +368,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerExternalIdResponse fetchByExternalId(Orb.Orb.models.operations.FetchCustomerExternalIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -386,9 +376,9 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -484,7 +474,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerCostsResponse fetchCosts(Orb.Orb.models.operations.FetchCustomerCostsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCostsRequest.class, baseUrl, "/customers/{customer_id}/costs", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -492,7 +482,7 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchCustomerCostsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -500,7 +490,7 @@ public class Customer {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -530,7 +520,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.FetchCustomerCostsExternalIdResponse fetchCostsByExternalId(Orb.Orb.models.operations.FetchCustomerCostsExternalIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.FetchCustomerCostsExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}/costs", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -538,7 +528,7 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchCustomerCostsExternalIdRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -546,7 +536,7 @@ public class Customer {
             }
         }
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -588,7 +578,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ListBalanceTransactionsResponse fetchTransactions(Orb.Orb.models.operations.ListBalanceTransactionsRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.ListBalanceTransactionsRequest.class, baseUrl, "/customers/{customer_id}/balance_transactions", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -596,9 +586,9 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -631,7 +621,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.ListCustomersResponse list() throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/customers");
         
         HTTPRequest req = new HTTPRequest();
@@ -639,9 +629,9 @@ public class Customer {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -673,7 +663,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.UpdateCustomerExternalIdResponse updateByExternalId(Orb.Orb.models.operations.UpdateCustomerExternalIdRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UpdateCustomerExternalIdRequest.class, baseUrl, "/customers/external_customer_id/{external_customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -683,9 +673,9 @@ public class Customer {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
@@ -717,7 +707,7 @@ public class Customer {
      * @throws Exception if the API call fails
      */
     public Orb.Orb.models.operations.UpdateCustomerResponse updateCustomer(Orb.Orb.models.operations.UpdateCustomerRequest request) throws Exception {
-        String baseUrl = this._serverUrl;
+        String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(Orb.Orb.models.operations.UpdateCustomerRequest.class, baseUrl, "/customers/{customer_id}", request, null);
         
         HTTPRequest req = new HTTPRequest();
@@ -727,9 +717,9 @@ public class Customer {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this._language, this._sdkVersion, this._genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
         
-        HTTPClient client = this._securityClient;
+        HTTPClient client = this.sdkConfiguration.securityClient;
         
         HttpResponse<byte[]> httpRes = client.send(req);
 
