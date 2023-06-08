@@ -31,7 +31,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("distinctio") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -70,7 +70,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("unde") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -122,7 +122,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dolorum") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -161,7 +161,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("nam") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -201,7 +201,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("occaecati") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 

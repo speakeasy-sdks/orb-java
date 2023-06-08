@@ -63,7 +63,7 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -72,390 +72,6 @@ public class Subscription {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         Orb.Orb.models.operations.CancelSubscriptionResponse res = new Orb.Orb.models.operations.CancelSubscriptionResponse(contentType, httpRes.statusCode()) {{
-            subscription = null;
-        }};
-        res.rawResponse = httpRes;
-        
-        if (httpRes.statusCode() == 200) {
-            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
-                ObjectMapper mapper = JSON.getMapper();
-                Orb.Orb.models.shared.Subscription out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Subscription.class);
-                res.subscription = out;
-            }
-        }
-
-        return res;
-    }
-
-    /**
-     * Create subscription
-     * A subscription represents the purchase of a plan by a customer. The customer is identified by either the `customer_id` or the `external_customer_id`, and exactly one of these fields must be provided.
-     * 
-     * By default, subscriptions begin on the day that they're created and renew automatically for each billing cycle at the cadence that's configured in the plan definition.
-     * 
-     * The default configuration for subscriptions in Orb is **In-advance billing** and **Beginning of month alignment** (see [Subscription](../reference/Orb-API.json/components/schemas/Subscription) for more details).
-     * 
-     * In order to change the alignment behavior, Orb also supports billing subscriptions on the day of the month they are created. If `align_billing_with_subscription_start_date = true` is specified, subscriptions have billing cycles that are aligned with their `start_date`. For example, a subscription that begins on January 15th will have a billing cycle from January 15th to February 15th. Every subsequent billing cycle will continue to start and invoice on the 15th.
-     * 
-     * If the "day" value is greater than the number of days in the month, the next billing cycle will start at the end of the month. For example, if the start_date is January 31st, the next billing cycle will start on February 28th.
-     * 
-     * If a customer was created with a currency, Orb only allows subscribing the customer to a plan with a matching `invoicing_currency`. If the customer does not have a currency set, on subscription creation, we set the customer's currency to be the `invoicing_currency` of the plan.
-     * 
-     * ## Price overrides
-     * 
-     * Price overrides are used to update some or all prices in a plan for the specific subscription being created. This is useful when a new customer has negotiated one or more different prices for a specific plan than the plan's default prices. Any type of price can be overridden, if the correct data is provided. The billable metric, cadence, type, and name of a price can not be overridden.
-     * 
-     * 
-     * To override prices, provide a list of objects with the key `price_overrides`. The price object in the list of overrides is expected to contain the existing price id, the `model_type` and config value in the format below. The specific numerical values can be updated, but the config value and `model_type` must match the existing price that is being overridden
-     * 
-     * ### Request format for price overrides
-     * 
-     * Orb supports a few different pricing models out of the box. The `model_type` field determines the key for the configuration object that is present.
-     * 
-     * ### Unit pricing
-     * 
-     * With unit pricing, each unit costs a fixed amount.
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "unit",
-     *     "unit_config": {
-     *        "unit_amount": "0.50"
-     *     }
-     *     ...
-     * }
-     * ```
-     * 
-     * ### Tiered pricing
-     * 
-     * In tiered pricing, the cost of a given unit depends on the tier range that it falls into, where each tier range is defined by an upper and lower bound. For example, the first ten units may cost $0.50 each and all units thereafter may cost $0.10 each. Tiered prices can be overridden with a new number of tiers or new values for `first_unit`, `last_unit`, or `unit_amount`.
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "tiered",
-     *     "tiered_config": {
-     *         "tiers": [ 
-     *            {
-     *                 "first_unit":"1",
-     *                 "last_unit": "10",
-     *                 "unit_amount": "0.50"
-     *             },
-     *             {
-     *                 "first_unit": "10",
-     *                 "last_unit": null,
-     *                 "unit_amount": "0.10"
-     *             }
-     *         ]
-     *     }
-     *     ...
-     * }
-     * ```
-     * 
-     * ### Bulk pricing
-     * 
-     * Bulk pricing applies when the number of units determine the cost of _all_ units. For example, if you've bought less than 10 units, they may each be $0.50 for a total of $5.00. Once you've bought more than 10 units, all units may now be priced at $0.40 (i.e. 101 units total would be $40.40). Bulk prices can be overridden with a new number of tiers or new values for `maximum_units`, or `unit_amount`.
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "bulk",
-     *     "bulk_config": {
-     *         "tiers": [ 
-     *             {
-     *                 "maximum_units": "10",
-     *                 "unit_amount": "0.50"
-     *             },
-     *             {
-     *                 "maximum_units": "1000",
-     *                 "unit_amount": "0.40"
-     *             }
-     *           ]
-     *     }
-     *     ...
-     * }
-     * ```
-     * ### Package pricing
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "package",
-     *     "package_config": {
-     *        "package_amount": "0.80",
-     *        "package_size": 10
-     *     }
-     *     ...
-     *  }
-     *  ```
-     * ### BPS pricing
-     * 
-     * BPS pricing specifies a per-event (e.g. per-payment) rate in one hundredth of a percent (the number of basis points to charge), as well as a cap per event to assess. For example, this would allow you to assess a fee of 0.25% on every payment you process, with a maximum charge of $25 per payment.
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id"
-     *     "model_type": "bps",
-     *     "bps_config": {
-     *        "bps": 125,
-     *        "per_event_cap": "11.00"
-     *     }
-     *     ...
-     *  }
-     * ```
-     * ### Bulk BPS pricing
-     * 
-     * Bulk BPS pricing specifies BPS parameters in a tiered manner, dependent on the total quantity across all events. Similar to bulk pricing, the BPS parameters of a given event depends on the tier range that the billing period falls into. Each tier range is defined by an upper and lower bound. For example, after $1.5M of payment volume is reached, each individual payment may have a lower cap or a smaller take-rate.
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id"
-     *     "model_type": "bulk_bps",
-     *     "bulk_bps_config": {
-     *         "tiers": [ 
-     *            {
-     *                 "minimum_amount": "0.00",
-     *                 "maximum_amount": "1000000.00",
-     *                 "bps": 125,
-     *                 "per_event_cap": "19.00"
-     *            },
-     *           {
-     *                 "minimum_amount":"1000000.00",
-     *                 "maximum_amount": null,
-     *                 "bps": 115,
-     *                 "per_event_cap": "4.00"
-     *             }
-     *         ]
-     *     }
-     *     ...
-     *  }
-     * ```
-     * ### Tiered BPS pricing
-     * Tiered BPS pricing specifies BPS parameters in a graduated manner, where an event's applicable parameter is a function of its marginal addition to the period total. Similar to tiered pricing, the BPS parameters of a given event depends on the tier range that it falls into, where each tier range is defined by an upper and lower bound. For example, the first few payments may have a 0.8 BPS take-rate and all payments after a specific volume may incur a take-rate of 0.5 BPS each.
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id"
-     *     "model_type": "tiered_bps",
-     *     "tiered_bps_config": {
-     *         "tiers": [ 
-     *            {
-     *                 "minimum_amount": "0.00",
-     *                 "maximum_amount": "1000000.00",
-     *                 "bps": 125,
-     *                 "per_event_cap": "19.00"
-     *            },
-     *           {
-     *                 "minimum_amount":"1000000",
-     *                 "maximum_amount": null,
-     *                 "bps": 115,
-     *                 "per_event_cap": "4.00"
-     *             }
-     *         ]
-     *     }
-     *     ...
-     *  }
-     * ```
-     * ### Matrix pricing
-     * Matrix pricing defines a set of unit prices in a one or two-dimensional matrix. `dimensions` defines the two event property values evaluated in this pricing model. In a one-dimensional matrix, the second value is `null`. Every configuration has a list of `matrix_values` which give the unit prices for specified property values. In a one-dimensional matrix, the matrix values will have `dimension_values` where the second value of the pair is null. If an event does not match any of the dimension values in the matrix, it will resort to the `default_unit_amount`.
-     * ```json
-     * ...
-     * "model_type": "matrix"
-     * "matrix_config": {
-     *     "default_unit_amount": "3.00",
-     *     "dimensions": [
-     *         "cluster_name",
-     *         "region"
-     *     ],
-     *     "matrix_values": [
-     *         {
-     *             "dimension_values": [
-     *                 "alpha",
-     *                 "west"
-     *             ],
-     *             "unit_amount": "2.00"
-     *         },
-     *         ...
-     *     ]
-     * }
-     * ...
-     * ```
-     * 
-     * ### Fixed fees
-     * Fixed fees follow unit pricing, and also have an additional parameter `fixed_price_quantity` that indicates how many of a fixed fee that should be applied for a subscription. This parameter defaults to 1. 
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "unit",
-     *     "unit_config": {
-     *        "unit_amount": "2.00"
-     *     },
-     *     "fixed_price_quantity": 3.0
-     *     ...
-     * }
-     * ```
-     * 
-     * ## Minimums
-     * Minimums, much like price overrides, can be useful when a new customer has negotiated a new or different minimum than the default for the plan. Minimums can be added to either a price or a plan. If a minimum exists for a price or plan and null is provided for the minimum override on creation, then there will be no minimum on the new subscription. If no minimum is provided, then the default plan minimum is used.
-     * 
-     * To add a minimum for a specific price, add `minimum_amount` to the specific price in the `price_overrides` object. To add a minimum to a plan, add `minimum_amount` to the base object. The value for `minimum_amount` should be a string with the minimum dollar amount in decimal format.
-     * 
-     * 
-     * ### Minimum override example
-     * 
-     * Price minimum override example:
-     * 
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "unit",
-     *     "unit_config": {
-     *         "unit_amount": "0.50"
-     *     },
-     *     "minimum_amount": "100.00"
-     *     ...
-     * }
-     * ```
-     * 
-     * 
-     * Plan minimum override example:
-     * 
-     * ```json
-     * {
-     *     "customer_id": "customer_id",
-     *     "plan_id": "plan_id",
-     *     "minimum_amount": "1000.00",
-     *     "price_overrides": [ ... ]
-     *     ...
-     * }
-     * ```
-     * 
-     * Removing an existing minimum example
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "unit",
-     *     "unit_config": {
-     *         "unit_amount": "0.50"
-     *     },
-     *     "minimum_amount": null
-     *     ...
-     * }
-     * ```
-     * 
-     * Using the plan's minimum example
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "unit",
-     *     "unit_config": {
-     *         "unit_amount": "0.50"
-     *     },
-     *     ...
-     * }
-     * ```
-     * 
-     * ## Discounts
-     * Discounts, like price overrides, can be useful when a new customer has negotiated a new or custom discount than the default for the plan. Discounts can be added to either a price or a plan, and a single plan or price can have at most one discount. If a discount exists for a price or a plan and a null discount is provided on creation, then there will be no discount on the new subscription.
-     * 
-     * To add a discount for a specific price, add `discount` to the price in the `price_overrides` object. To add a discount to a plan, add `discount` to the base object. 
-     * Discount should be a dictionary of the format:
-     * ```json
-     * {
-     *   "discount_type": "amount" | "percentage" | "usage", 
-     *   "amount_discount": string, 
-     *   "percentage_discount": string,
-     *   "usage_discount": string
-     * }
-     * ```
-     * where either `amount_discount`, `percentage_discount`, or `usage_discount` is provided.
-     * 
-     * The `usage` type discount can only be created on individual prices and not on the plan.
-     * 
-     * Price discount example
-     * ```json
-     * {
-     *   ...
-     *   "id": "price_id",
-     *   "model_type": "unit",
-     *   "unit_config": {
-     *       "unit_amount": "0.50"
-     *   },
-     *   "discount": {"discount_type": "amount", "amount_discount": "175"},
-     * }
-     * ```
-     * 
-     * Plan discount example
-     * ```json
-     * {
-     *     "customer_id": "customer_id",
-     *     "plan_id": "plan_id",
-     *     "discount": {"discount_type": "percentage", "percentage_discount": "12.5"},
-     *     "price_overrides": [ ... ]
-     *     ...
-     * }
-     * ```
-     * 
-     * Removing an existing discount example
-     * ```json
-     * {
-     *     "customer_id": "customer_id",
-     *     "plan_id": "plan_id",
-     *     "discount": null,
-     *     "price_overrides": [ ... ]
-     *     ...
-     * }
-     * ```
-     * 
-     * Using the plan's discount example
-     * ```json
-     * {
-     *     ...
-     *     "id": "price_id",
-     *     "model_type": "unit",
-     *     "unit_config": {
-     *         "unit_amount": "0.50"
-     *     },
-     *     ...
-     * }
-     * ```
-     * @param request the request object containing all of the parameters for the API call
-     * @return the response from the API call
-     * @throws Exception if the API call fails
-     */
-    public Orb.Orb.models.operations.CreateSubscriptionRawResponse create(byte[] request) throws Exception {
-        String baseUrl = this.sdkConfiguration.serverUrl;
-        String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
-        
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod("POST");
-        req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "raw");
-        req.setBody(serializedRequestBody);
-
-        req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
-        
-        HTTPClient client = this.sdkConfiguration.securityClient;
-        
-        HttpResponse<byte[]> httpRes = client.send(req);
-
-        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
-
-        Orb.Orb.models.operations.CreateSubscriptionRawResponse res = new Orb.Orb.models.operations.CreateSubscriptionRawResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
         res.rawResponse = httpRes;
@@ -831,7 +447,7 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -840,6 +456,390 @@ public class Subscription {
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
         Orb.Orb.models.operations.CreateSubscriptionJsonResponse res = new Orb.Orb.models.operations.CreateSubscriptionJsonResponse(contentType, httpRes.statusCode()) {{
+            subscription = null;
+        }};
+        res.rawResponse = httpRes;
+        
+        if (httpRes.statusCode() == 200) {
+            if (Orb.Orb.utils.Utils.matchContentType(contentType, "application/json")) {
+                ObjectMapper mapper = JSON.getMapper();
+                Orb.Orb.models.shared.Subscription out = mapper.readValue(new String(httpRes.body(), StandardCharsets.UTF_8), Orb.Orb.models.shared.Subscription.class);
+                res.subscription = out;
+            }
+        }
+
+        return res;
+    }
+
+    /**
+     * Create subscription
+     * A subscription represents the purchase of a plan by a customer. The customer is identified by either the `customer_id` or the `external_customer_id`, and exactly one of these fields must be provided.
+     * 
+     * By default, subscriptions begin on the day that they're created and renew automatically for each billing cycle at the cadence that's configured in the plan definition.
+     * 
+     * The default configuration for subscriptions in Orb is **In-advance billing** and **Beginning of month alignment** (see [Subscription](../reference/Orb-API.json/components/schemas/Subscription) for more details).
+     * 
+     * In order to change the alignment behavior, Orb also supports billing subscriptions on the day of the month they are created. If `align_billing_with_subscription_start_date = true` is specified, subscriptions have billing cycles that are aligned with their `start_date`. For example, a subscription that begins on January 15th will have a billing cycle from January 15th to February 15th. Every subsequent billing cycle will continue to start and invoice on the 15th.
+     * 
+     * If the "day" value is greater than the number of days in the month, the next billing cycle will start at the end of the month. For example, if the start_date is January 31st, the next billing cycle will start on February 28th.
+     * 
+     * If a customer was created with a currency, Orb only allows subscribing the customer to a plan with a matching `invoicing_currency`. If the customer does not have a currency set, on subscription creation, we set the customer's currency to be the `invoicing_currency` of the plan.
+     * 
+     * ## Price overrides
+     * 
+     * Price overrides are used to update some or all prices in a plan for the specific subscription being created. This is useful when a new customer has negotiated one or more different prices for a specific plan than the plan's default prices. Any type of price can be overridden, if the correct data is provided. The billable metric, cadence, type, and name of a price can not be overridden.
+     * 
+     * 
+     * To override prices, provide a list of objects with the key `price_overrides`. The price object in the list of overrides is expected to contain the existing price id, the `model_type` and config value in the format below. The specific numerical values can be updated, but the config value and `model_type` must match the existing price that is being overridden
+     * 
+     * ### Request format for price overrides
+     * 
+     * Orb supports a few different pricing models out of the box. The `model_type` field determines the key for the configuration object that is present.
+     * 
+     * ### Unit pricing
+     * 
+     * With unit pricing, each unit costs a fixed amount.
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "unit",
+     *     "unit_config": {
+     *        "unit_amount": "0.50"
+     *     }
+     *     ...
+     * }
+     * ```
+     * 
+     * ### Tiered pricing
+     * 
+     * In tiered pricing, the cost of a given unit depends on the tier range that it falls into, where each tier range is defined by an upper and lower bound. For example, the first ten units may cost $0.50 each and all units thereafter may cost $0.10 each. Tiered prices can be overridden with a new number of tiers or new values for `first_unit`, `last_unit`, or `unit_amount`.
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "tiered",
+     *     "tiered_config": {
+     *         "tiers": [ 
+     *            {
+     *                 "first_unit":"1",
+     *                 "last_unit": "10",
+     *                 "unit_amount": "0.50"
+     *             },
+     *             {
+     *                 "first_unit": "10",
+     *                 "last_unit": null,
+     *                 "unit_amount": "0.10"
+     *             }
+     *         ]
+     *     }
+     *     ...
+     * }
+     * ```
+     * 
+     * ### Bulk pricing
+     * 
+     * Bulk pricing applies when the number of units determine the cost of _all_ units. For example, if you've bought less than 10 units, they may each be $0.50 for a total of $5.00. Once you've bought more than 10 units, all units may now be priced at $0.40 (i.e. 101 units total would be $40.40). Bulk prices can be overridden with a new number of tiers or new values for `maximum_units`, or `unit_amount`.
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "bulk",
+     *     "bulk_config": {
+     *         "tiers": [ 
+     *             {
+     *                 "maximum_units": "10",
+     *                 "unit_amount": "0.50"
+     *             },
+     *             {
+     *                 "maximum_units": "1000",
+     *                 "unit_amount": "0.40"
+     *             }
+     *           ]
+     *     }
+     *     ...
+     * }
+     * ```
+     * ### Package pricing
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "package",
+     *     "package_config": {
+     *        "package_amount": "0.80",
+     *        "package_size": 10
+     *     }
+     *     ...
+     *  }
+     *  ```
+     * ### BPS pricing
+     * 
+     * BPS pricing specifies a per-event (e.g. per-payment) rate in one hundredth of a percent (the number of basis points to charge), as well as a cap per event to assess. For example, this would allow you to assess a fee of 0.25% on every payment you process, with a maximum charge of $25 per payment.
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id"
+     *     "model_type": "bps",
+     *     "bps_config": {
+     *        "bps": 125,
+     *        "per_event_cap": "11.00"
+     *     }
+     *     ...
+     *  }
+     * ```
+     * ### Bulk BPS pricing
+     * 
+     * Bulk BPS pricing specifies BPS parameters in a tiered manner, dependent on the total quantity across all events. Similar to bulk pricing, the BPS parameters of a given event depends on the tier range that the billing period falls into. Each tier range is defined by an upper and lower bound. For example, after $1.5M of payment volume is reached, each individual payment may have a lower cap or a smaller take-rate.
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id"
+     *     "model_type": "bulk_bps",
+     *     "bulk_bps_config": {
+     *         "tiers": [ 
+     *            {
+     *                 "minimum_amount": "0.00",
+     *                 "maximum_amount": "1000000.00",
+     *                 "bps": 125,
+     *                 "per_event_cap": "19.00"
+     *            },
+     *           {
+     *                 "minimum_amount":"1000000.00",
+     *                 "maximum_amount": null,
+     *                 "bps": 115,
+     *                 "per_event_cap": "4.00"
+     *             }
+     *         ]
+     *     }
+     *     ...
+     *  }
+     * ```
+     * ### Tiered BPS pricing
+     * Tiered BPS pricing specifies BPS parameters in a graduated manner, where an event's applicable parameter is a function of its marginal addition to the period total. Similar to tiered pricing, the BPS parameters of a given event depends on the tier range that it falls into, where each tier range is defined by an upper and lower bound. For example, the first few payments may have a 0.8 BPS take-rate and all payments after a specific volume may incur a take-rate of 0.5 BPS each.
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id"
+     *     "model_type": "tiered_bps",
+     *     "tiered_bps_config": {
+     *         "tiers": [ 
+     *            {
+     *                 "minimum_amount": "0.00",
+     *                 "maximum_amount": "1000000.00",
+     *                 "bps": 125,
+     *                 "per_event_cap": "19.00"
+     *            },
+     *           {
+     *                 "minimum_amount":"1000000",
+     *                 "maximum_amount": null,
+     *                 "bps": 115,
+     *                 "per_event_cap": "4.00"
+     *             }
+     *         ]
+     *     }
+     *     ...
+     *  }
+     * ```
+     * ### Matrix pricing
+     * Matrix pricing defines a set of unit prices in a one or two-dimensional matrix. `dimensions` defines the two event property values evaluated in this pricing model. In a one-dimensional matrix, the second value is `null`. Every configuration has a list of `matrix_values` which give the unit prices for specified property values. In a one-dimensional matrix, the matrix values will have `dimension_values` where the second value of the pair is null. If an event does not match any of the dimension values in the matrix, it will resort to the `default_unit_amount`.
+     * ```json
+     * ...
+     * "model_type": "matrix"
+     * "matrix_config": {
+     *     "default_unit_amount": "3.00",
+     *     "dimensions": [
+     *         "cluster_name",
+     *         "region"
+     *     ],
+     *     "matrix_values": [
+     *         {
+     *             "dimension_values": [
+     *                 "alpha",
+     *                 "west"
+     *             ],
+     *             "unit_amount": "2.00"
+     *         },
+     *         ...
+     *     ]
+     * }
+     * ...
+     * ```
+     * 
+     * ### Fixed fees
+     * Fixed fees follow unit pricing, and also have an additional parameter `fixed_price_quantity` that indicates how many of a fixed fee that should be applied for a subscription. This parameter defaults to 1. 
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "unit",
+     *     "unit_config": {
+     *        "unit_amount": "2.00"
+     *     },
+     *     "fixed_price_quantity": 3.0
+     *     ...
+     * }
+     * ```
+     * 
+     * ## Minimums
+     * Minimums, much like price overrides, can be useful when a new customer has negotiated a new or different minimum than the default for the plan. Minimums can be added to either a price or a plan. If a minimum exists for a price or plan and null is provided for the minimum override on creation, then there will be no minimum on the new subscription. If no minimum is provided, then the default plan minimum is used.
+     * 
+     * To add a minimum for a specific price, add `minimum_amount` to the specific price in the `price_overrides` object. To add a minimum to a plan, add `minimum_amount` to the base object. The value for `minimum_amount` should be a string with the minimum dollar amount in decimal format.
+     * 
+     * 
+     * ### Minimum override example
+     * 
+     * Price minimum override example:
+     * 
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "unit",
+     *     "unit_config": {
+     *         "unit_amount": "0.50"
+     *     },
+     *     "minimum_amount": "100.00"
+     *     ...
+     * }
+     * ```
+     * 
+     * 
+     * Plan minimum override example:
+     * 
+     * ```json
+     * {
+     *     "customer_id": "customer_id",
+     *     "plan_id": "plan_id",
+     *     "minimum_amount": "1000.00",
+     *     "price_overrides": [ ... ]
+     *     ...
+     * }
+     * ```
+     * 
+     * Removing an existing minimum example
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "unit",
+     *     "unit_config": {
+     *         "unit_amount": "0.50"
+     *     },
+     *     "minimum_amount": null
+     *     ...
+     * }
+     * ```
+     * 
+     * Using the plan's minimum example
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "unit",
+     *     "unit_config": {
+     *         "unit_amount": "0.50"
+     *     },
+     *     ...
+     * }
+     * ```
+     * 
+     * ## Discounts
+     * Discounts, like price overrides, can be useful when a new customer has negotiated a new or custom discount than the default for the plan. Discounts can be added to either a price or a plan, and a single plan or price can have at most one discount. If a discount exists for a price or a plan and a null discount is provided on creation, then there will be no discount on the new subscription.
+     * 
+     * To add a discount for a specific price, add `discount` to the price in the `price_overrides` object. To add a discount to a plan, add `discount` to the base object. 
+     * Discount should be a dictionary of the format:
+     * ```json
+     * {
+     *   "discount_type": "amount" | "percentage" | "usage", 
+     *   "amount_discount": string, 
+     *   "percentage_discount": string,
+     *   "usage_discount": string
+     * }
+     * ```
+     * where either `amount_discount`, `percentage_discount`, or `usage_discount` is provided.
+     * 
+     * The `usage` type discount can only be created on individual prices and not on the plan.
+     * 
+     * Price discount example
+     * ```json
+     * {
+     *   ...
+     *   "id": "price_id",
+     *   "model_type": "unit",
+     *   "unit_config": {
+     *       "unit_amount": "0.50"
+     *   },
+     *   "discount": {"discount_type": "amount", "amount_discount": "175"},
+     * }
+     * ```
+     * 
+     * Plan discount example
+     * ```json
+     * {
+     *     "customer_id": "customer_id",
+     *     "plan_id": "plan_id",
+     *     "discount": {"discount_type": "percentage", "percentage_discount": "12.5"},
+     *     "price_overrides": [ ... ]
+     *     ...
+     * }
+     * ```
+     * 
+     * Removing an existing discount example
+     * ```json
+     * {
+     *     "customer_id": "customer_id",
+     *     "plan_id": "plan_id",
+     *     "discount": null,
+     *     "price_overrides": [ ... ]
+     *     ...
+     * }
+     * ```
+     * 
+     * Using the plan's discount example
+     * ```json
+     * {
+     *     ...
+     *     "id": "price_id",
+     *     "model_type": "unit",
+     *     "unit_config": {
+     *         "unit_amount": "0.50"
+     *     },
+     *     ...
+     * }
+     * ```
+     * @param request the request object containing all of the parameters for the API call
+     * @return the response from the API call
+     * @throws Exception if the API call fails
+     */
+    public Orb.Orb.models.operations.CreateSubscriptionRawResponse create(byte[] request) throws Exception {
+        String baseUrl = this.sdkConfiguration.serverUrl;
+        String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
+        
+        HTTPRequest req = new HTTPRequest();
+        req.setMethod("POST");
+        req.setURL(url);
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "raw");
+        req.setBody(serializedRequestBody);
+
+        req.addHeader("Accept", "application/json");
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
+        
+        HTTPClient client = this.sdkConfiguration.securityClient;
+        
+        HttpResponse<byte[]> httpRes = client.send(req);
+
+        String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
+
+        Orb.Orb.models.operations.CreateSubscriptionRawResponse res = new Orb.Orb.models.operations.CreateSubscriptionRawResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
         res.rawResponse = httpRes;
@@ -871,7 +871,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -914,7 +914,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchSubscriptionCostsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -960,7 +960,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -1121,7 +1121,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.FetchSubscriptionUsageRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -1169,7 +1169,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         java.util.List<NameValuePair> queryParams = Orb.Orb.utils.Utils.getQueryParams(Orb.Orb.models.operations.ListSubscriptionsRequest.class, request, null);
         if (queryParams != null) {
             for (NameValuePair queryParam : queryParams) {
@@ -1235,7 +1235,7 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -1277,7 +1277,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -1317,7 +1317,7 @@ public class Subscription {
         req.setURL(url);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         
@@ -1365,7 +1365,7 @@ public class Subscription {
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
-        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion));
+        req.addHeader("user-agent", String.format("speakeasy-sdk/%s %s %s %s", this.sdkConfiguration.language, this.sdkConfiguration.sdkVersion, this.sdkConfiguration.genVersion, this.sdkConfiguration.openapiDocVersion));
         
         HTTPClient client = this.sdkConfiguration.securityClient;
         

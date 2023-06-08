@@ -194,7 +194,6 @@ lib/src/main/java/Orb/Orb/models/operations/CancelSubscriptionRequestBodyCancelO
 lib/src/main/java/Orb/Orb/models/operations/CancelSubscriptionRequestBody.java
 lib/src/main/java/Orb/Orb/models/operations/CancelSubscriptionRequest.java
 lib/src/main/java/Orb/Orb/models/operations/CancelSubscriptionResponse.java
-lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionRawResponse.java
 lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionApplicationJSONExternalMarketplace.java
 lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionApplicationJSONPhaseOverrides.java
 lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionApplicationJSONPriceOverrides7ModelType.java
@@ -224,6 +223,7 @@ lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionApplicationJSONPri
 lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionApplicationJSONPriceOverrides1.java
 lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionApplicationJSON.java
 lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionJsonResponse.java
+lib/src/main/java/Orb/Orb/models/operations/CreateSubscriptionRawResponse.java
 lib/src/main/java/Orb/Orb/models/operations/FetchSubscriptionRequest.java
 lib/src/main/java/Orb/Orb/models/operations/FetchSubscriptionResponse.java
 lib/src/main/java/Orb/Orb/models/operations/FetchSubscriptionCostsRequest.java

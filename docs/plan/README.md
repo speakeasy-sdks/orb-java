@@ -35,7 +35,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("similique") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -103,7 +103,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("at") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -507,7 +507,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dignissimos") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 

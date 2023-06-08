@@ -50,7 +50,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("earum") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -98,7 +98,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("quos") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -146,7 +146,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dolorem") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -202,7 +202,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dignissimos") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -378,7 +378,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("reiciendis") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -435,7 +435,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("soluta") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -472,7 +472,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dolorum") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -519,7 +519,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("voluptate") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 

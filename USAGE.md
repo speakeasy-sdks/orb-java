@@ -11,7 +11,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("corrupti") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 

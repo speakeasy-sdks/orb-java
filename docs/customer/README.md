@@ -95,7 +95,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("nobis") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -172,7 +172,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("nihil") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -270,7 +270,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("aliquid") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -339,7 +339,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("labore") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -382,7 +382,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("eum") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -422,7 +422,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("aspernatur") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -461,7 +461,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("magnam") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -566,7 +566,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("excepturi") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -610,7 +610,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("sint") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -664,7 +664,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("mollitia") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -704,7 +704,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("eum") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -745,7 +745,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("dolor") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
@@ -812,7 +812,7 @@ public class Application {
         try {
             SDK sdk = SDK.builder()
                 .setSecurity(new Security("quidem") {{
-                    apiKeyAuth = "YOUR_BEARER_TOKEN_HERE";
+                    apiKeyAuth = "";
                 }})
                 .build();
 
