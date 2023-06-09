@@ -435,41 +435,8 @@ Using the plan's discount example
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSON;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONExternalMarketplace;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPhaseOverrides;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides2;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides2ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides2UnitConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3BulkConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3BulkConfigTiers;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides4;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides4ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides4PackageConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides5;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides5BpsConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides5ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7ModelType;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7TieredBpsConfig;
-import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7TieredBpsConfigTiers;
-import Orb.Orb.models.operations.CreateSubscriptionJsonResponse;
-import Orb.Orb.models.shared.CreateDiscount;
-import Orb.Orb.models.shared.CreateDiscountDiscountType;
-import Orb.Orb.models.shared.Discount;
-import Orb.Orb.models.shared.DiscountDiscountType;
+import Orb.Orb.models.operations.CreateSubscriptionRawResponse;
 import Orb.Orb.models.shared.Security;
-import java.time.LocalDate;
 
 public class Application {
     public static void main(String[] args) {
@@ -480,150 +447,9 @@ public class Application {
                 }})
                 .build();
 
-            CreateSubscriptionApplicationJSON req = new CreateSubscriptionApplicationJSON() {{
-                alignBillingWithSubscriptionStartDate = false;
-                autoCollection = false;
-                couponRedemptionCode = "quae";
-                customerId = "97DPcZE9hxsbb9Y9";
-                defaultInvoiceMemo = "quaerat";
-                externalCustomerId = "porro";
-                externalMarketplace = CreateSubscriptionApplicationJSONExternalMarketplace.GOOGLE;
-                externalMarketplaceReportingId = "project_number:983410661111";
-                externalPlanId = "quod";
-                metadata = new java.util.HashMap<String, Object>() {{
-                    put("ab", "adipisci");
-                    put("fuga", "id");
-                }};
-                minimumAmount = "1.23";
-                netTerms = 0L;
-                phaseOverrides = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPhaseOverrides[]{{
-                    add(new CreateSubscriptionApplicationJSONPhaseOverrides() {{
-                        discount = new Discount(DiscountDiscountType.PERCENTAGE) {{
-                            amountDiscount = "velit";
-                            appliesToPriceIds = new String[]{{
-                                add("est"),
-                                add("recusandae"),
-                                add("totam"),
-                            }};
-                            discountType = DiscountDiscountType.PERCENTAGE;
-                            percentageDiscount = 0.15;
-                            trialAmountDiscount = "fugiat";
-                            usageDiscount = 4240.89;
-                        }};
-                        minimumAmount = "ducimus";
-                        order = 5546.88;
-                    }}),
-                    add(new CreateSubscriptionApplicationJSONPhaseOverrides() {{
-                        discount = new Discount(DiscountDiscountType.PERCENTAGE) {{
-                            amountDiscount = "vel";
-                            appliesToPriceIds = new String[]{{
-                                add("possimus"),
-                                add("facilis"),
-                            }};
-                            discountType = DiscountDiscountType.PERCENTAGE;
-                            percentageDiscount = 0.15;
-                            trialAmountDiscount = "cum";
-                            usageDiscount = 4148.57;
-                        }};
-                        minimumAmount = "in";
-                        order = 3605.45;
-                    }}),
-                }};
-                planId = "ZMwNQefe7J3ecf7W";
-                priceOverrides = new Object[]{{
-                    add(new CreateSubscriptionApplicationJSONPriceOverrides6("blanditiis", CreateSubscriptionApplicationJSONPriceOverrides6ModelType.BULK_BPS) {{
-                        bulkBpsConfig = new CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfig() {{
-                            tiers = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers[]{{
-                                add(new CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers(7386.83, "consectetur", "in") {{
-                                    bps = 9249.67;
-                                    maximumAmount = "aliquid";
-                                    perUnitMaximum = "aperiam";
-                                }}),
-                                add(new CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers(2572.33, "doloribus", "suscipit") {{
-                                    bps = 3485.19;
-                                    maximumAmount = "earum";
-                                    perUnitMaximum = "facere";
-                                }}),
-                            }};
-                        }};
-                        discount = new CreateDiscount() {{
-                            amountDiscount = "reiciendis";
-                            discountType = CreateDiscountDiscountType.AMOUNT;
-                            percentageDiscount = "saepe";
-                            usageDiscount = "necessitatibus";
-                        }};
-                        id = "41f33317-fe35-4b60-ab1e-a426555ba3c2";
-                        minimumAmount = "1.23";
-                        modelType = CreateSubscriptionApplicationJSONPriceOverrides6ModelType.BULK_BPS;
-                    }}),
-                    add(new CreateSubscriptionApplicationJSONPriceOverrides4("suscipit", CreateSubscriptionApplicationJSONPriceOverrides4ModelType.PACKAGE_,                 new CreateSubscriptionApplicationJSONPriceOverrides4PackageConfig("sapiente", 8953.86);) {{
-                        discount = new CreateDiscount() {{
-                            amountDiscount = "dolore";
-                            discountType = CreateDiscountDiscountType.PERCENTAGE;
-                            percentageDiscount = "officiis";
-                            usageDiscount = "temporibus";
-                        }};
-                        id = "53b88f3a-8d8f-45c0-b2f2-fb7b194a276b";
-                        minimumAmount = "1.23";
-                        modelType = CreateSubscriptionApplicationJSONPriceOverrides4ModelType.PACKAGE_;
-                        packageConfig = new CreateSubscriptionApplicationJSONPriceOverrides4PackageConfig("unde", 1000.32) {{
-                            packageAmount = "explicabo";
-                            packageSize = 3783.26;
-                        }};
-                    }}),
-                    add(new CreateSubscriptionApplicationJSONPriceOverrides1("2dbSXs47wDkmtEME", CreateSubscriptionApplicationJSONPriceOverrides1ModelType.TIERED,                 new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfig() {{
-                                        tiers = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers[]{{
-                                            add(new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers() {{
-                                                firstUnit = "0";
-                                                lastUnit = "10";
-                                                unitAmount = "2.5";
-                                            }}),
-                                        }};
-                                    }};) {{
-                        discount = new CreateDiscount() {{
-                            amountDiscount = "reiciendis";
-                            discountType = CreateDiscountDiscountType.PERCENTAGE;
-                            percentageDiscount = "corrupti";
-                            usageDiscount = "maiores";
-                        }};
-                        id = "2dbSXs47wDkmtEME";
-                        minimumAmount = "1.23";
-                        modelType = CreateSubscriptionApplicationJSONPriceOverrides1ModelType.TIERED;
-                        tieredConfig = new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfig() {{
-                            tiers = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers[]{{
-                                add(new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers() {{
-                                    firstUnit = "0";
-                                    lastUnit = "10";
-                                    unitAmount = "2.5";
-                                }}),
-                                add(new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers() {{
-                                    firstUnit = "0";
-                                    lastUnit = "10";
-                                    unitAmount = "2.5";
-                                }}),
-                            }};
-                        }};
-                    }}),
-                    add(new CreateSubscriptionApplicationJSONPriceOverrides5(                new CreateSubscriptionApplicationJSONPriceOverrides5BpsConfig(3484.76, "praesentium");, "cum", CreateSubscriptionApplicationJSONPriceOverrides5ModelType.BPS) {{
-                        bpsConfig = new CreateSubscriptionApplicationJSONPriceOverrides5BpsConfig(2155.29, "ea") {{
-                            bps = 2587.02;
-                            perUnitMaximum = "necessitatibus";
-                        }};
-                        discount = new CreateDiscount() {{
-                            amountDiscount = "occaecati";
-                            discountType = CreateDiscountDiscountType.USAGE;
-                            percentageDiscount = "voluptatibus";
-                            usageDiscount = "tempora";
-                        }};
-                        id = "47f603e8-b445-4e80-8a55-efd20e457e18";
-                        minimumAmount = "1.23";
-                        modelType = CreateSubscriptionApplicationJSONPriceOverrides5ModelType.BPS;
-                    }}),
-                }};
-                startDate = LocalDate.parse("2022-01-01");
-            }};            
+            Orb.Orb.models.. req = "quae".getBytes()            
 
-            CreateSubscriptionJsonResponse res = sdk.subscription.create(req);
+            CreateSubscriptionRawResponse res = sdk.subscription.create(req);
 
             if (res.subscription != null) {
                 // handle response
@@ -987,21 +813,194 @@ Using the plan's discount example
 package hello.world;
 
 import Orb.Orb.SDK;
-import Orb.Orb.models.operations.CreateSubscriptionRawResponse;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSON;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONExternalMarketplace;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPhaseOverrides;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides2;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides2ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides2UnitConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3BulkConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3BulkConfigTiers;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides3ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides4;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides4ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides4PackageConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides5;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides5BpsConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides5ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7ModelType;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7TieredBpsConfig;
+import Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides7TieredBpsConfigTiers;
+import Orb.Orb.models.operations.CreateSubscriptionJsonResponse;
+import Orb.Orb.models.shared.CreateDiscount;
+import Orb.Orb.models.shared.CreateDiscountDiscountType;
+import Orb.Orb.models.shared.Discount;
+import Orb.Orb.models.shared.DiscountDiscountType;
 import Orb.Orb.models.shared.Security;
+import java.time.LocalDate;
 
 public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("laboriosam") {{
+                .setSecurity(new Security("quaerat") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            Orb.Orb.models.. req = "dolorum".getBytes()            
+            CreateSubscriptionApplicationJSON req = new CreateSubscriptionApplicationJSON() {{
+                alignBillingWithSubscriptionStartDate = false;
+                autoCollection = false;
+                couponRedemptionCode = "porro";
+                customerId = "97DPcZE9hxsbb9Y9";
+                defaultInvoiceMemo = "quod";
+                externalCustomerId = "labore";
+                externalMarketplace = CreateSubscriptionApplicationJSONExternalMarketplace.GOOGLE;
+                externalMarketplaceReportingId = "project_number:983410661111";
+                externalPlanId = "ab";
+                metadata = new java.util.HashMap<String, Object>() {{
+                    put("fuga", "id");
+                }};
+                minimumAmount = "1.23";
+                netTerms = 0L;
+                phaseOverrides = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPhaseOverrides[]{{
+                    add(new CreateSubscriptionApplicationJSONPhaseOverrides() {{
+                        discount = new Discount(DiscountDiscountType.PERCENTAGE) {{
+                            amountDiscount = "velit";
+                            appliesToPriceIds = new String[]{{
+                                add("est"),
+                                add("recusandae"),
+                                add("totam"),
+                            }};
+                            discountType = DiscountDiscountType.PERCENTAGE;
+                            percentageDiscount = 0.15d;
+                            trialAmountDiscount = "fugiat";
+                            usageDiscount = 4240.89d;
+                        }};
+                        minimumAmount = "ducimus";
+                        order = 5546.88d;
+                    }}),
+                    add(new CreateSubscriptionApplicationJSONPhaseOverrides() {{
+                        discount = new Discount(DiscountDiscountType.PERCENTAGE) {{
+                            amountDiscount = "vel";
+                            appliesToPriceIds = new String[]{{
+                                add("possimus"),
+                                add("facilis"),
+                            }};
+                            discountType = DiscountDiscountType.PERCENTAGE;
+                            percentageDiscount = 0.15d;
+                            trialAmountDiscount = "cum";
+                            usageDiscount = 4148.57d;
+                        }};
+                        minimumAmount = "in";
+                        order = 3605.45d;
+                    }}),
+                }};
+                planId = "ZMwNQefe7J3ecf7W";
+                priceOverrides = new Object[]{{
+                    add(new CreateSubscriptionApplicationJSONPriceOverrides6("blanditiis", CreateSubscriptionApplicationJSONPriceOverrides6ModelType.BULK_BPS) {{
+                        bulkBpsConfig = new CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfig() {{
+                            tiers = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers[]{{
+                                add(new CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers(7386.83d, "consectetur", "in") {{
+                                    bps = 9249.67d;
+                                    maximumAmount = "aliquid";
+                                    perUnitMaximum = "aperiam";
+                                }}),
+                                add(new CreateSubscriptionApplicationJSONPriceOverrides6BulkBpsConfigTiers(2572.33d, "doloribus", "suscipit") {{
+                                    bps = 3485.19d;
+                                    maximumAmount = "earum";
+                                    perUnitMaximum = "facere";
+                                }}),
+                            }};
+                        }};
+                        discount = new CreateDiscount() {{
+                            amountDiscount = "reiciendis";
+                            discountType = CreateDiscountDiscountType.AMOUNT;
+                            percentageDiscount = "saepe";
+                            usageDiscount = "necessitatibus";
+                        }};
+                        id = "41f33317-fe35-4b60-ab1e-a426555ba3c2";
+                        minimumAmount = "1.23";
+                        modelType = CreateSubscriptionApplicationJSONPriceOverrides6ModelType.BULK_BPS;
+                    }}),
+                    add(new CreateSubscriptionApplicationJSONPriceOverrides4("suscipit", CreateSubscriptionApplicationJSONPriceOverrides4ModelType.PACKAGE_,                 new CreateSubscriptionApplicationJSONPriceOverrides4PackageConfig("sapiente", 8953.86d);) {{
+                        discount = new CreateDiscount() {{
+                            amountDiscount = "dolore";
+                            discountType = CreateDiscountDiscountType.PERCENTAGE;
+                            percentageDiscount = "officiis";
+                            usageDiscount = "temporibus";
+                        }};
+                        id = "53b88f3a-8d8f-45c0-b2f2-fb7b194a276b";
+                        minimumAmount = "1.23";
+                        modelType = CreateSubscriptionApplicationJSONPriceOverrides4ModelType.PACKAGE_;
+                        packageConfig = new CreateSubscriptionApplicationJSONPriceOverrides4PackageConfig("unde", 1000.32d) {{
+                            packageAmount = "explicabo";
+                            packageSize = 3783.26d;
+                        }};
+                    }}),
+                    add(new CreateSubscriptionApplicationJSONPriceOverrides1("2dbSXs47wDkmtEME", CreateSubscriptionApplicationJSONPriceOverrides1ModelType.TIERED,                 new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfig() {{
+                                        tiers = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers[]{{
+                                            add(new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers() {{
+                                                firstUnit = "0";
+                                                lastUnit = "10";
+                                                unitAmount = "2.5";
+                                            }}),
+                                        }};
+                                    }};) {{
+                        discount = new CreateDiscount() {{
+                            amountDiscount = "reiciendis";
+                            discountType = CreateDiscountDiscountType.PERCENTAGE;
+                            percentageDiscount = "corrupti";
+                            usageDiscount = "maiores";
+                        }};
+                        id = "2dbSXs47wDkmtEME";
+                        minimumAmount = "1.23";
+                        modelType = CreateSubscriptionApplicationJSONPriceOverrides1ModelType.TIERED;
+                        tieredConfig = new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfig() {{
+                            tiers = new Orb.Orb.models.operations.CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers[]{{
+                                add(new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers() {{
+                                    firstUnit = "0";
+                                    lastUnit = "10";
+                                    unitAmount = "2.5";
+                                }}),
+                                add(new CreateSubscriptionApplicationJSONPriceOverrides1TieredConfigTiers() {{
+                                    firstUnit = "0";
+                                    lastUnit = "10";
+                                    unitAmount = "2.5";
+                                }}),
+                            }};
+                        }};
+                    }}),
+                    add(new CreateSubscriptionApplicationJSONPriceOverrides5(                new CreateSubscriptionApplicationJSONPriceOverrides5BpsConfig(3484.76d, "praesentium");, "cum", CreateSubscriptionApplicationJSONPriceOverrides5ModelType.BPS) {{
+                        bpsConfig = new CreateSubscriptionApplicationJSONPriceOverrides5BpsConfig(2155.29d, "ea") {{
+                            bps = 2587.02d;
+                            perUnitMaximum = "necessitatibus";
+                        }};
+                        discount = new CreateDiscount() {{
+                            amountDiscount = "occaecati";
+                            discountType = CreateDiscountDiscountType.USAGE;
+                            percentageDiscount = "voluptatibus";
+                            usageDiscount = "tempora";
+                        }};
+                        id = "47f603e8-b445-4e80-8a55-efd20e457e18";
+                        minimumAmount = "1.23";
+                        modelType = CreateSubscriptionApplicationJSONPriceOverrides5ModelType.BPS;
+                    }}),
+                }};
+                startDate = LocalDate.parse("2022-01-01");
+            }};            
 
-            CreateSubscriptionRawResponse res = sdk.subscription.create(req);
+            CreateSubscriptionJsonResponse res = sdk.subscription.create(req);
 
             if (res.subscription != null) {
                 // handle response
@@ -1031,12 +1030,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("voluptatum") {{
+                .setSecurity(new Security("laboriosam") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            FetchSubscriptionRequest req = new FetchSubscriptionRequest("error");            
+            FetchSubscriptionRequest req = new FetchSubscriptionRequest("dolorum");            
 
             FetchSubscriptionResponse res = sdk.subscription.fetch(req);
 
@@ -1072,16 +1071,16 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("hic") {{
+                .setSecurity(new Security("voluptatum") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            FetchSubscriptionCostsRequest req = new FetchSubscriptionCostsRequest("expedita") {{
-                groupBy = "debitis";
+            FetchSubscriptionCostsRequest req = new FetchSubscriptionCostsRequest("error") {{
+                groupBy = "hic";
                 timeframeEnd = OffsetDateTime.parse("2022-02-02T05:00:00Z");
                 timeframeStart = OffsetDateTime.parse("2022-02-02T05:00:00Z");
-                viewMode = "neque";
+                viewMode = "expedita";
             }};            
 
             FetchSubscriptionCostsResponse res = sdk.subscription.fetchCosts(req);
@@ -1114,12 +1113,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("dolorum") {{
+                .setSecurity(new Security("debitis") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            FetchSubscriptionScheduleRequest req = new FetchSubscriptionScheduleRequest("nostrum");            
+            FetchSubscriptionScheduleRequest req = new FetchSubscriptionScheduleRequest("neque");            
 
             FetchSubscriptionScheduleResponse res = sdk.subscription.fetchSchedule(req);
 
@@ -1275,18 +1274,18 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("officia") {{
+                .setSecurity(new Security("dolorum") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            FetchSubscriptionUsageRequest req = new FetchSubscriptionUsageRequest("dolorum") {{
-                billableMetricId = "corrupti";
+            FetchSubscriptionUsageRequest req = new FetchSubscriptionUsageRequest("nostrum") {{
+                billableMetricId = "officia";
                 granularity = FetchSubscriptionUsageGranularity.DAY;
-                groupBy = "accusamus";
+                groupBy = "dolorum";
                 timeframeEnd = OffsetDateTime.parse("2022-02-02T05:00:00Z");
                 timeframeStart = OffsetDateTime.parse("2022-02-02T05:00:00Z");
-                viewMode = FetchSubscriptionUsageViewMode.PERIODIC;
+                viewMode = FetchSubscriptionUsageViewMode.CUMULATIVE;
             }};            
 
             FetchSubscriptionUsageResponse res = sdk.subscription.fetchUsage(req);
@@ -1321,14 +1320,14 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("atque") {{
+                .setSecurity(new Security("accusamus") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
             ListSubscriptionsRequest req = new ListSubscriptionsRequest() {{
-                customerId = "fugit";
-                externalCustomerId = "ut";
+                customerId = "tempora";
+                externalCustomerId = "atque";
             }};            
 
             ListSubscriptionsResponse res = sdk.subscription.list(req);
@@ -1407,93 +1406,102 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("fugiat") {{
+                .setSecurity(new Security("fugit") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            SchedulePlanChangeRequest req = new SchedulePlanChangeRequest("voluptatem") {{
-                requestBody = new SchedulePlanChangeRequestBody(SchedulePlanChangeRequestBodyChangeOption.END_OF_SUBSCRIPTION_TERM) {{
+            SchedulePlanChangeRequest req = new SchedulePlanChangeRequest("ut") {{
+                requestBody = new SchedulePlanChangeRequestBody(SchedulePlanChangeRequestBodyChangeOption.IMMEDIATE) {{
                     alignBillingWithPlanChangeDate = false;
                     changeDate = OffsetDateTime.parse("2017-07-21T17:32:28Z");
-                    couponRedemptionCode = "expedita";
+                    couponRedemptionCode = "voluptatem";
                     externalPlanId = "ZMwNQefe7J3ecf7W";
                     minimumAmount = "1.23";
                     planId = "ZMwNQefe7J3ecf7W";
                     priceOverrides = new Object[]{{
-                        add(new SchedulePlanChangeRequestBodyPriceOverrides1("mqBkze6HoCwL4ytV", SchedulePlanChangeRequestBodyPriceOverrides1ModelType.TIERED,                 new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
-                                            tiers = new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers[]{{
-                                                add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                                    firstUnit = "0";
-                                                    lastUnit = "10";
-                                                    unitAmount = "2.5";
-                                                }}),
-                                                add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                                    firstUnit = "0";
-                                                    lastUnit = "10";
-                                                    unitAmount = "2.5";
-                                                }}),
-                                            }};
-                                        }};) {{
-                            id = "mqBkze6HoCwL4ytV";
+                        add(new SchedulePlanChangeRequestBodyPriceOverrides5(                new SchedulePlanChangeRequestBodyPriceOverrides5BpsConfig(6471.97d, "voluptate");, "unde", SchedulePlanChangeRequestBodyPriceOverrides5ModelType.BPS) {{
+                            bpsConfig = new SchedulePlanChangeRequestBodyPriceOverrides5BpsConfig(4602.2d, "ipsam") {{
+                                bps = 2996.43d;
+                                perUnitMaximum = "consequatur";
+                            }};
+                            id = "088e5186-2065-4e90-8f3b-1194b8abf603";
                             minimumAmount = "1.23";
-                            modelType = SchedulePlanChangeRequestBodyPriceOverrides1ModelType.TIERED;
-                            tieredConfig = new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
-                                tiers = new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers[]{{
-                                    add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                        firstUnit = "0";
-                                        lastUnit = "10";
-                                        unitAmount = "2.5";
+                            modelType = SchedulePlanChangeRequestBodyPriceOverrides5ModelType.BPS;
+                        }}),
+                        add(new SchedulePlanChangeRequestBodyPriceOverrides7("corporis", SchedulePlanChangeRequestBodyPriceOverrides7ModelType.TIERED_BPS,                 new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfig(                new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers[]{{
+                                                            add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(4341.56d, "ipsa", "totam", "quae") {{
+                                                                bps = 9109.94d;
+                                                                maximumAmount = "non";
+                                                                minimumAmount = "vero";
+                                                                perUnitMaximum = "doloremque";
+                                                            }}),
+                                                            add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(4347.61d, "necessitatibus", "ratione", "laborum") {{
+                                                                bps = 4746.68d;
+                                                                maximumAmount = "eveniet";
+                                                                minimumAmount = "qui";
+                                                                perUnitMaximum = "cum";
+                                                            }}),
+                                                            add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(3205.65d, "repellat", "alias", "corporis") {{
+                                                                bps = 7152.08d;
+                                                                maximumAmount = "voluptatum";
+                                                                minimumAmount = "rem";
+                                                                perUnitMaximum = "aliquam";
+                                                            }}),
+                                                        }});) {{
+                            id = "9dfe0ab7-da8a-450c-a187-f86bc173d689";
+                            minimumAmount = "1.23";
+                            modelType = SchedulePlanChangeRequestBodyPriceOverrides7ModelType.TIERED_BPS;
+                            tieredBpsConfig = new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfig(                new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers[]{{
+                                                add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(5979.37d, "in", "adipisci", "eveniet") {{
+                                                    bps = 9063.55d;
+                                                    maximumAmount = "consequuntur";
+                                                    minimumAmount = "occaecati";
+                                                    perUnitMaximum = "officiis";
+                                                }}),
+                                                add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(3356.31d, "reprehenderit", "error", "illo") {{
+                                                    bps = 5808.87d;
+                                                    maximumAmount = "consequuntur";
+                                                    minimumAmount = "fugit";
+                                                    perUnitMaximum = "id";
+                                                }}),
+                                            }}) {{
+                                tiers = new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers[]{{
+                                    add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(1334.61d, "ex", "maiores", "corrupti") {{
+                                        bps = 8869.61d;
+                                        maximumAmount = "accusamus";
+                                        minimumAmount = "natus";
+                                        perUnitMaximum = "minima";
                                     }}),
-                                    add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                        firstUnit = "0";
-                                        lastUnit = "10";
-                                        unitAmount = "2.5";
+                                    add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(9223.48d, "atque", "atque", "sunt") {{
+                                        bps = 8717.86d;
+                                        maximumAmount = "error";
+                                        minimumAmount = "blanditiis";
+                                        perUnitMaximum = "suscipit";
+                                    }}),
+                                    add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(9682.87d, "doloremque", "repudiandae", "dicta") {{
+                                        bps = 9233.06d;
+                                        maximumAmount = "dolorum";
+                                        minimumAmount = "repellendus";
+                                        perUnitMaximum = "labore";
+                                    }}),
+                                    add(new SchedulePlanChangeRequestBodyPriceOverrides7TieredBpsConfigTiers(3891.35d, "velit", "a", "molestias") {{
+                                        bps = 360.33d;
+                                        maximumAmount = "beatae";
+                                        minimumAmount = "dolores";
+                                        perUnitMaximum = "enim";
                                     }}),
                                 }};
                             }};
                         }}),
-                        add(new SchedulePlanChangeRequestBodyPriceOverrides1("mqBkze6HoCwL4ytV", SchedulePlanChangeRequestBodyPriceOverrides1ModelType.TIERED,                 new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
-                                            tiers = new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers[]{{
-                                                add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                                    firstUnit = "0";
-                                                    lastUnit = "10";
-                                                    unitAmount = "2.5";
-                                                }}),
-                                                add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                                    firstUnit = "0";
-                                                    lastUnit = "10";
-                                                    unitAmount = "2.5";
-                                                }}),
-                                                add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                                    firstUnit = "0";
-                                                    lastUnit = "10";
-                                                    unitAmount = "2.5";
-                                                }}),
-                                            }};
-                                        }};) {{
-                            id = "mqBkze6HoCwL4ytV";
-                            minimumAmount = "1.23";
-                            modelType = SchedulePlanChangeRequestBodyPriceOverrides1ModelType.TIERED;
-                            tieredConfig = new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfig() {{
-                                tiers = new Orb.Orb.models.operations.SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers[]{{
-                                    add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                        firstUnit = "0";
-                                        lastUnit = "10";
-                                        unitAmount = "2.5";
-                                    }}),
-                                    add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                        firstUnit = "0";
-                                        lastUnit = "10";
-                                        unitAmount = "2.5";
-                                    }}),
-                                    add(new SchedulePlanChangeRequestBodyPriceOverrides1TieredConfigTiers() {{
-                                        firstUnit = "0";
-                                        lastUnit = "10";
-                                        unitAmount = "2.5";
-                                    }}),
-                                }};
+                        add(new SchedulePlanChangeRequestBodyPriceOverrides5(                new SchedulePlanChangeRequestBodyPriceOverrides5BpsConfig(6570.2d, "nostrum");, "mollitia", SchedulePlanChangeRequestBodyPriceOverrides5ModelType.BPS) {{
+                            bpsConfig = new SchedulePlanChangeRequestBodyPriceOverrides5BpsConfig(3782.45d, "alias") {{
+                                bps = 4706.49d;
+                                perUnitMaximum = "mollitia";
                             }};
+                            id = "ff2a54a3-1e94-4764-a3e8-65e7956f9251";
+                            minimumAmount = "1.23";
+                            modelType = SchedulePlanChangeRequestBodyPriceOverrides5ModelType.BPS;
                         }}),
                     }};
                 }};;
@@ -1531,12 +1539,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("repudiandae") {{
+                .setSecurity(new Security("provident") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            UnscheduleCancellationRequest req = new UnscheduleCancellationRequest("corporis");            
+            UnscheduleCancellationRequest req = new UnscheduleCancellationRequest("possimus");            
 
             UnscheduleCancellationResponse res = sdk.subscription.unscheduleCancellation(req);
 
@@ -1568,12 +1576,12 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("et") {{
+                .setSecurity(new Security("animi") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            UnschedulePlanChangeRequest req = new UnschedulePlanChangeRequest("blanditiis");            
+            UnschedulePlanChangeRequest req = new UnschedulePlanChangeRequest("ex");            
 
             UnschedulePlanChangeResponse res = sdk.subscription.unschedulePlanChange(req);
 
@@ -1614,13 +1622,13 @@ public class Application {
     public static void main(String[] args) {
         try {
             SDK sdk = SDK.builder()
-                .setSecurity(new Security("ex") {{
+                .setSecurity(new Security("aliquid") {{
                     apiKeyAuth = "";
                 }})
                 .build();
 
-            UpdateFixedFeeQuantityRequest req = new UpdateFixedFeeQuantityRequest("sed") {{
-                requestBody = new UpdateFixedFeeQuantityRequestBody("sit", 4255.08) {{
+            UpdateFixedFeeQuantityRequest req = new UpdateFixedFeeQuantityRequest("accusantium") {{
+                requestBody = new UpdateFixedFeeQuantityRequestBody("repellat", 9846.32d) {{
                     changeOption = UpdateFixedFeeQuantityRequestBodyChangeOption.EFFECTIVE_DATE;
                     effectiveDate = LocalDate.parse(""2022-12-21"");
                 }};;

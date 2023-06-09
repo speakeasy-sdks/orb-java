@@ -115,9 +115,9 @@ public class Application {
                                         add("esse"),
                                         add("harum"),
                                     }};
-                                    percentageDiscount = 0.15;
+                                    percentageDiscount = 0.15d;
                                     trialAmountDiscount = "iusto";
-                                    usageDiscount = 2155.07;
+                                    usageDiscount = 2155.07d;
                                 }};, "quisquam", "tenetur",                 new MinimumAmount(                new String[]{{
                                                     add("tempore"),
                                                 }}, "accusamus");, "numquam",                 new Orb.Orb.models.shared.Price[]{{
@@ -128,24 +128,24 @@ public class Application {
                                                             add("nostrum"),
                                                             add("sapiente"),
                                                         }};
-                                                        percentageDiscount = 0.15;
+                                                        percentageDiscount = 0.15d;
                                                         trialAmountDiscount = "quisquam";
-                                                        usageDiscount = 9065.56;
+                                                        usageDiscount = 9065.56d;
                                                     }};,                 new MinimumAmount(                new String[]{{
                                                                         add("impedit"),
                                                                         add("corporis"),
-                                                                    }}, "veniam");, 3994.99) {{
+                                                                    }}, "veniam");, 3994.99d) {{
                                         billableMetric = new PriceBillableMetric() {{
                                             id = "3f870b32-6b5a-4734-a9cd-b1a8422bb679";
                                         }};
                                         bpsConfig = new PriceBpsConfig() {{
-                                            bps = 8404.29;
+                                            bps = 8404.29d;
                                             perUnitMaximum = "qui";
                                         }};
                                         bulkBpsConfig = new PriceBulkBpsConfig() {{
                                             tiers = new Orb.Orb.models.shared.PriceBulkBpsConfigTiers[]{{
                                                 add(new PriceBulkBpsConfigTiers() {{
-                                                    bps = 1448.47;
+                                                    bps = 1448.47d;
                                                     maximumAmount = "magni";
                                                     perUnitMaximum = "odio";
                                                 }}),
@@ -170,11 +170,11 @@ public class Application {
                                                 add("ipsum"),
                                             }};
                                             discountType = DiscountDiscountType.PERCENTAGE;
-                                            percentageDiscount = 0.15;
+                                            percentageDiscount = 0.15d;
                                             trialAmountDiscount = "veritatis";
-                                            usageDiscount = 7492.55;
+                                            usageDiscount = 7492.55d;
                                         }};
-                                        fixedPriceQuantity = 5521.93;
+                                        fixedPriceQuantity = 5521.93d;
                                         id = "b90f3443-a110-48e0-adcf-4b921879fce9";
                                         matrixConfig = new PriceMatrixConfig() {{
                                             defaultUnitAmount = "quis";
@@ -211,31 +211,31 @@ public class Application {
                                         name = "Edmund Ankunding";
                                         packageConfig = new PricePackageConfig() {{
                                             packageAmount = "nulla";
-                                            packageSize = 1481.41;
+                                            packageSize = 1481.41d;
                                         }};
-                                        planPhaseOrder = 7804.27;
+                                        planPhaseOrder = 7804.27d;
                                         tieredBpsConfig = new PriceTieredBpsConfig() {{
                                             tiers = new Orb.Orb.models.shared.PriceTieredBpsConfigTiers[]{{
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 9850.33;
+                                                    bps = 9850.33d;
                                                     maximumAmount = "iusto";
                                                     minimumAmount = "eligendi";
                                                     perUnitMaximum = "ducimus";
                                                 }}),
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 40.48;
+                                                    bps = 40.48d;
                                                     maximumAmount = "officia";
                                                     minimumAmount = "tempora";
                                                     perUnitMaximum = "ipsam";
                                                 }}),
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 4104.92;
+                                                    bps = 4104.92d;
                                                     maximumAmount = "aspernatur";
                                                     minimumAmount = "vel";
                                                     perUnitMaximum = "possimus";
                                                 }}),
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 2978.42;
+                                                    bps = 2978.42d;
                                                     maximumAmount = "ratione";
                                                     minimumAmount = "ex";
                                                     perUnitMaximum = "laudantium";
@@ -263,25 +263,25 @@ public class Application {
                                                             add("blanditiis"),
                                                             add("provident"),
                                                         }};
-                                                        percentageDiscount = 0.15;
+                                                        percentageDiscount = 0.15d;
                                                         trialAmountDiscount = "a";
-                                                        usageDiscount = 8577.23;
+                                                        usageDiscount = 8577.23d;
                                                     }};,                 new MinimumAmount(                new String[]{{
                                                                         add("esse"),
                                                                         add("quasi"),
                                                                         add("a"),
-                                                                    }}, "error");, 5757.51) {{
+                                                                    }}, "error");, 5757.51d) {{
                                         billableMetric = new PriceBillableMetric() {{
                                             id = "146c3e25-0fb0-408c-82e1-41aac366c8dd";
                                         }};
                                         bpsConfig = new PriceBpsConfig() {{
-                                            bps = 3790.34;
+                                            bps = 3790.34d;
                                             perUnitMaximum = "libero";
                                         }};
                                         bulkBpsConfig = new PriceBulkBpsConfig() {{
                                             tiers = new Orb.Orb.models.shared.PriceBulkBpsConfigTiers[]{{
                                                 add(new PriceBulkBpsConfigTiers() {{
-                                                    bps = 2703.28;
+                                                    bps = 2703.28d;
                                                     maximumAmount = "numquam";
                                                     perUnitMaximum = "explicabo";
                                                 }}),
@@ -314,11 +314,11 @@ public class Application {
                                                 add("eum"),
                                             }};
                                             discountType = DiscountDiscountType.PERCENTAGE;
-                                            percentageDiscount = 0.15;
+                                            percentageDiscount = 0.15d;
                                             trialAmountDiscount = "suscipit";
-                                            usageDiscount = 8268.71;
+                                            usageDiscount = 8268.71d;
                                         }};
-                                        fixedPriceQuantity = 1811.51;
+                                        fixedPriceQuantity = 1811.51d;
                                         id = "8c10ab3c-dca4-4251-904e-523c7e0bc717";
                                         matrixConfig = new PriceMatrixConfig() {{
                                             defaultUnitAmount = "totam";
@@ -372,31 +372,31 @@ public class Application {
                                         name = "Ivan Bosco";
                                         packageConfig = new PricePackageConfig() {{
                                             packageAmount = "accusamus";
-                                            packageSize = 829.71;
+                                            packageSize = 829.71d;
                                         }};
-                                        planPhaseOrder = 4586.04;
+                                        planPhaseOrder = 4586.04d;
                                         tieredBpsConfig = new PriceTieredBpsConfig() {{
                                             tiers = new Orb.Orb.models.shared.PriceTieredBpsConfigTiers[]{{
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 7241.68;
+                                                    bps = 7241.68d;
                                                     maximumAmount = "vero";
                                                     minimumAmount = "aliquid";
                                                     perUnitMaximum = "quasi";
                                                 }}),
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 9040.45;
+                                                    bps = 9040.45d;
                                                     maximumAmount = "vel";
                                                     minimumAmount = "harum";
                                                     perUnitMaximum = "molestiae";
                                                 }}),
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 6996.22;
+                                                    bps = 6996.22d;
                                                     maximumAmount = "occaecati";
                                                     minimumAmount = "minima";
                                                     perUnitMaximum = "distinctio";
                                                 }}),
                                                 add(new PriceTieredBpsConfigTiers() {{
-                                                    bps = 7567.79;
+                                                    bps = 7567.79d;
                                                     maximumAmount = "sit";
                                                     minimumAmount = "culpa";
                                                     perUnitMaximum = "tempore";
@@ -434,9 +434,9 @@ public class Application {
                                                 add("voluptatibus"),
                                                 add("voluptas"),
                                             }};
-                                            percentageDiscount = 0.15;
+                                            percentageDiscount = 0.15d;
                                             trialAmountDiscount = "asperiores";
-                                            usageDiscount = 456.59;
+                                            usageDiscount = 456.59d;
                                         }};, PlanPhaseDurationUnit.QUARTERLY,                 new MinimumAmount(                new String[]{{
                                                             add("consequuntur"),
                                                             add("repellendus"),
@@ -450,9 +450,9 @@ public class Application {
                                     add("rem"),
                                 }};
                                 discountType = DiscountDiscountType.PERCENTAGE;
-                                percentageDiscount = 0.15;
+                                percentageDiscount = 0.15d;
                                 trialAmountDiscount = "aut";
-                                usageDiscount = 5130.75;
+                                usageDiscount = 5130.75d;
                             }};
                             duration = 428796L;
                             durationUnit = PlanPhaseDurationUnit.QUARTERLY;
@@ -469,7 +469,7 @@ public class Application {
                         }}),
                     }};
                     trialConfig = new PlanTrialConfig(PlanTrialConfigTrialPeriodUnit.DAYS) {{
-                        trialPeriod = 8070.23;
+                        trialPeriod = 8070.23d;
                     }};;
                 }};;
             }};            

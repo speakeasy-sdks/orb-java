@@ -42,11 +42,11 @@ public class Application {
 
             AddLedgerEntryExternalIdRequest req = new AddLedgerEntryExternalIdRequest("hic") {{
                 requestBody = new AddLedgerEntryExternalIdRequestBody(AddLedgerEntryExternalIdRequestBodyEntryType.EXPIRATION_CHANGE) {{
-                    amount = 5218.48;
+                    amount = 5218.48d;
                     blockId = "beatae";
                     description = "commodi";
                     expiryDate = LocalDate.parse("2023-01-01");
-                    invoiceSettings = new AddLedgerEntryExternalIdRequestBodyInvoiceSettings(false, 4736) {{
+                    invoiceSettings = new AddLedgerEntryExternalIdRequestBodyInvoiceSettings(false, 4736d) {{
                         memo = "modi";
                     }};;
                     metadata = new java.util.HashMap<String, Object>() {{
@@ -154,11 +154,11 @@ public class Application {
 
             CreateLedgerEntryRequest req = new CreateLedgerEntryRequest("excepturi") {{
                 requestBody = new CreateLedgerEntryRequestBody(CreateLedgerEntryRequestBodyEntryType.INCREMENT) {{
-                    amount = 187.89;
+                    amount = 187.89d;
                     blockId = "ad";
                     description = "natus";
                     expiryDate = LocalDate.parse("2023-01-01");
-                    invoiceSettings = new CreateLedgerEntryRequestBodyInvoiceSettings(false, 1496.75) {{
+                    invoiceSettings = new CreateLedgerEntryRequestBodyInvoiceSettings(false, 1496.75d) {{
                         memo = "iste";
                     }};;
                     metadata = new java.util.HashMap<String, Object>() {{
@@ -317,7 +317,7 @@ public class Application {
             FetchCustomerCreditsLedgerRequest req = new FetchCustomerCreditsLedgerRequest("iure") {{
                 entryStatus = FetchCustomerCreditsLedgerEntryStatus.PENDING;
                 entryType = FetchCustomerCreditsLedgerEntryType.EXPIRATION_CHANGE;
-                minimumAmount = 992.8;
+                minimumAmount = 992.8d;
             }};            
 
             FetchCustomerCreditsLedgerResponse res = sdk.credit.fetchLedger(req);
@@ -360,7 +360,7 @@ public class Application {
             FetchCustomerCreditsLedgerExternalIdRequest req = new FetchCustomerCreditsLedgerExternalIdRequest("reiciendis") {{
                 entryStatus = FetchCustomerCreditsLedgerExternalIdEntryStatus.PENDING;
                 entryType = FetchCustomerCreditsLedgerExternalIdEntryType.EXPIRATION_CHANGE;
-                minimumAmount = 6706.38;
+                minimumAmount = 6706.38d;
             }};            
 
             FetchCustomerCreditsLedgerExternalIdResponse res = sdk.credit.fetchLedgerByExternalId(req);

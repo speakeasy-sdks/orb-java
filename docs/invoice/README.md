@@ -36,7 +36,7 @@ public class Application {
                 }})
                 .build();
 
-            CreateInvoiceLineItemRequestBody req = new CreateInvoiceLineItemRequestBody("nihil", LocalDate.parse("2022-07-18"), "id", "saepe", 2633.22, LocalDate.parse("2022-12-24"));            
+            CreateInvoiceLineItemRequestBody req = new CreateInvoiceLineItemRequestBody("nihil", LocalDate.parse("2022-07-18"), "id", "saepe", 2633.22d, LocalDate.parse("2022-12-24"));            
 
             CreateInvoiceLineItemResponse res = sdk.invoice.create(req);
 

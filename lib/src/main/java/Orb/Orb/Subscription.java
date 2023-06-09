@@ -436,14 +436,14 @@ public class Subscription {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.CreateSubscriptionJsonResponse create(Orb.Orb.models.operations.CreateSubscriptionApplicationJSON request) throws Exception {
+    public Orb.Orb.models.operations.CreateSubscriptionRawResponse create(byte[] request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "json");
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "raw");
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
@@ -455,7 +455,7 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.CreateSubscriptionJsonResponse res = new Orb.Orb.models.operations.CreateSubscriptionJsonResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.CreateSubscriptionRawResponse res = new Orb.Orb.models.operations.CreateSubscriptionRawResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
         res.rawResponse = httpRes;
@@ -820,14 +820,14 @@ public class Subscription {
      * @return the response from the API call
      * @throws Exception if the API call fails
      */
-    public Orb.Orb.models.operations.CreateSubscriptionRawResponse create(byte[] request) throws Exception {
+    public Orb.Orb.models.operations.CreateSubscriptionJsonResponse create(Orb.Orb.models.operations.CreateSubscriptionApplicationJSON request) throws Exception {
         String baseUrl = this.sdkConfiguration.serverUrl;
         String url = Orb.Orb.utils.Utils.generateURL(baseUrl, "/subscriptions");
         
         HTTPRequest req = new HTTPRequest();
         req.setMethod("POST");
         req.setURL(url);
-        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "raw");
+        SerializedBody serializedRequestBody = Orb.Orb.utils.Utils.serializeRequestBody(request, "request", "json");
         req.setBody(serializedRequestBody);
 
         req.addHeader("Accept", "application/json");
@@ -839,7 +839,7 @@ public class Subscription {
 
         String contentType = httpRes.headers().firstValue("Content-Type").orElse("application/octet-stream");
 
-        Orb.Orb.models.operations.CreateSubscriptionRawResponse res = new Orb.Orb.models.operations.CreateSubscriptionRawResponse(contentType, httpRes.statusCode()) {{
+        Orb.Orb.models.operations.CreateSubscriptionJsonResponse res = new Orb.Orb.models.operations.CreateSubscriptionJsonResponse(contentType, httpRes.statusCode()) {{
             subscription = null;
         }};
         res.rawResponse = httpRes;

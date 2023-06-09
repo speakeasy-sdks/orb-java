@@ -81,9 +81,9 @@ public class Application {
                                     add("vel"),
                                     add("error"),
                                 }};
-                                percentageDiscount = 0.15;
+                                percentageDiscount = 0.15d;
                                 trialAmountDiscount = "deserunt";
-                                usageDiscount = 3843.82;
+                                usageDiscount = 3843.82d;
                             }};, "iure") {{
                 durationInMonths = 297534L;
                 id = "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7";
