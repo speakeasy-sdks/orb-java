@@ -161,9 +161,9 @@ public class Subscription {
      * User specified key-value pairs. If no metadata was specified at subscription creation time, this defaults to an empty dictionary.
      */
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public SubscriptionMetadata metadata;
 
-    public Subscription withMetadata(java.util.Map<String, Object> metadata) {
+    public Subscription withMetadata(SubscriptionMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -218,7 +218,7 @@ public class Subscription {
         return this;
     }
     
-    public Subscription(@JsonProperty("billing_cycle_day") Double billingCycleDay, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("fixed_fee_quantity_schedule") SubscriptionFixedFeeQuantitySchedule[] fixedFeeQuantitySchedule, @JsonProperty("id") String id, @JsonProperty("metadata") java.util.Map<String, Object> metadata, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatus status) {
+    public Subscription(@JsonProperty("billing_cycle_day") Double billingCycleDay, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("customer") Customer customer, @JsonProperty("end_date") OffsetDateTime endDate, @JsonProperty("fixed_fee_quantity_schedule") SubscriptionFixedFeeQuantitySchedule[] fixedFeeQuantitySchedule, @JsonProperty("id") String id, @JsonProperty("metadata") SubscriptionMetadata metadata, @JsonProperty("plan") Plan plan, @JsonProperty("start_date") OffsetDateTime startDate, @JsonProperty("status") SubscriptionStatus status) {
         this.billingCycleDay = billingCycleDay;
         this.createdAt = createdAt;
         this.customer = customer;

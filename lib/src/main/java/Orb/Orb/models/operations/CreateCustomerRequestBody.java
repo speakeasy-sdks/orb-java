@@ -73,9 +73,9 @@ public class CreateCustomerRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public CreateCustomerRequestBodyMetadata metadata;
 
-    public CreateCustomerRequestBody withMetadata(java.util.Map<String, Object> metadata) {
+    public CreateCustomerRequestBody withMetadata(CreateCustomerRequestBodyMetadata metadata) {
         this.metadata = metadata;
         return this;
     }

@@ -41,7 +41,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'Orb'
             artifactId = 'Orb'
-            version = '0.18.1'
+            version = '0.19.0'
 
             from components.java
 

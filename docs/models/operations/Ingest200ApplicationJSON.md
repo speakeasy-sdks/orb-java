@@ -1,0 +1,11 @@
+# Ingest200ApplicationJSON
+
+OK
+
+
+## Fields
+
+| Field                                                                                                                                        | Type                                                                                                                                         | Required                                                                                                                                     | Description                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `debug`                                                                                                                                      | [Ingest200ApplicationJSONDebug](../../models/operations/Ingest200ApplicationJSONDebug.md)                                                    | :heavy_minus_sign:                                                                                                                           | Optional debug information (only present when debug=true is passed to the endpoint). Contains ingested and duplicate event idempotency keys. |
+| `validationFailed`                                                                                                                           | List<[Ingest200ApplicationJSONValidationFailed](../../models/operations/Ingest200ApplicationJSONValidationFailed.md)>                        | :heavy_check_mark:                                                                                                                           | Contains all failing validation events. In the case of a 200, this array will always be empty. This field will always be present.            |

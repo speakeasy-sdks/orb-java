@@ -130,9 +130,9 @@ public class CreditLedgerEntry {
      * User-specified metadata dictionary that's specified when adding a ledger entry. This contains key/value pairs if metadata is specified, but otherwise is an empty dictionary.
      */
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public CreditLedgerEntryMetadata metadata;
 
-    public CreditLedgerEntry withMetadata(java.util.Map<String, Object> metadata) {
+    public CreditLedgerEntry withMetadata(CreditLedgerEntryMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -166,7 +166,7 @@ public class CreditLedgerEntry {
         return this;
     }
     
-    public CreditLedgerEntry(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatus entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryType entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("metadata") java.util.Map<String, Object> metadata, @JsonProperty("starting_balance") Double startingBalance) {
+    public CreditLedgerEntry(@JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("credit_block") CreditLedgerEntryCreditBlock creditBlock, @JsonProperty("customer") CreditLedgerEntryCustomer customer, @JsonProperty("description") String description, @JsonProperty("ending_balance") Double endingBalance, @JsonProperty("entry_status") CreditLedgerEntryEntryStatus entryStatus, @JsonProperty("entry_type") CreditLedgerEntryEntryType entryType, @JsonProperty("id") String id, @JsonProperty("ledger_sequence_number") Double ledgerSequenceNumber, @JsonProperty("metadata") CreditLedgerEntryMetadata metadata, @JsonProperty("starting_balance") Double startingBalance) {
         this.createdAt = createdAt;
         this.creditBlock = creditBlock;
         this.customer = customer;

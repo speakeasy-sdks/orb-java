@@ -87,9 +87,9 @@ public class CreateLedgerEntryRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public CreateLedgerEntryRequestBodyMetadata metadata;
 
-    public CreateLedgerEntryRequestBody withMetadata(java.util.Map<String, Object> metadata) {
+    public CreateLedgerEntryRequestBody withMetadata(CreateLedgerEntryRequestBodyMetadata metadata) {
         this.metadata = metadata;
         return this;
     }

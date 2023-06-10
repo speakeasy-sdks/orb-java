@@ -26,9 +26,9 @@ public class Ingest200ApplicationJSONValidationFailed {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("validation_errors")
-    public java.util.Map<String, Object>[] validationErrors;
+    public Ingest200ApplicationJSONValidationFailedValidationErrors[] validationErrors;
 
-    public Ingest200ApplicationJSONValidationFailed withValidationErrors(java.util.Map<String, Object>[] validationErrors) {
+    public Ingest200ApplicationJSONValidationFailed withValidationErrors(Ingest200ApplicationJSONValidationFailedValidationErrors[] validationErrors) {
         this.validationErrors = validationErrors;
         return this;
     }

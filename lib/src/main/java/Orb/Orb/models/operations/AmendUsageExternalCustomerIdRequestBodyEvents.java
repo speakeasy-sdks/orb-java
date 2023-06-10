@@ -22,9 +22,9 @@ public class AmendUsageExternalCustomerIdRequestBodyEvents {
      * A dictionary of custom properties. Values in this dictionary must be numeric, boolean, or strings. Nested dictionaries are disallowed.
      */
     @JsonProperty("properties")
-    public java.util.Map<String, Object> properties;
+    public AmendUsageExternalCustomerIdRequestBodyEventsProperties properties;
 
-    public AmendUsageExternalCustomerIdRequestBodyEvents withProperties(java.util.Map<String, Object> properties) {
+    public AmendUsageExternalCustomerIdRequestBodyEvents withProperties(AmendUsageExternalCustomerIdRequestBodyEventsProperties properties) {
         this.properties = properties;
         return this;
     }
@@ -40,7 +40,7 @@ public class AmendUsageExternalCustomerIdRequestBodyEvents {
         return this;
     }
     
-    public AmendUsageExternalCustomerIdRequestBodyEvents(@JsonProperty("event_name") String eventName, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") String timestamp) {
+    public AmendUsageExternalCustomerIdRequestBodyEvents(@JsonProperty("event_name") String eventName, @JsonProperty("properties") AmendUsageExternalCustomerIdRequestBodyEventsProperties properties, @JsonProperty("timestamp") String timestamp) {
         this.eventName = eventName;
         this.properties = properties;
         this.timestamp = timestamp;

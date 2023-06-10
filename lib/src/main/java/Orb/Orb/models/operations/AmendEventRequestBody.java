@@ -53,9 +53,9 @@ public class AmendEventRequestBody {
      * A dictionary of custom properties. Values in this dictionary must be numeric, boolean, or strings. Nested dictionaries are disallowed.
      */
     @JsonProperty("properties")
-    public java.util.Map<String, Object> properties;
+    public AmendEventRequestBodyProperties properties;
 
-    public AmendEventRequestBody withProperties(java.util.Map<String, Object> properties) {
+    public AmendEventRequestBody withProperties(AmendEventRequestBodyProperties properties) {
         this.properties = properties;
         return this;
     }
@@ -73,7 +73,7 @@ public class AmendEventRequestBody {
         return this;
     }
     
-    public AmendEventRequestBody(@JsonProperty("event_name") String eventName, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") OffsetDateTime timestamp) {
+    public AmendEventRequestBody(@JsonProperty("event_name") String eventName, @JsonProperty("properties") AmendEventRequestBodyProperties properties, @JsonProperty("timestamp") OffsetDateTime timestamp) {
         this.eventName = eventName;
         this.properties = properties;
         this.timestamp = timestamp;

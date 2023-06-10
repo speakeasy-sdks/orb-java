@@ -17,9 +17,9 @@ public class AmendUsage200ApplicationJSON {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("duplicate")
-    public java.util.Map<String, Object>[] duplicate;
+    public AmendUsage200ApplicationJSONDuplicate[] duplicate;
 
-    public AmendUsage200ApplicationJSON withDuplicate(java.util.Map<String, Object>[] duplicate) {
+    public AmendUsage200ApplicationJSON withDuplicate(AmendUsage200ApplicationJSONDuplicate[] duplicate) {
         this.duplicate = duplicate;
         return this;
     }

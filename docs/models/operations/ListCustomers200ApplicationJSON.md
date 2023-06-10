@@ -1,0 +1,11 @@
+# ListCustomers200ApplicationJSON
+
+OK
+
+
+## Fields
+
+| Field                                                                                                                             | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                                            | List<[Orb.Orb.models.shared.Customer](../../models/shared/Customer.md)>                                                           | :heavy_check_mark:                                                                                                                | N/A                                                                                                                               |
+| `paginationMetadata`                                                                                                              | [ListCustomers200ApplicationJSONPaginationMetadata](../../models/operations/ListCustomers200ApplicationJSONPaginationMetadata.md) | :heavy_check_mark:                                                                                                                | N/A                                                                                                                               |

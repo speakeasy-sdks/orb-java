@@ -87,9 +87,9 @@ public class AddLedgerEntryExternalIdRequestBody {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public AddLedgerEntryExternalIdRequestBodyMetadata metadata;
 
-    public AddLedgerEntryExternalIdRequestBody withMetadata(java.util.Map<String, Object> metadata) {
+    public AddLedgerEntryExternalIdRequestBody withMetadata(AddLedgerEntryExternalIdRequestBodyMetadata metadata) {
         this.metadata = metadata;
         return this;
     }

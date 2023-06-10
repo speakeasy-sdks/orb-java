@@ -124,9 +124,9 @@ public class CreateSubscriptionApplicationJSON {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public CreateSubscriptionApplicationJSONMetadata metadata;
 
-    public CreateSubscriptionApplicationJSON withMetadata(java.util.Map<String, Object> metadata) {
+    public CreateSubscriptionApplicationJSON withMetadata(CreateSubscriptionApplicationJSONMetadata metadata) {
         this.metadata = metadata;
         return this;
     }

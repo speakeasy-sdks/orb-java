@@ -17,9 +17,9 @@ public class AmendUsageExternalCustomerId200ApplicationJSON {
      */
     @JsonInclude(Include.NON_ABSENT)
     @JsonProperty("duplicate")
-    public java.util.Map<String, Object>[] duplicate;
+    public AmendUsageExternalCustomerId200ApplicationJSONDuplicate[] duplicate;
 
-    public AmendUsageExternalCustomerId200ApplicationJSON withDuplicate(java.util.Map<String, Object>[] duplicate) {
+    public AmendUsageExternalCustomerId200ApplicationJSON withDuplicate(AmendUsageExternalCustomerId200ApplicationJSONDuplicate[] duplicate) {
         this.duplicate = duplicate;
         return this;
     }

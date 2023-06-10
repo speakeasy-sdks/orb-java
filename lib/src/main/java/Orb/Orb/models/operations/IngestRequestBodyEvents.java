@@ -59,9 +59,9 @@ public class IngestRequestBodyEvents {
      * A dictionary of custom properties. Values in this dictionary must be numeric, boolean, or strings. Nested dictionaries are disallowed.
      */
     @JsonProperty("properties")
-    public java.util.Map<String, Object> properties;
+    public IngestRequestBodyEventsProperties properties;
 
-    public IngestRequestBodyEvents withProperties(java.util.Map<String, Object> properties) {
+    public IngestRequestBodyEvents withProperties(IngestRequestBodyEventsProperties properties) {
         this.properties = properties;
         return this;
     }
@@ -77,7 +77,7 @@ public class IngestRequestBodyEvents {
         return this;
     }
     
-    public IngestRequestBodyEvents(@JsonProperty("event_name") String eventName, @JsonProperty("idempotency_key") String idempotencyKey, @JsonProperty("properties") java.util.Map<String, Object> properties, @JsonProperty("timestamp") String timestamp) {
+    public IngestRequestBodyEvents(@JsonProperty("event_name") String eventName, @JsonProperty("idempotency_key") String idempotencyKey, @JsonProperty("properties") IngestRequestBodyEventsProperties properties, @JsonProperty("timestamp") String timestamp) {
         this.eventName = eventName;
         this.idempotencyKey = idempotencyKey;
         this.properties = properties;

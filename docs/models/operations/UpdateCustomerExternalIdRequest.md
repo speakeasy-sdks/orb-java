@@ -1,0 +1,9 @@
+# UpdateCustomerExternalIdRequest
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `requestBody`                                                                                         | [UpdateCustomerExternalIdRequestBody](../../models/operations/UpdateCustomerExternalIdRequestBody.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `externalCustomerId`                                                                                  | *String*                                                                                              | :heavy_check_mark:                                                                                    | N/A                                                                                                   |

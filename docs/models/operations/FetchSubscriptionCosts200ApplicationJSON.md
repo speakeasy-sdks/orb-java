@@ -1,0 +1,11 @@
+# FetchSubscriptionCosts200ApplicationJSON
+
+OK
+
+
+## Fields
+
+| Field                                                                                                                         | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `data`                                                                                                                        | List<[FetchSubscriptionCosts200ApplicationJSONData](../../models/operations/FetchSubscriptionCosts200ApplicationJSONData.md)> | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |
+| `paginationMetadata`                                                                                                          | [Orb.Orb.models.shared.PaginationMetadata](../../models/shared/PaginationMetadata.md)                                         | :heavy_check_mark:                                                                                                            | N/A                                                                                                                           |

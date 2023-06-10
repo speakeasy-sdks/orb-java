@@ -129,9 +129,9 @@ public class Customer {
      * User specified key-value pairs. If there is no metadata for the customer, this defaults to an empty dictionary.
      */
     @JsonProperty("metadata")
-    public java.util.Map<String, Object> metadata;
+    public CustomerMetadata metadata;
 
-    public Customer withMetadata(java.util.Map<String, Object> metadata) {
+    public Customer withMetadata(CustomerMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -286,7 +286,7 @@ public class Customer {
         return this;
     }
     
-    public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("metadata") java.util.Map<String, Object> metadata, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProvider paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("tax_id") CustomerTaxId taxId, @JsonProperty("timezone") String timezone) {
+    public Customer(@JsonProperty("balance") String balance, @JsonProperty("created_at") OffsetDateTime createdAt, @JsonProperty("currency") String currency, @JsonProperty("email") String email, @JsonProperty("id") String id, @JsonProperty("metadata") CustomerMetadata metadata, @JsonProperty("name") String name, @JsonProperty("payment_provider") CustomerPaymentProvider paymentProvider, @JsonProperty("payment_provider_id") String paymentProviderId, @JsonProperty("tax_id") CustomerTaxId taxId, @JsonProperty("timezone") String timezone) {
         this.balance = balance;
         this.createdAt = createdAt;
         this.currency = currency;
